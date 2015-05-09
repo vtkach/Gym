@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gym App</title>
+        <meta charset='UTF-8'/>
+        <%= stylesheet_link_tag 'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <%= csrf_meta_tags %>
+        <template id="signin">
+            <form class="form-horizontal slide-down">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control input-lg" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control input-lg" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Запам'ятати мене
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button class="btn btn-lg btn-success">Увійти</button>
+                        <button class="btn btn-lg btn-default cancel">Вiдмiнити</button>
+                    </div>
+                </div>
+            </form>
+        </template>
+        <template id="register">
+            <form class="form-horizontal slide-down">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+
+                    <div class="col-sm-6">
+                        <input type="email" name='email' class="form-control input-lg" placeholder="Email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+
+                    <div class="col-sm-6">
+                        <input type="password" name='password' class="form-control input-lg" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+
+                    <div class="col-sm-6">
+                        <input type="password" name='password' class="form-control input-lg" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Запам'ятати мене
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button class="btn btn-lg btn-success">Зареструватися</button>
+                        <button class="btn btn-lg btn-default cancel">Вiдмiнити</button>
+                    </div>
+                </div>
+            </form>
+        </template>
+        <template id="home">
+            <a href='#views/InfoTab/getting-started' class="getting-started col-xs-2" title="Інструкція по роботі з програмою">Инструкция</a>
+            <a href='#views/InfoTab/my-phis-state' class="my-phis-state col-xs-2">Физ состояние</a>
+            <a href='#views/InfoTab/info-resources' class="info-resources col-xs-2">Ифнорм. ресурс</a>
+            <a href='#views/InfoTab/recommendations' class="recommendations col-xs-2">Рекомендации</a>
+            <a href='#views/InfoTab/you-should-know' class="you-should-know col-xs-2">Вы должны знать</a>
+            <a href='#views/InfoTab/complex-self-improving' class="complex-self-improving col-xs-2">Селф импрув</a>
+            <a href='#views/InfoTab/notebook-for-exercices' class="notebook-for-exercices col-xs-2">Дневник</a>
+        </template>
+        <template id="profile">
+           <!-- <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="profile-fields col-sm-5">
+                        <input name='lastname' class="form-control input-sm" placeholder="Прізвище">
+                        <input name='firstname' class="form-control input-sm" placeholder="Ім'я">
+                        <input name='surname' class="form-control input-sm" placeholder="По батькові">
+                        <input name='gender' class="form-control input-sm" placeholder="Стать">
+                        <input name='password' class="form-control input-sm" placeholder="Пароль">
+                        <input name='growth' class="form-control input-sm" placeholder="Зріст">
+                        <input name='weight' class="form-control input-sm" placeholder="Вага">
+                        <input name='circumference' class="form-control input-sm" placeholder="Окружність грудної клітки">
+                        <input name='vitalCapacity' class="form-control input-sm" placeholder="Життєва ємність легенів">
+                        <input name='bodyMassIndex' class="form-control input-sm" placeholder="Індекс маси тіла">
+                        <input name='lifeCode' class="form-control input-sm" placeholder="Життєвий індекс">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-sm btn-primary save">Зберегти</button>
+                        <button type="submit" class="btn btn-sm btn-default cancel">Вiдмiнити</button>
+                    </div>
+                </div>
+            </form>-->
+            <form class="form-group col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+                    <input class="form-control input-lg" name='lastname' placeholder="Прізвище"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" name='firstname' placeholder="Ім'я"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" name='surname' placeholder="По батькові"/>
+                </div>
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="gender" value="male" checked/>
+                            Чоловік
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="gender" value="female"/>
+                            Дівчина
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" name='school' placeholder="Школа"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" name='class' placeholder="Клас"/>
+                </div>
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="household" value="full" checked/>
+                            повна
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="household" value="incomplete"/>
+                            неповна
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="household" value="orphan"/>
+                            сирота
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-lg btn-success save">Зберегти</button>
+                <button class="btn btn-lg btn-default cancel">Відмінити</button>
+            </form>
+        </template>
+        <template id="getting-started">
+            <p class="lead"><mark>Основна мета</mark> запропонованої програми самостійних занять спрямована на підвищення інтересу та мотиваційних
+                пріоритетів до самостійної діяльності школярів, збереження стану здоров'я, підтримки високого рівня фізичної
+                й розумової роботоздатності.
+                Розроблена програмасамостійних занять з фізичного виховання для старшокласників виконує ряд функцій:</p>
+            <ul class="lead">
+                <li>навчальна (опрацювання першоджерел, що сприяє більш глибокому осмисленню вже засвоєних знань з
+                    самостійної роботи);
+                </li>
+                <li>пізнавальна (опанування новими знаннями, в області самостійних занять з фізичного виховання);</li>
+                <li>коригуюча (осмислення новітніх теорій, концепцій, категорій, підходів до визначення суті відомих понять
+                    самостійної діяльності);
+                </li>
+                <li>стимулююча (така організація самостійної роботи, в ході якої старшокласник отримує задоволення від
+                    результатів пізнавальної діяльності);
+                </li>
+                <li>виховна (спрямована на формування в особистості школяра самовиховання, самоцілеспрямованості,
+                    відповідальності, самодисциплінованості);
+                </li>
+                <li>розвиваюча (спрямована на розвиток самостійності, творчості, дослідницьких вмінь школяра).</li>
+                <li>Розроблена комп’ютерна програма дозволяє здійснювати контроль, за наданням теоретичних відомостей та
+                    відповідного навантаження до організації та проведення самостійних занять з фізичного виховання виходячи
+                    з інтересів та мотивів до занять фізичними вправами, рівня фізичного розвитку, фізичної підготовленості,
+                    соматичного здоров'я та рухової активності дітей старшого шкільного віку. Програма побудована таким
+                    чином, що дозволяє легко користуватися нею дітям старшого шкільного віку.
+                </li>
+            </ul>
+        </template>
+        <template id="my-phis-state">
+            <aside class="btn-group-vertical" role="group" aria-label="...">
+                <button class="btn btn-default choose-form">Физичний розвиток</button>
+                <button class="btn btn-default choose-form">Плечовий індекс та постава</button>
+                <button class="btn btn-default choose-form">Фізична підготовленість</button>
+                <button class="btn btn-default choose-form">Фізичне здоров’я по Г.Л. Апанасенко</button>
+                <button class="btn btn-default choose-form">Рухова активність</button>
+                <button class="btn btn-default choose-form">Визначення калорійності</button>
+            </aside>
+        </template>
+        <template id="info-resources">info-resources</template>
+        <template id="recommendations">recommendations</template>
+        <template id="you-should-know">you-should-know</template>
+        <template id="complex-self-improving">complex-self-improving</template>
+        <template id="notebook-for-exercices">notebook-for-exercices</template>
+    </head>
+
+    <body class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#views/UserActions/home">Brand</a>
+                </div>
+
+<!--                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">Меню<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span
+                                    class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#views/UserActions/signin">Логин</a></li>
+                                <li><a href="#views/UserActions/register">Регистрация</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#views/UserActions/profile">Профиль</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#views/UserActions/home" role="button" title='Выйти' aria-expanded="false">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <%= yield %>
+        <section class="row col-xs-12 center-block">
+        </section>
+        <div class="spinner hidden"></div>
+        <footer>
+
+        </footer>
+    </body>
+</html>
