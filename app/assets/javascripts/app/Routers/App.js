@@ -24,7 +24,7 @@
                 console.log('success');
             }, function () {
                 debugger;
-            });
+            }.bind(app.instances.user));
         },
 
         renderTemplate: function (route) {
