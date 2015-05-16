@@ -13,13 +13,25 @@
         ],
 
         routes: {
-            'views/:action/:template': 'checkUserRights',
+            'infoTab/:template': 'checkUserRights',
+            'accessed/:action': 'renderTemplate',
             '': 'renderByDefault'
         },
 
         initialize: function () {
             app.instances.user = new app.models.UserModel();
-            _.bindAll(this, 'renderByDefault');
+        },
+
+        renderTemplate: function (route) {
+            this.currentView && this.currentView.close();
+            !this.mainView && this.createMainView();
+
+            this.currentView = new app.views.UserActionsView({
+                model: new app.models.UserActionsModel({ route: route }),
+                tplName: route
+            });
+
+            this.mainView.$mainContainer.html(this.currentView.render().el);
         },
 
         access: function (route) {
@@ -30,15 +42,15 @@
             return this.currentTemplate !== template;
         },
 
-        checkUserRights: function (action, template) {
+        checkUserRights: function (template) {
             if (this.isNotCurrentTemplate(template) && !this.access(template)) {
                 this.currentTemplate = template;
-                app.instances.user.save().then(
-                    this.renderByPage.bind(this, action, template),
-                    this.renderByDefault
+                app.instances.user.checkSession().then(
+                    this.renderByPage.bind(this, template),
+                    this.renderByDefault.bind(this)
                 );
             } else {
-                this.renderByPage(action, template);
+                this.renderByPage(template);
             }
         },
 
@@ -50,9 +62,9 @@
             this.mainView.cacheElements();
         },
 
-        renderByPage: function (action, template) {
+        renderByPage: function (template) {
             this.currentView && this.currentView.close();
-            this.currentView = new app.views[action + 'View']({
+            this.currentView = new app.views.InfoTabView({
                 tplName: template
             });
 
@@ -62,7 +74,7 @@
 
         renderByDefault: function () {
             this.createMainView();
-            this.navigate('views/UserActions/home', { trigger: true });
+            this.navigate('accessed/home', { trigger: true });
         }
 
     });

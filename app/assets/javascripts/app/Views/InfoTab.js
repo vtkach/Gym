@@ -5,7 +5,7 @@
         className: 'fade-in',
 
         onClose: function () {
-            app.instances.router.navigate('views/UserActions/home', { trigger: true });
+            app.instances.router.navigate('accessed/home', { trigger: true });
         }
 
     });

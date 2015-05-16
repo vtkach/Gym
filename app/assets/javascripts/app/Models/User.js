@@ -1,17 +1,26 @@
-/**
- * Created by victor on 19.04.15.
- */
 ;(function (app) {
 
     app.models.UserModel = Backbone.Model.extend({
 
-        url: '/users/sign_in',
+        url: 'users/sign_in',
+
+        paramRoot: 'user',
 
         defaults: {
-            user: {
-                password: 'eybdthcfk456',
-                email: 'stoo@ukr.net'
-            }
+            email: 'stoo@ukr.net',
+            password: 'eybdthcfk456'
+        },
+
+        toJSON: function () {
+            return {
+                user: this.attributes
+            };
+        },
+
+        checkSession: function () {
+            return this.fetch({
+                url: '/users/check_session'
+            });
         }
 
     });

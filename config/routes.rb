@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
+  # get 'users/check_session' => 'sessions#check_session'
+
+  devise_scope :user do
+    get 'users/check_session' => 'sessions#check_session'
+  end
+
+
   resources :main, only: [:index, :show]
   # get 'main/index'
   #

@@ -8,8 +8,13 @@
         },
 
         initialize: function (options) {
+            this._modelBinder = new Backbone.ModelBinder();
             this.tplName = options.tplName;
+            this.model = options.model;
+            this.onInit();
         },
+
+        onInit: function () {},
 
         prevDefault: function (event) {
             event.preventDefault();
@@ -17,6 +22,14 @@
 
         onClose: function () {
 
+        },
+
+        binding: function () {
+            this._modelBinder.bind(
+                app.instances.user,
+                this.$el,
+                this.constructor.bindings
+            );
         },
 
         getTemplate: function (tplName) {
@@ -27,6 +40,7 @@
 
         render: function () {
             this.$el.html(this.getTemplate(this.tplName));
+            this.binding();
 
             return this;
         },

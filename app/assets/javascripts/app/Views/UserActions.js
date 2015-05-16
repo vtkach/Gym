@@ -26,9 +26,14 @@
 
         events: {
             'click .btn-success': 'onSubmitUserAction',
-            'click form button': 'prevDefault',
             'change #remember-me': 'onRemember',
+            'click form button': 'prevDefault',
             'click .cancel': 'onCancelForm'
+        },
+
+        onInit: function () {
+            _.bindAll(this, 'onSuccessCallback', 'onErrorCallback');
+            this._modelBinder = new Backbone.ModelBinder();
         },
 
         onRemember: function (event) {
@@ -36,16 +41,14 @@
         },
 
         onCancelForm: function () {
-            app.instances.router.navigate('views/UserActions/home', { trigger: true });
+            app.instances.router.navigate('accessed/home', { trigger: true });
         },
 
         onSuccessCallback: function () {
-            alert('success!');
             Backbone.Events.trigger('success-login');
         },
 
         onErrorCallback: function () {
-            alert('error!');
             console.warn(arguments, 'errror')
         },
 
@@ -56,16 +59,7 @@
             );
 
             return false;
-        },
-
-        initialize: function (options) {
-            _.bindAll(this, 'onSuccessCallback', 'onErrorCallback');
-            this.tplName = options.tplName;
-            this.model = options.model;
         }
-
-    }, {
-
     });
 
 } (app));
