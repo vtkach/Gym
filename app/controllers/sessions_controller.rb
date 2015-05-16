@@ -4,8 +4,6 @@ class SessionsController < Devise::SessionsController
   def check_session
     if current_user
       render plain: 'OK', status: 200
-    else
-      render plain: 'pzdc', status: 401
     end
   end
 

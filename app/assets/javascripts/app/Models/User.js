@@ -4,11 +4,13 @@
 
         url: 'users/sign_in',
 
-        paramRoot: 'user',
-
         defaults: {
             email: 'stoo@ukr.net',
             password: 'eybdthcfk456'
+        },
+
+        initialize: function () {
+            this.fetch();
         },
 
         toJSON: function () {

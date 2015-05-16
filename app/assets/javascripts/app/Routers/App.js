@@ -20,6 +20,11 @@
 
         initialize: function () {
             app.instances.user = new app.models.UserModel();
+            app.instances.user.fetch().then(function () {
+                console.log('success');
+            }, function () {
+                debugger;
+            });
         },
 
         renderTemplate: function (route) {
@@ -30,7 +35,6 @@
                 model: new app.models.UserActionsModel({ route: route }),
                 tplName: route
             });
-
             this.mainView.$mainContainer.html(this.currentView.render().el);
         },
 
@@ -45,10 +49,9 @@
         checkUserRights: function (template) {
             if (this.isNotCurrentTemplate(template) && !this.access(template)) {
                 this.currentTemplate = template;
-                app.instances.user.checkSession().then(
-                    this.renderByPage.bind(this, template),
-                    this.renderByDefault.bind(this)
-                );
+                app.instances.user.checkSession()
+                    .done(this.renderByPage.bind(this, template))
+                    .fail(this.renderByDefault.bind(this));
             } else {
                 this.renderByPage(template);
             }
@@ -58,7 +61,6 @@
             this.mainView = new app.views.MainView({
                 model: app.instances.user
             });
-
             this.mainView.cacheElements();
         },
 

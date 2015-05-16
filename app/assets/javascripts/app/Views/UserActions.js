@@ -36,9 +36,7 @@
             this._modelBinder = new Backbone.ModelBinder();
         },
 
-        onRemember: function (event) {
-
-        },
+        onRemember: function (event) {},
 
         onCancelForm: function () {
             app.instances.router.navigate('accessed/home', { trigger: true });
