@@ -51,7 +51,7 @@
         },
 
         onSubmitUserAction: function () {
-            app.instances.user.save().then(
+            app.instances.user.logIn().then(
                 this.onSuccessCallback,
                 this.onErrorCallback
             );

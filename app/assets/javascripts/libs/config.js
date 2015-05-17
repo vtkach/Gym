@@ -2,6 +2,7 @@
  * Created by victor on 19.04.15.
  */
 //= require jquery
+//= require jquery_ujs
 //= require libs/bootstrap.min
 //= require libs/bootstrap-datepicker
 //= require libs/underscore

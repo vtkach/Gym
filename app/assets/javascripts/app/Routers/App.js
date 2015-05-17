@@ -20,7 +20,7 @@
 
         initialize: function () {
             app.instances.user = new app.models.UserModel();
-            app.instances.user.fetch().then(function () {
+            app.instances.user.loadUser().then(function () {
                 console.log('success');
             }, function () {
                 debugger;

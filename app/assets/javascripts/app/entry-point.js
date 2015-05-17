@@ -5,9 +5,6 @@ $(function ($) {
         },
         ajaxComplete: function () {
             $('.spinner').addClass('hidden');
-        },
-        headers: {
-            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
 

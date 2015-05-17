@@ -22,8 +22,7 @@
         },
 
         logout: function () {
-            app.instances.user.url = 'users/sign_out';
-            app.instances.user.destroy().then(
+            app.instances.user.signOut().then(
                 this.onSuccessCallback,
                 this.onErrorCallback
             );

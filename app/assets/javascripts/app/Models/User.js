@@ -4,24 +4,38 @@
 
         url: 'users/sign_in',
 
-        defaults: {
-            email: 'stoo@ukr.net',
-            password: 'eybdthcfk456'
-        },
-
         initialize: function () {
             this.fetch();
         },
 
         toJSON: function () {
             return {
-                user: this.attributes
+                user: _.clone(this.attributes)
             };
         },
 
         checkSession: function () {
             return this.fetch({
                 url: '/users/check_session'
+            });
+        },
+
+        loadUser: function () {
+            return this.fetch({
+                url: '/users/current_user'
+            });
+        },
+
+        signOut: function () {
+            return this.destroy({
+                url: '/users/sign_out'
+            });
+        },
+
+        logIn: function () {
+            return this.save({}, {
+                url: '/users/sign_in',
+                method: 'POST'
             });
         }
 
