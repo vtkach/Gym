@@ -39,7 +39,7 @@ class SessionsController < Devise::SessionsController
   def check_session
     response_value =
       if current_user
-        { plain: 'OK', status: 200 }
+        { json: current_user.to_json, status: 200 }
       else
         { plain: 'Authentication error', status: 401 }
       end
