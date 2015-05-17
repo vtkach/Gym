@@ -14,7 +14,7 @@
         },
 
         onSuccessCallback: function () {
-            debugger;
+            app.instances.user.clear();
         },
 
         onErrorCallback: function () {
@@ -22,7 +22,7 @@
         },
 
         logout: function () {
-            app.instances.user.signOut().then(
+            app.instances.session.signOut().then(
                 this.onSuccessCallback,
                 this.onErrorCallback
             );

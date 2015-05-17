@@ -3,6 +3,7 @@
 //= require app/Models/User
 //= require app/Models/UserActions
 //= require app/Models/InfoTab
+//= require app/Models/Session
 //= require app/Views/UserActions
 //= require app/Views/InfoTab
 //= require app/Views/Main

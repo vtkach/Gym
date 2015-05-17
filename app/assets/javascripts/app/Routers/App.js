@@ -20,11 +20,24 @@
 
         initialize: function () {
             app.instances.user = new app.models.UserModel();
-            app.instances.user.loadUser().then(function (userData) {
-                console.log('success', userData);
-            }, function () {
-                debugger;
-            }.bind(app.instances.user));
+            app.instances.session = new app.models.SessionModel();
+
+            app.instances.session.checkSession().then(
+                this.loadUserData.bind(this),
+                function () {
+                    console.warn('Session was expired');
+                }
+            );
+        },
+
+        loadUserData: function () {
+            app.instances.user
+                .loadUser()
+                .then(function (userData) {
+                        console.log('success', userData);
+                    }, function () {
+                        debugger;
+                    }.bind(app.instances.user));
         },
 
         renderTemplate: function (route) {
@@ -49,7 +62,7 @@
         checkUserRights: function (template) {
             if (this.isNotCurrentTemplate(template) && !this.access(template)) {
                 this.currentTemplate = template;
-                app.instances.user.checkSession()
+                app.instances.session.checkSession()
                     .done(this.renderByPage.bind(this, template))
                     .fail(this.renderByDefault.bind(this));
             } else {

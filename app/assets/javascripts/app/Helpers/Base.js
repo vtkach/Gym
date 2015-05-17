@@ -26,7 +26,7 @@
 
         binding: function () {
             this._modelBinder.bind(
-                app.instances.user,
+                app.instances.session,
                 this.$el,
                 this.constructor.bindings
             );

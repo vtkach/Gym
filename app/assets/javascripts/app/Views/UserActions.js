@@ -42,7 +42,8 @@
             app.instances.router.navigate('accessed/home', { trigger: true });
         },
 
-        onSuccessCallback: function () {
+        onSuccessCallback: function (userData) {
+            app.instances.user.set(userData);
             Backbone.Events.trigger('success-login');
         },
 
@@ -51,7 +52,7 @@
         },
 
         onSubmitUserAction: function () {
-            app.instances.user.logIn().then(
+            app.instances.session.logIn().then(
                 this.onSuccessCallback,
                 this.onErrorCallback
             );
