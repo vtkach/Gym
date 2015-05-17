@@ -37,6 +37,13 @@
                 url: '/users/sign_in',
                 method: 'POST'
             });
+        },
+
+        createUser: function (userData) {
+            return this.save(userData, {
+                url: '/users',
+                method: 'POST'
+            });
         }
 
     });

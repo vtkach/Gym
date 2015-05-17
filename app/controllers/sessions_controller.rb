@@ -29,7 +29,7 @@ class SessionsController < Devise::SessionsController
     if current_user
       response_value[:json] = current_user.to_json
     else
-      response_value[:json] = { errors: ['Uninitialized user'] }
+      response_value[:json] = { errors: ['User doesn\'t authenticate'] }
       response_value[:status] = 401
     end
 

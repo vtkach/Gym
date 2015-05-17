@@ -20,8 +20,8 @@
 
         initialize: function () {
             app.instances.user = new app.models.UserModel();
-            app.instances.user.loadUser().then(function () {
-                console.log('success');
+            app.instances.user.loadUser().then(function (userData) {
+                console.log('success', userData);
             }, function () {
                 debugger;
             }.bind(app.instances.user));
