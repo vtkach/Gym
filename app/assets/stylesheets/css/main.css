@@ -1,0 +1,143 @@
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.spinner {
+  min-width: 30px;
+  min-height: 30px;
+}
+.spinner:before {
+  position: absolute;
+  margin-left: -13px;
+  margin-top: -13px;
+  height: 5vh;
+  content: '';
+  width: 5vh;
+  left: 50%;
+  top: 43%;
+}
+.spinner:after {
+  content: 'Loading...';
+  position: absolute;
+  font-size: 0.9em;
+  color: #075871;
+  left: 47.5%;
+  top: 43%;
+}
+.spinner:not(:required):before {
+  -webkit-animation: spinner 1s linear infinite;
+  -moz-animation: spinner 1s linear infinite;
+  -o-animation: spinner 1s linear infinite;
+  animation: spinner 1s linear infinite;
+  border: 2px solid #ccc;
+  border-top-color: #03ade0;
+  border-radius: 50%;
+  content: '';
+}
+
+@-webkit-keyframes slidedown {
+  from {
+    margin-top: -15%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-moz-keyframes slidedown {
+  from {
+    margin-top: -15%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-o-keyframes slidedown {
+  from {
+    margin-top: -15%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@keyframes slidedown {
+  from {
+    margin-top: -15%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slide-down {
+  -webkit-animation: slidedown 0.8s;
+  -moz-animation: slidedown 0.8s;
+  -o-animation: slidedown 0.8s;
+  animation: slidedown 0.8s;
+}
+
+.fade-in {
+  -webkit-animation: fadein 0.8s;
+  -moz-animation: fadein 0.8s;
+  -o-animation: fadein 0.8s;
+  animation: fadein 0.8s;
+}
+
+.glyphicon-folder-open {
+  transform: rotate(90deg);
+}
+
+section.row {
+  margin: 15% auto;
+}
+section.row a {
+  box-shadow: 2px 2px 0 #888;
+  border: 1px solid #000;
+  min-width: 100px;
+  border-radius: 5%;
+  cursor: pointer;
+  height: 150px;
+  margin: 4%;
+}
+section.row a:hover {
+  box-shadow: 1px 1px 20px #009933;
+}
+section.row .profile-fields > input {
+  margin-top: 1em;
+}

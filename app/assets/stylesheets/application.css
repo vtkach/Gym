@@ -1,6 +1,6 @@
- /*
- *= require bootstrap.min
- *= require bootstrap-theme.min
- *= require datepicker
- *= require main
- */
+/*
+*= require css/bootstrap.min.css
+*= require css/bootstrap-theme.min
+*= require css/datepicker
+*= require sass/main.scss
+*/

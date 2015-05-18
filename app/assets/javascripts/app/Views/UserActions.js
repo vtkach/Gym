@@ -4,29 +4,8 @@
 
         className: 'fade-in',
 
-        viewOptions: {
-
-            signin: {
-                url: '/users/sign_in'
-            },
-
-            register: {
-                url: 'registerurl'
-            },
-
-            home: {
-                url: 'logouturl'
-            },
-
-            profile: {
-                url: 'profileurl'
-            }
-
-        },
-
         events: {
             'click .btn-success': 'onSubmitUserAction',
-            'change #remember-me': 'onRemember',
             'click form button': 'prevDefault',
             'click .cancel': 'onCancelForm'
         },
@@ -35,8 +14,6 @@
             _.bindAll(this, 'onSuccessCallback', 'onErrorCallback');
             this._modelBinder = new Backbone.ModelBinder();
         },
-
-        onRemember: function (event) {},
 
         onCancelForm: function () {
             app.instances.router.navigate('accessed/home', { trigger: true });

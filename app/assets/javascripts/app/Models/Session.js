@@ -5,8 +5,8 @@
         url: 'users/sign_in',
 
         default: {
-            email: '',
-            password: ''
+            password: '',
+            email: ''
         },
 
         toJSON: function () {

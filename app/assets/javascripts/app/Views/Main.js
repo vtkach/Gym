@@ -1,6 +1,3 @@
-/**
- * Created by victor on 19.04.15.
- */
 ;(function (app) {
 
     app.views.MainView = Backbone.View.extend({

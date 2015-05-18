@@ -19,9 +19,8 @@
         },
 
         initialize: function () {
-            app.instances.user = new app.models.UserModel();
             app.instances.session = new app.models.SessionModel();
-
+            app.instances.user = new app.models.UserModel();
             app.instances.session.checkSession().then(
                 this.loadUserData.bind(this),
                 function () {

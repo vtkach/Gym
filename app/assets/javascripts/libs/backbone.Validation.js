@@ -1,7 +1,7 @@
 /**
  * Created by victor on 19.04.15.
  */
-Backbone.Validation = (function(_){
+;Backbone.Validation = (function(_){
     'use strict';
 
     // Default options

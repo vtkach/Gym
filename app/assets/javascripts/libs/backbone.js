@@ -8,7 +8,7 @@
 //     For all details and documentation:
 //     http://backbonejs.org
 
-(function(root, factory) {
+;(function(root, factory) {
 
     // Set up Backbone appropriately for the environment. Start with AMD.
     if (typeof define === 'function' && define.amd) {
