@@ -6,11 +6,6 @@
 
         mainView: null,
 
-        accessedRoutes: [
-            'signin',
-            'home'
-        ],
-
         routes: {
             'infoTab/:template': 'checkUserRights',
             'accessed/:action': 'renderTemplate',
@@ -19,14 +14,10 @@
         },
 
         initialize: function () {
+            _.bindAll(this, 'loadUserData', 'renderByDefault');
             app.instances.session = new app.models.SessionModel();
             app.instances.user = new app.models.UserModel();
-            app.instances.session.checkSession().then(
-                this.loadUserData.bind(this),
-                function () {
-                    console.warn('Session was expired');
-                }
-            );
+            app.instances.session.checkSession().done(this.loadUserData);
         },
 
         onRegister: function () {
@@ -35,7 +26,7 @@
                 model: new app.models.RegistrationModel,
                 tplName: 'register'
             });
-            this.mainView.$mainContainer.html(this.currentView.render().el);
+            this.renderContent();
         },
 
         loadUserData: function () {
@@ -53,28 +44,24 @@
             !this.mainView && this.createMainView();
         },
 
+        renderContent: function () {
+            this.mainView.$mainContainer.html(this.currentView.render().el);
+        },
+
         renderTemplate: function (route) {
             this.clear();
             this.currentView = new app.views.UserActionsView({
                 model: new app.models.UserActionsModel({ route: route }),
                 tplName: route
             });
-            this.mainView.$mainContainer.html(this.currentView.render().el);
-        },
-
-        access: function (route) {
-            return _.contains(this.accessedRoutes, route);
-        },
-
-        isNotCurrentTemplate: function (template) {
-            return this.currentTemplate !== template;
+            this.renderContent();
         },
 
         checkUserRights: function (template) {
             this.currentTemplate = template;
             app.instances.session.checkSession()
                 .done(this.renderByPage.bind(this, template))
-                .fail(this.renderByDefault.bind(this));
+                .fail(this.renderByDefault);
 
         },
 
@@ -92,7 +79,7 @@
                 //TODO: remove this
                 model: new app.helpers.BaseModel()
             });
-            this.mainView.$mainContainer.html(this.currentView.render().el);
+            this.renderContent();
         },
 
         renderByDefault: function () {
