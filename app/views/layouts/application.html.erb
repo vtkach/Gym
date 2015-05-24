@@ -92,30 +92,6 @@
             <a href='#infoTab/notebook-for-exercices' class="notebook-for-exercices col-xs-2">Дневник</a>
         </template>
         <template id="profile">
-           <!-- <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"></label>
-                    <div class="profile-fields col-sm-5">
-                        <input name='lastname' class="form-control input-sm" placeholder="Прізвище">
-                        <input name='firstname' class="form-control input-sm" placeholder="Ім'я">
-                        <input name='surname' class="form-control input-sm" placeholder="По батькові">
-                        <input name='gender' class="form-control input-sm" placeholder="Стать">
-                        <input name='password' class="form-control input-sm" placeholder="Пароль">
-                        <input name='growth' class="form-control input-sm" placeholder="Зріст">
-                        <input name='weight' class="form-control input-sm" placeholder="Вага">
-                        <input name='circumference' class="form-control input-sm" placeholder="Окружність грудної клітки">
-                        <input name='vitalCapacity' class="form-control input-sm" placeholder="Життєва ємність легенів">
-                        <input name='bodyMassIndex' class="form-control input-sm" placeholder="Індекс маси тіла">
-                        <input name='lifeCode' class="form-control input-sm" placeholder="Життєвий індекс">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-sm btn-primary save">Зберегти</button>
-                        <button type="submit" class="btn btn-sm btn-default cancel">Вiдмiнити</button>
-                    </div>
-                </div>
-            </form>-->
             <form class="form-group col-xs-6 col-xs-offset-3">
                 <div class="form-group">
                     <input class="form-control input-lg" name='lastname' placeholder="Прізвище"/>
@@ -199,22 +175,17 @@
             </ul>
         </template>
         <template id="my-phis-state">
-            <aside class="btn-group-vertical" role="group" aria-label="...">
-                  <!--  <button class="btn btn-default choose-form">Физичний розвиток</button>
-                    <button class="btn btn-default choose-form">Плечовий індекс та постава</button>
-                    <button class="btn btn-default choose-form">Фізична підготовленість</button>
-                    <button class="btn btn-default choose-form">Фізичне здоров’я по Г.Л. Апанасенко</button>
-                    <button class="btn btn-default choose-form">Рухова активність</button>
-                    <button class="btn btn-default choose-form">Визначення калорійності</button>-->
+            <aside class="btn-group-vertical col-xs-4" role="group" >
                 <ul class="nav nav-pills nav-stacked">
-                    <li>Физичний розвиток</li>
-                    <li>Плечовий індекс та постава</li>
-                    <li>Фізична підготовленіст</li>
-                    <li>Фізичне здоров’я по Г.Л. Апанасенко</li>
-                    <li>Рухова активність</li>
-                    <li>Визначення калорійності</li>
+                    <li class='physical-state'>Физичний розвиток</li>
+                    <li class="shoulder-index">Плечовий індекс та постава</li>
+                    <li class="physical-preparedness">Фізична підготовленіст</li>
+                    <li class="physical-health">Фізичне здоров’я по Г.Л. Апанасенко</li>
+                    <li class="motor-activity">Рухова активність</li>
+                    <li class="definition">Визначення калорійності</li>
                 </ul>
             </aside>
+            <div class="form-container col-xs-8"></div>
         </template>
         <template id="info-resources">info-resources</template>
         <template id="recommendations">recommendations</template>

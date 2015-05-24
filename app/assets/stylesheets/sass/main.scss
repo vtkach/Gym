@@ -44,6 +44,21 @@ section.row {
         margin-top: 1em;
       }
     }
+  aside {
+    .nav-stacked {
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      padding: 1em;
+      li {
+        border-bottom: 1px solid lightgrey;
+        &:hover {
+          background: #337ab7;
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
 .flash-message {
@@ -60,6 +75,9 @@ section.row {
   }
   &.alert-success strong:before {
     content: 'Сохранено!';
+  }
+  &.alert-info strong:before {
+    content: 'К сведению!';
   }
 
   width: 30vw;
