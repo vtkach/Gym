@@ -7,7 +7,6 @@
         mainView: null,
 
         accessedRoutes: [
-            'register',
             'signin',
             'home'
         ],
@@ -15,6 +14,7 @@
         routes: {
             'infoTab/:template': 'checkUserRights',
             'accessed/:action': 'renderTemplate',
+            'register': 'onRegister',
             '': 'renderByDefault'
         },
 
@@ -27,6 +27,17 @@
                     console.warn('Session was expired');
                 }
             );
+        },
+
+        onRegister: function () {
+            this.currentView && this.currentView.close();
+            !this.mainView && this.createMainView();
+
+            this.currentView = new app.views.RegistrationView({
+                model: new app.models.RegistrationModel,
+                tplName: 'register'
+            });
+            this.mainView.$mainContainer.html(this.currentView.render().el);
         },
 
         loadUserData: function () {
