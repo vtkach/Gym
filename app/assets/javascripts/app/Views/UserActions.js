@@ -29,7 +29,8 @@
         },
 
         onSubmitUserAction: function () {
-            app.instances.session.logIn().then(
+            //TODO: this.model should be Authentication
+            app.instances.session.logIn(this.model.toJSON()).then(
                 this.onSuccessCallback,
                 this.onErrorCallback
             );

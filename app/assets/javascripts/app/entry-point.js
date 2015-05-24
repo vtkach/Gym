@@ -8,7 +8,12 @@ $(function ($) {
             $('.spinner').addClass('hidden');
         },
 
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+
         error: app.helpers.BaseView.showFlashMessage.bind(null, 'danger')
+
     });
 
     app.instances.router = new app.routers.AppRouter();

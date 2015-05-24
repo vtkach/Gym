@@ -16,21 +16,50 @@
         },
 
         checkSession: function () {
-            return this.fetch({
+            return this.ajax({
                 url: '/users/check_session'
             });
         },
 
         signOut: function () {
-            return this.destroy({
-                url: '/users/sign_out'
+            //return this.destroy({
+            //    url: '/users/sign_out'
+            //});
+
+            return this.ajax({
+                url: '/users/sign_out',
+                method: 'DELETE'
             });
         },
 
-        logIn: function () {
-            return this.save({}, {
+        logIn: function (userData) {
+            //return this.save({}, {
+            //    url: '/users/sign_in',
+            //    method: 'POST'
+            //});
+
+            return this.ajax({
                 url: '/users/sign_in',
-                method: 'POST'
+                method: 'POST',
+                dataType: 'JSON',
+                data: {
+                    user: userData
+                }
+            });
+        },
+
+        createUser: function (userData) {
+            //return this.save(userData, {
+            //    url: '/users',
+            //    method: 'POST'
+            //});
+            return this.ajax('/users', {
+                url: '/users',
+                method: 'POST',
+                dataType: 'JSON',
+                data: {
+                    user: userData
+                }
             });
         }
 

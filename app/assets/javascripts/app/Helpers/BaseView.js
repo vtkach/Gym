@@ -26,7 +26,9 @@
 
         binding: function () {
             this._modelBinder.bind(
-                app.instances.session,
+                //TODO: remove it
+                //app.instances.session,
+                this.model,
                 this.$el,
                 this.constructor.bindings
             );
@@ -53,6 +55,7 @@
 
     }, {
         showFlashMessage: function (messageType, xhr, text) {
+            console.warn(arguments)
             var $flashMessage = $('.flash-message'),
                 classesToRemove = [
                     'alert-warning',

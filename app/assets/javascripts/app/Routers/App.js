@@ -87,7 +87,8 @@
         renderByPage: function (template) {
             this.currentView && this.currentView.close();
             this.currentView = new app.views.InfoTabView({
-                tplName: template
+                tplName: template,
+                model: new app.models.BaseModel()
             });
 
             !this.mainView && this.createMainView();
