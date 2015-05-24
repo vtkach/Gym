@@ -88,7 +88,8 @@
             this.currentView && this.currentView.close();
             this.currentView = new app.views.InfoTabView({
                 tplName: template,
-                model: new app.models.BaseModel()
+                //TODO: remove this
+                model: new app.helpers.BaseModel()
             });
 
             !this.mainView && this.createMainView();
