@@ -70,14 +70,11 @@
         },
 
         checkUserRights: function (template) {
-            if (this.isNotCurrentTemplate(template) && !this.access(template)) {
-                this.currentTemplate = template;
-                app.instances.session.checkSession()
-                    .done(this.renderByPage.bind(this, template))
-                    .fail(this.renderByDefault.bind(this));
-            } else {
-                this.renderByPage(template);
-            }
+            this.currentTemplate = template;
+            app.instances.session.checkSession()
+                .done(this.renderByPage.bind(this, template))
+                .fail(this.renderByDefault.bind(this));
+
         },
 
         createMainView: function () {

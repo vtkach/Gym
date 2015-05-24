@@ -51,6 +51,22 @@
             this.onClose();
         }
 
+    }, {
+        showFlashMessage: function (messageType, xhr, text) {
+            var $flashMessage = $('.flash-message'),
+                classesToRemove = [
+                    'alert-warning',
+                    'alert-success',
+                    'alert-danger',
+                    'notify'
+                ].join(' ');
+
+            $flashMessage.removeClass(classesToRemove)
+                .find('.text-message')
+                .text(text);
+
+            _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
+        }
     });
 
 } (app));

@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'mixins';
 @import 'spinner';
+@import 'keyframes';
 
 @include keyframes (slidedown) {
     from { margin-top: -15%; }
@@ -43,4 +44,25 @@ section.row {
         margin-top: 1em;
       }
     }
+}
+
+.flash-message {
+  position: absolute;
+  &.notify {
+    @include animation (notifier, 6s);
+  }
+
+  &.alert-danger strong:before {
+      content: 'Ошибка!';
+  }
+  &.alert-warning strong:before {
+    content: 'Прудпреждение!';
+  }
+  &.alert-success strong:before {
+    content: 'Сохранено!';
+  }
+
+  width: 30vw;
+  left: 35vw;
+  top: -10vh;
 }

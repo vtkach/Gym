@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.UserActionsModel = Backbone.Model.extend({
+    app.models.UserActionsModel = app.helpers.BaseModel.extend({
 
         defaults: {},
 

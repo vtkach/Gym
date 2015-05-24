@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.UserModel = Backbone.Model.extend({
+    app.models.UserModel = app.helpers.BaseModel.extend({
 
         toJSON: function () {
             return {

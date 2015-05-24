@@ -44,7 +44,7 @@ gulp.task('concat', function () {
             'backbone.CollectionBinder.js'
         ], appArray = [
             'init.js',
-            'Helpers/Base.js',
+            'Helpers/BaseView.js',
             'Models/Session.js',
             'Models/User.js',
             'Models/UserActions.js',

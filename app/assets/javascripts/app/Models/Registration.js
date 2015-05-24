@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.RegistrationModel = Backbone.Model.extend({
+    app.models.RegistrationModel = app.helpers.BaseModel.extend({
 
 
     });

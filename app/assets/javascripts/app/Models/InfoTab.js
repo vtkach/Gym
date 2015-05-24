@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.InfoTabModel = Backbone.Model.extend({
+    app.models.InfoTabModel = app.helpers.BaseModel.extend({
 
     });
 
