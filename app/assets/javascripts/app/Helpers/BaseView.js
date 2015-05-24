@@ -66,7 +66,7 @@
 
             $flashMessage.removeClass(classesToRemove)
                 .find('.text-message')
-                .text(text);
+                .text(xhr.statusText);
 
             _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
         }

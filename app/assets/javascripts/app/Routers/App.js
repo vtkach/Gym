@@ -30,9 +30,7 @@
         },
 
         onRegister: function () {
-            this.currentView && this.currentView.close();
-            !this.mainView && this.createMainView();
-
+            this.clear();
             this.currentView = new app.views.RegistrationView({
                 model: new app.models.RegistrationModel,
                 tplName: 'register'
@@ -50,10 +48,13 @@
                     }.bind(app.instances.user));
         },
 
-        renderTemplate: function (route) {
+        clear: function () {
             this.currentView && this.currentView.close();
             !this.mainView && this.createMainView();
+        },
 
+        renderTemplate: function (route) {
+            this.clear();
             this.currentView = new app.views.UserActionsView({
                 model: new app.models.UserActionsModel({ route: route }),
                 tplName: route
@@ -85,14 +86,12 @@
         },
 
         renderByPage: function (template) {
-            this.currentView && this.currentView.close();
+            this.clear();
             this.currentView = new app.views.InfoTabView({
                 tplName: template,
                 //TODO: remove this
                 model: new app.helpers.BaseModel()
             });
-
-            !this.mainView && this.createMainView();
             this.mainView.$mainContainer.html(this.currentView.render().el);
         },
 

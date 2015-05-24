@@ -1,5 +1,6 @@
 $(function ($) {
     $.ajaxSetup({
+
         ajaxSend: function () {
             $('.spinner').removeClass('hidden');
         },
