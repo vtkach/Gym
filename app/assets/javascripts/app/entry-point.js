@@ -1,14 +1,9 @@
 $(function ($) {
+    var $spinner = $('.spinner');
+
     $.ajaxSetup({
-
-        ajaxSend: function () {
-            $('.spinner').removeClass('hidden');
-        },
-
-        ajaxComplete: function () {
-            $('.spinner').addClass('hidden');
-        },
-
+        beforeSend: $spinner.removeClass.bind($spinner, 'hidden'),
+        complete: $spinner.addClass.bind($spinner, 'hidden'),
         headers: {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         },
