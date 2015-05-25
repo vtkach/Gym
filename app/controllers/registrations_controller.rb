@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
       sign_up(resource_name, resource)
       response_value[:json] = resource.to_json
     else
-      response_value[:json] = generate_errors(resource)
+      response_value[:text] = generate_error(resource)
       response_value[:status] = 422
     end
 
@@ -21,8 +21,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def generate_errors resource
-    return { errors: resource.errors.to_json }
+  def generate_error resource
+    # return { errors: resource.errors.to_json }
+    errors = resource.errors.first
+    error_title = errors.shift
+
+    t("custom.errors.#{error_title}") + ' ' + errors[0]
   end
 
 end

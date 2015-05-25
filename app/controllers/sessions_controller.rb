@@ -11,7 +11,7 @@ class SessionsController < Devise::SessionsController
     if @user && @user.valid_password?(user_params[:password])
       sign_in(@user)
     else
-      render json: generate_error(@user), status: 401
+      render plain: t('custom.errors.authentification'), status: 401
     end
   end
 
@@ -29,7 +29,7 @@ class SessionsController < Devise::SessionsController
     if current_user
       response_value[:json] = current_user.to_json
     else
-      response_value[:json] = { errors: ['User doesn\'t authenticate'] }
+      response_value[:json] = { errors: [t('custom.errors.currentUser')] }
       response_value[:status] = 401
     end
 
@@ -41,7 +41,7 @@ class SessionsController < Devise::SessionsController
       if current_user
         { plain: 'Session is valid', status: 200 }
       else
-        { plain: 'Authentication error', status: 401 }
+        { text: t('custom.errors.sessionExpired'), status: 401 }
       end
 
     render response_value
@@ -51,12 +51,6 @@ class SessionsController < Devise::SessionsController
 
   def user_params
     params.require(:user).permit(:email, :password)
-  end
-
-  def generate_error user
-    unless user
-      { errors: ['Invalid email'] }
-    end
   end
 
   def require_no_authentication
