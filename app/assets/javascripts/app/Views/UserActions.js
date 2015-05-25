@@ -6,12 +6,11 @@
 
         events: {
             'click .btn-success': 'onSubmitUserAction',
-            'click form button': 'prevDefault',
+            'submit form': 'prevDefault',
             'click .cancel': 'onCancelForm'
         },
 
         onInit: function () {
-            _.bindAll(this, 'onSuccessCallback', 'onErrorCallback');
             this._modelBinder = new Backbone.ModelBinder();
         },
 
@@ -21,19 +20,14 @@
 
         onSuccessCallback: function (userData) {
             app.instances.user.set(userData);
-            Backbone.Events.trigger('success-login');
-        },
-
-        onErrorCallback: function () {
-            console.warn(arguments, 'errror')
+            app.instances.router.navigate('accessed/home', { trigger: true });
+            this.constructor.showFlashMessage('success', { responseText: 'Вы вошли!' });
         },
 
         onSubmitUserAction: function () {
             //TODO: this.model should be Authentication
-            app.instances.session.logIn(this.model.toJSON()).then(
-                this.onSuccessCallback,
-                this.onErrorCallback
-            );
+            app.instances.session.logIn(this.model.toJSON())
+                .done(this.onSuccessCallback.bind(this));
 
             return false;
         }

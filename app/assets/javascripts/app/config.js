@@ -7,6 +7,7 @@
 //= require app/Models/UserActions
 //= require app/Models/InfoTab
 //= require app/Models/Session
+//= require app/Views/PhysStateForm
 //= require app/Views/UserActions
 //= require app/Views/Registration
 //= require app/Views/InfoTab

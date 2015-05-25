@@ -27,7 +27,7 @@
 
 section.row {
     margin: 15% auto;
-    a {
+    .fade-in > a {
       box-shadow: 2px 2px 0 #888;
       border: 1px solid #000;
       min-width: 100px;
@@ -50,11 +50,17 @@ section.row {
       border-radius: 5px;
       padding: 1em;
       li {
-        border-bottom: 1px solid lightgrey;
-        &:hover {
-          background: #337ab7;
-          cursor: pointer;
-          color: #fff;
+        &:last-child a {
+          border-bottom: none;
+        }
+        a {
+          border: none;
+          border-bottom: 1px solid lightgrey;
+          &:hover {
+            background: #337ab7;
+            cursor: pointer;
+            color: #fff;
+          }
         }
       }
     }
@@ -62,7 +68,9 @@ section.row {
 }
 
 .flash-message {
+  white-space: nowrap;
   position: absolute;
+
   &.notify {
     @include animation (notifier, 6s);
   }
@@ -74,13 +82,12 @@ section.row {
     content: 'Прудпреждение!';
   }
   &.alert-success strong:before {
-    content: 'Сохранено!';
+    content: 'Обновлено!';
   }
   &.alert-info strong:before {
     content: 'К сведению!';
   }
 
-  width: 30vw;
   left: 35vw;
   top: -10vh;
 }

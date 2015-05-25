@@ -54,7 +54,7 @@
         }
 
     }, {
-        showFlashMessage: function (messageType, xhr, text) {
+        showFlashMessage: function (messageType, xhr) {
             console.warn(arguments)
             var $flashMessage = $('.flash-message'),
                 classesToRemove = [
@@ -66,7 +66,7 @@
 
             $flashMessage.removeClass(classesToRemove)
                 .find('.text-message')
-                .text(xhr.statusText);
+                .text(xhr.responseText);
 
             _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
         }

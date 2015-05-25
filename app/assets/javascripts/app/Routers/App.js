@@ -2,11 +2,14 @@
 
     app.routers.AppRouter = Backbone.Router.extend({
 
+        currentSubView: null,
+
         currentView: null,
 
         mainView: null,
 
         routes: {
+            'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/:template': 'checkUserRights',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
@@ -18,6 +21,18 @@
             app.instances.session = new app.models.SessionModel();
             app.instances.user = new app.models.UserModel();
             app.instances.session.checkSession().done(this.loadUserData);
+        },
+
+        renderTplIntoPhisState: function (template) {
+            this.checkUserRights('my-phis-state');
+            if (this.sessionStatus === 'success') {
+                this.currentSubView = new app.views.PhysStateFormView({
+                    model: app.instances.user,
+                    tplName: template
+                });
+
+                this.currentView.$('.form-container').html(this.currentSubView.render().el);
+            }
         },
 
         onRegister: function () {
@@ -39,6 +54,11 @@
                     }.bind(app.instances.user));
         },
 
+        checkExistViews: function (route) {
+            !this.mainView && this.createMainView();
+            !this.currentView &&  this.renderTemplate(route);
+        },
+
         clear: function () {
             this.currentView && this.currentView.close();
             !this.mainView && this.createMainView();
@@ -57,12 +77,18 @@
             this.renderContent();
         },
 
-        checkUserRights: function (template) {
-            this.currentTemplate = template;
-            app.instances.session.checkSession()
-                .done(this.renderByPage.bind(this, template))
-                .fail(this.renderByDefault);
+        setState: function (xhr, state) {
+            this.sessionStatus = state;
+        },
 
+        checkUserRights: function (template) {
+            if (this.currentTemplate !== template) {
+                this.currentTemplate = template;
+                app.instances.session.checkSession()
+                    .done(this.renderByPage.bind(this, template))
+                    .fail(this.renderByDefault)
+                    .always(this.setState.bind(this));
+            }
         },
 
         createMainView: function () {
