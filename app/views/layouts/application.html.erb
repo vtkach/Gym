@@ -147,10 +147,12 @@
             </form>
         </template>
         <template id="getting-started">
-            <p class="lead"><mark>Основна мета</mark> запропонованої програми самостійних занять спрямована на підвищення інтересу та мотиваційних
+            <p class="lead">
+                <mark>Основна мета</mark> запропонованої програми самостійних занять спрямована на підвищення інтересу та мотиваційних
                 пріоритетів до самостійної діяльності школярів, збереження стану здоров'я, підтримки високого рівня фізичної
                 й розумової роботоздатності.
-                Розроблена програмасамостійних занять з фізичного виховання для старшокласників виконує ряд функцій:</p>
+                Розроблена програмасамостійних занять з фізичного виховання для старшокласників виконує ряд функцій:
+            </p>
             <ul class="lead">
                 <li>навчальна (опрацювання першоджерел, що сприяє більш глибокому осмисленню вже засвоєних знань з
                     самостійної роботи);
@@ -175,8 +177,11 @@
             </ul>
         </template>
         <template id="my-phis-state">
-            <aside class="btn-group-vertical col-xs-4" role="group" >
+            <aside class="btn-group-vertical col-xs-3" role="group" >
                 <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="#infoTab/my-phis-state/body-index">Індекс маси тіла</a>
+                    </li>
                     <li>
                         <a href='#infoTab/my-phis-state/physical-state'>Физичний розвиток</a>
                     </li>
@@ -197,19 +202,42 @@
                     </li>
                 </ul>
             </aside>
-            <div class="form-container col-xs-8"></div>
+            <div class="form-container col-xs-7"></div>
         </template>
         <template id="info-resources">info-resources</template>
         <template id="recommendations">recommendations</template>
         <template id="you-should-know">you-should-know</template>
         <template id="complex-self-improving">complex-self-improving</template>
         <template id="notebook-for-exercices">notebook-for-exercices</template>
+
         <template id="definition">definition</template>
         <template id="motor-activity">motor-activity</template>
-        <template id="physical-health">physical-health</template>
+        <template id="physical-health">
+            <input name='hight' class="form-control" placeholder="Зріст, см" />
+            <input name='weight' class="form-control" placeholder="Вага, кг" />
+            <input name='circumference' class="form-control" placeholder="Окружність грудноі клітки, см" />
+            <input name='volume' class="form-control" placeholder="Життєва ємність легенів, мл" />
+            <button class="btn btn-primary form-control">Розрахувати</button>
+            <fieldset>
+                <legend>Результати</legend>
+                <input name='bodyindex' class="form-control" placeholder="Індекс маси тіла" />
+                <input name='lifeindex' class="form-control" placeholder="Життєвий індекс" />
+            </fieldset>
+        </template>
         <template id="physical-preparedness">phys prepar</template>
+        <template id="body-index">
+            <input class="form-control" name="weight" placeholder="Вага, кг" />
+            <input class="form-control" name="height" placeholder="Зріст, см"/>
+            <button class="btn btn-primary form-control">Розрахувати</button>
+            <fieldset>
+                <legend>Результати</legend>
+                <input name='bodyindex' class="form-control" placeholder="Індекс маси тіла" />
+                <input name='lifeindex' class="form-control" placeholder="Життєвий індекс" />
+            </fieldset>
+        </template>
         <template id="shoulder-index">shoulder index</template>
         <template id="physical-state">phys state</template>
+
     </head>
 
     <body class="container">
@@ -225,23 +253,6 @@
                     </button>
                     <a class="navbar-brand" href="#accessed/home">Brand</a>
                 </div>
-
-<!--                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">Меню<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>-->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span
@@ -262,7 +273,6 @@
                 </div>
             </div>
         </nav>
-        <!--<%= yield %>-->
         <section class="row col-xs-12 center-block">
         </section>
         <div class="spinner hidden"></div>
@@ -270,6 +280,7 @@
             <strong></strong>
             <span class="text-message">Some stuff</span>
         </div>
+
         <footer>
 
         </footer>

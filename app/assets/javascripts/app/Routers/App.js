@@ -23,11 +23,25 @@
             app.instances.session.checkSession().done(this.loadUserData);
         },
 
+        capitalize: function (string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        },
+
+        convertToClassName: function (template) {
+            var arr = template.split('-');
+
+            return arr.map(this.capitalize).join('');
+        },
+
         renderTplIntoPhisState: function (template) {
+            var templateToClassName = this.convertToClassName(template);
+
             this.checkUserRights('my-phis-state');
             if (this.sessionStatus === 'success') {
-                this.currentSubView = new app.views.PhysStateFormView({
+                this.currentSubView = new app.views[templateToClassName + 'View']({
+                    className: 'form-group ' + template,
                     model: app.instances.user,
+                    tagName: 'fieldset',
                     tplName: template
                 });
 

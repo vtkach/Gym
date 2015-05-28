@@ -7,7 +7,14 @@
 //= require app/Models/UserActions
 //= require app/Models/InfoTab
 //= require app/Models/Session
-//= require app/Views/PhysStateForm
+//= require app/Views/forms/PhysStateForm
+//= require app/Views/forms/BodyIndex
+//= require app/Views/forms/Definition
+//= require app/Views/forms/MotorActivity
+//= require app/Views/forms/PhysicalHealth
+//= require app/Views/forms/PhysicalPreparedness
+//= require app/Views/forms/PhysicalState
+//= require app/Views/forms/ShoulderIndex
 //= require app/Views/UserActions
 //= require app/Views/Registration
 //= require app/Views/InfoTab

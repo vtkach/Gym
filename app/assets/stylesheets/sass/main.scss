@@ -3,47 +3,61 @@
 @import 'spinner';
 @import 'keyframes';
 
-@include keyframes (slidedown) {
-    from { margin-top: -15%; }
-    to   { margin-top: 0; }
+@include keyframes(slidedown) {
+  from {
+    margin-top: -15%;
+  }
+  to {
+    margin-top: 0;
+  }
 }
 
-@include keyframes (fadein) {
-  from { opacity: 0; }
-  to { opacity: 1 }
+@include keyframes(fadein) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1
+  }
 }
 
 .slide-down {
-    @include animation (slidedown, 0.8s);
+  @include animation(slidedown, 0.8s);
 }
 
 .fade-in {
-    @include animation (fadein, 0.8s);
+  @include animation(fadein, 0.8s);
 }
 
 .glyphicon-folder-open {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 section.row {
-    margin: 15% auto;
-    .fade-in > a {
-      box-shadow: 2px 2px 0 #888;
-      border: 1px solid #000;
-      min-width: 100px;
-      border-radius: 5%;
-      cursor: pointer;
-      height: 150px;
-      margin: 4%;
-      &:hover {
-        box-shadow: 1px 1px 20px $green;
-      }
+  margin: 15% auto;
+  .fade-in > a {
+    box-shadow: 2px 2px 0 #888;
+    border: 1px solid #000;
+    min-width: 100px;
+    border-radius: 5%;
+    cursor: pointer;
+    height: 150px;
+    margin: 4%;
+    &:hover {
+      box-shadow: 1px 1px 20px $green;
     }
-    .profile-fields {
-      &>input {
-        margin-top: 1em;
-      }
+  }
+  .profile-fields {
+    & > input {
+      margin-top: 1em;
     }
+  }
+
+  .phys-state-form {
+    .form-control {
+      margin-bottom: 1em;
+    }
+  }
   aside {
     .nav-stacked {
       border: 1px solid lightgrey;
@@ -72,11 +86,11 @@ section.row {
   position: absolute;
 
   &.notify {
-    @include animation (notifier, 6s);
+    @include animation(notifier, 6s);
   }
 
   &.alert-danger strong:before {
-      content: 'Ошибка!';
+    content: 'Ошибка!';
   }
   &.alert-warning strong:before {
     content: 'Прудпреждение!';
