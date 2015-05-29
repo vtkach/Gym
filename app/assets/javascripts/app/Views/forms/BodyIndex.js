@@ -32,7 +32,12 @@
         ],
 
         events: {
-            'change [name=weight], [name=height]': 'changeData'
+            'change [name=weight], [name=height]': 'changeData',
+            'click button': 'saveData'
+        },
+
+        saveData: function () {
+            this.model.save();
         },
 
         eachRange: function (range) {

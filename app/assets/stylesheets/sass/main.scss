@@ -59,15 +59,14 @@ section.row {
     }
     fieldset {
       margin: 2em auto;
+      input {
+        margin-bottom: 1em !important;
+      }
     }
     table {
       tr {
-        &.colored {
-          background: gre
-        }
         td, th {
           vertical-align: middle;
-          white-space: nowrap;
           text-align: center;
         }
       }
