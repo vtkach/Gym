@@ -34,7 +34,6 @@
 }
 
 section.row {
-  margin: 15% auto;
   .fade-in > a {
     box-shadow: 2px 2px 0 #888;
     border: 1px solid #000;
@@ -58,8 +57,7 @@ section.row {
       min-width: 200px;
     }
     fieldset {
-      margin: 2em auto;
-      input {
+      .form-control {
         margin-bottom: 1em !important;
       }
     }
