@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.DefinitionView = app.helpers.BaseView.extend({
+    app.views.DefinitionView = app.helpers.FormView.extend({
 
 
 

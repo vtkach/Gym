@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.MotorActivityView = app.helpers.BaseView.extend({
+    app.views.MotorActivityView = app.helpers.FormView.extend({
 
 
 

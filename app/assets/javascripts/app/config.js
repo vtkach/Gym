@@ -1,6 +1,7 @@
 //= require app/init
 //= require app/Helpers/BaseModel
 //= require app/Helpers/BaseView
+//= require app/Helpers/FormView
 //= require app/Models/User
 //= require app/Models/Registration
 //= require app/Models/Authorization

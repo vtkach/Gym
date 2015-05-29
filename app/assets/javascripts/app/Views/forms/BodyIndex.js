@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.BodyIndexView = app.helpers.BaseView.extend({
+    app.views.BodyIndexView = app.helpers.FormView.extend({
 
         classification: [{
             min: 0,
@@ -32,12 +32,7 @@
         ],
 
         events: {
-            'change [name=weight], [name=height]': 'changeData',
-            'click button': 'saveData'
-        },
-
-        saveData: function () {
-            this.model.save();
+            'change [name=weight], [name=height]': 'changeData'
         },
 
         eachRange: function (range) {
@@ -49,7 +44,9 @@
         coloredTableRow: function () {
             var neededRow = _.findKey(this.classification, this.eachRange.bind(this));
 
-            this.$('tbody tr').removeAttr('class').eq(neededRow).addClass(this.colors[neededRow]);
+            this.$('tbody tr').removeAttr('class')
+                .eq(neededRow)
+                .addClass(this.colors[neededRow]);
 
         },
 

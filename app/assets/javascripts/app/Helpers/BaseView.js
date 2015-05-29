@@ -40,9 +40,14 @@
             return document.importNode(content, true);
         },
 
+        afterRender: function () {
+
+        },
+
         render: function () {
             this.$el.html(this.getTemplate(this.tplName));
             this.binding();
+            this.afterRender();
 
             return this;
         },
