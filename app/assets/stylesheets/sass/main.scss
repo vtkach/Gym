@@ -53,6 +53,28 @@ section.row {
     }
   }
 
+  .body-index {
+    ul.nav-stacked {
+      min-width: 200px;
+    }
+    fieldset {
+      margin: 2em auto;
+    }
+    table {
+      tr {
+        &.colored {
+          background: gre
+        }
+        td, th {
+          vertical-align: middle;
+          white-space: nowrap;
+          text-align: center;
+        }
+      }
+    }
+
+  }
+
   .phys-state-form {
     .form-control {
       margin-bottom: 1em;
