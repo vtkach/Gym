@@ -19,6 +19,7 @@ class SessionsController < Devise::SessionsController
       response_params[:status] = 401
     end
 
+    response.headers['X-CSRF-Token'] = form_authenticity_token
     render response_params
   end
 

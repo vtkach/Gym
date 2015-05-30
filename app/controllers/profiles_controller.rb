@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, only: [:update]
   before_filter :check_current_user
 
   def show
