@@ -1,28 +1,31 @@
 class RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
+  include UserData
+
   def create
     build_resource(sign_up_params)
-    response_value = {}
+    response_params = {}
 
+    resource.profile = Profile.new
     resource.save
+
     yield resource if block_given?
 
     if resource.persisted?
       sign_up(resource_name, resource)
-      response_value[:json] = resource.to_json
+      response_params[:json] = generate_response(resource, resource.profile)
     else
-      response_value[:text] = generate_error(resource)
-      response_value[:status] = 422
+      response_params[:text] = generate_error(resource)
+      response_params[:status] = 422
     end
 
-    render response_value
+    render response_params
   end
 
   private
 
   def generate_error resource
-    # return { errors: resource.errors.to_json }
     errors = resource.errors.first
     error_title = errors.shift
 

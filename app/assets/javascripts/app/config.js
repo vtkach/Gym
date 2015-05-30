@@ -8,6 +8,7 @@
 //= require app/Models/UserActions
 //= require app/Models/InfoTab
 //= require app/Models/Session
+//= require app/Models/Profile
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/BodyIndex
 //= require app/Views/forms/Definition
@@ -19,6 +20,7 @@
 //= require app/Views/UserActions
 //= require app/Views/Registration
 //= require app/Views/InfoTab
+//= require app/Views/Profile
 //= require app/Views/Main
 //= require app/Routers/App
 //= require app/entry-point

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :main, only: [:index, :show]
+  resource :profile, only: [:show, :update]
   # get 'main/index'
   #
   # get 'main/show'

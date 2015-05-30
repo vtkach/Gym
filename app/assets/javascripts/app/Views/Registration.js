@@ -10,7 +10,7 @@
         },
 
         successRegistration: function (userData) {
-            app.instances.user.set(userData);
+            app.instances.user.setUserData(userData);
             app.instances.router.navigate('/', { trigger: true });
         }
 

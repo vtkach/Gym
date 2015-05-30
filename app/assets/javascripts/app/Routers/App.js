@@ -10,6 +10,7 @@
 
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
+            'infoTab/profile': 'openProfile',
             'infoTab/:template': 'checkUserRights',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
@@ -19,6 +20,7 @@
         initialize: function () {
             _.bindAll(this, 'loadUserData', 'renderByDefault');
             app.instances.session = new app.models.SessionModel();
+            app.instances.profile = new app.models.ProfileModel();
             app.instances.user = new app.models.UserModel();
             app.instances.session.checkSession().done(this.loadUserData);
         },
@@ -125,6 +127,15 @@
         renderByDefault: function () {
             this.createMainView();
             this.navigate('accessed/home', { trigger: true });
+        },
+
+        openProfile: function () {
+            this.clear();
+            this.currentView = new app.views.ProfileView({
+                model: app.instances.profile,
+                tplName: 'profile'
+            });
+            this.renderContent();
         }
 
     });

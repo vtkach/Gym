@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.all.each do |user|
+  unless user.profile
+    user.profile = Profile.new
+    user.save
+  end
+end

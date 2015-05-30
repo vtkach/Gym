@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController
 
+  include UserData
+
   skip_before_filter  :verify_authenticity_token, only: [:destroy]
   skip_before_filter  :verify_signed_out_user, only: [:destroy]
 
@@ -7,12 +9,17 @@ class SessionsController < Devise::SessionsController
 
   def create
     @user = User.find_by_email(user_params[:email])
+    response_params = {}
 
     if @user && @user.valid_password?(user_params[:password])
       sign_in(@user)
+      response_params[:json] = generate_response(@user, @user.profile)
     else
-      render plain: t('custom.errors.authentification'), status: 401
+      response_params[:plain] = t('custom.errors.authentification')
+      response_params[:status] = 401
     end
+
+    render response_params
   end
 
   def destroy
@@ -24,27 +31,27 @@ class SessionsController < Devise::SessionsController
   end
 
   def get_current_user
-    response_value = {}
+    response_params = {}
 
     if current_user
-      response_value[:json] = current_user.to_json
+      response_params[:json] = generate_response(current_user, current_user.profile)
     else
-      response_value[:json] = { errors: [t('custom.errors.currentUser')] }
-      response_value[:status] = 401
+      response_params[:json] = { errors: [t('custom.errors.currentUser')] }
+      response_params[:status] = 401
     end
 
-    render response_value
+    render response_params
   end
 
   def check_session
-    response_value =
+    response_params =
       if current_user
         { plain: 'Session is valid', status: 200 }
       else
         { text: t('custom.errors.sessionExpired'), status: 401 }
       end
 
-    render response_value
+    render response_params
   end
 
   private

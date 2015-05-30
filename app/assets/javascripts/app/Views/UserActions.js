@@ -14,12 +14,13 @@
             this._modelBinder = new Backbone.ModelBinder();
         },
 
-        onCancelForm: function () {
+        onCancelForm: function (e) {
+            this.prevDefault(e);
             app.instances.router.navigate('accessed/home', { trigger: true });
         },
 
         onSuccessCallback: function (userData) {
-            app.instances.user.set(userData);
+            app.instances.user.setUserData(userData);
             app.instances.router.navigate('accessed/home', { trigger: true });
             this.constructor.showFlashMessage('success', { responseText: 'Вы вошли!' });
         },
