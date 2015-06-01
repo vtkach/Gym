@@ -302,7 +302,33 @@
             </table>
         </template>
         <template id="shoulder-index">shoulder index</template>
-        <template id="physical-state">phys state</template>
+        <template id="physical-state">
+            <fieldset class="form-group body-index">
+                <h3>
+                    <span name="lastName"></span>
+                    <span name="firstName"></span>
+                    <span name="surname"></span>
+                    (<span name="gender"></span>)
+                </h3>
+                <fieldset>
+                  <input name="age" class="form-control" type="text" placeholder="Вiк" />
+                  <input name="date" class="form-control" type="text" placeholder="Дата" />
+                </fieldset>
+                <fieldset>
+                    <legend>Показники</legend>
+                    <input name='hight' class="form-control" placeholder="Зріст, см" />
+                    <input name='weight' class="form-control" placeholder="Вага, кг" />
+                    <input name='circumference' class="form-control" placeholder="Окружність грудноі клітки, см" />
+                    <input name='volume' class="form-control" placeholder="Життєва ємність легенів, мл" />
+                    <button class="btn btn-primary form-control">Розрахувати</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Результати</legend>
+                    <input name='bodyindex' class="form-control" placeholder="Індекс маси тіла" />
+                    <input name='lifeindex' class="form-control" placeholder="Життєвий індекс" />
+                </fieldset>
+            </fieldset>
+        </template>
 
     </head>
 

@@ -42,7 +42,7 @@
             if (this.sessionStatus === 'success') {
                 this.currentSubView = new app.views[templateToClassName + 'View']({
                     className: 'form-group ' + template,
-                    model: app.instances.user,
+                    model: app.instances.profile,
                     tagName: 'fieldset',
                     tplName: template
                 });
