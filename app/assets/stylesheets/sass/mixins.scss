@@ -24,3 +24,14 @@
   -o-animation: $animation $time;
   animation: $animation $time;
 }
+
+@mixin centered-table-content() {
+  table {
+    tr {
+      td, th {
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -61,15 +61,12 @@ section.row {
         margin-bottom: 1em !important;
       }
     }
-    table {
-      tr {
-        td, th {
-          vertical-align: middle;
-          text-align: center;
-        }
-      }
-    }
 
+    @include centered-table-content();
+  }
+
+  .physical-state {
+    @include centered-table-content();
   }
 
   .phys-state-form {
