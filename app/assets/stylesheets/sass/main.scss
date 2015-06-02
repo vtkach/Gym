@@ -69,7 +69,31 @@ section.row {
         }
       }
     }
+  }
 
+  .motor-activity {
+    tr {
+      @include user-select(none);
+      cursor: pointer;
+      th, td {
+        vertical-align: middle;
+        .glyphicon {
+          font-size: 1.5em;
+          &.glyphicon-remove {
+            color: #d9534f;
+            &:hover {
+              color: #c9302c;
+            }
+          }
+          &.glyphicon-plus {
+            color: #449d44;
+            &:hover {
+              color: #449d44;
+            }
+          }
+        }
+      }
+    }
   }
 
   .phys-state-form {

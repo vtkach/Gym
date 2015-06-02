@@ -2,6 +2,7 @@
 //= require app/Helpers/BaseModel
 //= require app/Helpers/BaseView
 //= require app/Helpers/FormView
+//= require app/Models/ActivityRow
 //= require app/Models/User
 //= require app/Models/Registration
 //= require app/Models/Authorization
@@ -9,7 +10,9 @@
 //= require app/Models/InfoTab
 //= require app/Models/Session
 //= require app/Models/Profile
+//= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
+//= require app/Views/forms/ActivityRow
 //= require app/Views/forms/BodyIndex
 //= require app/Views/forms/Definition
 //= require app/Views/forms/MotorActivity

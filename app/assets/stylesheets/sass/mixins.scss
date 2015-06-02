@@ -1,5 +1,4 @@
 @mixin keyframes ($animationName) {
-
   @-webkit-keyframes #{$animationName} {
       @content;
   }
@@ -15,7 +14,13 @@
   @keyframes #{$animationName} {
       @content;
   }
+}
 
+@mixin user-select($property) {
+  -webkit-user-select: $property;
+  -moz-user-select: $property;
+  -o-user-select: $property;
+  user-select: $property;
 }
 
 @mixin animation ($animation, $time) {
