@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     get 'users/current_user' => 'sessions#get_current_user'
   end
 
+  # get 'users/check_session' => 'sessions#check_session'
+
+  devise_scope :user do
+    get 'users/check_session' => 'sessions#check_session'
+  end
+
+
   resources :main, only: [:index, :show]
   resource :profile, only: [:show, :update]
   # get 'main/index'

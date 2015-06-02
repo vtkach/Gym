@@ -28,7 +28,7 @@
             var circleRadii = [11, 25, 31, 13, 20];
 
             this._collectionBinder.bind(this.collection, this.$('.activities'));
-            var svgContainer = d3.select("body")
+          /*  var svgContainer = d3.select("body")
                 .append("svg")
                 .attr("width", 600)
                 .attr("height", 100);
@@ -54,7 +54,7 @@
                     }
 
                     return returnColor;
-                });
+                });*/
         }
 
     });

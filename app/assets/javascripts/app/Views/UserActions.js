@@ -7,11 +7,17 @@
         events: {
             'click .btn-success': 'onSubmitUserAction',
             'submit form': 'prevDefault',
+            'change #remember-me': 'onRemember',
+            'click form button': 'prevDefault',
             'click .cancel': 'onCancelForm'
         },
 
-        onInit: function () {
-            this._modelBinder = new Backbone.ModelBinder();
+        onRemember: function (event) {
+
+        },
+
+        binding: function () {
+            this._modelBinder.bind(app.instances.user, this.$el);
         },
 
         onCancelForm: function (e) {

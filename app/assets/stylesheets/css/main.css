@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -41,6 +42,78 @@
   content: '';
 }
 
+@-webkit-keyframes notifier {
+  from {
+    top: -15vh;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    top: 10vh;
+  }
+  85% {
+    opacity: 1;
+    top: 10vh;
+  }
+  to {
+    top: -15vh;
+    opacity: 0;
+  }
+}
+@-moz-keyframes notifier {
+  from {
+    top: -15vh;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    top: 10vh;
+  }
+  85% {
+    opacity: 1;
+    top: 10vh;
+  }
+  to {
+    top: -15vh;
+    opacity: 0;
+  }
+}
+@-o-keyframes notifier {
+  from {
+    top: -15vh;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    top: 10vh;
+  }
+  85% {
+    opacity: 1;
+    top: 10vh;
+  }
+  to {
+    top: -15vh;
+    opacity: 0;
+  }
+}
+@keyframes notifier {
+  from {
+    top: -15vh;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    top: 10vh;
+  }
+  85% {
+    opacity: 1;
+    top: 10vh;
+  }
+  to {
+    top: -15vh;
+    opacity: 0;
+  }
+}
 @-webkit-keyframes slidedown {
   from {
     margin-top: -15%;
@@ -123,21 +196,75 @@
   transform: rotate(90deg);
 }
 
-section.row {
-  margin: 15% auto;
-}
-section.row a {
-  box-shadow: 2px 2px 0 #888;
-  border: 1px solid #000;
-  min-width: 100px;
-  border-radius: 5%;
-  cursor: pointer;
-  height: 150px;
-  margin: 4%;
-}
-section.row a:hover {
-  box-shadow: 1px 1px 20px #009933;
+section.row .fade-in > a {
+  /*    min-width: 100px;
+      border-radius: 5%;
+      cursor: pointer;
+      height: 150px;
+      margin: 4%;*/
+  /*    &:hover {
+        box-shadow: 1px 1px 20px $green;
+      }*/
 }
 section.row .profile-fields > input {
   margin-top: 1em;
+}
+section.row .body-index ul.nav-stacked {
+  min-width: 200px;
+}
+section.row .body-index fieldset .form-control {
+  margin-bottom: 1em !important;
+}
+section.row .body-index table tr td, section.row .body-index table tr th {
+  vertical-align: middle;
+  text-align: center;
+}
+section.row .physical-state table tr td, section.row .physical-state table tr th {
+  vertical-align: middle;
+  text-align: center;
+}
+section.row .phys-state-form .form-control {
+  margin-bottom: 1em;
+}
+section.row aside .nav-stacked {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 1em;
+}
+section.row aside .nav-stacked li:last-child a {
+  border-bottom: none;
+}
+section.row aside .nav-stacked li a {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+}
+section.row aside .nav-stacked li a:hover {
+  background: #337ab7;
+  cursor: pointer;
+  color: #fff;
+}
+
+.flash-message {
+  white-space: nowrap;
+  position: absolute;
+  left: 35vw;
+  top: -10vh;
+}
+.flash-message.notify {
+  -webkit-animation: notifier 6s;
+  -moz-animation: notifier 6s;
+  -o-animation: notifier 6s;
+  animation: notifier 6s;
+}
+.flash-message.alert-danger strong:before {
+  content: 'Ошибка!';
+}
+.flash-message.alert-warning strong:before {
+  content: 'Прудпреждение!';
+}
+.flash-message.alert-success strong:before {
+  content: 'Обновлено!';
+}
+.flash-message.alert-info strong:before {
+  content: 'К сведению!';
 }

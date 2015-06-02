@@ -64,10 +64,10 @@
             app.instances.user
                 .loadUser()
                 .then(function (userData) {
-                        console.log('success', userData);
-                    }, function () {
-                        debugger;
-                    }.bind(app.instances.user));
+                    console.log('success', userData);
+                }, function () {
+                    debugger;
+                }.bind(app.instances.user));
         },
 
         checkExistViews: function (route) {

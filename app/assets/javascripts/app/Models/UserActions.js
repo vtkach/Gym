@@ -2,8 +2,6 @@
 
     app.models.UserActionsModel = app.helpers.BaseModel.extend({
 
-        defaults: {},
-
         initialize: function (options) {
             this.route = options.route;
         },

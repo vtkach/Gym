@@ -209,9 +209,86 @@
         <template id="you-should-know">you-should-know</template>
         <template id="complex-self-improving">complex-self-improving</template>
         <template id="notebook-for-exercices">notebook-for-exercices</template>
-
         <template id="definition">definition</template>
-        <template id="motor-activity">motor-activity</template>
+        <template id="activity-row">
+            <td>
+                <input class='form-control' name="startDate" />
+            </td>
+            <td colspan="2">
+                <input class='form-control' name="description" />
+            </td>
+            <td>
+                <input class='form-control' name="activityPeriod" />
+            </td>
+            <td>
+                <input class='form-control' name="activityLevel" />
+            </td>
+            <td>
+                <span class="glyphicon glyphicon-remove"></span>
+            </td>
+        </template>
+        <template id="motor-activity">
+            <fieldset>
+                <legend>Карта реєстрації рухової активності</legend>
+            </fieldset>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <th>Час початку діяльності</th>
+                    <th colspan="2">Загальний зміст діяльності</th>
+                    <th>Тривалість діяльності</th>
+                    <th>Рівень рухової активності</th>
+                    <th>
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </th>
+                </thead>
+                <tbody class="activities"></tbody>
+            </table>
+            <button class="btn btn-primary form-control">Розрахувати</button>
+            <fieldset>
+                <legend>Отриманий результат:</legend>
+            </fieldset>
+            <table class="table table-striped table-hover">
+                <thead>
+                <th colspan="2">Рівень рухової активності</th>
+                <th colspan="2">Загальна кількість часу (год.,хв.)</th>
+                <th colspan="2">Відсоток на добу (%)</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="2">Базовий рівень</td>
+                    <td colspan="2" name="basic-count"></td>
+                    <td colspan="2" name="basic-percent"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Сидячий рівень</td>
+                    <td colspan="2" name="sitting-count"></td>
+                    <td colspan="2" name="sitting-percent"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Малий рівень</td>
+                    <td colspan="2" name="small-count"></td>
+                    <td colspan="2" name="small-percent"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Середній рівень</td>
+                    <td colspan="2" name="middle-count"></td>
+                    <td colspan="2" name="middle-percent"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Високий рівень </td>
+                    <td colspan="2" name="high-count"></td>
+                    <td colspan="2" name="high-percent"></td>
+                </tr>
+                </tbody>
+            </table>
+            <svg width="50" height="50">
+                <circle></circle>
+                <circle></circle>
+                <circle></circle>
+                <circle></circle>
+                <circle></circle>
+            </svg>
+        </template>
         <template id="physical-health">
             <input name='hight' class="form-control" placeholder="Зріст, см" />
             <input name='weight' class="form-control" placeholder="Вага, кг" />
@@ -851,7 +928,6 @@
                 </tbody>
             </table>
         </template>
-
     </head>
 
     <body class="container">
@@ -874,6 +950,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#accessed/signin">Логин</a></li>
                                 <li><a href="#register">Регистрация</a></li>
+                                <li><a href="#accessed/register">Регистрация</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#infoTab/profile">Профиль</a></li>
                             </ul>

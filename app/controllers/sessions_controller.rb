@@ -46,11 +46,11 @@ class SessionsController < Devise::SessionsController
 
   def check_session
     response_params =
-      if current_user
-        { plain: 'Session is valid', status: 200 }
-      else
-        { text: t('custom.errors.sessionExpired'), status: 401 }
-      end
+        if current_user
+          { plain: 'Session is valid', status: 200 }
+        else
+          { text: t('custom.errors.sessionExpired'), status: 401 }
+        end
 
     render response_params
   end

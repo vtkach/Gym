@@ -6,7 +6,7 @@
             activityPeriod: '',
             activityLevel: '',
             description: '',
-            startData: ''
+            startDate: ''
         }
 
     });
