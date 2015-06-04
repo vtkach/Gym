@@ -197,14 +197,16 @@
 }
 
 section.row .fade-in > a {
-  /*    min-width: 100px;
-      border-radius: 5%;
-      cursor: pointer;
-      height: 150px;
-      margin: 4%;*/
-  /*    &:hover {
-        box-shadow: 1px 1px 20px $green;
-      }*/
+  box-shadow: 2px 2px 0 #888;
+  border: 1px solid #000;
+  min-width: 100px;
+  border-radius: 5%;
+  cursor: pointer;
+  height: 150px;
+  margin: 4%;
+}
+section.row .fade-in > a:hover {
+  box-shadow: 1px 1px 20px #009933;
 }
 section.row .profile-fields > input {
   margin-top: 1em;
@@ -218,6 +220,30 @@ section.row .body-index fieldset .form-control {
 section.row .body-index table tr td, section.row .body-index table tr th {
   vertical-align: middle;
   text-align: center;
+}
+section.row .motor-activity table tr td, section.row .motor-activity table tr th {
+  vertical-align: middle;
+  text-align: center;
+}
+section.row .motor-activity table tr .glyphicon {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+section.row .motor-activity table tr .glyphicon.glyphicon-remove {
+  border-color: #d43f3a;
+  color: #d9534f;
+}
+section.row .motor-activity table tr .glyphicon.glyphicon-remove:hover {
+  border-color: #ac2925;
+  color: #ac2925;
+}
+section.row .motor-activity table tr .glyphicon.glyphicon-plus {
+  border-color: #4cae4c;
+  color: #5cb85c;
+}
+section.row .motor-activity table tr .glyphicon.glyphicon-plus:hover {
+  border-color: #398439;
+  color: #449d44;
 }
 section.row .physical-state table tr td, section.row .physical-state table tr th {
   vertical-align: middle;
