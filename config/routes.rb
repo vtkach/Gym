@@ -2,17 +2,9 @@ Rails.application.routes.draw do
   
   devise_for :users, :controllers => { sessions: 'sessions', registrations: 'registrations' }
 
-  # get 'users/check_session' => 'sessions#check_session'
-
   devise_scope :user do
     get 'users/check_session' => 'sessions#check_session'
     get 'users/current_user' => 'sessions#get_current_user'
-  end
-
-  # get 'users/check_session' => 'sessions#check_session'
-
-  devise_scope :user do
-    get 'users/check_session' => 'sessions#check_session'
   end
 
 

@@ -17,7 +17,7 @@
         },
 
         binding: function () {
-            this._modelBinder.bind(app.instances.user, this.$el);
+            this._modelBinder.bind(this.model, this.$el);
         },
 
         onCancelForm: function (e) {
