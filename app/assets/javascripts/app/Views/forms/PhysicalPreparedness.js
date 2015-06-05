@@ -6,8 +6,8 @@
             var bindFields = [
                 "pushups",
                 "raising",
-                "jumpblength",
-                "jumpbheight",
+                "jumplength",
+                "jumpheight",
                 "estapheta",
                 "coopertest",
                 "straightlegs",
