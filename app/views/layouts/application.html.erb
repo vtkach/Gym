@@ -189,7 +189,7 @@
                         <a href='#infoTab/my-phis-state/shoulder-index'>Плечовий індекс та постава</a>
                     </li>
                     <li>
-                        <a href='#infoTab/my-phis-state/physical-preparedness'>Фізична підготовленіст</a>
+                        <a href='#infoTab/my-phis-state/physical-preparedness'>Фізична підготовленість</a>
                     </li>
                     <li>
                         <a href='#infoTab/my-phis-state/physical-health'>Фізичне здоров’я по Г.Л. Апанасенко</a>
@@ -301,7 +301,86 @@
                 <input name='lifeindex' class="form-control" placeholder="Життєвий індекс" />
             </fieldset>
         </template>
-        <template id="physical-preparedness">phys prepar</template>
+        <template id="physical-preparedness">
+            <fieldset>
+                <legend>Фізична підготовленість </legend>
+
+            </fieldset>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">Тести</th>
+                        <th colspan="2">Результат</th>
+                        <th colspan="2">Рівень фізичноі підготовленості</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Згинання і розгинання рук в упорі лежачи (разів) </td>
+                        <td colspan="2">
+                            <input name="pushups" class="form-control" />
+                        </td>
+                        <td colspan="2" name="pushups"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Піднімання в сід за 1 хв (разів) </td>
+                        <td colspan="2">
+                            <input name="raising" class="form-control" />
+                        </td>
+                        <td colspan="2" name="raising"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Стрибок у довжину з місця (см) </td>
+                        <td colspan="2">
+                            <input name="jumblength" class="form-control" />
+                        </td>
+                        <td colspan="2" name="jumblength"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Стрибок в висоту з місця (см) </td>
+                        <td colspan="2">
+                            <input name="jumbheight" class="form-control" />
+                        </td>
+                        <td colspan="2" name="jumbheight"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">«Естафетний тест» (см) </td>
+                        <td colspan="2">
+                            <input name="estapheta" class="form-control"/>
+                        </td>
+                        <td colspan="2" name="estapheta"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">12-хвилиний тест Купера (м) </td>
+                        <td colspan="2">
+                            <input name='coopertest' class="form-control" />
+                        </td>
+                        <td colspan="2" name='coopertest'></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів) </td>
+                        <td colspan="2">
+                            <input name="straightlegs" class="form-control" />
+                        </td>
+                        <td colspan="2" name="straightlegs"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Тест «Фламінго» (кількість спроб) </td>
+                        <td colspan="2">
+                            <input name="flamingotest" class="form-control" />
+                        </td>
+                        <td colspan="2" name="flamingotest"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Нахил тулуба вперед з положення сидячи (см) </td>
+                        <td colspan="2">
+                            <input name="inclines" class="form-control" />
+                        </td>
+                        <td colspan="2" name="inclines"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
         <template id="body-index">
             <fieldset>
                 <legend>Введіть дані</legend>

@@ -51,7 +51,9 @@ section.row {
       margin-top: 1em;
     }
   }
-
+  .physical-preparedness {
+    @include centered-table-content();
+  }
   .body-index {
     ul.nav-stacked {
       min-width: 200px;

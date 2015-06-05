@@ -60,7 +60,6 @@
 
     }, {
         showFlashMessage: function (messageType, xhr) {
-            console.warn(arguments)
             var $flashMessage = $('.flash-message'),
                 classesToRemove = [
                     'alert-warning',
