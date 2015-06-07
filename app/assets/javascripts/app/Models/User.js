@@ -27,24 +27,6 @@
             return this.fetch({
                 url: '/users/current_user'
             });
-        },
-
-        logIn: function () {
-            return this.save({}, {
-                url: '/users/sign_in',
-                method: 'POST'
-            });
-        },
-
-        createUser: function (userData) {
-            return this.save(userData, {
-                url: '/users',
-                method: 'POST'
-            });
-        },
-
-        loadProfile: function () {
-            return app.instances.profile.fetch();
         }
 
     });

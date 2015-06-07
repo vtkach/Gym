@@ -2,11 +2,17 @@
 
     app.models.NoteModel = app.models.BaseModel.extend({
 
-        url: '',
+        url: '/notes',
 
         defaults: {
             date: '',
             note: ''
+        },
+
+        toJSON: function () {
+            return {
+                note: _.clone(this.attributes)
+            };
         }
 
     });

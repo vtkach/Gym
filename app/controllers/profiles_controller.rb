@@ -4,14 +4,15 @@ class ProfilesController < ApplicationController
   before_filter :check_current_user
 
   def show
-    render json: current_user.profile.to_json
+    @profile = current_user.profile
   end
 
   def update
     response_params = {}
+    @profile = Profile.find_by(user_id: current_user.id)
 
-    if current_user.profile.update(profile_params)
-      response_params[:json] = current_user.profile.to_json
+    if !@profile.update(profile_params)
+      response_params = :show
     else
       response_params[:text] = t('custom.errors.profile')
       response_params[:status] = 501
@@ -21,12 +22,6 @@ class ProfilesController < ApplicationController
   end
 
   private
-
-  def check_current_user
-    unless valid_user?
-      render status: 401, text: t('custom.errors.sessionExpired')
-    end
-  end
 
   def profile_params
     params.require(:profile)

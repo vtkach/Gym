@@ -2,13 +2,15 @@
 
     app.views.NotesView = app.views.UserActionsView.extend({
 
-
-        afterRender: function () {
-            console.warn(this.model.toJSON());
+        onSubmitUserAction: function () {
+            this.model.save()
+                .done(this.refreshModel.bind(this));
         },
 
-        onSubmitUserAction: function () {
-            this.model.save();
+        refreshModel: function () {
+            this._modelBinder.unbind(this.model);
+            this.model = new this.model.constructor();
+            this.binding();
         }
 
     });
