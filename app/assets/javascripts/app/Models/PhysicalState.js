@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.PhysicalState = app.models.BaseModel.extend({
+    app.models.PhysicalStateModel = app.models.BaseModel.extend({
 
         url: function () {
             var id = this.get('id') || '';

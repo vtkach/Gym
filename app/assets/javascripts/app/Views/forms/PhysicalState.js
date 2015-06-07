@@ -3,7 +3,7 @@
     app.views.PhysicalStateView = app.views.FormView.extend({
 
         onInit: function () {
-            this.model = new app.models.PhysicalState();
+            this.model = new app.models.PhysicalStateModel();
         },
 
         afterRender: function () {
