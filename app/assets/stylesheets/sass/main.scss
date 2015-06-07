@@ -100,6 +100,10 @@ section.row {
     @include centered-table-content();
   }
 
+  .physical-health {
+    @include first-column-width(130px);
+  }
+
   .phys-state-form {
     .form-control {
       margin-bottom: 1em;

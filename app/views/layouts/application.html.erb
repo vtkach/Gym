@@ -249,9 +249,9 @@
             </fieldset>
             <table class="table table-striped table-hover">
                 <thead>
-                <th colspan="2">Рівень рухової активності</th>
-                <th colspan="2">Загальна кількість часу (год.,хв.)</th>
-                <th colspan="2">Відсоток на добу (%)</th>
+                    <th colspan="2">Рівень рухової активності</th>
+                    <th colspan="2">Загальна кількість часу (год.,хв.)</th>
+                    <th colspan="2">Відсоток на добу (%)</th>
                 </thead>
                 <tbody>
                 <tr>
@@ -290,15 +290,537 @@
             </svg>
         </template>
         <template id="physical-health">
-            <input name='hight' class="form-control" placeholder="Зріст, см" />
-            <input name='weight' class="form-control" placeholder="Вага, кг" />
-            <input name='circumference' class="form-control" placeholder="Окружність грудноі клітки, см" />
-            <input name='volume' class="form-control" placeholder="Життєва ємність легенів, мл" />
-            <button class="btn btn-primary form-control">Розрахувати</button>
-            <fieldset>
-                <legend>Результати</legend>
-                <input name='bodyindex' class="form-control" placeholder="Індекс маси тіла" />
-                <input name='lifeindex' class="form-control" placeholder="Життєвий індекс" />
+            <fieldset class="form-group body-index">
+                <h3>
+                    <span name="lastName"></span>
+                    <span name="firstName"></span>
+                    <span name="surname"></span>
+                    (<span name="gender"></span>)
+                </h3>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="age" class="col-sm-6 control-label">Вiк</label>
+                        <div class="col-sm-6">
+                            <input id="age" name="age" class="form-control" type="text" placeholder="Вiк" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="col-sm-6 control-label">Дата</label>
+                        <div class="col-sm-6">
+                            <input id="date" name="date" class="form-control" type="text" placeholder="Дата" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Показники</legend>
+
+                    <div class="form-group">
+                        <label for="height" class="col-sm-6 control-label">Зріст, см</label>
+                        <div class="col-sm-6">
+                            <input id="height" name="height" class="form-control" placeholder="Зріст, см" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight" class="col-sm-6 control-label">Вага, кг</label>
+                        <div class="col-sm-6">
+                            <input id="weight" name='weight' class="form-control" placeholder="Вага, кг" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pressure" class="col-sm-6 control-label">Артеріальний тиск систолічний ("верхнє"):</label>
+                        <div class="col-sm-6">
+                            <input id="pressure" name="pressure" class="form-control" placeholder="Артеріальний тиск" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volume" class="col-sm-6 control-label">Життєва ємність легенів, мл</label>
+                        <div class="col-sm-6">
+                            <input id="volume" name="volume" class="form-control" placeholder="Життєва ємність легенів, мл" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrist" class="col-sm-6 control-label">Сила кисті (динамометрія) (кг)</label>
+                        <div class="col-sm-6">
+                            <input id="wrist" name="wrist" class="form-control" placeholder="Сила кисті, кг" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pulse" class="col-sm-6 control-label">Частота серцевих скорочень (пульс за 1 хв)</label>
+                        <div class="col-sm-6">
+                            <input id="pulse" name="pulse" class="form-control" placeholder="Частота серцевих скорочень" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pulseRecovering" class="col-sm-6 control-label">Час (хв) відновлення ЧСС після 20 присідань за 30 сек.</label>
+                        <div class="col-sm-6">
+                            <input id="pulseRecovering" name="pulseRecovering" class="form-control" placeholder="Час відновлення пульсу, хв" />
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary form-control">Розрахувати</button>
+
+                    <div class="form-group">
+                        <label for="result" class="col-sm-6 control-label">Результат</label>
+                        <div class="col-sm-6">
+                            <input id="result" name='result' class="form-control" placeholder="Результат" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Оцінка соматичного здоров’я за Г.Л. Апанасенко</legend>
+                    <p>ЖЄЛ – життєва емність легень (мл)</p>
+                    <p>ЧСС – частота серцевих скорочень (уд.хв)</p>
+                    <p>АТ сист. – артеріальний тиск, систолічний (уд.хв)</p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Таблиця співвідношення отриманих балів  рівням здоров’я</legend>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th rowspan="2"></th>
+                                <th colspan="5">Рівні здоров’я</th>
+                            </tr>
+                            <tr>
+                                <th>Низький</th>
+                                <th>Нижче за середній</th>
+                                <th>Середній</th>
+                                <th>Вище за середній</th>
+                                <th>Високий</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Загальна оцінка рівня здоров’я</td>
+                                <td>3 і менше балів</td>
+                                <td>4 - 6 балів</td>
+                                <td>7 - 11 балів</td>
+                                <td>12 - 15 балів</td>
+                                <td>16 - 18 балів</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Хлопцi</legend>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Показники
+                                </th>
+                                <th colspan="5">
+                                    Бали
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    масса тiла
+                                    <strong> / </strong>
+                                    довжина тiла (г/см)
+                                </td>
+
+                                <td>
+                                    <p>18,9 і менше</p>
+                                    <p>
+                                        <strong>-2 бали</strong>
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p>19.0 - 20.0</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>20.1 - 25.0</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>25.1 - 28.0</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>28.1 і більше</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ЖЄЛ
+                                    <strong>/</strong>
+                                    маса тіла
+                                    (мл/кг)
+                                </td>
+                                <td>
+                                    <p>50 і менше</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>51 - 55</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>56 - 60</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>61 - 65</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>66 і більше</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    (динамометрія кисті, кг
+                                    <strong>/</strong>
+                                    маса тіла, кг)
+                                    <strong>*</strong>
+                                    100 (%)</td>
+                                <td>
+                                    <p>60 і менше</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>61 - 65</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>66 - 70</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>71 - 80</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>81 і більше</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    (ЧСС
+                                    <strong>*</strong>
+                                    АТсист)
+                                    <strong>/</strong>
+                                    100
+                                </td>
+                                <td>
+                                    <p>111 і більше</p>
+                                    <p>
+                                        <strong>-2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>95 - 110</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>85 - 94</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>70 - 84</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>69 і менше</p>
+                                    <p>
+                                        <strong>5 балів</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Час (хв.) відновл. ЧСС після 20 прис. за 30 сек.</td>
+                                <td>
+                                    <p>3 і більше</p>
+                                    <p>
+                                        <strong>-2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>2 - 3</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>1.30 - 1.59</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>1.00 - 1.29</p>
+                                    <p>
+                                        <strong>5 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>0.59 і менше</p>
+                                    <p>
+                                        <strong>7 балів</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Дiвчата</legend>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Показники
+                                </th>
+                                <th colspan="5">
+                                    Бали
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    масса тiла
+                                    <strong> / </strong>
+                                    довжина тiла (г/см)
+                                </td>
+                                <td>
+                                    <p>16,9 і менше</p>
+                                    <p>
+                                        <strong>-2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>17.0 - 18.0</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>18.1 - 23.8</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>23.9 - 26.0</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>26.1 і більше</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ЖЄЛ
+                                    <strong>/</strong>
+                                    маса тіла
+                                    (мл/кг)
+                                </td>
+                                <td>
+                                    <p>40 і менше</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>41 - 45</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>46 - 50</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>51 - 55</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>56 і більше</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    (динамометрія кисті, кг
+                                    <strong>/</strong>
+                                    маса тіла, кг)
+                                    <strong>*</strong>
+                                    100 (%)
+                                </td>
+                                <td>
+                                    <p>40 і менше</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>41 - 50</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>51 - 55</p>
+                                    <p>
+                                        <strong>1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>56 - 60</p>
+                                    <p>
+                                        <strong>2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>61 і більше</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    (ЧСС
+                                    <strong>*</strong>
+                                    АТсист)
+                                    <strong>/</strong>
+                                    100
+                                </td>
+                                <td>
+                                    <p>111 і більше</p>
+                                    <p>
+                                        <strong>-2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>95 - 110</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>85 - 94</p>
+                                    <p>
+                                        <strong>0 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>70 - 84</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>69 і менше</p>
+                                    <p>
+                                        <strong>5 балів</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Час (хв.) відновл. ЧСС після 20 прис. за 30 сек.
+                                </td>
+                                <td>
+                                    <p>3 і більше</p>
+                                    <p>
+                                        <strong>-2 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>2 - 3</p>
+                                    <p>
+                                        <strong>-1 бал</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>1.30 - 1.59</p>
+                                    <p>
+                                        <strong>3 бала</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>1.00 - 1.29</p>
+                                    <p>
+                                        <strong>5 балів</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>0.59 і менше</p>
+                                    <p>
+                                        <strong>7 балів</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
             </fieldset>
         </template>
         <template id="physical-preparedness">
@@ -512,7 +1034,7 @@
                     <div class="form-group">
                         <label for="shoulderWidth" class="col-sm-6 control-label">Ширина плечей, см</label>
                         <div class="col-sm-6">
-                            <input name='shoulderWidth' class="form-control" placeholder="Ширина плечей, см" />
+                            <input id="shoulderWidth" name='shoulderWidth' class="form-control" placeholder="Ширина плечей, см" />
                         </div>
                     </div>
 
