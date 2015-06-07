@@ -11,14 +11,13 @@
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/profile': 'openProfile',
-            'infoTab/:template': 'checkUserRights',
+            'infoTab/:template': 'checkRightForInfoTab',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
             '': 'renderByDefault'
         },
 
         initialize: function () {
-            _.bindAll(this, 'loadUserData', 'renderByDefault');
             app.instances.session = new app.models.SessionModel();
             app.instances.profile = new app.models.ProfileModel();
             app.instances.user = new app.models.UserModel();
@@ -35,20 +34,32 @@
             return arr.map(this.capitalize).join('');
         },
 
-        renderTplIntoPhisState: function (template) {
+        checkRightForInfoTab: function (tpl) {
+            this.checkUserRights(tpl)
+                .done(this.renderByPage.bind(this, tpl))
+                .fail(this.renderByDefault);
+        },
+
+        renderSubPhysView: function (template) {
             var templateToClassName = this.convertToClassName(template);
 
-            this.checkUserRights('my-phis-state');
-            if (this.sessionStatus === 'success') {
-                this.currentSubView = new app.views[templateToClassName + 'View']({
-                    className: 'form-group ' + template,
-                    model: app.instances.profile,
-                    tagName: 'fieldset',
-                    tplName: template
-                });
+            this.currentSubView = new app.views[templateToClassName + 'View']({
+                className: 'form-group ' + template,
+                model: app.instances.profile,
+                tagName: 'fieldset',
+                tplName: template
+            });
 
-                this.currentView.$('.form-container').html(this.currentSubView.render().el);
-            }
+            this.currentView.$('.form-container').html(this.currentSubView.render().el);
+        },
+
+        renderTplIntoPhisState: function (template) {
+            this.checkUserRights('my-phis-state')
+                //.fail(this.renderByDefault)
+                .done(function () {
+                    this.renderByPage('my-phis-state');
+                    this.renderSubPhysView(template);
+                }.bind(this));
         },
 
         onRegister: function () {
@@ -64,6 +75,7 @@
             app.instances.user
                 .loadUser()
                 .then(function (userData) {
+                    console.log('success', userData);
                 }, function () {
                     debugger;
                 }.bind(app.instances.user));
@@ -96,14 +108,9 @@
             this.sessionStatus = state;
         },
 
-        checkUserRights: function (template) {
-            if (this.currentTemplate !== template) {
-                this.currentTemplate = template;
-                app.instances.session.checkSession()
-                    .done(this.renderByPage.bind(this, template))
-                    .fail(this.renderByDefault)
-                    .always(this.setState.bind(this));
-            }
+        checkUserRights: function () {
+            return app.instances.session.checkSession()
+                .always(this.setState.bind(this));
         },
 
         createMainView: function () {
@@ -120,7 +127,11 @@
                 //TODO: remove this
                 model: new app.helpers.BaseModel()
             });
+
             this.renderContent();
+            if (template === 'my-phis-state') {
+                this.renderSubPhysView('body-index');
+            }
         },
 
         renderByDefault: function () {
