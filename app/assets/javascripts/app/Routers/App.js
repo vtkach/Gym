@@ -63,17 +63,6 @@
                 }.bind(this));
         },
 
-        onRegister: function () {
-            var options = {
-                model: this.modelFactoryMethod('Registration'),
-                tplName: 'register'
-            };
-
-            this.clear();
-            this.currentView = this.viewFactoryMethod('Registration', options);
-            this.renderContent();
-        },
-
         loadUserData: function () {
             app.instances.user
                 .loadUser()
@@ -95,18 +84,6 @@
 
         renderContent: function () {
             this.mainView.$mainContainer.html(this.currentView.render().el);
-        },
-
-        renderTemplate: function (route) {
-            var options = {
-                //model: new app.models.UserActionsModel({ route: route }),
-                model: this.modelFactoryMethod('UserActions'),
-                tplName: route
-            };
-
-            this.clear();
-            this.currentView = this.viewFactoryMethod('UserActions', options);
-            this.renderContent();
         },
 
         setState: function (xhr, state) {
@@ -146,6 +123,30 @@
             this.navigate('accessed/home', { trigger: true });
         },
 
+        //TODO move this stuff to some "DRY" method
+        onRegister: function () {
+            var options = {
+                model: this.modelFactoryMethod('Registration'),
+                tplName: 'register'
+            };
+
+            this.clear();
+            this.currentView = this.viewFactoryMethod('Registration', options);
+            this.renderContent();
+        },
+
+        renderTemplate: function (route) {
+            var options = {
+                //model: new app.models.UserActionsModel({ route: route }),
+                model: this.modelFactoryMethod('UserActions'),
+                tplName: route
+            };
+
+            this.clear();
+            this.currentView = this.viewFactoryMethod('UserActions', options);
+            this.renderContent();
+        },
+
         openProfile: function () {
             var options = {
                 model: app.instances.profile,
@@ -158,13 +159,13 @@
         },
 
         openNotebook: function () {
-            this.clear();
-
-            this.currentView = new app.views.NotesView({
-                model: new app.models.NoteModel(),
+            var options = {
+                model: this.modelFactoryMethod('Note'),
                 tplName: 'notebook-for-exercices'
-            });
+            };
 
+            this.clear();
+            this.currentView = this.viewFactoryMethod('Notes', options);
             this.renderContent();
         }
 
