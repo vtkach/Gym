@@ -2,11 +2,7 @@
 
     app.models.PhysicalStateModel = app.models.BaseModel.extend({
 
-        url: function () {
-            var id = this.get('id') || '';
-
-            return '/physical_states/' + id;
-        },
+        urlPart: '/physical_states/',
 
         defaults: {
             circumference: '',
@@ -19,16 +15,14 @@
         },
 
         calculate: function () {
-            this.calculateBodyIndex();
-            this.calculateLifeIndex();
-        },
+            var weight = this.get('weight'),
+                bodyIndex = weight / (this.get('height')) * 100,
+                lifeindex = this.get('volume') / weight;
 
-        calculateBodyIndex: function () {
-            this.set('bodyindex', this.get('weight') / (this.get('height')) * 100);
-        },
-
-        calculateLifeIndex: function () {
-            this.set('lifeindex', this.get('volume') / this.get('weight'));
+            this.set({
+                bodyindex: bodyIndex,
+                lifeindex: lifeindex
+            });
         },
 
         toJSON: function () {

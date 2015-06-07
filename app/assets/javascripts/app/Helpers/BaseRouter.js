@@ -2,12 +2,14 @@
 
     app.routers.BaseRouter = Backbone.Router.extend({
 
-        viewFactoryMethod: function (name, options) {
-            return new app.views[name + 'View'](options);
+        capitalize: function (string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
         },
 
-        modelFactoryMethod: function (name, options) {
-            return new app.models[name + 'Model'](options);
+        factoryMethod: function (type, name, options) {
+            var classType = this.capitalize(type);
+
+            return new app[type + 's'][name + classType](options);
         }
 
     });

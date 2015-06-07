@@ -2,11 +2,7 @@
 
     app.models.ShoulderIndexModel = app.models.BaseModel.extend({
 
-        url: function () {
-            var id = this.get('id') || '';
-
-            return '/shoulder_indices/' + id;
-        },
+        urlPart: '/shoulder_indices/',
 
         defaults: {
             shoulder: '',
@@ -15,10 +11,6 @@
         },
 
         calculate: function () {
-            this.calculateBrachialIndex();
-        },
-
-        calculateBrachialIndex: function () {
             var result = this.get('shoulderWidth') / this.get('shoulder') * 100;
 
             this.set('brachialIndex', result);

@@ -19,14 +19,10 @@
         },
 
         initialize: function () {
-            app.instances.session = this.modelFactoryMethod('Session');
-            app.instances.profile = this.modelFactoryMethod('Profile');
-            app.instances.user = this.modelFactoryMethod('User');
+            app.instances.session = this.factoryMethod('model', 'Session');
+            app.instances.profile = this.factoryMethod('model', 'Profile');
+            app.instances.user = this.factoryMethod('model', 'User');
             app.instances.session.checkSession().done(this.loadUserData);
-        },
-
-        capitalize: function (string) {
-            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
         },
 
         convertToClassName: function (template) {
@@ -51,7 +47,7 @@
                     tplName: template
                 };
 
-            this.currentSubView = this.viewFactoryMethod(templateToClassName, options);
+            this.currentSubView = this.factoryMethod('view', templateToClassName, options);
             this.currentView.$('.form-container').html(this.currentSubView.render().el);
         },
 
@@ -101,18 +97,18 @@
                 model: app.instances.user
             };
 
-            this.mainView = this.viewFactoryMethod('Main', options);
+            this.mainView = this.factoryMethod('view', 'Main', options);
             this.mainView.cacheElements();
         },
 
         renderByPage: function (template) {
             var options = {
-                model: this.modelFactoryMethod('Base'),
+                model: this.factoryMethod('model', 'Base'),
                 tplName: template
             };
 
             this.clear();
-            this.currentView = this.viewFactoryMethod('InfoTab', options);
+            this.currentView = this.factoryMethod('view', 'InfoTab', options);
             this.renderContent();
             if (template === 'my-phis-state') {
                 this.renderSubPhysView('body-index');
@@ -127,24 +123,24 @@
         //TODO move this stuff to some "DRY" method
         onRegister: function () {
             var options = {
-                model: this.modelFactoryMethod('Registration'),
+                model: this.factoryMethod('model', 'Registration'),
                 tplName: 'register'
             };
 
             this.clear();
-            this.currentView = this.viewFactoryMethod('Registration', options);
+            this.currentView = this.factoryMethod('view', 'Registration', options);
             this.renderContent();
         },
 
         renderTemplate: function (route) {
             var options = {
                 //model: new app.models.UserActionsModel({ route: route }),
-                model: this.modelFactoryMethod('UserActions'),
+                model: this.factoryMethod('model', 'UserActions'),
                 tplName: route
             };
 
             this.clear();
-            this.currentView = this.viewFactoryMethod('UserActions', options);
+            this.currentView = this.factoryMethod('view', 'UserActions', options);
             this.renderContent();
         },
 
@@ -155,18 +151,18 @@
             };
 
             this.clear();
-            this.currentView = this.viewFactoryMethod('Profile', options);
+            this.currentView = this.factoryMethod('view', 'Profile', options);
             this.renderContent();
         },
 
         openNotebook: function () {
             var options = {
-                model: this.modelFactoryMethod('Note'),
+                model: this.factoryMethod('model', 'Note'),
                 tplName: 'notebook-for-exercices'
             };
 
             this.clear();
-            this.currentView = this.viewFactoryMethod('Notes', options);
+            this.currentView = this.factoryMethod('view', 'Notes', options);
             this.renderContent();
         }
 
