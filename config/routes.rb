@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :notes
+  resources :physical_states
   resources :main, only: [:index, :show]
   resource :profile, only: [:show, :update]
   # get 'main/index'

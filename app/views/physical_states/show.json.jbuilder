@@ -1,0 +1,10 @@
+json.extract! @physical_state,
+              :id,
+              :weight,
+              :height,
+              :volume,
+              :circumference,
+              :bodyindex,
+              :lifeindex,
+              :created_at,
+              :updated_at

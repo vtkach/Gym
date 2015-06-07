@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :notes
+  has_many :physical_states
 end

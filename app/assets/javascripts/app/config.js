@@ -12,6 +12,7 @@
 //= require app/Models/Session
 //= require app/Models/Profile
 //= require app/Models/Note
+//= require app/Models/PhysicalState
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/ActivityRow

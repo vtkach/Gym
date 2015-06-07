@@ -46,6 +46,7 @@
                 options = {
                     className: 'form-group ' + template,
                     model: app.instances.profile,
+                    profile: app.instances.profile,
                     tagName: 'fieldset',
                     tplName: template
                 };

@@ -16,4 +16,5 @@
 !/log/.keep
 /tmp
 /.idea
+/.test
 /app/assets/stylesheets/.sass-cache

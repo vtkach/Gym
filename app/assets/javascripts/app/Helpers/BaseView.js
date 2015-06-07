@@ -26,12 +26,16 @@
 
         binding: function () {
             this._modelBinder.bind(
-                //TODO: remove it
-                //app.instances.session,
                 this.model,
                 this.$el,
                 this.constructor.bindings
             );
+
+            this.extendBinding();
+        },
+
+        extendBinding: function () {
+
         },
 
         getTemplate: function (tplName) {
