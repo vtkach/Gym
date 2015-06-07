@@ -1,6 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
+  skip_before_filter :check_current_user
+
   include UserData
 
   def create
