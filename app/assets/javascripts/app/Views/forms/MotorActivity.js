@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.MotorActivityView = app.helpers.FormView.extend({
+    app.views.MotorActivityView = app.views.FormView.extend({
 
         events: {
             'click .glyphicon-plus': 'addRow'

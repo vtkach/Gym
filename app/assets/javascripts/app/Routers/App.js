@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.routers.AppRouter = Backbone.Router.extend({
+    app.routers.AppRouter = app.routers.BaseRouter.extend({
 
         currentSubView: null,
 
@@ -19,9 +19,9 @@
         },
 
         initialize: function () {
-            app.instances.session = new app.models.SessionModel();
-            app.instances.profile = new app.models.ProfileModel();
-            app.instances.user = new app.models.UserModel();
+            app.instances.session = this.modelFactoryMethod('Session');
+            app.instances.profile = this.modelFactoryMethod('Profile');
+            app.instances.user = this.modelFactoryMethod('User');
             app.instances.session.checkSession().done(this.loadUserData);
         },
 
@@ -42,15 +42,15 @@
         },
 
         renderSubPhysView: function (template) {
-            var templateToClassName = this.convertToClassName(template);
+            var templateToClassName = this.convertToClassName(template),
+                options = {
+                    className: 'form-group ' + template,
+                    model: app.instances.profile,
+                    tagName: 'fieldset',
+                    tplName: template
+                };
 
-            this.currentSubView = new app.views[templateToClassName + 'View']({
-                className: 'form-group ' + template,
-                model: app.instances.profile,
-                tagName: 'fieldset',
-                tplName: template
-            });
-
+            this.currentSubView = this.viewFactoryMethod(templateToClassName, options);
             this.currentView.$('.form-container').html(this.currentSubView.render().el);
         },
 
@@ -64,11 +64,13 @@
         },
 
         onRegister: function () {
-            this.clear();
-            this.currentView = new app.views.RegistrationView({
-                model: new app.models.RegistrationModel,
+            var options = {
+                model: this.modelFactoryMethod('Registration'),
                 tplName: 'register'
-            });
+            };
+
+            this.clear();
+            this.currentView = this.viewFactoryMethod('Registration', options);
             this.renderContent();
         },
 
@@ -96,11 +98,14 @@
         },
 
         renderTemplate: function (route) {
-            this.clear();
-            this.currentView = new app.views.UserActionsView({
-                model: new app.models.UserActionsModel({ route: route }),
+            var options = {
+                //model: new app.models.UserActionsModel({ route: route }),
+                model: this.modelFactoryMethod('UserActions'),
                 tplName: route
-            });
+            };
+
+            this.clear();
+            this.currentView = this.viewFactoryMethod('UserActions', options);
             this.renderContent();
         },
 
@@ -114,20 +119,22 @@
         },
 
         createMainView: function () {
-            this.mainView = new app.views.MainView({
+            var options = {
                 model: app.instances.user
-            });
+            };
+
+            this.mainView = this.viewFactoryMethod('Main', options);
             this.mainView.cacheElements();
         },
 
         renderByPage: function (template) {
-            this.clear();
-            this.currentView = new app.views.InfoTabView({
-                tplName: template,
-                //TODO: remove this
-                model: new app.helpers.BaseModel()
-            });
+            var options = {
+                model: this.modelFactoryMethod('Base'),
+                tplName: template
+            };
 
+            this.clear();
+            this.currentView = this.viewFactoryMethod('InfoTab', options);
             this.renderContent();
             if (template === 'my-phis-state') {
                 this.renderSubPhysView('body-index');
@@ -140,11 +147,13 @@
         },
 
         openProfile: function () {
-            this.clear();
-            this.currentView = new app.views.ProfileView({
+            var options = {
                 model: app.instances.profile,
                 tplName: 'profile'
-            });
+            };
+
+            this.clear();
+            this.currentView = this.viewFactoryMethod('Profile', options);
             this.renderContent();
         },
 

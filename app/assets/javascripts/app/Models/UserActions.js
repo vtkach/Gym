@@ -1,7 +1,7 @@
 ;(function (app) {
 
-    app.models.UserActionsModel = app.helpers.BaseModel.extend({
-
+    app.models.UserActionsModel = app.models.BaseModel.extend({
+/*
         initialize: function (options) {
             this.route = options.route;
         },
@@ -14,7 +14,7 @@
             };
 
             return '/users/' + routes[this.route];
-        }
+        }*/
 
     });
 

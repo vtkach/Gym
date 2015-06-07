@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.helpers.BaseModel = Backbone.Model.extend({
+    app.models.BaseModel = Backbone.Model.extend({
 
         ajax: function (options) {
             return $.ajax(options);

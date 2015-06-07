@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.ShoulderIndexView = app.helpers.FormView.extend({
+    app.views.ShoulderIndexView = app.views.FormView.extend({
 
 
 

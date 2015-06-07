@@ -1,6 +1,6 @@
 ;(function (win) {
 
-    win.helpers.BaseView = Backbone.View.extend({
+    win.views.BaseView = Backbone.View.extend({
 
         events: {
             'click button': 'prevDefault',

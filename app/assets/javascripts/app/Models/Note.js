@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.NoteModel = app.helpers.BaseModel.extend({
+    app.models.NoteModel = app.models.BaseModel.extend({
 
         url: '',
 

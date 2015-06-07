@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.RegistrationModel = app.helpers.BaseModel.extend({
+    app.models.RegistrationModel = app.models.BaseModel.extend({
 
         defaults: {
             email: '',

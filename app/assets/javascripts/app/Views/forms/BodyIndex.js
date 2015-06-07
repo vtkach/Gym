@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.BodyIndexView = app.helpers.FormView.extend({
+    app.views.BodyIndexView = app.views.FormView.extend({
 
         classification: [{
             min: 0,

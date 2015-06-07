@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysStateView = app.helpers.FormView.extend({
+    app.views.PhysStateView = app.views.FormView.extend({
 
 
 

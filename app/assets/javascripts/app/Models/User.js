@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.UserModel = app.helpers.BaseModel.extend({
+    app.models.UserModel = app.models.BaseModel.extend({
 
         toJSON: function () {
             return {

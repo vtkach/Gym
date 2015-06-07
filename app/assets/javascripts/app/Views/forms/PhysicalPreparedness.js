@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysicalPreparednessView = app.helpers.FormView.extend({
+    app.views.PhysicalPreparednessView = app.views.FormView.extend({
 
         onInit: function () {
             var bindFields = [

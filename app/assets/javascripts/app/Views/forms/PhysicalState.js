@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysicalStateView = app.helpers.FormView.extend({
+    app.views.PhysicalStateView = app.views.FormView.extend({
 
         afterRender: function () {
             this.$('[name=date]').datepicker();

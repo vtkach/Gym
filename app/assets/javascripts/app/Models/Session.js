@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.SessionModel = app.helpers.BaseModel.extend({
+    app.models.SessionModel = app.models.BaseModel.extend({
 
         url: 'users/sign_in',
 

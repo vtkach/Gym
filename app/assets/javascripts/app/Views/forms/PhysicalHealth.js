@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysicalHealthView = app.helpers.FormView.extend({
+    app.views.PhysicalHealthView = app.views.FormView.extend({
 
 
 

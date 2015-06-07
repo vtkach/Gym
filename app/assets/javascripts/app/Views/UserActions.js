@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.UserActionsView = app.helpers.BaseView.extend({
+    app.views.UserActionsView = app.views.BaseView.extend({
 
         className: 'fade-in',
 

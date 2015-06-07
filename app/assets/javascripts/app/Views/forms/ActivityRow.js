@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.ActivityRowView = app.helpers.BaseView.extend({
+    app.views.ActivityRowView = app.views.BaseView.extend({
 
         tagName: 'tr',
 
