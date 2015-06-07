@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     response_params = {}
     @profile = Profile.find_by(user_id: current_user.id)
 
-    if !@profile.update(profile_params)
+    if @profile.update(profile_params)
       response_params = :show
     else
       response_params[:text] = t('custom.errors.profile')
