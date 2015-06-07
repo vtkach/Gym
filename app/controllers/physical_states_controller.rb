@@ -11,7 +11,7 @@ class PhysicalStatesController < ApplicationController
   end
 
   def update
-    @physical_state = PhysicalState.find_by(user_id: current_user.id, id: params[:id])
+    @physical_state = PhysicalState.find_by(user_id: get_user_id, id: params[:id])
 
     render_response(@physical_state.update(physical_states_params))
   end
@@ -28,16 +28,6 @@ class PhysicalStatesController < ApplicationController
         :bodyindex,
         :lifeindex
       )
-  end
-
-  def render_response state
-    if state
-      template = :show
-    else
-      template = 'base/error'
-    end
-
-    render template
   end
 
 end

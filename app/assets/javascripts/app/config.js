@@ -13,6 +13,7 @@
 //= require app/Models/Profile
 //= require app/Models/Note
 //= require app/Models/PhysicalState
+//= require app/Models/ShoulderIndex
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/ActivityRow

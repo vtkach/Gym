@@ -6,16 +6,8 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.create(notes_params)
-    template = nil
 
-    if @note
-      template = :show
-    else
-      @error = @notes
-      template = 'base/error'
-    end
-
-    render template
+    render_response(@note)
   end
 
   private

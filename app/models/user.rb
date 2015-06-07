@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :notes
   has_many :physical_states
+  has_many :shoulder_indexes
 end

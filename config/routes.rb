@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :notes
   resources :physical_states
+  resources :shoulder_indices
   resources :main, only: [:index, :show]
   resource :profile, only: [:show, :update]
   # get 'main/index'
