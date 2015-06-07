@@ -208,7 +208,16 @@
         <template id="recommendations">recommendations</template>
         <template id="you-should-know">you-should-know</template>
         <template id="complex-self-improving">complex-self-improving</template>
-        <template id="notebook-for-exercices">notebook-for-exercices</template>
+        <template id="notebook-for-exercices">
+            <fieldset class="body-index">
+                <legend>Щоденник</legend>
+                <label for="date" class="control-label">Дата</label>
+                <input type="text" name="date" id="data" class="form-control" placeholder="Дата"/>
+
+                <label for="note" class="control-label">Нотатки</label>
+                <textarea name="note" id="note" cols="30" rows="10" class="form-control" placeholder="Введіть текст..."></textarea>
+            </fieldset>
+        </template>
         <template id="definition">definition</template>
         <template id="activity-row">
             <td>

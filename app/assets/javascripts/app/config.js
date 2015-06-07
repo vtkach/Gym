@@ -10,6 +10,7 @@
 //= require app/Models/InfoTab
 //= require app/Models/Session
 //= require app/Models/Profile
+//= require app/Models/Note
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/ActivityRow
@@ -24,6 +25,7 @@
 //= require app/Views/Registration
 //= require app/Views/InfoTab
 //= require app/Views/Profile
+//= require app/Views/Notes
 //= require app/Views/Main
 //= require app/Routers/App
 //= require app/entry-point

@@ -11,6 +11,7 @@
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/profile': 'openProfile',
+            'infoTab/notebook-for-exercices': 'openNotebook',
             'infoTab/:template': 'checkRightForInfoTab',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
@@ -75,7 +76,6 @@
             app.instances.user
                 .loadUser()
                 .then(function (userData) {
-                    console.log('success', userData);
                 }, function () {
                     debugger;
                 }.bind(app.instances.user));
@@ -145,6 +145,17 @@
                 model: app.instances.profile,
                 tplName: 'profile'
             });
+            this.renderContent();
+        },
+
+        openNotebook: function () {
+            this.clear();
+
+            this.currentView = new app.views.NotesView({
+                model: new app.models.NoteModel(),
+                tplName: 'notebook-for-exercices'
+            });
+
             this.renderContent();
         }
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'users/current_user' => 'sessions#get_current_user'
   end
 
-
+  resources :notes
   resources :main, only: [:index, :show]
   resource :profile, only: [:show, :update]
   # get 'main/index'
