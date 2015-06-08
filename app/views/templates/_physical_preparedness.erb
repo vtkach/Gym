@@ -1,80 +1,230 @@
 <template id="physical-preparedness">
-    <fieldset>
-        <legend>Фізична підготовленість </legend>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#theory">Теория</a></li>
+        <li role="presentation"><a href="#spoil">Оценка</a></li>
+    </ul>
+    <div id="theory">
+        <fieldset class="toggle-show">
+            <legend>
+                <strong>
+                    <i>Оцінка фізичної підготовленості старшокласників</i>
+                </strong>
+            </legend>
+        </fieldset>
 
-    </fieldset>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th colspan="2">Тести</th>
-            <th colspan="2">Результат</th>
-            <th colspan="2">Рівень фізичноі підготовленості</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td colspan="2">Згинання і розгинання рук в упорі лежачи (разів) </td>
-            <td colspan="2">
-                <input name="pushups" class="form-control" />
-            </td>
-            <td colspan="2" name="pushups"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Піднімання в сід за 1 хв (разів) </td>
-            <td colspan="2">
-                <input name="raising" class="form-control" />
-            </td>
-            <td colspan="2" name="raising"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Стрибок у довжину з місця (см) </td>
-            <td colspan="2">
-                <input name="jumplength" class="form-control" />
-            </td>
-            <td colspan="2" name="jumplength"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Стрибок в висоту з місця (см) </td>
-            <td colspan="2">
-                <input name="jumpheight" class="form-control" />
-            </td>
-            <td colspan="2" name="jumpheight"></td>
-        </tr>
-        <tr>
-            <td colspan="2">«Естафетний тест» (см) </td>
-            <td colspan="2">
-                <input name="estapheta" class="form-control"/>
-            </td>
-            <td colspan="2" name="estapheta"></td>
-        </tr>
-        <tr>
-            <td colspan="2">12-хвилиний тест Купера (м) </td>
-            <td colspan="2">
-                <input name='coopertest' class="form-control" />
-            </td>
-            <td colspan="2" name='coopertest'></td>
-        </tr>
-        <tr>
-            <td colspan="2">Піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів) </td>
-            <td colspan="2">
-                <input name="inclinebody" class="form-control" />
-            </td>
-            <td colspan="2" name="inclinebody"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Тест «Фламінго» (кількість спроб) </td>
-            <td colspan="2">
-                <input name="flamingotest" class="form-control" />
-            </td>
-            <td colspan="2" name="flamingotest"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Нахил тулуба вперед з положення сидячи (см) </td>
-            <td colspan="2">
-                <input name="inclines" class="form-control" />
-            </td>
-            <td colspan="2" name="inclines"></td>
-        </tr>
-        </tbody>
-    </table>
+        <fieldset class="lead">
+            <legend><strong>Згинання і розгинання рук в упорі лежачі (разів)</strong></legend>
+            <legend><strong>Піднімання тулуба в сід за 1 хв (разів)</strong></legend>
+        </fieldset>
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Стрибок у довжину з місця (см)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        На майданчику проводять лінію і перпендикулярно до неї закріплюють сантиметрову стрічку (рулетку). Учень стає біля лінії, не виходячи за неї, потім відводить руки назад, згинає ноги в колінах і відштовхнувшись обома ногами, робить різкий розмах руками вперед і стрибає уздовж  розмітки. Відстань вимірюється по лінії до п'яти ноги, що стоїть ззаду. Необхідно проводити три спроби, фіксуючи кращий результат. Оцінка результатів тесту «стрибок в довжину з місця (см)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Стрибок в висоту з місця (проба Абалакова, см)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        Випробовуваний стоїть боком до стіни поряд з вертикально закріпленою вимірювальною шкалою (учнівська лінійка довжиною 1 м). Не відриваючи п'ять від підлоги, він як можна вище торкається шкали піднятою вгору правою або лівою рукою. Потім він відходить від стіни на відстань від 15 до 30 см, не роблячи кроку, стрибає вгору, відштовхуючись двома ногами. Правою чи лівою рукою він торкається вимірювальної шкали як можна вище. Різниця між значеннями першого і другого торкання характеризує висоту стрибка. Дається три спроби, фіксується найкращий результат. Оцінка результатів тесту «стрибок в висоту з місця (см)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            «Естафетний» тест (см)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        «Естафетний» тест оцінюється за швидкістю стискання сильною рукою падаючої лінійки. Тест виконують в положенні стоячи. Сильна рука з розігнутими пальцями (ребром долоні вниз) витягнута вперед. Асистент бере 50-сантиметрову лінійку і встановлює її вертикально (цифра «нуль» звернена до підлоги). При цьому ваша рука знаходиться приблизно на 10 см нижче за закінчення лінійки.   Після команди «увага» асистент протягом 5 с повинен відпустити лінійку. Перед обстежуваним стоїть завдання щонайшвидше великим і вказівним пальцями схопити лінійку. Вимірюється відстань в сантиметрах від нижнього краю долоні до нульової відмітки лінійки. Тест проводиться три рази підряд, зараховується кращий результат. Оцінка результатів «Естафетного» тесту представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            12-хвилиний тест Купера (м)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        Учасник випробування повинен пробігти, або чергуючи біг із ходьбою, подолати якомога більшу відстань за 12 хв. Пройдену дистанцію вимірюють, фіксуючи її довжину з точністю до 10 м. Тестування найкраще проводити на біговій доріжці стадіону. В такому випадку число повних кругів множать на дистанцію одного і додають дистанцію останнього незавершеного кола. Оцінка результатів вікових норм по 12-хвилинному  тесту Купера представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFifth">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                            Піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFifth" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFifth">
+                    <div class="panel-body">
+                        Випробуваний лежачі на спині виконує підняття прямих ніг до кута 90º. Підраховується максимальна частота піднімання прямих ніг за 30 с. Оцінка результатів тесту «піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingSixth">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSixth" aria-expanded="false" aria-controls="collapseSixth">
+                            Нахил тулуба вперед з положення сидячі (см)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSixth" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSixth">
+                    <div class="panel-body">
+                        На підлозі крейдою проводиться лінія А-Б, а до її середини перпендикулярна лінія, яка розмічається через кожен сантиметр. Випробуваний сідає так, щоб п'яти були на лінії А-Б. Відстань між п'ятами 20-30 сантиметрів, ступні вертикально. Один або два партнери притискають коліна випробуваного до підлоги. Виконується три нахили вперед як розминка, а четвертий - заліковий, результат якого визначається торканням сантиметрової розмітки середнім пальцем сполучених разом рук. Оцінка результатів тесту «нахил тулуба вперед з положення сидячи (см)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingSeventh">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventh" aria-expanded="false" aria-controls="collapseSeventh">
+                            Тест «Фламінго» (кількість спроб)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSeventh" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeventh">
+                    <div class="panel-body">
+                        Випробуваний стає на одну ногу, згинає вільну ногу захопивши її стопу рукою. Реєструється кількість спроб, необхідних для збереження рівноваги випробуваного протягом однієї хвилини. Оцінка результатів тесту «фламінго» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingEighth">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEighth" aria-expanded="false" aria-controls="collapseEighth">
+                            Згинання і розгинання рук в упорі лежачі (разів)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseEighth" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEighth">
+                    <div class="panel-body">
+                        Випробуваний приймає положення упору лежачи, руки випрямлені на ширині плечей кистями вперед, тулуб і ноги утворюють пряму лінію, пальці ступень опираються на підлогу. За командою «Можна!» випробуваний починає з повною амплітудою згинати і розгинати руки. При згинанні рук необхідно торкатися грудьми опори. Не дозволяється: торкатися опори стегнами, згинати тіло і ноги, перебувати у вихідному положенні та із зігнутими руками більше 3 секунд, лягати на підлогу, розгинати руки почергово, розгинати і згинати руки не з повною амплітудою. Згинання і розгинання рук, що виконуються з помилками, не зараховуються. Оцінка результатів тесту «згинання розгинання рук в упорі лежачі (разів)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingNinth">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNinth" aria-expanded="false" aria-controls="collapseNinth">
+                            Піднімання тулуба в сід за 1 хв (разів)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseNinth" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNinth">
+                    <div class="panel-body">
+                        Випробуваний приймає вихідне положення (лягає на спину, ноги зігнуті в колінах під прямим кутом, відстань між ступнями 30 сантиметрів, пальці рук з’єднані за головою в замок і торкаються поверхні). Партнер тримає його ступні так, щоб п’яти торкались опори. Після команди «Руш» випробуваний піднімається у положення сидячи і торкається ліктями колін, потім знову повертається у вихідне положення. Результатом тестування є кількість піднімань з положення лежачи в положення сидячи за одну хвилину. Відштовхуватися ліктями з вихідного положення та відривати таз від поверхні забороняється. Випробуваний повинен намагатися виконувати вправу без зупинки, але і після зупинки випробовування можна продовжувати. Оцінка результатів тесту «Піднімання тулуба в сід за 1 хв (разів)» представлені в таблиці «Нормативи оцінювання тестів по фізичній підготовленості».
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="spoil">
+        <fieldset>
+            <legend>Фізична підготовленість </legend>
+        </fieldset>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th colspan="2">Тести</th>
+                <th colspan="2">Результат</th>
+                <th colspan="2">Рівень фізичноі підготовленості</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="2">Згинання і розгинання рук в упорі лежачи (разів) </td>
+                <td colspan="2">
+                    <input name="pushups" class="form-control" />
+                </td>
+                <td colspan="2" name="pushups"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Піднімання в сід за 1 хв (разів) </td>
+                <td colspan="2">
+                    <input name="raising" class="form-control" />
+                </td>
+                <td colspan="2" name="raising"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Стрибок у довжину з місця (см) </td>
+                <td colspan="2">
+                    <input name="jumplength" class="form-control" />
+                </td>
+                <td colspan="2" name="jumplength"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Стрибок в висоту з місця (см) </td>
+                <td colspan="2">
+                    <input name="jumpheight" class="form-control" />
+                </td>
+                <td colspan="2" name="jumpheight"></td>
+            </tr>
+            <tr>
+                <td colspan="2">«Естафетний тест» (см) </td>
+                <td colspan="2">
+                    <input name="estapheta" class="form-control"/>
+                </td>
+                <td colspan="2" name="estapheta"></td>
+            </tr>
+            <tr>
+                <td colspan="2">12-хвилиний тест Купера (м) </td>
+                <td colspan="2">
+                    <input name='coopertest' class="form-control" />
+                </td>
+                <td colspan="2" name='coopertest'></td>
+            </tr>
+            <tr>
+                <td colspan="2">Піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів) </td>
+                <td colspan="2">
+                    <input name="inclinebody" class="form-control" />
+                </td>
+                <td colspan="2" name="inclinebody"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Тест «Фламінго» (кількість спроб) </td>
+                <td colspan="2">
+                    <input name="flamingotest" class="form-control" />
+                </td>
+                <td colspan="2" name="flamingotest"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Нахил тулуба вперед з положення сидячи (см) </td>
+                <td colspan="2">
+                    <input name="inclines" class="form-control" />
+                </td>
+                <td colspan="2" name="inclines"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </template>

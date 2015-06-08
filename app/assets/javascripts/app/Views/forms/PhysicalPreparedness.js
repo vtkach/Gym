@@ -2,6 +2,10 @@
 
     app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
+        events: {
+            'click .toggle-show': 'toggleShow'
+        },
+
         onInit: function () {
             var bindFields = [
                 "pushups",
@@ -20,7 +24,6 @@
         },
 
         eachBinding: function (elem) {
-
             this.constructor.bindings[elem] = [{
 
                 selector: 'input[name="' + elem + '"]'
@@ -42,6 +45,18 @@
                 elAttribute: 'class'
 
             }];
+        },
+
+        toggleShow: function () {
+            this.$('fieldset.lead').toggle(1000);
+        },
+
+        cacheElements: function () {
+            this.$toggleShow = this.$('.toggle-show');
+            this.$lead = this.$('fieldset.lead');
+        },
+
+        afterRender: function () {
 
         }
 

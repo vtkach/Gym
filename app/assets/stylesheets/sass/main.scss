@@ -54,6 +54,16 @@ body.container {
     }
     .physical-preparedness {
       @include centered-table-content();
+
+      fieldset {
+        &.toggle-show {
+          cursor: pointer;
+        }
+        &.lead {
+          display: none;
+        }
+      }
+
     }
     .body-index {
       ul.nav-stacked {
