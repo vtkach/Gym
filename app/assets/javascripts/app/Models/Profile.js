@@ -8,7 +8,7 @@
             lastName: 'Tkachenko',
             firstName: 'Victor',
             surname: 'Alexsandrovich',
-            gender: 'm',
+            gender: 'male',
             school: '67',
             group: 'kmp',
             household: 'есть',

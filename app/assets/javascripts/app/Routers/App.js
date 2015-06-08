@@ -8,6 +8,10 @@
 
         mainView: null,
 
+        subView: '',
+
+        page: '',
+
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/profile': 'openProfile',
@@ -49,13 +53,12 @@
                     tplName: template
                 };
 
-            if (this.subview !== template) {
+            if (this.subView !== template) {
                 this.currentSubView && this.currentSubView.close();
                 this.currentSubView = this.factoryMethod('view', templateToClassName, options);
                 this.currentView.$('.form-container').html(this.currentSubView.render().el);
-                this.subview = template;
+                this.subView = template;
             }
-
         },
 
         renderTplIntoPhisState: function (template) {
@@ -79,6 +82,7 @@
         checkExistViews: function (route) {
             !this.mainView && this.createMainView();
             !this.currentView &&  this.renderTemplate(route);
+            this.page = route;
         },
 
         clear: function () {
@@ -144,11 +148,12 @@
 
         renderTemplate: function (route) {
             var options = {
-                //model: new app.models.UserActionsModel({ route: route }),
                 model: this.factoryMethod('model', 'UserActions'),
                 tplName: route
             };
 
+            this.subView = '';
+            this.page = route;
             this.clear();
             this.currentView = this.factoryMethod('view', 'UserActions', options);
             this.renderContent();

@@ -10,8 +10,8 @@
                 selector: '[name=gender]',
                 converter: function (dir, val) {
                     var dict = {
-                        m: 'Мужчина',
-                        f: 'Женщина'
+                        male: 'Мужчина',
+                        female: 'Женщина'
                     };
 
                     if (dir === Backbone.ModelBinder.Constants.ModelToView) {
@@ -25,3 +25,4 @@
     });
 
 } (app));
+

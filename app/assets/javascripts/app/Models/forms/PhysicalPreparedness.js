@@ -5,7 +5,7 @@
         urlPart: '/physical_preparedness/',
 
         RANGES: {
-            m: {
+            male: {
                 pushups: {
                     15: [{
                         min: 0,
@@ -601,7 +601,7 @@
                     }]
                 }
             },
-            f: {
+            female: {
                 pushups: {
                     15: [{
                         min: 0,
