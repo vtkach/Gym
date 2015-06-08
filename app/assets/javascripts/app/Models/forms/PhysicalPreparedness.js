@@ -1199,8 +1199,25 @@
             }
         },
 
-        calculate: function () {
+        classes: [
+            'danger',
+            'warning',
+            'success',
+            'success',
+            'success'
+        ],
 
+        calculate: function (attr, val) {
+            var profile = app.instances.profile,
+                gender = profile.get('gender'),
+                age = profile.get('age'),
+                index;
+
+            index = _.findIndex(this.RANGES[gender][attr][age], function (range) {
+                return val > range.min && val < range.max;
+            });
+
+            return this.classes[index];
         },
 
         toJSON: function () {

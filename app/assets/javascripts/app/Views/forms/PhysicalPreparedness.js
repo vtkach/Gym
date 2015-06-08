@@ -10,7 +10,7 @@
                 "jumpheight",
                 "estapheta",
                 "coopertest",
-                "straightlegs",
+                "inclinebody",
                 "flamingotest",
                 "inclines"
             ];
@@ -32,7 +32,7 @@
                 converter: function (dir, val, attr, model) {
                     if (dir === Backbone.ModelBinder.Constants.ModelToView) {
                         //model.RANGES[attr]
-                        return model.calculate();
+                        return model.calculate(attr, val);
                         //TODO add valid converters for calculations
                     }
 

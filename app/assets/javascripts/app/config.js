@@ -1,7 +1,6 @@
 //= require app/init
 //= require app/Helpers/BaseModel
 //= require app/Helpers/BaseView
-//= require app/Helpers/FormView
 //= require app/Helpers/PhysicalTabView
 //= require app/Helpers/BaseRouter
 //= require app/Models/ActivityRow

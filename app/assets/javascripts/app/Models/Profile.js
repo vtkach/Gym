@@ -11,7 +11,8 @@
             gender: 'm',
             school: '',
             group: '',
-            household: ''
+            household: '',
+            age: 15
         }
 
     });

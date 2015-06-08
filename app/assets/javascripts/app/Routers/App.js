@@ -50,6 +50,7 @@
                 };
 
             if (this.subview !== template) {
+                this.currentSubView && this.currentSubView.close();
                 this.currentSubView = this.factoryMethod('view', templateToClassName, options);
                 this.currentView.$('.form-container').html(this.currentSubView.render().el);
                 this.subview = template;

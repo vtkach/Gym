@@ -2,11 +2,7 @@
 
     app.models.MotorActivityModel = app.models.BaseModel.extend({
 
-        urlPart: '/motor_activity/',
-
         defaults: {},
-
-
 
         calculate: function () {
 
