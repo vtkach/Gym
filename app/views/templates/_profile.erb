@@ -1,0 +1,55 @@
+<template id="profile">
+    <form class="form-group col-xs-6 col-xs-offset-3">
+        <div class="form-group">
+            <input class="form-control input-lg" name='lastName' placeholder="Прізвище"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control input-lg" name='firstName' placeholder="Ім'я"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control input-lg" name='surname' placeholder="По батькові"/>
+        </div>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="male" checked/>
+                    Чоловік
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="female"/>
+                    Дівчина
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control input-lg" name='school' placeholder="Школа"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control input-lg" name='group' placeholder="Клас"/>
+        </div>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="household" value="full" checked/>
+                    повна
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="household" value="incomplete"/>
+                    неповна
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                <input type="radio" name="household" value="orphan"/>
+                сирота
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-lg btn-success save">Зберегти</button>
+        <button class="btn btn-lg btn-default cancel">Відмінити</button>
+    </form>
+</template>
