@@ -4,14 +4,10 @@
 
         defaults: {},
 
+        wrapperJson: 'motorActivity',
+
         calculate: function () {
 
-        },
-
-        toJSON: function () {
-            return {
-                motorActivity: _.clone(this.attributes)
-            }
         }
 
     });

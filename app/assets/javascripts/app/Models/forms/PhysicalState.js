@@ -4,6 +4,8 @@
 
         urlPart: '/physical_states/',
 
+        wrapperJson: 'physicalState',
+
         defaults: {
             circumference: '',
             volume: '',
@@ -23,12 +25,6 @@
                 bodyindex: bodyIndex,
                 lifeindex: lifeindex
             });
-        },
-
-        toJSON: function () {
-            return {
-                physicalState: _.clone(this.attributes)
-            }
         }
 
     });

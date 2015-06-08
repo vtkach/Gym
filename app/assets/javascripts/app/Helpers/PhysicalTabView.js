@@ -3,9 +3,9 @@
     app.views.PhysicalTabView = app.views.BaseView.extend({
 
         onInit: function () {
-            this.delegateEvents({
-                'click .calculate': this.model.calculate,
-                'click .save': this.model.save
+            this.extendEvents({
+                'click .calculate': 'onCalculate',
+                'click .save': 'onSave'
             });
         },
 
@@ -19,6 +19,15 @@
                 this.el,
                 bindings
             );
+        },
+
+        onCalculate: function () {
+            this.model.calculate();
+        },
+
+        onSave: function () {
+            this.model.calculate();
+            this.model.save();
         }
 
     });

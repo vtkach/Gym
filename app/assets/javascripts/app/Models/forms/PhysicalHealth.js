@@ -4,11 +4,7 @@
 
         defaults: {},
 
-        toJSON: function () {
-            return {
-                physicalHealth: _.clone(this.attributes)
-            }
-        }
+        wrapperJson: 'physicalHealth'
 
     });
 

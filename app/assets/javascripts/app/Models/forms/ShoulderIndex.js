@@ -4,6 +4,8 @@
 
         urlPart: '/shoulder_indices/',
 
+        wrapperJson: 'shoulderIndex',
+
         defaults: {
             shoulder: '',
             shoulderWidth: '',
@@ -14,12 +16,6 @@
             var result = this.get('shoulderWidth') / this.get('shoulder') * 100;
 
             this.set('brachialIndex', result);
-        },
-
-        toJSON: function () {
-            return {
-                shoulderIndex: _.clone(this.attributes)
-            }
         }
 
     });

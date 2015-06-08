@@ -4,15 +4,11 @@
 
         url: '/notes',
 
+        wrapperJson: 'note',
+
         defaults: {
             date: '',
             note: ''
-        },
-
-        toJSON: function () {
-            return {
-                note: _.clone(this.attributes)
-            };
         }
 
     });

@@ -4,6 +4,8 @@
 
         urlPart: '/physical_preparedness/',
 
+        wrapperJson: 'physicalPreparedness',
+
         RANGES: {
             male: {
                 pushups: {
@@ -1218,12 +1220,6 @@
             });
 
             return this.classes[index];
-        },
-
-        toJSON: function () {
-            return {
-                physicalPreparedness: _.clone(this.attributes)
-            }
         }
 
     });

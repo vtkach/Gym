@@ -12,11 +12,20 @@
 
         page: '',
 
+        settings: {
+            'profile': {
+                instance: 'profile',
+                view: 'Profile'
+            },
+            'notebook-for-exercices': {
+                model: 'Note',
+                view: 'Notes'
+            }
+        },
+
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/:template': 'checkRightForInfoTab',
-            'infoTab/profile': 'openProfile',
-            'infoTab/notebook-for-exercices': 'openNotebook',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
             '': 'renderByDefault'
@@ -113,20 +122,34 @@
         },
 
         renderByPage: function (template) {
-            var options = {
-                model: this.factoryMethod('model', 'Base'),
-                tplName: template
-            };
-
             if (this.page !== template) {
                 this.clear();
-                this.currentView = this.factoryMethod('view', 'InfoTab', options);
+                this.currentView = this.generateViewInstance(template);
                 this.renderContent();
                 if (template === 'my-phis-state') {
                     this.renderSubPhysView('body-index');
                 }
                 this.page = template;
             }
+        },
+
+        generateViewInstance: function (template) {
+            var settings = this.settings[template],
+                options,
+                model,
+                view;
+
+            if (settings) {
+                model = app.instances[settings.instance] || this.factoryMethod('model', settings.model);
+                view = settings.view;
+            }
+
+            options = {
+                model: model || this.factoryMethod('model', 'Base'),
+                tplName: template
+            };
+
+            return this.factoryMethod('view', view || 'InfoTab', options);
         },
 
         renderByDefault: function () {

@@ -4,11 +4,13 @@
 
         defaults: {},
 
-        toJSON: function () {
-            return {
-                definition: _.clone(this.attributes)
-            }
-        }
+        wrapperJson: 'definition'
+
+        //toJSON: function () {
+        //    return {
+        //        definition: _.clone(this.attributes)
+        //    }
+        //}
 
     });
 

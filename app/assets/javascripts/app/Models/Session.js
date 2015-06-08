@@ -9,11 +9,6 @@
             email: ''
         },
 
-        toJSON: function () {
-            return {
-                user: _.clone(this.attributes)
-            };
-        },
 
         checkSession: function () {
             return this.ajax({

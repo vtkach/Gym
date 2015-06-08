@@ -60,6 +60,12 @@
             this.stopListening();
             this.remove();
             this.onClose();
+        },
+
+        extendEvents: function (events) {
+            this.events = _.clone(this.events);
+
+            _.extend(this.events, events);
         }
 
     }, {

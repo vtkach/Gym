@@ -4,11 +4,7 @@
 
         defaults: {},
 
-        toJSON: function () {
-            return {
-                physStateForm: _.clone(this.attributes)
-            }
-        }
+        wrapperJson: 'physStateForm'
 
     });
 

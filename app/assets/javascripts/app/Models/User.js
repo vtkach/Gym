@@ -2,11 +2,7 @@
 
     app.models.UserModel = app.models.BaseModel.extend({
 
-        toJSON: function () {
-            return {
-                user: _.clone(this.attributes)
-            };
-        },
+        wrapperJson: 'user',
 
         parse: function (response) {
             this.updateProfile(response.profile);

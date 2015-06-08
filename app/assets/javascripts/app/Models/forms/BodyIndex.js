@@ -4,6 +4,8 @@
 
         defaults: {},
 
+        wrapperJson: 'bodyIndex',
+
         classification: [{
             min: 0,
             max: 18.5
@@ -32,11 +34,11 @@
             this.set('bodyindex', this.get('weight') / (this.get('height')) * 100);
         },
 
-        toJSON: function () {
-            return {
-                bodyIndex: _.clone(this.attributes)
-            }
-        }
+        //toJSON: function () {
+        //    return {
+        //        bodyIndex: _.clone(this.attributes)
+        //    }
+        //}
 
     });
 

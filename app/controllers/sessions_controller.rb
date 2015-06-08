@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
 
   include UserData
 
-  skip_before_filter  :verify_authenticity_token, only: [:destroy]
+  # skip_before_filter  :verify_authenticity_token, only: [:destroy]
   skip_before_filter  :verify_signed_out_user, only: [:destroy]
 
   respond_to :json

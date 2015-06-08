@@ -7,8 +7,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+
   before_filter :check_current_user
+  skip_before_filter :verify_authenticity_token, only: [:create, :update, :destroy]
   # before_filter :check_permission, unless: :devise_controller?
 
   protected
