@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysicalPreparednessView = app.views.FormView.extend({
+    app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
         onInit: function () {
             var bindFields = [
@@ -32,8 +32,11 @@
                 converter: function (dir, val, attr, model) {
                     if (dir === Backbone.ModelBinder.Constants.ModelToView) {
                         //model.RANGES[attr]
+                        return model.calculate();
                         //TODO add valid converters for calculations
                     }
+
+                    return val;
                 },
 
                 elAttribute: 'class'

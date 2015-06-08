@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.PhysicalStateView = app.views.FormView.extend({
+    app.views.PhysicalStateView = app.views.PhysicalTabView.extend({
 
         onInit: function () {
             this.model = new app.models.PhysicalStateModel();

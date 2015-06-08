@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.MotorActivityView = app.views.FormView.extend({
+    app.views.MotorActivityView = app.views.PhysicalTabView.extend({
 
         events: {
             'click .glyphicon-plus': 'addRow'

@@ -2,6 +2,7 @@
 //= require app/Helpers/BaseModel
 //= require app/Helpers/BaseView
 //= require app/Helpers/FormView
+//= require app/Helpers/PhysicalTabView
 //= require app/Helpers/BaseRouter
 //= require app/Models/ActivityRow
 //= require app/Models/User
@@ -12,8 +13,14 @@
 //= require app/Models/Session
 //= require app/Models/Profile
 //= require app/Models/Note
-//= require app/Models/PhysicalState
-//= require app/Models/ShoulderIndex
+//= require app/Models/forms/BodyIndex
+//= require app/Models/forms/Definition
+//= require app/Models/forms/PhysicalHealth
+//= require app/Models/forms/PhysStateForm
+//= require app/Models/forms/MotorActivity
+//= require app/Models/forms/PhysicalState
+//= require app/Models/forms/PhysicalPreparedness
+//= require app/Models/forms/ShoulderIndex
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/ActivityRow

@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.views.BodyIndexView = app.views.FormView.extend({
+    app.views.BodyIndexView = app.views.PhysicalTabView.extend({
 
         classification: [{
             min: 0,
@@ -50,7 +50,7 @@
 
         },
 
-        onInit: function () {
+        afterRender: function () {
             this.listenTo(this.model, 'change:bodyindex', this.coloredTableRow);
         },
 

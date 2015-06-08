@@ -39,16 +39,22 @@
 
         renderSubPhysView: function (template) {
             var templateToClassName = this.convertToClassName(template),
+                url = ['/', template.replace(/-/g, '_'), '/'].join(''),
                 options = {
                     className: 'form-group ' + template,
-                    model: app.instances.profile,
-                    profile: app.instances.profile,
+                    model: this.factoryMethod('model', templateToClassName, {
+                        urlPart: url
+                    }),
                     tagName: 'fieldset',
                     tplName: template
                 };
 
-            this.currentSubView = this.factoryMethod('view', templateToClassName, options);
-            this.currentView.$('.form-container').html(this.currentSubView.render().el);
+            if (this.subview !== template) {
+                this.currentSubView = this.factoryMethod('view', templateToClassName, options);
+                this.currentView.$('.form-container').html(this.currentSubView.render().el);
+                this.subview = template;
+            }
+
         },
 
         renderTplIntoPhisState: function (template) {
@@ -107,11 +113,14 @@
                 tplName: template
             };
 
-            this.clear();
-            this.currentView = this.factoryMethod('view', 'InfoTab', options);
-            this.renderContent();
-            if (template === 'my-phis-state') {
-                this.renderSubPhysView('body-index');
+            if (this.page !== template) {
+                this.clear();
+                this.currentView = this.factoryMethod('view', 'InfoTab', options);
+                this.renderContent();
+                if (template === 'my-phis-state') {
+                    this.renderSubPhysView('body-index');
+                }
+                this.page = template;
             }
         },
 
