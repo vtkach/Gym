@@ -14,9 +14,9 @@
 
         routes: {
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
+            'infoTab/:template': 'checkRightForInfoTab',
             'infoTab/profile': 'openProfile',
             'infoTab/notebook-for-exercices': 'openNotebook',
-            'infoTab/:template': 'checkRightForInfoTab',
             'accessed/:action': 'renderTemplate',
             'register': 'onRegister',
             '': 'renderByDefault'
@@ -38,7 +38,7 @@
         checkRightForInfoTab: function (tpl) {
             this.checkUserRights(tpl)
                 .done(this.renderByPage.bind(this, tpl))
-                .fail(this.renderByDefault);
+                .fail(this.renderByDefault.bind(this));
         },
 
         renderSubPhysView: function (template) {
@@ -63,7 +63,7 @@
 
         renderTplIntoPhisState: function (template) {
             this.checkUserRights('my-phis-state')
-                //.fail(this.renderByDefault)
+                .fail(this.renderByDefault.bind(this))
                 .done(function () {
                     this.renderByPage('my-phis-state');
                     this.renderSubPhysView(template);
