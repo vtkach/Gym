@@ -10,11 +10,14 @@
         },
 
         extendBinding: function () {
+            var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'name');
+
             this._profileBinder = new Backbone.ModelBinder();
+            _.extend(bindings, this.constructor.profileBindings);
             this._profileBinder.bind(
                 app.instances.profile,
-                this.$el,
-                this.constructor.profileBindings
+                this.el,
+                bindings
             );
         }
 

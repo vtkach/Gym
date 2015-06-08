@@ -2,9 +2,6 @@
 
     app.views.PhysicalStateView = app.views.PhysicalTabView.extend({
 
-        onInit: function () {
-            this.model = new app.models.PhysicalStateModel();
-        },
 
         afterRender: function () {
             console.warn(this);
@@ -14,23 +11,23 @@
 
 
     }, {
-        //bindings: {
-        //    firstName: '[name=firstName]',
-        //    lastName: '[name=lastName]',
-        //    surname: '[name=surname]',
-        //
-        //    gender: {
-        //        selector: '[name=gender]',
-        //        converter: function (dir, value, attr, model) {
-        //            var gender = {
-        //                male: 'М',
-        //                female: 'Ж'
-        //            };
-        //
-        //            return gender[value];
-        //        }
-        //    }
-        //}
+        profileBindings: {
+            gender: {
+                selector: '[name=gender]',
+                converter: function (dir, val) {
+                    var dict = {
+                        m: 'Мужчина',
+                        f: 'Женщина'
+                    };
+
+                    if (dir === Backbone.ModelBinder.Constants.ModelToView) {
+                        return dict[val];
+                    }
+
+                    return val;
+                }
+            }
+        }
     });
 
 } (app));
