@@ -20,8 +20,10 @@
 //= require app/Models/forms/PhysicalState
 //= require app/Models/forms/PhysicalPreparedness
 //= require app/Models/forms/ShoulderIndex
+//= require app/Collections/Archive
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
+//= require app/Views/Archive
 //= require app/Views/forms/ActivityRow
 //= require app/Views/forms/BodyIndex
 //= require app/Views/forms/Definition

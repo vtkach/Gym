@@ -2,6 +2,7 @@
 
     app.views.ShoulderIndexView = app.views.PhysicalTabView.extend({
 
+        railsRoute: '/shoulder_index/'
 
     }, {
         profileBindings: {

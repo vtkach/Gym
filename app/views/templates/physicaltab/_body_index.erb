@@ -26,7 +26,24 @@
             </div>
         </div>
 
-        <button class="btn btn-primary form-control">Зберегти</button>
+        <button id='save' class="btn btn-primary form-control action">Зберегти</button>
+        <button id='archive' class="btn btn-primary form-control">Архів</button>
+        <div class="archive hide">
+            <fieldset>
+                <legend>Архів даних</legend>
+            </fieldset>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2">Вага, кг</th>
+                    <th colspan="2">Зріст, см</th>
+                    <th colspan="2">Індекс маси тіла</th>
+                </tr>
+                </thead>
+                <tbody id="archive-container">
+                </tbody>
+            </table>
+        </div>
     </fieldset>
     <fieldset>
         <legend>Класифікація</legend>

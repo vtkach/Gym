@@ -2,6 +2,7 @@
 
     app.views.PhysicalStateView = app.views.PhysicalTabView.extend({
 
+        railsRoute: '/physical_states/',
 
         afterRender: function () {
             console.warn(this);

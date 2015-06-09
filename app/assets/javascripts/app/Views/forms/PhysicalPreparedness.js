@@ -2,11 +2,9 @@
 
     app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
-        events: {
-            'click .toggle-show': 'toggleShow'
-        },
+        railsRoute: '/physical_preparedness/',
 
-        onInit: function () {
+        afterRender: function () {
             var bindFields = [
                 "pushups",
                 "raising",
@@ -45,19 +43,6 @@
                 elAttribute: 'class'
 
             }];
-        },
-
-        toggleShow: function () {
-            this.$('fieldset.lead').toggle(1000);
-        },
-
-        cacheElements: function () {
-            this.$toggleShow = this.$('.toggle-show');
-            this.$lead = this.$('fieldset.lead');
-        },
-
-        afterRender: function () {
-
         }
 
     });

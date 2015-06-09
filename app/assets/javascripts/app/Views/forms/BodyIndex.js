@@ -2,6 +2,8 @@
 
     app.views.BodyIndexView = app.views.PhysicalTabView.extend({
 
+        railsRoute: '/body_index/',
+
         colors: [
             'warning',
             'success',
