@@ -10,6 +10,10 @@
             'click .glyphicon-folder-open': 'logout'
         },
 
+        initialize: function () {
+            this.modalView = new app.views.ModalView();
+        },
+
         onSuccessCallback: function () {
             app.instances.user.clear();
         },

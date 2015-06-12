@@ -4,6 +4,20 @@
 
         railsRoute: '/physical_states/',
 
+        getModalDialog: function () {
+            Backbone.Events.trigger('trigger-modal', {
+                headers: [
+                    'Вiк',
+                    'Зріст, см',
+                    'Вага, кг',
+                    'Окружність грудноі клітки, см',
+                    'Життєва ємність легенів, мл'
+                ],
+                tplName: 'physical_state',
+                title: 'Фізичний розвиток'
+            });
+        },
+
         afterRender: function () {
             console.warn(this);
             //this.$('[name=date]').datepicker();

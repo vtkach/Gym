@@ -23,6 +23,7 @@
 //= require app/Collections/Archive
 //= require app/Collections/Activity
 //= require app/Views/forms/PhysStateForm
+//= require app/Views/forms/Modal
 //= require app/Views/Archive
 //= require app/Views/forms/ActivityRow
 //= require app/Views/forms/BodyIndex

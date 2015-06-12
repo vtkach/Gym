@@ -26,7 +26,12 @@
         },
 
         getArchive: function () {
-            this._archiveCollection.fetch();
+            this._archiveCollection.fetch()
+                .done(this.getModalDialog.bind(this));
+        },
+
+        getModalDialog: function () {
+
         },
 
         onSave: function () {
@@ -55,7 +60,7 @@
                 this.el,
                 bindings
             );
-            this._archiveCollectionBinder.bind(this._archiveCollection, this.$('#archive-container'));
+            this._archiveCollectionBinder.bind(this._archiveCollection, $('#archive-container'));
         },
 
         onClose: function () {
