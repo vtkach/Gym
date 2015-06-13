@@ -1,17 +1,17 @@
 class PhysicalPreparednessStatesController < ApplicationController
 
   def index
-    @physcial_preparedness_states = []
+    @physical_preparedness_states = []
   end
 
   def create
-    @physcial_preparedness_state = {}
+    @physical_preparedness_state = {}
 
     render :show
   end
 
   def update
-    @physcial_preparedness_state = {}
+    @physical_preparedness_state = {}
 
     render :show
   end

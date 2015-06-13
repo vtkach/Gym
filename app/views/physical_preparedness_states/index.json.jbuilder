@@ -1,1 +1,1 @@
-json.array! @physcial_preparedness_states
+json.array! @physical_preparedness_states
