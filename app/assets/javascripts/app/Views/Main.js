@@ -16,6 +16,7 @@
 
         onSuccessCallback: function () {
             app.instances.user.clear();
+            app.instances.profile.clear();
         },
 
         onErrorCallback: function () {

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     get 'users/current_user' => 'sessions#get_current_user'
   end
 
-  resources :notes
-  resources :physical_states
-  resources :shoulder_indices
+  resources :notes, only: [:index, :create]
+  resources :physical_states, only: [:index, :create, :update]
+  resources :shoulder_indices, only: [:index, :create, :update]
+  resources :physical_preparedness_states, only: [:index, :create, :update]
   resources :main, only: [:index, :show]
   resource :profile, only: [:show, :update]
   # get 'main/index'

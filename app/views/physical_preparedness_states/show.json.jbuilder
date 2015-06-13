@@ -1,0 +1,1 @@
+json.extract! @physcial_preparedness_state
