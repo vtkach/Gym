@@ -7,6 +7,7 @@
         wrapperJson: 'physicalState',
 
         defaults: {
+            age: '',
             circumference: '',
             volume: '',
             height: '',

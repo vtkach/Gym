@@ -51,14 +51,11 @@
         },
 
         extendBinding: function () {
-            var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'name');
-
             this._profileBinder = new Backbone.ModelBinder();
-            _.extend(bindings, this.constructor.profileBindings);
             this._profileBinder.bind(
                 app.instances.profile,
                 this.el,
-                bindings
+                this.constructor.profileBindings
             );
             this._archiveCollectionBinder.bind(this._archiveCollection, $('#archive-container'));
         },
@@ -66,7 +63,9 @@
         onClose: function () {
             this._archiveCollectionBinder.unbind();
             this._profileBinder.unbind();
-            this._archiveCollectionBinder = this._profileBinder = null;
+            this._modelBinder.unbind();
+
+            this._modelBinder = this._archiveCollectionBinder = this._profileBinder = null;
         }
 
     });

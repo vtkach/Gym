@@ -180,28 +180,6 @@
             this.clear();
             this.currentView = this.factoryMethod('view', 'UserActions', options);
             this.renderContent();
-        },
-
-        openProfile: function () {
-            var options = {
-                model: app.instances.profile,
-                tplName: 'profile'
-            };
-
-            this.clear();
-            this.currentView = this.factoryMethod('view', 'Profile', options);
-            this.renderContent();
-        },
-
-        openNotebook: function () {
-            var options = {
-                model: this.factoryMethod('model', 'Note'),
-                tplName: 'notebook-for-exercices'
-            };
-
-            this.clear();
-            this.currentView = this.factoryMethod('view', 'Notes', options);
-            this.renderContent();
         }
 
     });

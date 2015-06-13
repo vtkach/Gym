@@ -7,6 +7,7 @@
         wrapperJson: 'shoulderIndex',
 
         defaults: {
+            age: '',
             shoulder: '',
             shoulderWidth: '',
             brachialIndex: ''
