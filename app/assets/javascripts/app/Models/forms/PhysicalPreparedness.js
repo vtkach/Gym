@@ -2,6 +2,18 @@
 
     app.models.PhysicalPreparednessModel = app.models.BaseModel.extend({
 
+        defaults: {
+            pushUps: '',
+            raising: '',
+            jumpLength: '',
+            jumpHeight: '',
+            estafeta: '',
+            cooperTest: '',
+            inclineBody: '',
+            flamingoTest: '',
+            inclines: ''
+        },
+
         validation: {
             gender: {
                 required: 'true'
@@ -15,6 +27,34 @@
         urlPart: '/physical_preparedness_states/',
 
         wrapperJson: 'physicalPreparedness',
+
+        classes: [
+            'danger',
+            'warning',
+            'success',
+            'success',
+            'success'
+        ],
+
+            calculate: function () {
+            var fields = Object.keys(this.RANGES.male);
+
+            fields.forEach(this.checkFields.bind(this));
+        },
+
+        checkFields: function (attr) {
+            var profile = app.instances.profile,
+                gender = profile.get('gender'),
+                age = profile.get('age'),
+                val = this.get(attr),
+                index;
+
+            index = _.findIndex(this.RANGES[gender || 'm'][attr][age || '15'], function (range) {
+                return val > range.min && val < range.max;
+            });
+
+            return this.classes[index];
+        },
 
         RANGES: {
             male: {
@@ -1209,34 +1249,6 @@
                     }]
                 }
             }
-        },
-
-        classes: [
-            'danger',
-            'warning',
-            'success',
-            'success',
-            'success'
-        ],
-
-        calculate: function () {
-            var fields = Object.keys(this.RANGES.male);
-
-            fields.forEach(this.checkFields.bind(this));
-        },
-
-        checkFields: function (attr) {
-            var profile = app.instances.profile,
-                gender = profile.get('gender'),
-                age = profile.get('age'),
-                val = this.get(attr),
-                index;
-
-            index = _.findIndex(this.RANGES[gender || 'm'][attr][age || '15'], function (range) {
-                return val > range.min && val < range.max;
-            });
-
-            return this.classes[index];
         }
 
     });
