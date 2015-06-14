@@ -21,6 +21,8 @@ class PhysicalStatesController < BaseArchivesController
   def physical_states_params
     params.require(:physicalState)
       .permit(
+        :date,
+        :age,
         :weight,
         :height,
         :volume,

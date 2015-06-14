@@ -13,7 +13,7 @@ class NotesController < BaseArchivesController
   private
 
   def notes_params
-    params.require(:note).permit(:date, :note, :user_id)
+    params.require(:note).permit(:date, :note)
   end
 
 end

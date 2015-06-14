@@ -1,5 +1,6 @@
 json.extract! @shoulder_index,
               :id,
+              :age,
               :date,
               :shoulder,
               :shoulderWidth,

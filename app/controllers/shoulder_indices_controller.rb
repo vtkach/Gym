@@ -21,6 +21,7 @@ class ShoulderIndicesController < BaseArchivesController
   def shoulder_index_params
     params.require(:shoulderIndex)
       .permit(
+        :age,
         :date,
         :shoulder,
         :shoulderWidth,

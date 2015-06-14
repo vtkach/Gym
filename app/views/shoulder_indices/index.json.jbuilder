@@ -1,5 +1,6 @@
 json.array! @shoulder_indices,
             :id,
+            :age,
             :date,
             :shoulder,
             :shoulderWidth,

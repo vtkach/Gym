@@ -1,5 +1,7 @@
 json.array! @physical_states,
             :id,
+            :age,
+            :date,
             :weight,
             :height,
             :volume,

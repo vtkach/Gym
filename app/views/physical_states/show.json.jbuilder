@@ -1,5 +1,7 @@
 json.extract! @physical_state,
               :id,
+              :age,
+              :date,
               :weight,
               :height,
               :volume,
