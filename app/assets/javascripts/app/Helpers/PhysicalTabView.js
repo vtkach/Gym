@@ -19,10 +19,16 @@
                 'click .calculate': 'onCalculate',
                 'click .save': 'onSave'
             });
+            Backbone.Validation.bind(this);
         },
 
         onCalculate: function () {
             this.model.calculate();
+        },
+
+        onSave: function () {
+            this.model.calculate();
+            this.model.save();
         },
 
         getArchive: function () {
@@ -32,15 +38,6 @@
 
         getModalDialog: function () {
 
-        },
-
-        onSave: function () {
-            this.model.calculate();
-            this.model.save();
-        },
-
-        defineAction: function () {
-            this.model[event.currentTarget.className[0]]();
         },
 
         getArchiveView: function (model) {

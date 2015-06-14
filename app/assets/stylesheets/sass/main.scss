@@ -35,6 +35,9 @@
 body.container {
   min-width: 980px;
   section.row {
+    button.btn {
+      margin: 0.5em auto;
+    }
     .fade-in > a {
       box-shadow: 2px 2px 0 #888;
       border: 1px solid #000;

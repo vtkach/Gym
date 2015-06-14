@@ -2,7 +2,17 @@
 
     app.models.PhysicalPreparednessModel = app.models.BaseModel.extend({
 
-        urlPart: '/physical_preparedness/',
+        validation: {
+            gender: {
+                required: 'true'
+            },
+            age: {
+                required: true,
+                oneOf: [15, 16, 17, 18]
+            }
+        },
+
+        urlPart: '/physical_preparedness_states/',
 
         wrapperJson: 'physicalPreparedness',
 
@@ -1209,13 +1219,20 @@
             'success'
         ],
 
-        calculate: function (attr, val) {
+        calculate: function () {
+            var fields = Object.keys(this.RANGES.male);
+
+            fields.forEach(this.checkFields.bind(this));
+        },
+
+        checkFields: function (attr) {
             var profile = app.instances.profile,
                 gender = profile.get('gender'),
                 age = profile.get('age'),
+                val = this.get(attr),
                 index;
 
-            index = _.findIndex(this.RANGES[gender][attr][age], function (range) {
+            index = _.findIndex(this.RANGES[gender || 'm'][attr][age || '15'], function (range) {
                 return val > range.min && val < range.max;
             });
 

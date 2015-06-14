@@ -2,7 +2,7 @@
 
     app.views.MotorActivityView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/motor_activity/',
+        railsRoute: '/motor_activities/',
 
         events: {
             'click .glyphicon-plus': 'addRow'

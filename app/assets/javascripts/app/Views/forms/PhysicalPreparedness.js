@@ -2,7 +2,7 @@
 
     app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/physical_preparedness/',
+        railsRoute: '/physical_preparedness_states/',
 
         afterRender: function () {
             var bindFields = [

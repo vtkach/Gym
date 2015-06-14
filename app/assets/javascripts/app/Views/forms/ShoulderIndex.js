@@ -2,7 +2,22 @@
 
     app.views.ShoulderIndexView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/shoulder_index/'
+        railsRoute: '/shoulder_indices/',
+
+        getModalDialog: function () {
+            Backbone.Events.trigger('trigger-modal', {
+                headers: [
+                    'Вiк',
+                    'Дата',
+                    'Плечова дуга, см',
+                    'Ширина плечей, см',
+                    'Плечовий індекс (%)'
+                ],
+                tplName: 'shoulder_indices',
+                title: 'Плечовий індекс та постава'
+            });
+        }
+
 
     }, {
         profileBindings: {
