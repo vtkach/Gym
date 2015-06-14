@@ -1,7 +1,7 @@
-class ShoulderIndicesController < ApplicationController
+class ShoulderIndicesController < BaseArchivesController
 
   def index
-    @shoulder_indices = ShoulderIndex.where(user_id: current_user.id).limit(5)
+    @shoulder_indices = get_last_items(ShoulderIndex)
   end
 
   def create
