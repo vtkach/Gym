@@ -1,26 +1,6 @@
 <template id="shoulder-index">
     <fieldset class="form-group body-index">
-        <h3>
-            <span name="lastName"></span>
-            <span name="firstName"></span>
-            <span name="surname"></span>
-            (<span name="gender"></span>)
-        </h3>
-        <fieldset>
-            <div class="form-group">
-                <label for="age" class="col-sm-6 control-label">Вiк</label>
-                <div class="col-sm-6">
-                    <input id="age" name="age" class="form-control" type="text" placeholder="Вiк" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="date" class="col-sm-6 control-label">Дата</label>
-                <div class="col-sm-6">
-                    <input id="date" name="date" class="form-control" type="text" placeholder="Дата" />
-                </div>
-            </div>
-        </fieldset>
+        <%= render 'templates/physicaltab/tab_header' %>
         <fieldset>
             <legend>Показники</legend>
 

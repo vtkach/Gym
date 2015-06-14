@@ -1,27 +1,5 @@
 <template id="body-index">
-    <fieldset>
-        <h3>
-            <span name="lastName"></span>
-            <span name="firstName"></span>
-            <span name="surname"></span>
-            (<span name="gender"></span>)
-        </h3>
-        <legend>Введіть дані</legend>
-
-        <div class="form-group">
-            <label for="height" class="col-sm-6 control-label">Зріст, см</label>
-            <div class="col-sm-6">
-                <input id="height" name='height' class="form-control" placeholder="Зріст, см" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="weight" class="col-sm-6 control-label">Вага, кг</label>
-            <div class="col-sm-6">
-                <input id="weight" name='weight' class="form-control" placeholder="Вага, кг" />
-            </div>
-        </div>
-    </fieldset>
+    <%= render 'templates/physicaltab/tab_header' %>
     <fieldset>
         <legend>Результати</legend>
 
