@@ -20,7 +20,6 @@
             });
         }
 
-
     }, {
         profileBindings: {
             gender: {

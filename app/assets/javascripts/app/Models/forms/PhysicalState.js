@@ -23,8 +23,8 @@
                 lifeindex = this.get('volume') / weight;
 
             this.set({
-                bodyindex: bodyIndex,
-                lifeindex: lifeindex
+                bodyindex: bodyIndex.toFixed(2),
+                lifeindex: lifeindex.toFixed(2)
             });
         }
 
