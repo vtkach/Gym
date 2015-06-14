@@ -11,17 +11,13 @@
                     'Зріст, см',
                     'Вага, кг',
                     'Окружність грудноі клітки, см',
-                    'Життєва ємність легенів, мл'
+                    'Життєва ємність легенів, мл',
+                    'Індекс маси тіла',
+                    'Життєвий індекс'
                 ],
                 tplName: 'physical_state',
                 title: 'Фізичний розвиток'
             });
-        },
-
-        afterRender: function () {
-            console.warn(this);
-            //this.$('[name=date]').datepicker();
-            //this.$('button').on('click', this.onSaveEvent.bind(this));
         }
 
 
