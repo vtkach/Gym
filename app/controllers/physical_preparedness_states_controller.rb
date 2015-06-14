@@ -1,4 +1,4 @@
-class PhysicalPreparednessStatesController < ApplicationController
+class PhysicalPreparednessStatesController < BaseArchivesController
 
   def index
     @physical_preparedness_states = []

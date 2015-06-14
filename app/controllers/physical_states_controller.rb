@@ -1,7 +1,7 @@
-class PhysicalStatesController < ApplicationController
+class PhysicalStatesController < BaseArchivesController
 
   def index
-    @physical_states = PhysicalState.where(user_id: current_user.id).limit(5)
+    @physical_states = get_last_items(PhysicalState)
   end
 
   def create

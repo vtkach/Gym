@@ -1,4 +1,4 @@
-class MotorActivitiesController < ApplicationController
+class MotorActivitiesController < BaseArchivesController
 
   def index
     @motorActivities = []
