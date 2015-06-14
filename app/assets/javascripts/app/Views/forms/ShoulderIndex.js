@@ -2,8 +2,6 @@
 
     app.views.ShoulderIndexView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/shoulder_indices/',
-
         getModalDialog: function () {
             Backbone.Events.trigger('trigger-modal', {
                 headers: [

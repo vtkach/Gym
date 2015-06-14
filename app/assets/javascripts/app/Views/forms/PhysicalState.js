@@ -2,8 +2,6 @@
 
     app.views.PhysicalStateView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/physical_states/',
-
         getModalDialog: function () {
             Backbone.Events.trigger('trigger-modal', {
                 headers: [

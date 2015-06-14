@@ -2,8 +2,6 @@
 
     app.views.PhysicalHealthView = app.views.PhysicalTabView.extend({
 
-        railsRoute: '/physical_health/'
-
     }, {
         profileBindings: {
             gender: {

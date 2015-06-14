@@ -12,7 +12,7 @@
             var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this));
 
             this._archiveCollection = new app.collections.ArchiveCollection();
-            this._archiveCollection.url = this.railsRoute;
+            this._archiveCollection.url = this.model.urlPart;
             this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
             this.extendEvents({
                 'click #archive': 'getArchive',
