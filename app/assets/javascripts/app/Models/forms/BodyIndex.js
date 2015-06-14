@@ -32,13 +32,7 @@
 
         calculate: function () {
             this.set('bodyindex', this.get('weight') / (this.get('height')) * 100);
-        },
-
-        //toJSON: function () {
-        //    return {
-        //        bodyIndex: _.clone(this.attributes)
-        //    }
-        //}
+        }
 
     });
 

@@ -3,7 +3,7 @@
     app.views.ShoulderIndexView = app.views.PhysicalTabView.extend({
 
         getModalDialog: function () {
-            Backbone.Events.trigger('trigger-modal', {
+            this.showModal({
                 headers: [
                     'Вiк',
                     'Дата',

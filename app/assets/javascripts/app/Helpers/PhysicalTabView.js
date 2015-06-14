@@ -31,18 +31,20 @@
             this.model.save();
         },
 
+        showModal: function (options) {
+            Backbone.Events.trigger('trigger-modal', options);
+        },
+
         getArchive: function () {
             this._archiveCollection.fetch()
                 .done(this.getModalDialog.bind(this));
         },
 
-        getModalDialog: function () {
-
-        },
+        getModalDialog: function () {},
 
         getArchiveView: function (model) {
             return new app.views.ArchiveView({
-                tplName: this.model.get('urlPart').replace(/\//g, ''),
+                tplName: this.model.urlPart.replace(/\//g, ''),
                 model: model
             })
         },

@@ -3,7 +3,7 @@
     app.views.PhysicalStateView = app.views.PhysicalTabView.extend({
 
         getModalDialog: function () {
-            Backbone.Events.trigger('trigger-modal', {
+            this.showModal({
                 headers: [
                     'Вiк',
                     'Зріст, см',

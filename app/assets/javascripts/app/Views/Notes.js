@@ -1,6 +1,18 @@
 ;(function (app) {
+    var NotesView = app.views.UserActionsView.extend(app.views.PhysicalTabView.prototype);
 
-    app.views.NotesView = app.views.UserActionsView.extend({
+    app.views.NotesView = NotesView.extend({
+
+        getModalDialog: function () {
+            this.showModal({
+                headers: [
+                   'Дата',
+                   'Нотатка'
+                ],
+                tplName: 'notes',
+                title: 'Нотатки'
+            });
+        },
 
         onSubmitUserAction: function () {
             this.model.save()

@@ -19,7 +19,6 @@
                     return val;
                 }
             },
-
             firstName: '[name=firstName]',
             lastName: '[name=lastName]',
             surname: '[name=surname]'

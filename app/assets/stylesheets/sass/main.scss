@@ -38,6 +38,11 @@ body.container {
     button.btn {
       margin: 0.5em auto;
     }
+    fieldset {
+      .form-control {
+        margin-bottom: 1em !important;
+      }
+    }
     .fade-in > a {
       box-shadow: 2px 2px 0 #888;
       border: 1px solid #000;
@@ -68,11 +73,6 @@ body.container {
     .body-index {
       ul.nav-stacked {
         min-width: 200px;
-      }
-      fieldset {
-        .form-control {
-          margin-bottom: 1em !important;
-        }
       }
 
       @include centered-table-content();
