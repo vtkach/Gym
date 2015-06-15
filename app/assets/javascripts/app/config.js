@@ -12,7 +12,6 @@
 //= require app/Models/Session
 //= require app/Models/Profile
 //= require app/Models/Note
-//= require app/Models/forms/BodyIndex
 //= require app/Models/forms/Definition
 //= require app/Models/forms/PhysicalHealth
 //= require app/Models/forms/PhysStateForm
@@ -26,7 +25,6 @@
 //= require app/Views/forms/Modal
 //= require app/Views/Archive
 //= require app/Views/forms/ActivityRow
-//= require app/Views/forms/BodyIndex
 //= require app/Views/forms/Definition
 //= require app/Views/forms/MotorActivity
 //= require app/Views/forms/PhysicalHealth

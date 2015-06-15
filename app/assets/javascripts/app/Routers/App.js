@@ -129,7 +129,7 @@
                 this.currentView = this.generateViewInstance(template);
                 this.renderContent();
                 if (template === 'my-phis-state') {
-                    this.renderSubPhysView('body-index');
+                    this.renderSubPhysView('physical-state');
                 }
                 this.page = template;
             }
