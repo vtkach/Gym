@@ -53,14 +53,15 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary form-control">Розрахувати</button>
+            <button class="btn btn-primary form-control calculate">Розрахувати</button>
 
-            <div class="form-group">
-                <label for="result" class="col-sm-6 control-label">Результат</label>
-                <div class="col-sm-6">
-                    <input id="result" name='result' class="form-control" placeholder="Результат" />
-                </div>
-            </div>
+            <fieldset>
+                <legend>Результат</legend>
+                <input id="result" name='result' class="form-control" placeholder="Результат" />
+            </fieldset>
+
+            <button class="btn btn-success form-control save">Зберегти</button>
+            <button id="archive" class="btn btn-primary form-control">Архiв</button>
         </fieldset>
         <fieldset>
             <legend>Оцінка соматичного здоров’я за Г.Л. Апанасенко</legend>
@@ -485,7 +486,7 @@
                     <td>
                         <p>2 - 3</p>
                         <p>
-                            <strong>-1 бал</strong>
+                            <strong>1 бал</strong>
                         </p>
                     </td>
                     <td>
