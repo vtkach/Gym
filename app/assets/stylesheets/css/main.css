@@ -186,17 +186,26 @@
 }
 
 .fade-in {
-  -webkit-animation: fadein 0.8s;
-  -moz-animation: fadein 0.8s;
-  -o-animation: fadein 0.8s;
-  animation: fadein 0.8s;
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
 }
 
 .glyphicon-folder-open {
   transform: rotate(90deg);
 }
 
-section.row .fade-in > a {
+body.container {
+  min-width: 980px;
+}
+body.container section.row button.btn {
+  margin: 0.5em auto;
+}
+body.container section.row fieldset .form-control {
+  margin-bottom: 1em !important;
+}
+body.container section.row .fade-in > a {
   box-shadow: 2px 2px 0 #888;
   border: 1px solid #000;
   min-width: 100px;
@@ -205,66 +214,73 @@ section.row .fade-in > a {
   height: 150px;
   margin: 4%;
 }
-section.row .fade-in > a:hover {
+body.container section.row .fade-in > a:hover {
   box-shadow: 1px 1px 20px #009933;
 }
-section.row .profile-fields > input {
+body.container section.row .profile-fields > input {
   margin-top: 1em;
 }
-section.row .body-index ul.nav-stacked {
+body.container section.row .physical-preparedness table tr td, body.container section.row .physical-preparedness table tr th {
+  vertical-align: middle;
+  text-align: center;
+}
+body.container section.row .physical-preparedness fieldset.toggle-show {
+  cursor: pointer;
+}
+body.container section.row .body-index ul.nav-stacked {
   min-width: 200px;
 }
-section.row .body-index fieldset .form-control {
-  margin-bottom: 1em !important;
-}
-section.row .body-index table tr td, section.row .body-index table tr th {
+body.container section.row .body-index table tr td, body.container section.row .body-index table tr th {
   vertical-align: middle;
   text-align: center;
 }
-section.row .motor-activity table tr td, section.row .motor-activity table tr th {
+body.container section.row .motor-activity table tr td, body.container section.row .motor-activity table tr th {
   vertical-align: middle;
   text-align: center;
 }
-section.row .motor-activity table tr .glyphicon {
+body.container section.row .motor-activity table tr .glyphicon {
   cursor: pointer;
   font-size: 1.5em;
 }
-section.row .motor-activity table tr .glyphicon.glyphicon-remove {
+body.container section.row .motor-activity table tr .glyphicon.glyphicon-remove {
   border-color: #d43f3a;
   color: #d9534f;
 }
-section.row .motor-activity table tr .glyphicon.glyphicon-remove:hover {
+body.container section.row .motor-activity table tr .glyphicon.glyphicon-remove:hover {
   border-color: #ac2925;
   color: #ac2925;
 }
-section.row .motor-activity table tr .glyphicon.glyphicon-plus {
+body.container section.row .motor-activity table tr .glyphicon.glyphicon-plus {
   border-color: #4cae4c;
   color: #5cb85c;
 }
-section.row .motor-activity table tr .glyphicon.glyphicon-plus:hover {
+body.container section.row .motor-activity table tr .glyphicon.glyphicon-plus:hover {
   border-color: #398439;
   color: #449d44;
 }
-section.row .physical-state table tr td, section.row .physical-state table tr th {
+body.container section.row .physical-state table tr td, body.container section.row .physical-state table tr th {
   vertical-align: middle;
   text-align: center;
 }
-section.row .phys-state-form .form-control {
+body.container section.row .physical-health table td:first-child {
+  width: 130px;
+}
+body.container section.row .phys-state-form .form-control {
   margin-bottom: 1em;
 }
-section.row aside .nav-stacked {
+body.container section.row aside .nav-stacked {
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding: 1em;
 }
-section.row aside .nav-stacked li:last-child a {
+body.container section.row aside .nav-stacked li:last-child a {
   border-bottom: none;
 }
-section.row aside .nav-stacked li a {
+body.container section.row aside .nav-stacked li a {
   border: none;
   border-bottom: 1px solid lightgrey;
 }
-section.row aside .nav-stacked li a:hover {
+body.container section.row aside .nav-stacked li a:hover {
   background: #337ab7;
   cursor: pointer;
   color: #fff;
@@ -293,4 +309,8 @@ section.row aside .nav-stacked li a:hover {
 }
 .flash-message.alert-info strong:before {
   content: 'К сведению!';
+}
+
+.date-field {
+  width: 100px;
 }

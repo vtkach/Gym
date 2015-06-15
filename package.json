@@ -1,0 +1,29 @@
+{
+  "name": "gym-application",
+  "version": "1.0.0",
+  "description": "Application for schollars, students",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtkach/Gym.git"
+  },
+  "author": "Victor Tkachenko, Mykhail Alexuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtkach/Gym/issues"
+  },
+  "homepage": "https://github.com/vtkach/Gym#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-notify": "^2.2.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4",
+    "purify-css": "^1.0.13"
+  }
+}
