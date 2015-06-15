@@ -1,10 +1,11 @@
 module RenderHelper
 
   def render_response state
-    if state
+    unless state.errors.any?
       template = :show
     else
-      template = 'base/error'
+      @errors = state.errors.full_messages
+      template = { template: 'base/error', status: 400 }
     end
 
     render template
