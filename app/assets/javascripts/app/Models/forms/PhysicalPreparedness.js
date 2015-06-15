@@ -36,17 +36,17 @@
             'success'
         ],
 
-            calculate: function () {
+       /* calculate: function () {
             var fields = Object.keys(this.RANGES.male);
 
             fields.forEach(this.checkFields.bind(this));
-        },
+        },*/
 
-        checkFields: function (attr) {
+        calculate: function (attr, val) {
             var profile = app.instances.profile,
                 gender = profile.get('gender'),
                 age = profile.get('age'),
-                val = this.get(attr),
+             /*   val = this.get(attr),*/
                 index;
 
             index = _.findIndex(this.RANGES[gender || 'm'][attr][age || '15'], function (range) {

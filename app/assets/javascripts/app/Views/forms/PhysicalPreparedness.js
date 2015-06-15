@@ -28,19 +28,19 @@
 
                 selector: 'td[name="' + elem + '"]',
 
-                converter: function (dir, val, attr, model) {
-                    if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                        //model.RANGES[attr]
-                        return model.calculate(attr, val);
-                        //TODO add valid converters for calculations
-                    }
+                elAttribute: 'class',
 
-                    return val;
-                },
-
-                elAttribute: 'class'
+                converter: this.bindingConverter
 
             }];
+        },
+
+        bindingConverter: function (dir, val, attr, model) {
+            if (dir === Backbone.ModelBinder.Constants.ModelToView) {
+                return model.calculate(attr, val);
+            }
+
+            return val;
         }
 
     }, {

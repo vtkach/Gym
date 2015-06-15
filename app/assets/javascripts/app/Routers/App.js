@@ -60,13 +60,15 @@
                     }),
                     tagName: 'fieldset',
                     tplName: template
-                };
+                }, list = $('.nav.nav-pills.nav-stacked');
 
             if (this.subView !== template) {
                 this.currentSubView && this.currentSubView.close();
                 this.currentSubView = this.factoryMethod('view', templateToClassName, options);
                 this.currentView.$('.form-container').html(this.currentSubView.render().el);
                 this.subView = template;
+                list.find('li').removeClass('active');
+                list.find('.' + template).addClass('active');
             }
         },
 
