@@ -1,7 +1,7 @@
 ;(function (app) {
-    var NotesView = app.views.UserActionsView.extend(app.views.PhysicalTabView.prototype);
+    //var NotesView = app.views.UserActionsView.extend(app.views.PhysicalTabView.prototype);
 
-    app.views.NotesView = NotesView.extend({
+    app.views.NotesView = app.views.UserActionsView.extend({
 
         getModalDialog: function () {
             this.showModal({
@@ -15,6 +15,7 @@
         },
 
         onSubmitUserAction: function () {
+		console.warn(1111111);
             this.model.save()
                 .done(this.refreshModel.bind(this));
         },

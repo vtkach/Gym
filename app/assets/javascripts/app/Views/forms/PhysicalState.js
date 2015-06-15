@@ -13,7 +13,7 @@
                     'Індекс маси тіла',
                     'Життєвий індекс'
                 ],
-                tplName: 'physical_state',
+                tplName: 'physical_states',
                 title: 'Фізичний розвиток'
             });
         }
