@@ -58,7 +58,7 @@
 
         RANGES: {
             male: {
-                pushups: {
+                pushUps: {
                     15: [{
                         min: 0,
                         max: 19
@@ -190,7 +190,7 @@
                         max: 500
                     }]
                 },
-                jumplength: {
+                jumpLength: {
                     15: [{
                         min: 0,
                         max: 178
@@ -256,7 +256,7 @@
                         max: 500
                     }]
                 },
-                jumpheight: {
+                jumpHeight: {
                     15: [{
                         min: 0,
                         max: 34
@@ -322,7 +322,7 @@
                         max: 500
                     }]
                 },
-                estapheta: {
+                estafeta: {
                     15:[{
                         min: 12,
                         max: 20
@@ -388,7 +388,7 @@
                         max: 11
                     }]
                 },
-                coopertest: {
+                cooperTest: {
                     15: [{
                         min: 2000,
                         max: 2428
@@ -454,7 +454,7 @@
                         max: 4500
                     }]
                 },
-                inclinebody: {
+                inclineBody: {
                     15: [{
                         min: 0,
                         max: 9
@@ -520,7 +520,7 @@
                         max: 100
                     }]
                 },
-                flamingotest: {
+                flamingoTest: {
                     15: [{
                         min: 19,
                         max: 100
@@ -654,7 +654,7 @@
                 }
             },
             female: {
-                pushups: {
+                pushUps: {
                     15: [{
                         min: 0,
                         max: 6
@@ -786,7 +786,7 @@
                         max: 500
                     }]
                 },
-                jumplength: {
+                jumpLength: {
                     15: [{
                         min: 0,
                         max: 138
@@ -852,7 +852,7 @@
                         max: 500
                     }]
                 },
-                jumpheight: {
+                jumpHeight: {
                     15: [{
                         min: 0,
                         max: 30
@@ -918,7 +918,7 @@
                         max: 500
                     }]
                 },
-                estapheta: {
+                estafeta: {
                     15:[{
                         min: 14,
                         max: 30
@@ -984,7 +984,7 @@
                         max: 13
                     }]
                 },
-                coopertest: {
+                cooperTest: {
                     15: [{
                         min: 2000,
                         max: 2428
@@ -1050,7 +1050,7 @@
                         max: 4500
                     }]
                 },
-                inclinebody: {
+                inclineBody: {
                     15: [{
                         min: 0,
                         max: 15
@@ -1116,7 +1116,7 @@
                         max: 30
                     }]
                 },
-                flamingotest: {
+                flamingoTest: {
                     15: [{
                         min: 19,
                         max: 100

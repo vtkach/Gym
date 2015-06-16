@@ -4,34 +4,27 @@
 
         afterRender: function () {
             var bindFields = [
-                "pushups",
+                "pushUps",
                 "raising",
-                "jumplength",
-                "jumpheight",
-                "estapheta",
-                "coopertest",
-                "inclinebody",
-                "flamingotest",
+                "jumpLength",
+                "jumpHeight",
+                "cooperTest",
+                "inclineBody",
+                "flamingoTest",
+                'estafeta',
                 "inclines"
             ];
 
-            this.constructor.bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'name');
             _.each(bindFields, this.eachBinding, this);
         },
 
         eachBinding: function (elem) {
             this.constructor.bindings[elem] = [{
-
                 selector: 'input[name="' + elem + '"]'
-
             }, {
-
+                converter: this.bindingConverter.bind(this),
                 selector: 'td[name="' + elem + '"]',
-
-                elAttribute: 'class',
-
-                converter: this.bindingConverter
-
+                elAttribute: 'class'
             }];
         },
 
@@ -64,7 +57,9 @@
             firstName: '[name=firstName]',
             lastName: '[name=lastName]',
             surname: '[name=surname]'
-        }
+        },
+
+        bindings: {}
     });
 
 } (app));
