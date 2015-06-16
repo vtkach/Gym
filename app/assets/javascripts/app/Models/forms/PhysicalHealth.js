@@ -2,7 +2,7 @@
 
     app.models.PhysicalHealthModel = app.models.BaseModel.extend({
 
-        urlPart: '',
+        urlPart: '/physical_health_states/',
         // TODO: remove values from defaults properties
         defaults: {
             height: '180',

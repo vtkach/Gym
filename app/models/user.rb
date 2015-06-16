@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :physical_states
   has_many :shoulder_indexes
+  has_many :physical_health_states
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613192714) do
+ActiveRecord::Schema.define(version: 20150616214535) do
 
   create_table "notes", force: :cascade do |t|
     t.text     "note"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 20150613192714) do
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+
+  create_table "physical_health_states", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "pressure"
+    t.integer  "volume"
+    t.integer  "wrist"
+    t.integer  "pulse"
+    t.integer  "pulseRecovering"
+    t.datetime "date"
+    t.integer  "age"
+    t.integer  "result"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "physical_health_states", ["user_id"], name: "index_physical_health_states_on_user_id"
 
   create_table "physical_states", force: :cascade do |t|
     t.integer  "weight"
