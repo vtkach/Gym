@@ -7,16 +7,16 @@
         parse: function (response) {
             this.updateProfile(response.profile);
 
-            return JSON.parse(response.user);
+            return response.user;
         },
 
         setUserData: function (data) {
             this.updateProfile(data.profile);
-            this.set(JSON.parse(data.user));
+            this.set(data.user);
         },
 
         updateProfile: function (data) {
-            app.instances.profile.set(JSON.parse(data));
+            app.instances.profile.set(data);
         },
 
         loadUser: function () {
