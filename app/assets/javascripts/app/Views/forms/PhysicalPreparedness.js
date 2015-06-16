@@ -2,6 +2,22 @@
 
     app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
+        classes: [
+            'danger',
+            'warning',
+            'success',
+            'success',
+            'success'
+        ],
+
+        states: [
+            'Низька',
+            "Нижче за середній",
+            "Середній",
+            "Вище за середній",
+            "Високий"
+        ],
+
         afterRender: function () {
             var bindFields = [
                 "pushUps",
@@ -16,21 +32,33 @@
             ];
 
             _.each(bindFields, this.eachBinding, this);
+            app.views.BaseView.prototype.binding.call(this);
         },
 
         eachBinding: function (elem) {
             this.constructor.bindings[elem] = [{
-                selector: 'input[name="' + elem + '"]'
-            }, {
                 converter: this.bindingConverter.bind(this),
                 selector: 'td[name="' + elem + '"]',
                 elAttribute: 'class'
+            }, {
+                converter: this.stateConverter.bind(this),
+                selector: 'td[name="' + elem + '"]'
+            }, {
+                selector: 'input[name="' + elem + '"]'
             }];
+        },
+
+        stateConverter: function (dir, val, attr, model) {
+            if (dir === Backbone.ModelBinder.Constants.ModelToView) {
+                return this.states[model.calculate(attr, val)];
+            }
+
+            return val;
         },
 
         bindingConverter: function (dir, val, attr, model) {
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return model.calculate(attr, val);
+                return this.classes[model.calculate(attr, val)];
             }
 
             return val;
@@ -58,7 +86,6 @@
             lastName: '[name=lastName]',
             surname: '[name=surname]'
         },
-
         bindings: {}
     });
 

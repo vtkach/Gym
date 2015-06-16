@@ -17,6 +17,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="SomeApplication node_modules" level="project" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -28,32 +28,17 @@
 
         wrapperJson: 'physicalPreparedness',
 
-        classes: [
-            'danger',
-            'warning',
-            'success',
-            'success',
-            'success'
-        ],
-
-       /* calculate: function () {
-            var fields = Object.keys(this.RANGES.male);
-
-            fields.forEach(this.checkFields.bind(this));
-        },*/
-
         calculate: function (attr, val) {
             var profile = app.instances.profile,
                 gender = profile.get('gender'),
                 age = profile.get('age'),
-             /*   val = this.get(attr),*/
                 index;
 
             index = _.findIndex(this.RANGES[gender || 'm'][attr][age || '15'], function (range) {
                 return val > range.min && val < range.max;
             });
 
-            return this.classes[index];
+            return index;
         },
 
         RANGES: {
@@ -325,7 +310,7 @@
                 estafeta: {
                     15:[{
                         min: 12,
-                        max: 20
+                        max: 500
                     }, {
                         min: 11,
                         max: 13
@@ -341,7 +326,7 @@
                     }],
                     16:[{
                         min: 12,
-                        max: 20
+                        max: 500
                     }, {
                         min: 11,
                         max: 13
@@ -357,7 +342,7 @@
                     }],
                     17:[{
                         min: 13,
-                        max: 20
+                        max: 500
                     }, {
                         min: 12,
                         max: 14
@@ -373,7 +358,7 @@
                     }],
                     18:[{
                         min: 13,
-                        max: 20
+                        max: 500
                     }, {
                         min: 12,
                         max: 14
@@ -921,7 +906,7 @@
                 estafeta: {
                     15:[{
                         min: 14,
-                        max: 30
+                        max: 500
                     }, {
                         min: 13,
                         max: 15
@@ -937,7 +922,7 @@
                     }],
                     16:[{
                         min: 14,
-                        max: 30
+                        max: 500
                     }, {
                         min: 13,
                         max: 15
@@ -953,7 +938,7 @@
                     }],
                     17:[{
                         min: 15,
-                        max: 30
+                        max: 500
                     }, {
                         min: 14,
                         max: 16
@@ -969,7 +954,7 @@
                     }],
                     18:[{
                         min: 15,
-                        max: 30
+                        max: 500
                     }, {
                         min: 14,
                         max: 16
