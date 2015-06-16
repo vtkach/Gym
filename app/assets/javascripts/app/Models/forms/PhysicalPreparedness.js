@@ -48,64 +48,64 @@
                         min: 0,
                         max: 19
                     }, {
-                        min: 20,
-                        max: 25
+                        min: 19,
+                        max: 26
                     }, {
-                        min: 26,
-                        max: 30
+                        min: 25,
+                        max: 31
                     }, {
                         min: 31,
-                        max: 36
+                        max: 37
                     }, {
-                        min: 37,
+                        min: 36,
                         max: 500
                     }],
                     16: [{
                         min: 0,
-                        max: 21
+                        max: 22
                     }, {
-                        min: 22,
-                        max: 27
+                        min: 21,
+                        max: 28
                     }, {
-                        min: 28,
-                        max: 33
+                        min: 27,
+                        max: 34
                     }, {
-                        min: 34,
-                        max: 39
+                        min: 33,
+                        max: 40
                     }, {
-                        min: 40,
+                        min: 39,
                         max: 500
                     }],
                     17: [{
                         min: 0,
-                        max: 23
+                        max: 24
                     }, {
-                        min: 24,
-                        max: 29
+                        min: 23,
+                        max: 30
                     }, {
-                        min: 30,
-                        max: 35
+                        min: 29,
+                        max: 36
                     }, {
-                        min: 36,
-                        max: 41
+                        min: 35,
+                        max: 42
                     }, {
-                        min: 42,
+                        min: 41,
                         max: 500
                     }],
                     18: [{
                         min: 0,
-                        max: 25
+                        max: 26
                     }, {
-                        min: 26,
-                        max: 31
+                        min: 25,
+                        max: 32
                     }, {
-                        min: 32,
-                        max: 37
+                        min: 31,
+                        max: 38
                     }, {
-                        min: 38,
-                        max: 43
+                        min: 37,
+                        max: 44
                     }, {
-                        min: 44,
+                        min: 43,
                         max: 500
                     }]
                 },

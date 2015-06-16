@@ -71,7 +71,10 @@ body.container {
     }
     .physical-preparedness {
       @include centered-table-content();
-
+      td[name] {
+        font-weight: bold;
+        color: #fff;
+      }
       fieldset {
         &.toggle-show {
           cursor: pointer;

@@ -3,11 +3,11 @@
     app.views.PhysicalPreparednessView = app.views.PhysicalTabView.extend({
 
         classes: [
-            'danger',
-            'warning',
-            'success',
-            'success',
-            'success'
+            'danger-state',
+            'low-danger-state', //F37020
+            'low-success-state', //FEF984
+            'success-state', //C8FD87
+            'higher-success'
         ],
 
         states: [
