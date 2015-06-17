@@ -25,7 +25,9 @@
             this.validate();
 
             this.isValid() && this.calculate();
-        }
+        },
+
+        calculate: function () {}
     });
 
 } (app));
