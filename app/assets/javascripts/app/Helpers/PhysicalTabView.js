@@ -20,6 +20,8 @@
                 'click .save': 'onSave'
             });
             Backbone.Validation.bind(this);
+
+            this.model.bind('validated:invalid', this.showValidationError.bind(this));
         },
 
         onCalculate: function () {
@@ -59,12 +61,29 @@
             this._archiveCollectionBinder.bind(this._archiveCollection, $('#archive-container'));
         },
 
+        binding: function () {
+            var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'name', function (dir, val) {
+                var value = parseFloat(val)
+
+                return isNaN(value) ? '' : value;
+            });
+
+            this._modelBinder.bind(this.model, this.el, bindings);
+            this.extendBinding();
+        },
+
         onClose: function () {
             this._archiveCollectionBinder.unbind();
             this._profileBinder.unbind();
             this._modelBinder.unbind();
 
             this._modelBinder = this._archiveCollectionBinder = this._profileBinder = null;
+        },
+
+        showValidationError: function (model, errors) {
+            var errorFields = _.keys(errors);
+
+            this.constructor.showFlashMessage.call(this, 'danger', errors[errorFields[0]]);
         }
 
     });

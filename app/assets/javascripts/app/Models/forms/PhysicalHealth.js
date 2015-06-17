@@ -5,6 +5,8 @@
         urlPart: '/physical_health_states/',
         // TODO: remove values from defaults properties
         defaults: {
+            age: '',
+            date: '',
             height: '180',
             weight: '70',
             pressure: '120',
@@ -15,21 +17,73 @@
             result: ''
         },
 
+        validation: {
+            age: {},
+            date: {},
+
+            height: {
+                range: [20, 250],
+                msg: 'Зріст повинен бути у діапазоні вiд 20 до 250 см!'
+            },
+
+            weight: {
+                range: [20, 150],
+                msg: 'Вага повинна бути в діапазоні від 20 до 150 кг!'
+            },
+
+            pressure: {
+                range: [40, 260],
+                msg: 'Тиск повинен бути в діапазоні від 40 до 260!'
+            },
+
+            volume: {
+                range: [1000, 7000],
+                msg: 'Життєва ємність легенів повинна бути в діапазоні від 1000 до 7000 мл!'
+            },
+
+            wrist: {
+                range: [0, 100],
+                msg: 'Сила кисті повинна бути в діапазоні від 0 до 100 кг'
+            },
+
+            pulse: {
+                range: [40, 250],
+                msg: 'Пульс повинен бути в діапазоні від 40 до 250 ударів за хвилину'
+            },
+
+            pulseRecovering: {
+                min: 0,
+                msg: 'Час відновлення пульсу не може бути менше 0!'
+            }
+        },
+
         wrapperJson: 'physicalHealth',
 
         calculate: function () {
-            var gender = app.instances.profile.get('gender'),
-                weight = this.get('weight'),
-                indicatorResults = {
-                    indicator1: weight / Math.pow(this.get('height') / 100, 2),
-                    indicator2: this.get('volume') / weight,
-                    indicator3: this.get('wrist') * 100 / weight,
-                    indicator4: this.get('pulse') * this.get('pressure') / 100,
-                    indicator5: this.get('pulseRecovering')
-                },
-                properties = _.keys(indicatorResults),
+            var indicatorResults,
+                properties,
+                gender,
+                weight,
                 result;
 
+            this.validate();
+
+            if (!this.isValid()) {
+                return ;
+            }
+
+            gender = app.instances.profile.get('gender');
+            weight = this.get('weight');
+
+            indicatorResults = {
+                indicator1: weight / Math.pow(this.get('height') / 100, 2),
+                indicator2: this.get('volume') / weight,
+                indicator3: this.get('wrist') * 100 / weight,
+                indicator4: this.get('pulse') * this.get('pressure') / 100,
+                indicator5: this.get('pulseRecovering')
+            };
+
+            properties = _.keys(indicatorResults);
             result = _.reduce(properties, function (memo, indicatorName) {
                 var index = _.findIndex(this.RANGES[gender][indicatorName], function (range) {
                     var val = indicatorResults[indicatorName];
