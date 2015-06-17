@@ -1,8 +1,10 @@
 ;(function (app) {
 
-    app.models.PhysicalPreparednessModel = app.models.BaseModel.extend({
+    app.models.PhysicalPreparednessModel = app.models.PhysicalTabModel.extend({
 
         defaults: {
+            date: '',
+            age: '',
             pushUps: '',
             raising: '',
             jumpLength: '',
@@ -14,7 +16,7 @@
             inclines: ''
         },
 
-        validation: {
+        additionalFields: {
             gender: {
                 required: 'true'
             },

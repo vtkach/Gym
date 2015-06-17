@@ -25,11 +25,11 @@
         },
 
         onCalculate: function () {
-            this.model.calculate();
+            this.model.checkData();
         },
 
         onSave: function () {
-            this.model.calculate();
+            this.model.checkData();
             this.model.save();
         },
 

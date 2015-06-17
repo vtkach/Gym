@@ -1,5 +1,6 @@
 //= require app/init
 //= require app/Helpers/BaseModel
+//= require app/Helpers/PhysicalTabModel
 //= require app/Helpers/BaseView
 //= require app/Helpers/PhysicalTabView
 //= require app/Helpers/BaseRouter

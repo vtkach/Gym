@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.PhysicalHealthModel = app.models.BaseModel.extend({
+    app.models.PhysicalHealthModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/physical_health_states/',
         // TODO: remove values from defaults properties
@@ -17,10 +17,7 @@
             result: ''
         },
 
-        validation: {
-            age: {},
-            date: {},
-
+        additionalFields: {
             height: {
                 range: [20, 250],
                 msg: 'Зріст повинен бути у діапазоні вiд 20 до 250 см!'
@@ -60,30 +57,18 @@
         wrapperJson: 'physicalHealth',
 
         calculate: function () {
-            var indicatorResults,
-                properties,
-                gender,
-                weight,
+            var gender = app.instances.profile.get('gender'),
+                weight = this.get('weight'),
+                indicatorResults = {
+                    indicator1: weight / Math.pow(this.get('height') / 100, 2),
+                    indicator2: this.get('volume') / weight,
+                    indicator3: this.get('wrist') * 100 / weight,
+                    indicator4: this.get('pulse') * this.get('pressure') / 100,
+                    indicator5: this.get('pulseRecovering')
+                },
+                properties = _.keys(indicatorResults),
                 result;
 
-            this.validate();
-
-            if (!this.isValid()) {
-                return ;
-            }
-
-            gender = app.instances.profile.get('gender');
-            weight = this.get('weight');
-
-            indicatorResults = {
-                indicator1: weight / Math.pow(this.get('height') / 100, 2),
-                indicator2: this.get('volume') / weight,
-                indicator3: this.get('wrist') * 100 / weight,
-                indicator4: this.get('pulse') * this.get('pressure') / 100,
-                indicator5: this.get('pulseRecovering')
-            };
-
-            properties = _.keys(indicatorResults);
             result = _.reduce(properties, function (memo, indicatorName) {
                 var index = _.findIndex(this.RANGES[gender][indicatorName], function (range) {
                     var val = indicatorResults[indicatorName];

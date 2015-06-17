@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.MotorActivityModel = app.models.BaseModel.extend({
+    app.models.MotorActivityModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/motor_activities/',
 

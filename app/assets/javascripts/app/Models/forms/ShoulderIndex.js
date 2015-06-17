@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.ShoulderIndexModel = app.models.BaseModel.extend({
+    app.models.ShoulderIndexModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/shoulder_indices/',
 
@@ -14,9 +14,7 @@
             brachialIndex: ''
         },
 
-        validation: {
-            date: {},
-            age: {},
+        additionalFields: {
             shoulder: {
                 range: [10, 100],
                 msg: 'Плечова дуга повинна бути в діапазоні від 10 до 100 cм!'
@@ -29,15 +27,8 @@
         },
 
         calculate: function () {
-            var result;
+            var result = this.get('shoulderWidth') / this.get('shoulder') * 100;;
 
-            this.validate();
-
-            if (!this.isValid()) {
-                return ;
-            }
-
-            result = this.get('shoulderWidth') / this.get('shoulder') * 100;
             this.set('brachialIndex', result);
         }
 

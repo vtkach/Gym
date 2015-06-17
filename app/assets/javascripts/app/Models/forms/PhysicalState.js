@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.PhysicalStateModel = app.models.BaseModel.extend({
+    app.models.PhysicalStateModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/physical_states/',
 
@@ -17,7 +17,7 @@
             lifeindex: ''
         },
 
-        validation: {
+        additionalFields: {
             height: {
                 range: [20, 250],
                 msg: 'Зріст повинен бути у діапазоні вiд 20 до 250 см!'
@@ -35,19 +35,9 @@
         },
 
         calculate: function () {
-            var lifeIndex,
-                bodyIndex,
-                weight;
-
-            this.validate();
-
-            if (!this.isValid()) {
-                return ;
-            }
-
-            weight = this.get('weight'),
-            bodyIndex = weight / (this.get('height')) * 100,
-            lifeIndex = this.get('volume') / weight;
+            var weight = this.get('weight'),
+                bodyIndex = weight / (this.get('height')) * 100,
+                lifeIndex = this.get('volume') / weight;
 
             this.set({
                 bodyindex: bodyIndex.toFixed(2),
