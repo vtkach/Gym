@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.PhysStateFormModel = app.models.BaseModel.extend({
+    app.models.PhysStateFormModel = app.models.PhysicalTabModel.extend({
 
         defaults: {},
 

@@ -1,10 +1,12 @@
 ;(function (app) {
 
-    app.models.PhysicalHealthModel = app.models.BaseModel.extend({
+    app.models.PhysicalHealthModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/physical_health_states/',
         // TODO: remove values from defaults properties
         defaults: {
+            age: '',
+            date: '',
             height: '180',
             weight: '70',
             pressure: '120',
@@ -13,6 +15,43 @@
             pulse: '60',
             pulseRecovering: '80',
             result: ''
+        },
+
+        additionalFields: {
+            height: {
+                range: [20, 250],
+                msg: 'Зріст повинен бути у діапазоні вiд 20 до 250 см!'
+            },
+
+            weight: {
+                range: [20, 150],
+                msg: 'Вага повинна бути в діапазоні від 20 до 150 кг!'
+            },
+
+            pressure: {
+                range: [40, 260],
+                msg: 'Тиск повинен бути в діапазоні від 40 до 260!'
+            },
+
+            volume: {
+                range: [1000, 7000],
+                msg: 'Життєва ємність легенів повинна бути в діапазоні від 1000 до 7000 мл!'
+            },
+
+            wrist: {
+                range: [0, 100],
+                msg: 'Сила кисті повинна бути в діапазоні від 0 до 100 кг'
+            },
+
+            pulse: {
+                range: [40, 250],
+                msg: 'Пульс повинен бути в діапазоні від 40 до 250 ударів за хвилину'
+            },
+
+            pulseRecovering: {
+                min: 0,
+                msg: 'Час відновлення пульсу не може бути менше 0!'
+            }
         },
 
         wrapperJson: 'physicalHealth',

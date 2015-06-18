@@ -16,7 +16,9 @@ class RegistrationsController < Devise::RegistrationsController
 
     if resource.persisted?
       sign_up(resource_name, resource)
-      response_params[:json] = generate_response(resource, resource.profile)
+      # response_params[:json] = generate_response(resource, resource.profile)
+      @user = resource
+      response_params = 'users/user_profile'
     else
       response_params[:text] = generate_error(resource)
       response_params[:status] = 422

@@ -1,6 +1,6 @@
 ;(function (app) {
 
-    app.models.DefinitionModel = app.models.BaseModel.extend({
+    app.models.DefinitionModel = app.models.PhysicalTabModel.extend({
 
         defaults: {},
 

@@ -13,7 +13,8 @@ class SessionsController < Devise::SessionsController
 
     if @user && @user.valid_password?(user_params[:password])
       sign_in(@user)
-      response_params[:json] = generate_response(@user, @user.profile)
+      # response_params[:json] = generate_response(@user, @user.profile)
+      response_params = 'users/user_profile'
     else
       response_params[:plain] = t('custom.errors.authentification')
       response_params[:status] = 401
@@ -35,7 +36,9 @@ class SessionsController < Devise::SessionsController
     response_params = {}
 
     if current_user
-      response_params[:json] = generate_response(current_user, current_user.profile)
+      # response_params[:json] = generate_response(current_user, current_user.profile)
+      @user = current_user
+      response_params = 'users/user_profile'
     else
       response_params[:json] = { errors: [t('custom.errors.currentUser')] }
       response_params[:status] = 401
