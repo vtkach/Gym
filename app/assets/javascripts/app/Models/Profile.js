@@ -5,14 +5,14 @@
         url: '/profile',
 
         defaults: {
-            lastName: 'Tkachenko',
-            firstName: 'Victor',
-            surname: 'Alexsandrovich',
-            gender: 'male',
-            school: '67',
-            group: 'kmp',
-            household: 'есть',
-            age: 15
+            lastName: '',
+            firstName: '',
+            surname: '',
+            gender: '',
+            school: '',
+            group: '',
+            household: '',
+            age: ''
         }
 
     });

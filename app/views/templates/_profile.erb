@@ -1,15 +1,28 @@
 <template id="profile">
     <form class="form-group col-xs-6 col-xs-offset-3 profile">
         <div class="form-group">
+            <label>Прізвище</label>
             <input class="form-control input-lg" name='lastName' placeholder="Прізвище"/>
         </div>
         <div class="form-group">
+            <label>Ім'я</label>
             <input class="form-control input-lg" name='firstName' placeholder="Ім'я"/>
         </div>
         <div class="form-group">
+            <label>По батькові</label>
             <input class="form-control input-lg" name='surname' placeholder="По батькові"/>
         </div>
         <div class="form-group">
+            <label>Вік</label>
+            <select class="form-control">
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Пол</label>
             <div class="radio">
                 <label class="medium-font">
                     <input type="radio" name="gender" value="male" checked/>
@@ -24,12 +37,15 @@
             </div>
         </div>
         <div class="form-group">
+            <label>Школа</label>
             <input class="form-control input-lg" name='school' placeholder="Школа"/>
         </div>
         <div class="form-group">
+            <label>Клас</label>
             <input class="form-control input-lg" name='group' placeholder="Клас"/>
         </div>
         <div class="form-group">
+            <label>Сім'я</label>
             <div class="radio">
                 <label>
                     <input type="radio" name="household" value="full" checked/>

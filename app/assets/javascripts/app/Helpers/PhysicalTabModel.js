@@ -2,15 +2,11 @@
 
     app.models.PhysicalTabModel = app.models.BaseModel.extend({
 
-        initialize: function () {
-            this.validation = _.extend({}, this.baseFields, this.additionalFields);
-
-        },
-
         baseFields: {
             age: {
-                range: [5, 150],
-                msg: 'Вік повинен бути в діапазоні від 5 до 150 років'
+                range: [15, 18],
+                fn: function () {debugger},
+                msg: 'Вік повинен бути в діапазоні від 15 до 18 років'
             }
             //TODO: investigate unexpected behavior (model doesn't update, only creates)
             //date: {
@@ -20,6 +16,10 @@
         },
 
         additionalFields: {},
+
+        initialize: function () {
+            this.validation = _.extend({}, this.baseFields, this.additionalFields);
+        },
 
         checkData: function () {
             this.validate();
