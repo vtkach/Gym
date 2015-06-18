@@ -71,8 +71,21 @@ body.container {
     }
     .physical-preparedness {
       @include centered-table-content();
-      td[name] {
+      table {
+        border-right: none;
+        td[name] {
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+     .color-grades .col-xs-2 {
+        vertical-align: middle;
+        display: table-cell;
+        text-align: center;
         font-weight: bold;
+        border: 2px solid;
+        height: 4.5em;
+        float: none;
         color: #fff;
       }
       fieldset {

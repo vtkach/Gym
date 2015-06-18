@@ -45,7 +45,22 @@
                 selector: 'td[name="' + elem + '"]'
             }, {
                 selector: 'input[name="' + elem + '"]'
+            }, {
+                converter: this.popoverConverter.bind(this),
+                selector: 'input[name="' + elem + '"]',
+                elAttribute: 'placeholder'
             }];
+        },
+
+        popoverConverter: function (dir, val, attr, model) {
+            var profile = app.instances.profile,
+                rangesForAttribute = model.RANGES[profile.get('gender')][attr][profile.get('age')];
+
+            if (dir === Backbone.ModelBinder.Constants.ModelToView) {
+                return [rangesForAttribute[0].min, ' - ', rangesForAttribute[4].max].join('');
+            }
+
+            return val;
         },
 
         stateConverter: function (dir, val, attr, model) {
