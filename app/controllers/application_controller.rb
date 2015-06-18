@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
 
   def check_current_user
     unless valid_user?
-      @error = t('custom.errors.sessionExpired')
-      render 'base/error/', status: 401
+      render error_template t('custom.errors.sessionExpired'), 401
     end
   end
 
