@@ -7,7 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    response_params = {}
 
     resource.profile = Profile.new(gender: 'male')
     resource.save
@@ -16,12 +15,11 @@ class RegistrationsController < Devise::RegistrationsController
 
     if resource.persisted?
       sign_up(resource_name, resource)
-      # response_params[:json] = generate_response(resource, resource.profile)
+
       @user = resource
       response_params = 'users/user_profile'
     else
-      response_params[:text] = generate_error(resource)
-      response_params[:status] = 422
+      response_params = generate_error(resource)
     end
 
     render response_params
@@ -32,8 +30,9 @@ class RegistrationsController < Devise::RegistrationsController
   def generate_error resource
     errors = resource.errors.first
     error_title = errors.shift
+    error_message = t("custom.errors.#{error_title}") + ' ' + errors[0]
 
-    t("custom.errors.#{error_title}") + ' ' + errors[0]
+    error_template(error_message, 422)
   end
 
 end

@@ -28,7 +28,8 @@
         onSuccessCallback: function (userData) {
             app.instances.user.setUserData(userData);
             app.instances.router.navigate('accessed/home', { trigger: true });
-            this.constructor.showFlashMessage('success', { responseText: 'Вы вошли!' });
+            //TODO: add wrapper for showFlashMessage method (error property for success message, it's hell)
+            this.constructor.showFlashMessage('success', { errors: 'Вы вошли!' });
         },
 
         onSubmitUserAction: function () {

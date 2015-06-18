@@ -69,18 +69,20 @@
         }
 
     }, {
-        showFlashMessage: function (messageType, xhr) {
+        showFlashMessage: function (messageType, xhr, type, message) {
             var $flashMessage = $('.flash-message'),
                 classesToRemove = [
                     'alert-warning',
                     'alert-success',
                     'alert-danger',
                     'notify'
-                ].join(' ');
+                ].join(' '),
+                //TODO: remove this hell
+                text = xhr.errors || (xhr.responseJSON && xhr.responseJSON.errors) || message;
 
             $flashMessage.removeClass(classesToRemove)
                 .find('.text-message')
-                .text(xhr.responseText || xhr);
+                .text(text);
 
             _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
         }

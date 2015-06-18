@@ -84,7 +84,9 @@
         showValidationError: function (model, errors) {
             var errorFields = _.keys(errors);
 
-            this.constructor.showFlashMessage.call(this, 'danger', errors[errorFields[0]]);
+            this.constructor.showFlashMessage.call(this, 'danger', {
+                errors: errors[errorFields[0]]
+            });
         }
 
     });
