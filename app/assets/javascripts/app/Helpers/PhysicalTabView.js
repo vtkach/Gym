@@ -15,13 +15,14 @@
             this._archiveCollection.url = this.model.urlPart;
             this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
             this.extendEvents({
-                'click #archive': 'getArchive',
                 'click .calculate': 'onCalculate',
+                'click #archive': 'getArchive',
                 'click .save': 'onSave'
             });
-            Backbone.Validation.bind(this);
-
-            this.model.bind('validated:invalid', this.showValidationError.bind(this));
+            Backbone.Validation.bind(this/*, {
+                invalid: this.showValidationError.bind(this)
+            }*/);
+            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
         },
 
         onCalculate: function () {

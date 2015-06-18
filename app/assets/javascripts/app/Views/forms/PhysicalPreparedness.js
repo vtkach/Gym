@@ -59,7 +59,6 @@
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
                 return [rangesForAttribute[0].min, ' - ', rangesForAttribute[4].max].join('');
             }
-
             return val;
         },
 

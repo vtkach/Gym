@@ -23,6 +23,33 @@
             age: {
                 required: true,
                 oneOf: [15, 16, 17, 18]
+            },
+            pushUps: {
+                range: [0, 500]
+            },
+            raising: {
+                range: [0, 500]
+            },
+            jumpLength: {
+                range: [0, 500]
+            },
+            jumpHeight: {
+                range: [0, 500]
+            },
+            estafeta: {
+                range: [10, 12]
+            },
+            cooperTest: {
+                range: [2000, 4000]
+            },
+            inclineBody: {
+                range: [0, 100]
+            },
+            flamingoTest: {
+                range: [3, 19]
+            },
+            inclines: {
+                range: [0, 100]
             }
         },
 

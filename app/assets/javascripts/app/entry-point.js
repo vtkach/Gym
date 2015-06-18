@@ -1,6 +1,10 @@
 $(function ($) {
     var $spinner = $('.spinner');
-
+    Backbone.ModelBinder.SetOptions({
+        modelSetOptions: {
+            validate: true
+        }
+    });
     $.ajaxSetup({
         beforeSend: $spinner.removeClass.bind($spinner, 'hidden'),
         complete: $spinner.addClass.bind($spinner, 'hidden'),
