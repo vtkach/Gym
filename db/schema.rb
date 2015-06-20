@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616214535) do
+ActiveRecord::Schema.define(version: 20150620132340) do
 
   create_table "notes", force: :cascade do |t|
     t.text     "note"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150616214535) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "age"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

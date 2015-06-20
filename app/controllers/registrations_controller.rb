@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    resource.profile = Profile.new(gender: 'male')
+    resource.profile = Profile.new(gender: 'male', age: 15)
     resource.save
 
     yield resource if block_given?

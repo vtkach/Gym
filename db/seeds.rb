@@ -8,7 +8,7 @@
 
 User.all.each do |user|
   unless user.profile
-    user.profile = Profile.new
+    user.profile = Profile.new(gender: 'male', age: 15)
     user.save
   end
 end
