@@ -1,5 +1,6 @@
 json.extract! @profile,
               :id,
+              :age,
               :lastName,
               :firstName,
               :surname,
