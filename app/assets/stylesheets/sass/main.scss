@@ -198,3 +198,29 @@ body.container {
 .date-field {
   width: 100px;
 }
+
+.recommendations {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .image-wrapper {
+    img {
+      border: 1px solid black;
+    }
+
+    text-align: center;
+  }
+
+  p,
+  li {
+    text-align: justify;
+  }
+
+  @include centered-table-content();
+}
