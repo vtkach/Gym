@@ -33,6 +33,7 @@
 
             _.each(bindFields, this.eachBinding, this);
             app.views.BaseView.prototype.binding.call(this);
+            this.initDatePicker();
         },
 
         eachBinding: function (elem) {
