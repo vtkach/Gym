@@ -29,7 +29,10 @@
 
         onSave: function () {
             this.model.checkData();
-            this.model.save();
+            this.model.save()
+                .done(function (data) {
+                    this.datepicker.setDate(data);
+                }.bind(this));
         },
 
         showModal: function (options) {
@@ -77,6 +80,7 @@
             this._archiveCollectionBinder.unbind();
             this._profileBinder.unbind();
             this._modelBinder.unbind();
+            this.datepicker.destroy();
 
             this._modelBinder = this._archiveCollectionBinder = this._profileBinder = null;
         },
@@ -87,6 +91,44 @@
             this.constructor.showFlashMessage.call(this, 'danger', {
                 errors: errors[errorFields[0]]
             });
+        },
+
+        afterRender: function () {
+            this.initDatePicker();
+        },
+
+        initDatePicker: function () {
+            this.datepicker = new Pikaday({
+                field: this.$('[name=datepicker]').get(0),
+
+                onSelect: function (date) {
+                    console.warn(date);
+                    this.model.set('date', date);
+                }.bind(this),
+
+                i18n: {
+                    previousMonth: 'Попередній місяць',
+                    nextMonth: 'Наступний місяць',
+                    weekdays: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'],
+                    weekdaysShort : ['Нд','Пн','Вт','Ср','Чт','Пт','Сб'],
+                    months: [
+                        'Січень',
+                        'Лютий',
+                        'Березень',
+                        'Квітень',
+                        'Травень',
+                        'Червень',
+                        'Липень',
+                        'Серпень',
+                        'Вересень',
+                        'Жовтень',
+                        'Листопад',
+                        'Грудень'
+                    ]
+                }
+            });
+
+            this.datepicker.setDate(new Date());
         }
 
     });

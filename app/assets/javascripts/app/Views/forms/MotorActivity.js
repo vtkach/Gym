@@ -16,6 +16,7 @@
             this.collection = new app.collections.ActivityCollection(new app.models.ActivityRowModel);
             this._collectionBinder = new Backbone.CollectionBinder(viewFactory);
             this._collectionBinder.bind(this.collection, this.$('.activities'));
+            this.initDatePicker();
         },
 
         getActivityView: function (model) {
