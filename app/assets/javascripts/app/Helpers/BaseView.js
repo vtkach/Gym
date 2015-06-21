@@ -27,7 +27,7 @@
         binding: function () {
             this._modelBinder.bind(
                 this.model,
-                this.$el,
+                this.$(':not(#profile)'),
                 this.constructor.bindings
             );
 

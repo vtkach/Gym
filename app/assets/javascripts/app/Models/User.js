@@ -22,7 +22,7 @@
         loadUser: function () {
             return this.fetch({
                 url: '/users/current_user',
-                async:false
+                async: false
             });
         }
 

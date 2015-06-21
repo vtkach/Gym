@@ -56,7 +56,7 @@
             this._profileBinder = new Backbone.ModelBinder();
             this._profileBinder.bind(
                 app.instances.profile,
-                this.el,
+                this.$('#profile'),
                 this.constructor.profileBindings
             );
             this._archiveCollectionBinder.bind(this._archiveCollection, $('#archive-container'));
