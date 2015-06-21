@@ -19,10 +19,8 @@
                 'click #archive': 'getArchive',
                 'click .save': 'onSave'
             });
-            Backbone.Validation.bind(this, {
-                invalid: this.showValidationError.bind(this),
-                forceUpdate: true
-            });
+            Backbone.Validation.bind(this, { forceUpdate: true });
+            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
         },
 
         onCalculate: function () {
