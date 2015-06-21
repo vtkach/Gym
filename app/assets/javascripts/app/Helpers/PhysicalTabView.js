@@ -77,6 +77,7 @@
         },
 
         onClose: function () {
+            $('#archive-container').empty();
             this._archiveCollectionBinder.unbind();
             this._profileBinder.unbind();
             this._modelBinder.unbind();
