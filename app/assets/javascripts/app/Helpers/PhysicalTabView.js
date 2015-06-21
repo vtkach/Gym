@@ -19,9 +19,7 @@
                 'click #archive': 'getArchive',
                 'click .save': 'onSave'
             });
-            Backbone.Validation.bind(this/*, {
-                invalid: this.showValidationError.bind(this)
-            }*/);
+            Backbone.Validation.bind(this, { forceUpdate: true });
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
         },
 
@@ -63,13 +61,15 @@
         },
 
         binding: function () {
-            var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'name', function (dir, val) {
-                var value = parseFloat(val)
+            //var properties = this.model.keys();
+            //console.warn(properties);
+            //var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'id', function (dir, val) {
+            //    var value = parseFloat(val);
+            //
+            //    return isNaN(value) ? '' : value;
+            //});
 
-                return isNaN(value) ? '' : value;
-            });
-
-            this._modelBinder.bind(this.model, this.el, bindings);
+            this._modelBinder.bind(this.model, this.el, this.constructor.bindings);
             this.extendBinding();
         },
 
