@@ -4,7 +4,19 @@
 
         urlPart: '/motor_activities/',
 
-        defaults: {},
+        defaults: {
+            age: '',
+            date: '',
+            weight: '',
+            height: '',
+            activities: [{
+                startTime: '',
+                executionTime: '',
+                activityType: '',
+                activityLevel: '',
+
+            }]
+        },
 
         wrapperJson: 'motorActivity',
 
