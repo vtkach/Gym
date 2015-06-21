@@ -1,1 +1,15 @@
-json.extract! @physical_preparedness_state
+json.extract! @physical_preparedness_state,
+              :id,
+              :date,
+              :age,
+              :pushUps,
+              :raising,
+              :jumpLength,
+              :jumpHeight,
+              :estafeta,
+              :cooperTest,
+              :inclineBody,
+              :flamingoTest,
+              :inclines,
+              :created_at,
+              :updated_at

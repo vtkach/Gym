@@ -8,13 +8,13 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.find_by(user_id: current_user.id)
+    @profile = Profile.find_by(user_id: get_user_id)
 
     response_params =
       if @profile.update(profile_params)
         :show
       else
-        error_template t('custom.errors.profile'), 501
+        error_template t('custom.errors.profile'), 400
       end
 
     render response_params

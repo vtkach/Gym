@@ -11,7 +11,7 @@ class ShoulderIndicesController < BaseArchivesController
   end
 
   def update
-    @shoulder_index = ShoulderIndex.find_by(user_id: get_user_id, id: params[:id])
+    @shoulder_index = find_id(ShoulderIndex)
     @shoulder_index.update(shoulder_index_params)
     render_response(@shoulder_index)
   end

@@ -11,7 +11,7 @@ class PhysicalHealthStatesController < BaseArchivesController
   end
 
   def update
-    @physical_health_state = PhysicalHealthState.find_by(user_id: get_user_id, id: params[:id])
+    @physical_health_state = find_id(PhysicalHealthState)
     @physical_health_state.update(physical_health_params)
     render_response(@physical_health_state)
   end

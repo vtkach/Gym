@@ -1,1 +1,15 @@
-json.array! @physical_preparedness_states
+json.array! @physical_preparedness_states,
+            :id,
+            :date,
+            :age,
+            :pushUps,
+            :raising,
+            :jumpLength,
+            :jumpHeight,
+            :estafeta,
+            :cooperTest,
+            :inclineBody,
+            :flamingoTest,
+            :inclines,
+            :created_at,
+            :updated_at

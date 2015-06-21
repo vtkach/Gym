@@ -8,8 +8,12 @@ module TabValidationHelper
   end
 
   def age_date_validation
-    validates :age, numericality: settings_for_numericality(15, 18)
+    age_validation
     validates :date, numericality: { only_integet: true, greater_than: 0 }
+  end
+
+  def age_validation
+    validates :age, numericality: settings_for_numericality(15, 18)
   end
 
 end
