@@ -1,6 +1,6 @@
 class Profile < ActiveRecord::Base
 
-  include TabValidationHelper
+  extend TabValidationHelper
 
   age_validation
 
