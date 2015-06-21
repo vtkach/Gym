@@ -9,11 +9,11 @@
 User.all.each do |user|
   unless user.profile
     user.profile = Profile.new(gender: 'male', age: 15)
+    user.save
   end
 
   unless user.profile.age
-    user.profile.age = 15
+    user.profile.update(age: 15)
   end
 
-  user.save
 end
