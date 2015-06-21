@@ -35,4 +35,8 @@ class RegistrationsController < Devise::RegistrationsController
     error_template(error_message, 422)
   end
 
+  def require_no_authentication
+     redirect_to '/users/current_user'
+  end
+
 end
