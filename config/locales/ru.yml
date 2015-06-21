@@ -3,8 +3,8 @@ ru:
     errors:
       authentification: "Вы ввели неправильный email или пароль!"
       currentUser: "Вы не идентифицированы!"
-      sessionExpired: "Ошибка аутентификации"
+      sessionExpired: "Ошибка аутентификации!"
       email: "Email"
       password: "Пароль"
       password_confirmation: "Пароль"
-      profile: "Профаил не сохранен"
+      profile: "Профиль не сохранен"

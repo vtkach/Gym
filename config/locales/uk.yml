@@ -1,0 +1,10 @@
+ru:
+  custom:
+    errors:
+      authentification: "Ви ввели неправильний email або пароль!"
+      currentUser: "Ви не ідентифіковані!"
+      sessionExpired: "Помилка аутентифікації!"
+      email: "Email"
+      password: "Пароль"
+      password_confirmation: "Пароль"
+      profile: "Профіль не збережений"
