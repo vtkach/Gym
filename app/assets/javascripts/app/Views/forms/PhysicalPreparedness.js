@@ -18,6 +18,23 @@
             "Високий"
         ],
 
+        getModalDialog: function () {
+            this.showModal({
+                headers: [
+                    'Згинання і розгинання рук',
+                    'Піднімання в сід за 1 хв (разів)',
+                    'Стрибок у довжину з місця (см)',
+                    'Стрибок в висоту з місця (см)',
+                    '«Естафетний тест» (см)',
+                    '12-хвилиний тест Купера (м)',
+                    'Піднімання прямих ніг під кутом 90º лежачі на спині за 30 с (разів)',
+                    'Тест «Фламінго» (кількість спроб)',
+                    'Нахил тулуба вперед з положення сидячи (см)'
+                ],
+                title: 'Фізична підготовленість'
+            });
+        },
+
         afterRender: function () {
             var bindFields = [
                 "pushUps",
@@ -32,6 +49,7 @@
             ];
 
             _.each(bindFields, this.eachBinding, this);
+            this.constructor.bindings.age = '[name=age]';
             app.views.BaseView.prototype.binding.call(this);
             this.initDatePicker();
         },
@@ -65,7 +83,7 @@
 
         stateConverter: function (dir, val, attr, model) {
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return this.states[model.calculate(attr, val)];
+                return this.states[model.calculateAttr(attr, val)];
             }
 
             return val;
@@ -73,7 +91,7 @@
 
         bindingConverter: function (dir, val, attr, model) {
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return this.classes[model.calculate(attr, val)];
+                return this.classes[model.calculateAttr(attr, val)];
             }
 
             return val;
@@ -99,7 +117,8 @@
 
             firstName: '[name=firstName]',
             lastName: '[name=lastName]',
-            surname: '[name=surname]'
+            surname: '[name=surname]',
+            age: '[name=age]'
         },
         bindings: {}
     });

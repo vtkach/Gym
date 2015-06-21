@@ -172,7 +172,11 @@ body.container {
 
 .flash-message {
   white-space: nowrap;
-  position: absolute;
+  position: fixed;
+  width: 70vw;
+  opacity: 0;
+  left: 15vw;
+  top: 1vh;
 
   &.notify {
     @include animation(notifier, 6s);
@@ -190,9 +194,6 @@ body.container {
   &.alert-info strong:before {
     content: 'К сведению!';
   }
-
-  left: 35vw;
-  top: -10vh;
 }
 
 .date-field {

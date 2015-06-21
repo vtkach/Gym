@@ -4,9 +4,10 @@
 
         baseFields: {
            age: {
-                range: [15, 18],
+                range: [14, 19],
+                fn: function () {debugger},
                 msg: 'Вік повинен бути в діапазоні від 15 до 18 років'
-            },
+            }
             //TODO: investigate unexpected behavior (model doesn't update, only creates)
             //date: {
             //    min: 1,

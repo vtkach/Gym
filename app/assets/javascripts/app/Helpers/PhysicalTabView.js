@@ -29,6 +29,7 @@
 
         onSave: function () {
             this.model.checkData();
+            //this.model.set('age', app.instances.profile);
             this.model.save()
                 .done(function (data) {
                     this.datepicker.setDate(data);

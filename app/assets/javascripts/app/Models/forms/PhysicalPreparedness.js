@@ -3,6 +3,7 @@
     app.models.PhysicalPreparednessModel = app.models.PhysicalTabModel.extend({
 
         defaults: {
+            age: '',
             pushUps: '',
             raising: '',
             jumpLength: '',
@@ -15,13 +16,6 @@
         },
 
         additionalFields: {
-         /*   gender: {
-                required: 'true'
-            },
-            age: {
-                required: true,
-                oneOf: [15, 16, 17, 18]
-            },*/
             pushUps: {
                 range: [0, 500]
             },
@@ -55,7 +49,7 @@
 
         wrapperJson: 'physicalPreparedness',
 
-        calculate: function (attr, val) {
+        calculateAttr: function (attr, val) {
             var profile = app.instances.profile,
                 gender = profile.get('gender'),
                 age = profile.get('age');

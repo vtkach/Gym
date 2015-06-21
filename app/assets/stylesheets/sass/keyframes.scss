@@ -1,19 +1,15 @@
 @import 'mixins';
 @include keyframes(notifier) {
   from {
-    top: -15vh;
     opacity: 0;
   }
   15% {
     opacity: 1;
-    top: 10vh;
   }
   85% {
     opacity: 1;
-    top: 10vh;
   }
   to {
-    top: -15vh;
     opacity: 0;
   }
 }
