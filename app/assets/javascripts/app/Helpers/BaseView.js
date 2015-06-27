@@ -71,7 +71,7 @@
         },
 
         showServerError: function (model, xhr) {
-            this.constructor.showFlashMessage.call(this, 'danger', xhr.responseJSON)
+            this.constructor.showFlashMessage.call(this, 'danger', xhr.responseJSON);
         },
 
         extendEvents: function (events) {
