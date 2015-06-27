@@ -147,7 +147,7 @@
         },
 
         renderByDefault: function () {
-            this.createMainView();
+            this.clear();
             this.navigate('accessed/home', { trigger: true });
         },
 

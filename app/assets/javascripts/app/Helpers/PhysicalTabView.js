@@ -9,16 +9,15 @@
         _profileBinder: null,
 
         onInit: function () {
-            //var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this));
-
             this._archiveCollection = new app.collections.ArchiveCollection();
             this._archiveCollection.url = this.model.urlPart;
-            //this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
+
             this.extendEvents({
                 'click .calculate': 'onCalculate',
                 'click #archive': 'getArchive',
                 'click .save': 'onSave'
             });
+
             Backbone.Validation.bind(this, { forceUpdate: true });
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
             this.listenTo(this.model, 'error', this.showServerError.bind(this));
@@ -47,13 +46,6 @@
 
         getModalDialog: function () {},
 
-        getArchiveView: function (model) {
-            return new app.views.ArchiveView({
-                tplName: this.model.urlPart.replace(/\//g, ''),
-                model: model
-            })
-        },
-
         extendBinding: function () {
             this._profileBinder = new Backbone.ModelBinder();
             this._profileBinder.bind(
@@ -75,7 +67,6 @@
             this._profileBinder.unbind();
             this._modelBinder.unbind();
             this.datepicker.destroy();
-
             this._modelBinder = this._profileBinder = null;
         },
 
