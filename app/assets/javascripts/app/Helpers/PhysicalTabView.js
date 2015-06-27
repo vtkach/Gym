@@ -9,11 +9,11 @@
         _profileBinder: null,
 
         onInit: function () {
-            var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this));
+            //var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this));
 
             this._archiveCollection = new app.collections.ArchiveCollection();
             this._archiveCollection.url = this.model.urlPart;
-            this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
+            //this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
             this.extendEvents({
                 'click .calculate': 'onCalculate',
                 'click #archive': 'getArchive',
@@ -37,7 +37,7 @@
         },
 
         showModal: function (options) {
-            Backbone.Events.trigger('trigger-modal', options);
+            Backbone.Events.trigger('modal:showArchive', options);
         },
 
         getArchive: function () {
@@ -61,7 +61,8 @@
                 this.$('#profile'),
                 this.constructor.profileBindings
             );
-            this._archiveCollectionBinder.bind(this._archiveCollection, $('#archive-container'));
+
+            Backbone.Events.trigger('modal:updateContent', this._archiveCollection, this.model.urlPart.replace(/\//g, ''));
         },
 
         binding: function () {
@@ -78,13 +79,11 @@
         },
 
         onClose: function () {
-            $('#archive-container').empty();
-            this._archiveCollectionBinder.unbind();
             this._profileBinder.unbind();
             this._modelBinder.unbind();
             this.datepicker.destroy();
 
-            this._modelBinder = this._archiveCollectionBinder = this._profileBinder = null;
+            this._modelBinder = this._profileBinder = null;
         },
 
         afterRender: function () {
