@@ -66,14 +66,7 @@
         },
 
         binding: function () {
-            //var properties = this.model.keys();
-            //console.warn(properties);
-            //var bindings = Backbone.ModelBinder.createDefaultBindings(this.el, 'id', function (dir, val) {
-            //    var value = parseFloat(val);
-            //
-            //    return isNaN(value) ? '' : value;
-            //});
-
+            this.model.set('age', app.instances.profile.get('age'));
             this._modelBinder.bind(this.model, this.el, this.constructor.bindings);
             this.extendBinding();
         },
