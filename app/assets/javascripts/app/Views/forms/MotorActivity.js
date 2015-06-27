@@ -2,18 +2,26 @@
 
     app.views.MotorActivityView = app.views.PhysicalTabView.extend({
 
-        events: {
-            'click .glyphicon-plus': 'addRow'
-        },
+        //events: {
+        //    'click .glyphicon-plus': 'addRow'
+        //},
 
         addRow: function () {
             this.collection.add({});
         },
 
+        onInit: function () {
+            app.views.PhysicalTabView.prototype.onInit.apply(this, arguments);
+            this.extendEvents({
+                'click .glyphicon-plus': 'addRow'
+            });
+        },
+
         afterRender: function () {
             var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getActivityView);
 
-            this.collection = new app.collections.ActivityCollection(new app.models.ActivityRowModel);
+            //this.collection = new app.collections.ActivityCollection(new app.models.ActivityRowModel);
+            this.collection = this.model.activityCollection;
             this._collectionBinder = new Backbone.CollectionBinder(viewFactory);
             this._collectionBinder.bind(this.collection, this.$('.activities'));
             this.initDatePicker();

@@ -1,6 +1,8 @@
 ;(function (app) {
 
-    app.models.ActivityRowModel = Backbone.Model.extend({
+    app.models.ActivityRowModel = app.models.BaseModel.extend({
+
+        urlPart: '/activities/',
 
         defaults: {
             activityPeriod: '',

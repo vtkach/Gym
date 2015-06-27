@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621111120) do
+ActiveRecord::Schema.define(version: 20150627104310) do
+
+  create_table "activities", force: :cascade do |t|
+    t.float    "startDate"
+    t.integer  "activityPeriod"
+    t.string   "activityLevel"
+    t.string   "description"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "motor_activities", force: :cascade do |t|
+    t.integer  "age"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "motor_activities", ["user_id"], name: "index_motor_activities_on_user_id"
+
+  create_table "motor_activities_activities", force: :cascade do |t|
+    t.integer  "motor_activity_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "motor_activities_activities", ["activity_id"], name: "index_motor_activities_activities_on_activity_id"
+  add_index "motor_activities_activities", ["motor_activity_id"], name: "index_motor_activities_activities_on_motor_activity_id"
 
   create_table "notes", force: :cascade do |t|
     t.text     "note"
