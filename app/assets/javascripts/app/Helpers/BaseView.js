@@ -62,6 +62,18 @@
             this.onClose();
         },
 
+        showValidationError: function (model, errors) {
+            var errorFields = _.keys(errors);
+
+            this.constructor.showFlashMessage.call(this, 'danger', {
+                errors: errors[errorFields[0]]
+            });
+        },
+
+        showServerError: function (model, xhr) {
+            this.constructor.showFlashMessage.call(this, 'danger', xhr.responseJSON)
+        },
+
         extendEvents: function (events) {
             this.events = _.clone(this.events);
 

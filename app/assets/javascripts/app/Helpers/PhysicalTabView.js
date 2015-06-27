@@ -20,7 +20,8 @@
                 'click .save': 'onSave'
             });
             Backbone.Validation.bind(this, { forceUpdate: true });
-            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
+            //this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
+            this.listenTo(this.model, 'error', this.showServerError.bind(this))
         },
 
         onCalculate: function () {
@@ -84,14 +85,6 @@
             this.datepicker.destroy();
 
             this._modelBinder = this._archiveCollectionBinder = this._profileBinder = null;
-        },
-
-        showValidationError: function (model, errors) {
-            var errorFields = _.keys(errors);
-
-            this.constructor.showFlashMessage.call(this, 'danger', {
-                errors: errors[errorFields[0]]
-            });
         },
 
         afterRender: function () {
