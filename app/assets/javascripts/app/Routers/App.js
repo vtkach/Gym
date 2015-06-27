@@ -32,9 +32,9 @@
         },
 
         initialize: function () {
-            app.instances.session = this.factoryMethod('model', 'Session');
-            app.instances.profile = this.factoryMethod('model', 'Profile');
-            app.instances.user = this.factoryMethod('model', 'User');
+            app.instances.session = this.factoryMethod('Session', 'model');
+            app.instances.profile = this.factoryMethod('Profile', 'model');
+            app.instances.user = this.factoryMethod('User', 'model');
             app.instances.session.checkSession().done(this.loadUserData);
         },
 
@@ -55,7 +55,7 @@
                 url = ['/', template.replace(/-/g, '_'), '/'].join(''),
                 options = {
                     className: 'form-group ' + template,
-                    model: this.factoryMethod('model', templateToClassName, {
+                    model: this.factoryMethod(templateToClassName, 'model', {
                         urlPart: url
                     }),
                     tagName: 'fieldset',
@@ -64,7 +64,7 @@
 
             if (this.subView !== template) {
                 this.currentSubView && this.currentSubView.close();
-                this.currentSubView = this.factoryMethod('view', templateToClassName, options);
+                this.currentSubView = this.factoryMethod(templateToClassName, 'view', options);
                 this.currentView.$('.form-container').html(this.currentSubView.render().el);
                 this.subView = template;
                 list.find('li').removeClass('active');
@@ -110,7 +110,7 @@
                 model: app.instances.user
             };
 
-            this.mainView = this.factoryMethod('view', 'Main', options);
+            this.mainView = this.factoryMethod('Main', 'view', options);
             this.mainView.cacheElements();
         },
 
@@ -134,16 +134,16 @@
                 view;
 
             if (settings) {
-                model = app.instances[settings.instance] || this.factoryMethod('model', settings.model);
+                model = app.instances[settings.instance] || this.factoryMethod(settings.model, 'model');
                 view = settings.view;
             }
 
             options = {
-                model: model || this.factoryMethod('model', 'Base'),
+                model: model || this.factoryMethod('Base', 'model'),
                 tplName: template
             };
 
-            return this.factoryMethod('view', view || 'InfoTab', options);
+            return this.factoryMethod(view || 'InfoTab', 'view', options);
         },
 
         renderByDefault: function () {
@@ -153,25 +153,25 @@
 
         onRegister: function () {
             var options = {
-                model: this.factoryMethod('model', 'Registration'),
+                model: this.factoryMethod('Registration', 'model'),
                 tplName: 'register'
             };
 
             this.clear();
-            this.currentView = this.factoryMethod('view', 'Registration', options);
+            this.currentView = this.factoryMethod('Registration', 'view', options);
             this.renderContent();
         },
 
         renderTemplate: function (route) {
             var options = {
-                model: this.factoryMethod('model', 'UserActions'),
+                model: this.factoryMethod('UserActions', 'model'),
                 tplName: route
             };
 
             this.subView = '';
             this.page = route;
             this.clear();
-            this.currentView = this.factoryMethod('view', 'UserActions', options);
+            this.currentView = this.factoryMethod('UserActions', 'view', options);
             this.renderContent();
         }
 

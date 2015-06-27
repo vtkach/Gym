@@ -16,8 +16,8 @@
         },
 
         toggleMenuItem: function (mode) {
-            this.$menuListItem.not(this.$profileItem).toggleClass('disabled', mode);
-            this.$profileItem.toggleClass('disabled', !mode);
+            this.$menuListItem.not(this.$profileItem).toggle(!mode);
+            this.$profileItem.toggle(mode);
         },
 
         onSuccessCallback: function () {
