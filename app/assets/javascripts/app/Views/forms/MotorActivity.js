@@ -24,6 +24,7 @@
             this.collection = this.model.activityCollection;
             this._collectionBinder = new Backbone.CollectionBinder(viewFactory);
             this._collectionBinder.bind(this.collection, this.$('.activities'));
+            this.addRow();
             this.initDatePicker();
         },
 

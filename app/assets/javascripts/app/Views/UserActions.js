@@ -30,6 +30,7 @@
             app.instances.router.navigate('accessed/home', { trigger: true });
             //TODO: add wrapper for showFlashMessage method (error property for success message, it's hell)
             this.constructor.showFlashMessage('success', { errors: 'Вы вошли!' });
+            Backbone.Events.trigger('is-login', true);
         },
 
         onSubmitUserAction: function () {

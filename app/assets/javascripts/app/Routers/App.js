@@ -82,12 +82,8 @@
         },
 
         loadUserData: function () {
-            app.instances.user
-                .loadUser()
-                .then(function (userData) {
-                }, function () {
-                    debugger;
-                }.bind(app.instances.user));
+            app.instances.user.loadUser();
+            Backbone.Events.trigger('is-login', true);
         },
 
         checkExistViews: function (route) {
@@ -105,13 +101,8 @@
             this.mainView.$mainContainer.html(this.currentView.render().el);
         },
 
-        setState: function (xhr, state) {
-            this.sessionStatus = state;
-        },
-
         checkUserRights: function () {
-            return app.instances.session.checkSession()
-                .always(this.setState.bind(this));
+            return app.instances.session.checkSession();
         },
 
         createMainView: function () {
@@ -125,6 +116,7 @@
 
         renderByPage: function (template) {
             if (this.page !== template) {
+                Backbone.Events.trigger('is-login', true);
                 this.clear();
                 this.currentView = this.generateViewInstance(template);
                 this.renderContent();
@@ -159,7 +151,6 @@
             this.navigate('accessed/home', { trigger: true });
         },
 
-        //TODO move this stuff to some "DRY" method
         onRegister: function () {
             var options = {
                 model: this.factoryMethod('model', 'Registration'),

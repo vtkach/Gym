@@ -33,8 +33,13 @@
 .glyphicon-folder-open {
   transform: rotate(90deg);
 }
+
+.modal-dialog.modal-lg {
+  min-width: 95vh;
+}
 body.container {
   min-width: 980px;
+
   section.row {
     button.btn {
       margin: 0.5em auto;
@@ -176,7 +181,7 @@ body.container {
   width: 70vw;
   opacity: 0;
   left: 15vw;
-  top: 1vh;
+  top: -20vh;
 
   &.notify {
     @include animation(notifier, 6s);
