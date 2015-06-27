@@ -4,8 +4,8 @@ class Activity < ActiveRecord::Base
 
   extend TabValidationHelper
 
+  validates :startDate, numericality: settings_for_numericality(0, 24)
+  validates :description, presence: true
   validates :activityPeriod, numericality: settings_for_numericality(1, 1140)
   validates :activityLevel, inclusion: { in: %w(basic sitting small middle high) }
-  validates :description, presence: true
-  validates :startDate, numericality: settings_for_numericality(0, 24)
 end

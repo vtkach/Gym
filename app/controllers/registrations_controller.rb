@@ -36,7 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def require_no_authentication
-     redirect_to '/users/current_user'
+     redirect_to '/users/current_user' if current_user
   end
 
 end

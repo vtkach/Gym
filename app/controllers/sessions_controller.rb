@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
 
   # skip_before_filter  :verify_authenticity_token, only: [:destroy]
   skip_before_filter  :verify_signed_out_user, only: [:destroy]
-  skip_before_action :check_current_user
+  skip_before_filter :check_current_user
 
   respond_to :json
 
