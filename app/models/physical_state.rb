@@ -1,4 +1,5 @@
 class PhysicalState < ActiveRecord::Base
+  belongs_to :user, dependent: :destroy
 
   extend TabValidationHelper
 
@@ -7,6 +8,4 @@ class PhysicalState < ActiveRecord::Base
   validates :height, numericality: settings_for_numericality(20, 250)
   validates :weight, numericality: settings_for_numericality(20, 150)
   validates :circumference, numericality: settings_for_numericality(20, 160)
-
-  belongs_to :user, dependent: :destroy
 end

@@ -1,4 +1,5 @@
 class PhysicalPreparednessState < ActiveRecord::Base
+  belongs_to :user, dependent: :destroy
 
   extend TabValidationHelper
 
@@ -13,6 +14,4 @@ class PhysicalPreparednessState < ActiveRecord::Base
   validates :inclineBody, numericality: settings_for_numericality(0, 100)
   validates :flamingoTest, numericality: settings_for_numericality(3, 19)
   validates :inclines, numericality: settings_for_numericality(0, 100)
-
-  belongs_to :user, dependent: :destroy
 end

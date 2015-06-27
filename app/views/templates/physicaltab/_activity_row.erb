@@ -1,15 +1,21 @@
 <template id="activity-row">
     <td>
-        <input class='form-control' name="startDate" />
+        <input class="form-control" name="startDate" />
     </td>
     <td colspan="2">
-        <input class='form-control' name="description" />
+        <input class="form-control" name="description" />
     </td>
     <td>
-        <input class='form-control' name="activityPeriod" />
+        <input class="form-control" name="activityPeriod" />
     </td>
     <td>
-        <input class='form-control' name="activityLevel" />
+        <select class="form-control" name="activityLevel">
+            <option value="base" selected>Базовий рівень</option>
+            <option value="sedentary">Сидячий рівень</option>
+            <option value="small">Малий рівень</option>
+            <option value="average">Середній рівень</option>
+            <option value="high">Високий рівень</option>
+        </select>
     </td>
     <td>
         <span class="glyphicon glyphicon-remove"></span>

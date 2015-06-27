@@ -1,4 +1,5 @@
 class PhysicalHealthState < ActiveRecord::Base
+  belongs_to :user, dependent: :destroy
 
   extend TabValidationHelper
 
@@ -11,6 +12,4 @@ class PhysicalHealthState < ActiveRecord::Base
   validates :wrist, numericality: settings_for_numericality(0, 100)
   validates :pulse, numericality: settings_for_numericality(40, 250)
   validates :pulseRecovering, numericality: { greater_than: 0 }
-
-  belongs_to :user, dependent: :destroy
 end

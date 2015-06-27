@@ -31,10 +31,6 @@
             };
         },
 
-        checkData: function () {
-            this.calculate();
-        },
-
         calculate: function () {
             var result = {},
                 totalTime = 0;

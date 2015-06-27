@@ -5,4 +5,8 @@ class MotorActivity < ActiveRecord::Base
   has_many :activities, through: :motor_activities_activities
 
   accepts_nested_attributes_for :activities
+
+  extend TabValidationHelper
+
+  age_date_validation
 end
