@@ -28,4 +28,5 @@ ru:
       email: "Email"
       password: "Password"
       password_confirmation: "Password"
-      profile: "Profile doesn't save"
+      profile: "Profile doesn't save!"
+      motorActivity: "Motor activity can't be empty!"

@@ -6,7 +6,7 @@
 
         defaults: {
             activityPeriod: '',
-            activityLevel: '',
+            activityLevel: 'basic',
             description: '',
             startDate: ''
         }

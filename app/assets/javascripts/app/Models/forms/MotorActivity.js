@@ -45,7 +45,8 @@
             });
 
             _.each(result, function (value, key) {
-                result[key + 'Percent'] = value /totalTime * 100;
+                var activityPercent = value / totalTime * 100;
+                result[key + '-percent'] = activityPercent.toFixed(4);
             });
 
             this.set(result);

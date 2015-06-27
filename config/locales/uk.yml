@@ -8,3 +8,4 @@ uk:
       password: "Пароль"
       password_confirmation: "Пароль"
       profile: "Профіль не збережений"
+      motorActivity: "Рухова активність не може бути порожньою!"

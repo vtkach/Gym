@@ -5,16 +5,16 @@ class MotorActivitiesController < BaseArchivesController
   end
 
   def create
-    @motor_activity = current_user.motor_activities.create(motor_activity_params)
-
-    render_response(@motor_activity)
+    check_activities do
+      @motor_activity = current_user.motor_activities.create(motor_activity_params)
+    end
   end
 
   def update
-    @motor_activity = MotorActivity.find_by(user_id: get_user_id, id: params[:id])
-    @motor_activity.update(motor_activity_params)
-
-    render_response(@motor_activity)
+    check_activities do
+      @motor_activity = MotorActivity.find_by(user_id: get_user_id, id: params[:id])
+      @motor_activity.update(motor_activity_params)
+    end
   end
 
   private
@@ -37,6 +37,16 @@ class MotorActivitiesController < BaseArchivesController
       :activityLevel,
       :description
     ])
+  end
+
+  def check_activities
+    if activities_params[:activities]
+      yield
+      render_response(@motor_activity)
+    else
+      @error = t('custom.errors.motorActivity')
+      render 'base/error', status: 400
+    end
   end
 
 end

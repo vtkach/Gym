@@ -8,3 +8,4 @@ ru:
       password: "Пароль"
       password_confirmation: "Пароль"
       profile: "Профиль не сохранен"
+      motorActivity: "Двигательная активность не может быть пустой!"
