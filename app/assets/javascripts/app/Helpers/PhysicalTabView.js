@@ -21,6 +21,7 @@
             Backbone.Validation.bind(this, { forceUpdate: true });
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
             this.listenTo(this.model, 'error', this.showServerError.bind(this));
+            this.listenTo(this.model, 'sync', this.showSuccessMessage.bind(this));
         },
 
         onCalculate: function () {

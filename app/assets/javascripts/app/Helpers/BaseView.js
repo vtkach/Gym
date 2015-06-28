@@ -63,15 +63,18 @@
         },
 
         showValidationError: function (model, errors) {
-            var errorFields = _.keys(errors);
+            var errorFields = _.keys(errors),
+                message = errors[errorFields[0]];
 
-            this.constructor.showFlashMessage.call(this, 'danger', {
-                errors: errors[errorFields[0]]
-            });
+            this.constructor.showFlashMessage('danger', message);
         },
 
         showServerError: function (model, xhr) {
-            this.constructor.showFlashMessage.call(this, 'danger', xhr.responseJSON);
+            this.constructor.showFlashMessage('danger', xhr.responseJSON.errors);
+        },
+
+        showSuccessMessage: function () {
+            this.constructor.showFlashMessage('success', 'Збережено!');
         },
 
         extendEvents: function (events) {
@@ -81,20 +84,18 @@
         }
 
     }, {
-        showFlashMessage: function (messageType, xhr, type, message) {
+        showFlashMessage: function (messageType, message) {
             var $flashMessage = $('.flash-message'),
                 classesToRemove = [
                     'alert-warning',
                     'alert-success',
                     'alert-danger',
                     'notify'
-                ].join(' '),
-                //TODO: remove this hell
-                text = xhr.errors || (xhr.responseJSON && xhr.responseJSON.errors) || message;
+                ].join(' ');
 
             $flashMessage.removeClass(classesToRemove)
                 .find('.text-message')
-                .text(text);
+                .text(message);
 
             _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
         }
