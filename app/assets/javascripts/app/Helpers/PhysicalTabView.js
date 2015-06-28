@@ -80,7 +80,6 @@
                 field: this.$('[name=datepicker]').get(0),
 
                 onSelect: function (date) {
-                    console.warn(date);
                     this.model.set('date', date);
                 }.bind(this),
 

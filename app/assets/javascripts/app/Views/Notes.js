@@ -22,6 +22,7 @@
         refreshModel: function () {
             this.showSuccessMessage();
             this.model.clear();
+            this.datepicker.setDate(new Date());
         },
 
         binding: function () {
