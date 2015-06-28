@@ -20,6 +20,7 @@
         },
 
         refreshModel: function () {
+            this.showSuccessMessage();
             this.model.clear();
         },
 
