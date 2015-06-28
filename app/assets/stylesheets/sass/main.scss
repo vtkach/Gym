@@ -3,6 +3,7 @@
 @import 'spinner';
 @import 'keyframes';
 @import 'helpers';
+@import 'media';
 
 @include keyframes(slidedown) {
   from {
@@ -37,9 +38,14 @@
 .modal-dialog.modal-lg {
   min-width: 95vh;
 }
+
 body.container {
   min-width: 980px;
-
+  .logo {
+    background: url(../../favicon.ico) 0 1px no-repeat;
+    background-size: 100%;
+    width: 50px;
+  }
   section.row {
     button.btn {
       margin: 0.5em auto;
@@ -60,11 +66,12 @@ body.container {
     .fade-in > a {
       box-shadow: 2px 2px 0 #888;
       border: 1px solid #000;
-      min-width: 100px;
       border-radius: 5%;
+      min-height: 170px;
+      min-width: 170px;
       cursor: pointer;
-      height: 150px;
-      margin: 4%;
+      height: 160px;
+      margin: 10% 4% 4%;
       &:hover {
         box-shadow: 1px 1px 20px $green;
       }

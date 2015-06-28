@@ -1,5 +1,4 @@
 ;(function (app) {
-    //var NotesView = app.views.UserActionsView.extend(app.views.PhysicalTabView.prototype);
 
     app.views.NotesView = app.views.PhysicalTabView.extend({
 
