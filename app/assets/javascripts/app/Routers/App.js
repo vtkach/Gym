@@ -140,6 +140,7 @@
 
             options = {
                 model: model || this.factoryMethod('Base', 'model'),
+                className: 'fade-in ' + template,
                 tplName: template
             };
 

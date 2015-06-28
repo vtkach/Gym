@@ -29,15 +29,17 @@
   -o-animation: $animation $time;
   animation: $animation $time;
 }
-
+@mixin center-content {
+  tr {
+    td, th {
+      vertical-align: middle !important;
+      text-align: center !important;
+    }
+  }
+}
 @mixin centered-table-content() {
   table {
-    tr {
-      td, th {
-        vertical-align: middle;
-        text-align: center;
-      }
-    }
+   @include center-content;
   }
 }
 

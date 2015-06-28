@@ -46,6 +46,11 @@ body.container {
     background-size: 100%;
     width: 50px;
   }
+  .you-should-know {
+    p {
+      text-indent: 1.5em;
+    }
+  }
   section.row {
     button.btn {
       margin: 0.5em auto;

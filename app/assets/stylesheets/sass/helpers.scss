@@ -1,5 +1,30 @@
+@import 'mixins';
+
 .large-font {
   font-size: 2em;
+}
+.bolder {
+  font-weight: bold;
+}
+.underline {
+  text-decoration: underline;
+}
+.li-hyphen li {
+  list-style-type: none;
+  &:before {
+    content: '— ';
+  }
+}
+.italic {
+  font-style: italic;
+}
+
+.li-decimal {
+  list-style-type: decimal;
+}
+
+.table-centered {
+  @include center-content();
 }
 
 .medium-font {
