@@ -18,7 +18,7 @@
                 'click .save': 'onSave'
             });
 
-            Backbone.Validation.bind(this, { forceUpdate: true });
+            Backbone.Validation.bind(this);
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
             this.listenTo(this.model, 'error', this.showServerError.bind(this));
             this.listenTo(this.model, 'sync', this.showSuccessMessage.bind(this));
@@ -30,10 +30,7 @@
 
         onSave: function () {
             this.model.checkData();
-            this.model.save()
-                .done(function (data) {
-                    this.datepicker.setDate(data);
-                }.bind(this));
+            this.model.save();
         },
 
         showModal: function (options) {
@@ -55,12 +52,21 @@
                 this.constructor.profileBindings
             );
 
-            Backbone.Events.trigger('modal:updateContent', this._archiveCollection, this.model.urlPart.replace(/\//g, ''));
+            Backbone.Events.trigger(
+                'modal:updateContent',
+                this._archiveCollection,
+                this.model.urlPart.replace(/\//g, '')
+            );
         },
 
         binding: function () {
             this.model.set('age', app.instances.profile.get('age'));
-            this._modelBinder.bind(this.model, this.el, this.constructor.bindings);
+            this._modelBinder.bind(
+                this.model,
+                this.el,
+                this.constructor.bindings,
+                { modelSetOptions: { validate: false } }
+            );
             this.extendBinding();
         },
 
