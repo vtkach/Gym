@@ -10,7 +10,8 @@ json.array! @motorActivities do |motorActivity|
 
   json.activities motorActivity.activities,
                   :id,
-                  :startDate,
+                  :startHour,
+                  :startMinute,
                   :activityPeriod,
                   :activityLevel,
                   :description,

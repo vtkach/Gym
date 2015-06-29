@@ -1,6 +1,7 @@
 json.extract! @activity,
               :id,
-              :startDate,
+              :startHour,
+              :startMinute,
               :activityPeriod,
               :activityLevel,
               :description,

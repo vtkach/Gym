@@ -33,16 +33,30 @@
 
         calculate: function () {
             var result = {},
-                totalTime = 0;
+                totalTime = 0,
+                isValid;
 
-            this.activityCollection.each(function (model) {
-                var activityType = model.get('activityLevel'),
-                    activityPeriod = parseInt(model.get('activityPeriod'), 10);
+            isValid = this.activityCollection.every(function (model) {
+                var activityType,
+                    activityPeriod;
+
+                if (model.validate()) {
+                    return false;
+                }
+
+                activityType = model.get('activityLevel');
+                activityPeriod = parseInt(model.get('activityPeriod'), 10);
 
                 result[activityType] = result[activityType] || 0;
                 result[activityType] += activityPeriod;
                 totalTime += activityPeriod;
+
+                return true;
             });
+
+            if (!isValid) {
+                return ;
+            }
 
             _.each(result, function (value, key) {
                 var activityPercent = value / totalTime * 100;
