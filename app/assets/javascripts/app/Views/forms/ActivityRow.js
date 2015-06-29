@@ -9,6 +9,7 @@
         },
 
         onInit: function () {
+            Backbone.Validation.bind(this);
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
             this.listenTo(this.model, 'error', this.showServerError.bind(this));
         },
