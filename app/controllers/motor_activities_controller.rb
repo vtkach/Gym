@@ -33,7 +33,7 @@ class MotorActivitiesController < BaseArchivesController
     params.permit(activities: [
       :id,
       :startHour,
-      :srartMinute,
+      :startMinute,
       :activityPeriod,
       :activityLevel,
       :description
