@@ -2,10 +2,6 @@
 
     app.views.MotorActivityView = app.views.PhysicalTabView.extend({
 
-        //events: {
-        //    'click .glyphicon-plus': 'addRow'
-        //},
-
         addRow: function () {
             this.collection.add({});
         },
@@ -26,6 +22,18 @@
             this._collectionBinder.bind(this.collection, this.$('.activities'));
             this.addRow();
             this.initDatePicker();
+        },
+
+        getModalDialog: function () {
+            this.showModal({
+                headers: [
+                    'Час початку діяльності',
+                    'Загальний зміст діяльності',
+                    'Тривалість діяльності',
+                    'Рівень рухової активності'
+                ],
+                title: 'Рухова активність'
+            });
         },
 
         getActivityView: function (model) {

@@ -5,15 +5,20 @@
         urlPart: '/activities/',
 
         defaults: {
-            activityPeriod: '',
             activityLevel: 'basic',
+            activityPeriod: '',
+            startMinute: '',
             description: '',
-            startDate: ''
+            startHour: ''
         },
 
         validation: {
-            startDate: {
+            startHour: {
                 range: [0, 24]
+            },
+
+            startMinute: {
+                range: [0, 60]
             },
 
             activityPeriod: {
