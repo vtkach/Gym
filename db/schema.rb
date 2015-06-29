@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627104310) do
+ActiveRecord::Schema.define(version: 20150629220901) do
 
   create_table "activities", force: :cascade do |t|
-    t.float    "startDate"
+    t.float    "startHour"
     t.integer  "activityPeriod"
     t.string   "activityLevel"
     t.string   "description"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "srartMinute"
+    t.integer  "startMinute"
   end
 
   create_table "motor_activities", force: :cascade do |t|

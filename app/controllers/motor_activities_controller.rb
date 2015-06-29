@@ -32,7 +32,8 @@ class MotorActivitiesController < BaseArchivesController
   def activities_params
     params.permit(activities: [
       :id,
-      :startDate,
+      :startHour,
+      :srartMinute,
       :activityPeriod,
       :activityLevel,
       :description
