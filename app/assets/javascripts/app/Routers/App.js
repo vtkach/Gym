@@ -35,7 +35,7 @@
             app.instances.session = this.factoryMethod('Session', 'model');
             app.instances.profile = this.factoryMethod('Profile', 'model');
             app.instances.user = this.factoryMethod('User', 'model');
-            app.instances.session.checkSession().done(this.loadUserData);
+            this.loadUserData();
         },
 
         convertToClassName: function (template) {
