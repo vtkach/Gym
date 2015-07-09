@@ -5,22 +5,23 @@
         urlPart: '/activities/',
 
         defaults: {
-            activityLevel: 'basic',
-            activityPeriod: '',
-            startMinute: '',
+            activityMinute: '00',
+            activityLevel: 'bl',
+            startMinute: '00',
+            activityHour: '0',
             description: '',
-            startHour: ''
+            startHour: '6'
         },
 
         validation: {
             startHour: {
-                range: [0, 23],
-                msg: 'Година повинна знаходитися в інтервалі від 0 до 23!'
+                range: [5, 24],
+                msg: 'Година повинна знаходитися в інтервалі від 6 до 24!'
             },
 
             startMinute: {
-                range: [0, 59],
-                msg: 'Хвилини повинні знаходитися в інтервалі від 0 до 59!'
+                range: [0, 56],
+                msg: 'Хвилини повинні знаходитися в інтервалі від 0 до 55!'
             },
 
             description: {
@@ -28,21 +29,31 @@
                 msg: 'Опис не може бути порожнім!'
             },
 
-            activityPeriod: {
-                range: [1, 1140],
-                msg: 'Період активності повинен знаходитися в діапазоні від 1 до 1140 хвилин!'
+            activityHour: {
+                range: [0, 24],
+                msg: 'Період активності повинен знаходитися в діапазоні від 0 до 24 годин!'
+            },
+
+            activityMinute: {
+                range: [0, 60],
+                msg: 'Період активності повинен знаходитися в діапазоні від 0 до 60 хвилин!'
             },
 
             activityLevel: {
-                oneOf: [
-                    'basic',
-                    'sitting',
-                    'small',
-                    'middle',
-                    'high'
-                ],
+                oneOf: ['bl', 'sml', 'ml', 'bl', 'hl'],
                 msg: 'Обрано неправильний рівень активності!'
             }
+        },
+
+        initialize: function () {
+            this.listenTo(this, 'change:activityMinute change:activityHour', this.calculatedAttribute.bind(this));
+        },
+
+        calculatedAttribute: function () {
+            var activityMinute = this.get('activityMinute'),
+                activityHour = this.get('activityHour');
+
+            this.set('activityTime', Number(activityMinute) + Number(activityHour*60));
         }
 
     });

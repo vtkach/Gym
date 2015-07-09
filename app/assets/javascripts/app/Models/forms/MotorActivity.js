@@ -7,9 +7,9 @@
         wrapperJson: 'motorActivity',
 
         defaults: {
-            age: '',
+            activities: '',
             date: '',
-            activities: ''
+            age: ''
         },
 
         initialize: function () {
@@ -19,6 +19,7 @@
 
         parse: function (response) {
             this.activityCollection.reset(response.activities);
+
             return response;
         },
 
@@ -37,15 +38,16 @@
                 isValid;
 
             isValid = this.activityCollection.every(function (model) {
-                var activityType,
-                    activityPeriod;
+                var activityPeriod,
+                    activityType;
+
 
                 if (model.validate()) {
                     return false;
                 }
 
                 activityType = model.get('activityLevel');
-                activityPeriod = parseInt(model.get('activityPeriod'), 10);
+                activityPeriod = Number(model.get('activityPeriod'));
 
                 result[activityType] = result[activityType] || 0;
                 result[activityType] += activityPeriod;
