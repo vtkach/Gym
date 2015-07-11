@@ -230,14 +230,7 @@ body.container {
 }
 
 .recommendations {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    text-align: center;
-    font-weight: bold;
-  }
+  @include bold-centered-headers();
 
   .image-wrapper {
     img {
@@ -253,4 +246,13 @@ body.container {
   }
 
   @include centered-table-content();
+}
+
+.complex-self-improving {
+  @include bold-centered-headers();
+
+  p,
+  li {
+    text-align: justify;
+  }
 }
