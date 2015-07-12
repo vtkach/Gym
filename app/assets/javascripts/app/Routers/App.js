@@ -170,6 +170,8 @@
             };
 
             this.subView = '';
+            this.currentSubView && this.currentSubView.close();
+            this.currentSubView = null;
             this.page = route;
             this.clear();
             this.currentView = this.factoryMethod('UserActions', 'view', options);
