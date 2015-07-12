@@ -2,7 +2,7 @@
 
     app.collections.ProductCollection = Backbone.Collection.extend({
 
-        url: '/calories.json',
+        url: '/products',
 
         model: app.models.ProductRowModel
 

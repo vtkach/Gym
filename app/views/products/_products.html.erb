@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+    <tr data-id="<%= product.id %>">
+        <td name="name"><%= product.name %></td>
+        <td name="proteins"><%= product.proteins%></td>
+        <td name="fats"><%= product.fats%></td>
+        <td name="calories"><%= product.calories %></td>
+        <td name="carbohydrates"><%= product.carbohydrates %></td>
+    </tr>
+<% end %>

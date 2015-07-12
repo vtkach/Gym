@@ -17,3 +17,9 @@ User.all.each do |user|
   end
 
 end
+
+if Product.count == 0
+  products_file = File.read('db/products.json')
+  products = ActiveSupport::JSON.decode products_file
+  Product.create(products)
+end

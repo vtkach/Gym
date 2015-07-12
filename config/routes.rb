@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :motor_activities, only: [:index, :create, :update]
   resources :activities, only: [:destroy]
   resources :main, only: [:index, :show]
+  resources :products, only: [:index]
   resource :profile, only: [:show, :update]
   # get 'main/index'
   #
