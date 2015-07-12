@@ -26,6 +26,14 @@
 
         binding: function () {
             app.views.BaseView.prototype.binding.call(this);
+        },
+
+        extendBinding: function () {
+            Backbone.Events.trigger(
+                'modal:updateContent',
+                this._archiveCollection,
+                this.model.urlPart.replace(/\//g, '')
+            );
         }
 
     });
