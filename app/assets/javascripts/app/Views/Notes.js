@@ -34,6 +34,11 @@
                 this._archiveCollection,
                 this.model.urlPart.replace(/\//g, '')
             );
+        },
+
+        onClose: function ()  {
+            app.views.BaseView.prototype.onClose.call(this);
+            this.datepicker.destroy();
         }
 
     });
