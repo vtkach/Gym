@@ -33,6 +33,44 @@
             }
 
             return accum;
+        },
+
+        getFilteredNames: function (name) {
+            var result = [];
+
+            this.every(function (model) {
+                if (this.checkName(model, name)) {
+                    result.push(model.get('name'));
+                }
+
+                return result.length < 11;
+            }, this);
+
+            return result;
+        },
+
+        checkName: function (model, name) {
+            var substringRegexp = new RegExp(name, 'i');
+
+            return substringRegexp.test(model.get('name'));
+        },
+
+        getModelByName: function (name) {
+            return this.find(function (model) {
+                return this.checkName(model, name);
+            }, this);
+        },
+
+        setDefaultValues: function () {
+            this.each(this.resetModel, this);
+        },
+
+        resetModel: function (model) {
+            if (model.get('count') > 0) {
+                model.calculate(0);
+
+                this.trigger('product:updatedModel', model);
+            }
         }
 
     });

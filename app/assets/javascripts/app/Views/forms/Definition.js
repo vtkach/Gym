@@ -5,12 +5,16 @@
         afterRender: function () {
             app.views.PhysicalTabView.prototype.afterRender.apply(this, arguments);
             this.renderCaloriesTable();
+            this.initSearch();
         },
 
         onInit: function () {
             app.views.PhysicalTabView.prototype.onInit.apply(this, arguments);
+
             this.extendEvents({
-                'input .count': 'changedProductCount'
+                'input .count': 'changedProductCount',
+                'click .reset-search': 'resetSearchResult',
+                'click .reset': 'reset'
             });
         },
 
@@ -29,6 +33,7 @@
             this.productsCollection = this.getProductCollection();
 
             this.listenTo(this.productsCollection, 'sync', this.renderProducts.bind(this));
+            this.listenTo(this.productsCollection, 'product:updatedModel', this.updateProductView.bind(this));
             this.productsCollection.length && this.productsCollection.trigger('sync');
         },
 
@@ -43,6 +48,41 @@
             return memo + this.template(model.toJSON());
         },
 
+        initSearch: function () {
+            this.$searchContent = this.$('.search-content tbody');
+
+            this.$search = this.$('.search').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'states',
+                source: this.searchCallback.bind(this)
+            });
+
+            this.$search.bind('typeahead:select', this.showChangedProduct.bind(this));
+            this.$search.bind('typeahead:autocomplete', this.autocomplete.bind(this));
+        },
+
+        showChangedProduct: function (e, name) {
+            var model = this.productsCollection.getModelByName(name);
+
+            this.$searchContent.html(this.template(model.toJSON()));
+        },
+
+        autocomplete: function (e, name) {
+            this.$search.typeahead('close');
+
+            this.showChangedProduct(e, name);
+        },
+
+        searchCallback: function (name, pluginCallback) {
+            var result = this.productsCollection.getFilteredNames(name);
+
+            pluginCallback(result);
+        },
+
         changedProductCount: function (e) {
             var $el = $(e.target),
                 value = $el.val(),
@@ -52,6 +92,21 @@
             model.calculate(value);
             this.updateProduct(id, model.toJSON());
             this.calculateTotalCalories();
+        },
+
+        reset: function () {
+            this.productsCollection.setDefaultValues();
+            this.resetSearchResult();
+            this.model.resetToDefaults();
+        },
+
+        resetSearchResult: function () {
+            this.$searchContent.empty();
+            this.$search.typeahead('val', '');
+        },
+
+        updateProductView: function (model) {
+            this.updateProduct(model.get('id'), model.toJSON());
         },
 
         getProductCollection: function () {
@@ -91,7 +146,9 @@
 
         onClose: function () {
             app.views.PhysicalTabView.prototype.onClose.apply(this, arguments);
-            //this._productCollectionBinder.unbind();
+
+            this.$search.unbind();
+            this.$search.destroy();
         }
 
     });

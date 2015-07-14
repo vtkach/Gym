@@ -3,5 +3,6 @@
 *= require css/bootstrap-theme.min
 *= require css/datepicker
 *= require sass/pikaday
+*= require sass/typeahead
 *= require sass/main.scss
 */
