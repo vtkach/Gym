@@ -1,15 +1,38 @@
 <template id="definition">
     <%= render 'templates/physicaltab/tab_header' %>
 
+    <table class="result table table-bordered">
+        <caption>Результат</caption>
+
+        <thead>
+        <tr>
+            <th>Білки (г)</th>
+            <th>Жири (г)</th>
+            <th>Вуглеводи (г)</th>
+            <th>ккал</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td name="calculatedProteins"></td>
+                <td name="calculatedFats"></td>
+                <td name="calculatedCarbohydrates"></td>
+                <td name="calculatedCalories"></td>
+            </tr>
+        </tbody>
+    </table>
+
     <table class="calories table table-bordered">
         <caption>Таблиця калорійності</caption>
 
         <thead>
             <tr>
                 <th>Назва</th>
-                <th>Білки</th>
-                <th>Жири</th>
-                <th>Вуглеводи</th>
+                <th>грам</th>
+                <th>Білки(г)</th>
+                <th>Жири(г)</th>
+                <th>Вуглеводи(г)</th>
                 <th>ккал</th>
             </tr>
         </thead>

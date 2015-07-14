@@ -7,13 +7,50 @@
             this.renderCaloriesTable();
         },
 
-        renderCaloriesTable: function () {
-            var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getProductView);
+        onInit: function () {
+            app.views.PhysicalTabView.prototype.onInit.apply(this, arguments);
+            this.extendEvents({
+                'input .count': 'changedProductCount'
+            });
+        },
 
+        template: _.template([
+            '<tr data-id="<%= id %>">',
+                '<td><%= name %></td>',
+                '<td><input class="count" min="0" type="number" value="<%= count %>"/></td>',
+                '<td><span class="calculatedProteins"><%= calculatedProteins %></span> (<%= proteins%>)</td>',
+                '<td><span class="calculatedFats"><%= calculatedFats %></span> (<%= fats %>)</td>',
+                '<td><span class="calculatedCarbohydrates"><%= calculatedCarbohydrates %></span> (<%= carbohydrates %>)</td>',
+                '<td><span class="calculatedCalories"><%= calculatedCalories %></span> (<%= calories %>)</td>',
+            '</tr>'
+        ].join('')),
+
+        renderCaloriesTable: function () {
             this.productsCollection = this.getProductCollection();
 
-            this._productCollectionBinder = new Backbone.CollectionBinder(viewFactory);
-            this._productCollectionBinder.bind(this.productsCollection, this.$('.calories tbody'));
+            this.listenTo(this.productsCollection, 'sync', this.renderProducts.bind(this));
+            this.productsCollection.length && this.productsCollection.trigger('sync');
+        },
+
+        renderProducts: function () {
+            var content;
+
+            content = this.productsCollection.reduce(function (memo, model) {
+                return memo + this.template(model.toJSON())
+            }, '', this);
+
+            this.$('.calories tbody').html(content);
+        },
+
+        changedProductCount: function (e) {
+            var $el = $(e.target),
+                value = $el.val(),
+                id = $el.parents('[data-id]').data().id,
+                model = this.productsCollection.get(id);
+
+            model.calculate(value);
+            this.updateProduct(id, model.toJSON());
+            this.calculateTotalCalories();
         },
 
         getProductCollection: function () {
@@ -35,9 +72,25 @@
             });
         },
 
+        updateProduct: function (id, data) {
+            var $el = this.$('[data-id=' + id + ']');
+
+            $el.find('.count').val(data.count);
+            $el.find('.calculatedProteins').html(data.calculatedProteins);
+            $el.find('.calculatedFats').html(data.calculatedFats);
+            $el.find('.calculatedCalories').html(data.calculatedCalories);
+            $el.find('.calculatedCarbohydrates').html(data.calculatedCarbohydrates);
+        },
+
+        calculateTotalCalories: function () {
+            var totalCalories = this.productsCollection.calculateCalories();
+
+            this.model.set(totalCalories);
+        },
+
         onClose: function () {
             app.views.PhysicalTabView.prototype.onClose.apply(this, arguments);
-            this._productCollectionBinder.unbind();
+            //this._productCollectionBinder.unbind();
         }
 
     });

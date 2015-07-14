@@ -168,6 +168,12 @@ body.container {
     .physical-health {
       @include first-column-width(130px);
     }
+    
+    .definition {
+      .count {
+        max-width: 50px;
+      }
+    }
 
     .phys-state-form {
       .form-control {
