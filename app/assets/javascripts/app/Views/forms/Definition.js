@@ -148,7 +148,7 @@
             app.views.PhysicalTabView.prototype.onClose.apply(this, arguments);
 
             this.$search.unbind();
-            this.$search.destroy();
+            this.$search.typeahead('destroy');
         }
 
     });
