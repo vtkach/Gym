@@ -35,17 +35,18 @@
         renderProducts: function () {
             var content;
 
-            content = this.productsCollection.reduce(function (memo, model) {
-                return memo + this.template(model.toJSON())
-            }, '', this);
-
+            content = this.productsCollection.reduce(this.generateProduct, '', this);
             this.$('.calories tbody').html(content);
+        },
+
+        generateProduct: function (memo, model) {
+            return memo + this.template(model.toJSON());
         },
 
         changedProductCount: function (e) {
             var $el = $(e.target),
                 value = $el.val(),
-                id = $el.parents('[data-id]').data().id,
+                id = $el.closest('[data-id]').data().id,
                 model = this.productsCollection.get(id);
 
             model.calculate(value);

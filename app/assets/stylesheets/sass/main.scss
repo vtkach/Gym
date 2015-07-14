@@ -170,6 +170,7 @@ body.container {
     }
     
     .definition {
+      @include centered-table-content();
       .count {
         max-width: 50px;
       }

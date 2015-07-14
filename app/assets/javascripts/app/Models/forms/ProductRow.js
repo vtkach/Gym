@@ -20,11 +20,15 @@
 
             this.set({
                 count: inputVal,
-                calculatedProteins: parseInt(this.get('proteins') * val, 10) ,
-                calculatedFats: parseInt(this.get('fats') * val, 10),
-                calculatedCalories: parseInt(this.get('calories') * val, 10),
-                calculatedCarbohydrates: parseInt(this.get('carbohydrates') * val, 10)
+                calculatedProteins: this.parseCalculatedResult(this.get('proteins') * val) ,
+                calculatedFats: this.parseCalculatedResult(this.get('fats') * val),
+                calculatedCalories: this.parseCalculatedResult(this.get('calories') * val),
+                calculatedCarbohydrates: this.parseCalculatedResult(this.get('carbohydrates') * val)
             });
+        },
+
+        parseCalculatedResult: function (value) {
+            return parseInt(value, 10);
         }
     });
 
