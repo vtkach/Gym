@@ -2,7 +2,7 @@
 
     app.models.DefinitionModel = app.models.PhysicalTabModel.extend({
 
-        urlPart: '',
+        urlPart: '/definitions/',
 
         defaults: {
             age: '',

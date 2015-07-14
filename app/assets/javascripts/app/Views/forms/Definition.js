@@ -29,6 +29,18 @@
             '</tr>'
         ].join('')),
 
+        getModalDialog: function () {
+            this.showModal({
+                headers: [
+                    'Білки(г)',
+                    'Жири(г)',
+                    'Вуглеводи(г)',
+                    'ккал'
+                ],
+                title: 'Калорійнiсть'
+            });
+        },
+
         renderCaloriesTable: function () {
             this.productsCollection = this.getProductCollection();
 
@@ -52,14 +64,13 @@
             this.$searchContent = this.$('.search-content tbody');
 
             this.$search = this.$('.search').typeahead({
-                hint: true,
-                highlight: true,
-                minLength: 1
-            },
-            {
-                name: 'states',
-                source: this.searchCallback.bind(this)
-            });
+                    hint: true,
+                    highlight: true,
+                    minLength: 1
+                }, {
+                    name: 'states',
+                    source: this.searchCallback.bind(this)
+                });
 
             this.$search.bind('typeahead:select', this.showChangedProduct.bind(this));
             this.$search.bind('typeahead:autocomplete', this.autocomplete.bind(this));
