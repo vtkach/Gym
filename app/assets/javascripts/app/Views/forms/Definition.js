@@ -46,15 +46,22 @@
 
             this.listenTo(this.productsCollection, 'sync', this.renderProducts.bind(this))
                 .listenTo(this.productsCollection, 'product:updatedModel', this.updateProductView.bind(this))
-                .listenTo(this.productsCollection, 'product:filteredModels', this.updateSearchResult.bind(this));
+                .listenTo(this.productsCollection, 'product:filteredContent', this.updateSearchResult.bind(this));
 
             this.productsCollection.length && this.productsCollection.trigger('sync');
         },
 
-        updateSearchResult: function (modelsArr) {
-            var searchResult = modelsArr.reduce(this.generateProduct.bind(this), '');
+        updateSearchResult: function (searchContent) {
+            clearTimeout(this.timeout);
 
-            this.$searchContent.html(searchResult);
+            this.timeout = setTimeout(this.updateSearchTable.bind(this, searchContent), 300);
+        },
+
+        updateSearchTable: function (searchContent) {
+            if (this.prevSearchResult !== searchContent) {
+                this.prevSearchResult = searchContent;
+                this.$searchContent.html(searchContent);
+            }
         },
 
         renderProducts: function () {
@@ -74,9 +81,9 @@
             this.$search = this.$('.search').typeahead({
                     hint: true,
                     highlight: true,
-                    minLength: 1
+                    minLength: app.constants.MIN_SEARCH_LENGTH
                 }, {
-                    name: 'states',
+                    name: 'products',
                     source: this.searchCallback.bind(this)
                 });
 
@@ -86,7 +93,10 @@
         },
 
         checkSearchField: function (e) {
-            e.target.value.length || this.clearSearchResult();
+            if (e.target.value.length < app.constants.MIN_SEARCH_LENGTH) {
+                this.clearSearchResult();
+                clearTimeout(this.timeout);
+            }
         },
 
         showChangedProduct: function (e, name) {
@@ -102,7 +112,7 @@
         },
 
         searchCallback: function (name, pluginCallback) {
-            var result = this.productsCollection.getFilteredNames(name);
+            var result = this.productsCollection.getFilteredNames(name, this.template);
 
             pluginCallback(result);
         },

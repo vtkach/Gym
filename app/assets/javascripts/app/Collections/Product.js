@@ -35,20 +35,23 @@
             return accum;
         },
 
-        getFilteredNames: function (name) {
+        getFilteredNames: function (name, callback) {
             var autocompleteValues = [],
-                filteredModels = [];
+                filteredContent = '';
 
             this.every(function (model) {
+                var attributes;
+
                 if (this.checkName(model, name)) {
-                    autocompleteValues.push(model.get('name'));
-                    filteredModels.push(model);
+                    attributes = model.attributes;
+                    autocompleteValues.push(attributes.name);
+                    filteredContent += callback(attributes);
                 }
 
                 return autocompleteValues.length <= app.constants.SEARCH_RESULT_COUNT;
             }, this);
 
-            this.trigger('product:filteredModels', filteredModels);
+            this.trigger('product:filteredContent', filteredContent);
             return autocompleteValues;
         },
 
@@ -69,7 +72,7 @@
         },
 
         resetModel: function (model) {
-            if (model.get('count') > 0) {
+            if (model.get('count')) {
                 model.calculate(0);
 
                 this.trigger('product:updatedModel', model);
