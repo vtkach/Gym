@@ -170,6 +170,10 @@ body.container {
     }
     
     .definition {
+      input.search {
+        background: none !important;
+      }
+
       @include centered-table-content();
       .count {
         max-width: 50px;

@@ -44,9 +44,17 @@
         renderCaloriesTable: function () {
             this.productsCollection = this.getProductCollection();
 
-            this.listenTo(this.productsCollection, 'sync', this.renderProducts.bind(this));
-            this.listenTo(this.productsCollection, 'product:updatedModel', this.updateProductView.bind(this));
+            this.listenTo(this.productsCollection, 'sync', this.renderProducts.bind(this))
+                .listenTo(this.productsCollection, 'product:updatedModel', this.updateProductView.bind(this))
+                .listenTo(this.productsCollection, 'product:filteredModels', this.updateSearchResult.bind(this));
+
             this.productsCollection.length && this.productsCollection.trigger('sync');
+        },
+
+        updateSearchResult: function (modelsArr) {
+            var searchResult = modelsArr.reduce(this.generateProduct.bind(this), '');
+
+            this.$searchContent.html(searchResult);
         },
 
         renderProducts: function () {
@@ -74,6 +82,11 @@
 
             this.$search.bind('typeahead:select', this.showChangedProduct.bind(this));
             this.$search.bind('typeahead:autocomplete', this.autocomplete.bind(this));
+            this.$search.on('input', this.checkSearchField.bind(this));
+        },
+
+        checkSearchField: function (e) {
+            e.target.value.length || this.clearSearchResult();
         },
 
         showChangedProduct: function (e, name) {
@@ -112,8 +125,12 @@
         },
 
         resetSearchResult: function () {
-            this.$searchContent.empty();
+            this.clearSearchResult();
             this.$search.typeahead('val', '');
+        },
+
+        clearSearchResult: function () {
+            this.$searchContent.empty();
         },
 
         updateProductView: function (model) {
@@ -160,6 +177,7 @@
 
             this.$search.unbind();
             this.$search.typeahead('destroy');
+            this.$search.off('input');
         }
 
     });

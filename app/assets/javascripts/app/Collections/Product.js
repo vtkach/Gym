@@ -36,17 +36,20 @@
         },
 
         getFilteredNames: function (name) {
-            var result = [];
+            var autocompleteValues = [],
+                filteredModels = [];
 
             this.every(function (model) {
                 if (this.checkName(model, name)) {
-                    result.push(model.get('name'));
+                    autocompleteValues.push(model.get('name'));
+                    filteredModels.push(model);
                 }
 
-                return result.length < 11;
+                return autocompleteValues.length <= app.constants.SEARCH_RESULT_COUNT;
             }, this);
 
-            return result;
+            this.trigger('product:filteredModels', filteredModels);
+            return autocompleteValues;
         },
 
         checkName: function (model, name) {

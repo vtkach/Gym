@@ -1,4 +1,5 @@
 //= require app/init
+//= require app/Helpers/Constants
 //= require app/Helpers/BaseModel
 //= require app/Helpers/PhysicalTabModel
 //= require app/Helpers/BaseView
