@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :physical_health_states
   has_many :physical_preparedness_states
   has_many :motor_activities
+  has_many :definitions
 end

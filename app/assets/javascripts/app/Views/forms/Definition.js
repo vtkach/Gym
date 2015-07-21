@@ -32,6 +32,8 @@
         getModalDialog: function () {
             this.showModal({
                 headers: [
+                    'Дата',
+                    'Вiк',
                     'Білки(г)',
                     'Жири(г)',
                     'Вуглеводи(г)',
@@ -148,12 +150,11 @@
         },
 
         getProductCollection: function () {
-            var collection = app.instances.productsCollection;
+            var productsList = app.instances.productsData,
+                collection = new app.collections.ProductCollection(productsList);
 
-            if (!collection || !collection.length) {
-                collection = new app.collections.ProductCollection();
+            if (!productsList || !productsList.length) {
                 collection.fetch();
-                app.instances.productsCollection = collection;
             }
 
             return collection;

@@ -7,10 +7,10 @@
         defaults: {
             age: '',
             date: '',
-            calculatedProteins: 0,
-            calculatedFats: 0,
-            calculatedCarbohydrates: 0,
-            calculatedCalories: 0
+            proteins: 0,
+            fats: 0,
+            carbohydrates: 0,
+            calories: 0
         },
 
         wrapperJson: 'definition',

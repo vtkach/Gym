@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712202323) do
+ActiveRecord::Schema.define(version: 20150721193412) do
 
   create_table "activities", force: :cascade do |t|
     t.float    "startHour"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20150712202323) do
     t.datetime "updated_at",     null: false
     t.integer  "startMinute"
   end
+
+  create_table "definitions", force: :cascade do |t|
+    t.integer  "age"
+    t.datetime "date"
+    t.integer  "proteins"
+    t.integer  "fats"
+    t.integer  "calories"
+    t.integer  "carbohydrates"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "definitions", ["user_id"], name: "index_definitions_on_user_id"
 
   create_table "motor_activities", force: :cascade do |t|
     t.integer  "age"
