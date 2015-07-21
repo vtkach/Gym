@@ -130,9 +130,7 @@ body.container {
             }
 
             >input[type=number] {
-              border: 1px solid rgb(204, 204, 204);
-              padding-left: 5px;
-              border-radius: 3px;
+              @include small-input();
             }
           }
 
@@ -172,6 +170,10 @@ body.container {
     .definition {
       input.search {
         background: none !important;
+      }
+
+      input[type=number] {
+        @include small-input();
       }
 
       @include centered-table-content();
