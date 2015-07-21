@@ -16,4 +16,8 @@ module TabValidationHelper
     validates :age, numericality: settings_for_numericality(15, 18)
   end
 
+  def only_integer_validation param
+    validates param, numericality: { only_integer: true }
+  end
+
 end
