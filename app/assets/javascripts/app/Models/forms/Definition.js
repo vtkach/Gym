@@ -2,11 +2,22 @@
 
     app.models.DefinitionModel = app.models.PhysicalTabModel.extend({
 
-        urlPart: '',
+        urlPart: '/definitions/',
 
-        defaults: {},
+        defaults: {
+            age: '',
+            date: '',
+            calculatedProteins: 0,
+            calculatedFats: 0,
+            calculatedCarbohydrates: 0,
+            calculatedCalories: 0
+        },
 
-        wrapperJson: 'definition'
+        wrapperJson: 'definition',
+
+        resetToDefaults: function () {
+            this.set(this.defaults);
+        }
     });
 
 } (app));

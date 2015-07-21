@@ -168,6 +168,17 @@ body.container {
     .physical-health {
       @include first-column-width(130px);
     }
+    
+    .definition {
+      input.search {
+        background: none !important;
+      }
+
+      @include centered-table-content();
+      .count {
+        max-width: 50px;
+      }
+    }
 
     .phys-state-form {
       .form-control {

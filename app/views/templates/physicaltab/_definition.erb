@@ -1,5 +1,45 @@
 <template id="definition">
     <%= render 'templates/physicaltab/tab_header' %>
+    <fieldset>
+        <table class="result table table-bordered">
+            <caption>Результат</caption>
+
+            <thead>
+                <tr>
+                    <th>Білки (г)</th>
+                    <th>Жири (г)</th>
+                    <th>Вуглеводи (г)</th>
+                    <th>ккал</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td name="calculatedProteins"></td>
+                    <td name="calculatedFats"></td>
+                    <td name="calculatedCarbohydrates"></td>
+                    <td name="calculatedCalories"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success form-control save">Зберегти</button>
+        <button id="archive" class="btn btn-primary form-control">Архів</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Пошук</legend>
+
+        <input class="search form-control" type="search" placeholder="Введіть назву продукту..."/>
+
+        <table class="search-content table table-bordered">
+            <tbody></tbody>
+        </table>
+
+        <button class="reset-search btn btn-primary form-control">Скинути результати пошуку</button>
+        <button class="reset btn btn-primary form-control">Скинути всі введені дані</button>
+    </fieldset>
+
 
     <table class="calories table table-bordered">
         <caption>Таблиця калорійності</caption>
@@ -7,9 +47,10 @@
         <thead>
             <tr>
                 <th>Назва</th>
-                <th>Білки</th>
-                <th>Жири</th>
-                <th>Вуглеводи</th>
+                <th>Грами</th>
+                <th>Білки(г)</th>
+                <th>Жири(г)</th>
+                <th>Вуглеводи(г)</th>
                 <th>ккал</th>
             </tr>
         </thead>

@@ -6,6 +6,7 @@
 //= require libs/pikaday.jquery
 //= require libs/bootstrap.min
 //= require libs/bootstrap-datepicker
+//= require libs/typeahead.jquery.min
 //= require libs/underscore
 //= require libs/backbone
 //= require libs/backbone.Validation
