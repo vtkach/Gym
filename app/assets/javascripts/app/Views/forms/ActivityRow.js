@@ -11,7 +11,8 @@
 
         onInit: function () {
             Backbone.Validation.bind(this);
-            this.listenTo(this.model, 'validated:invalid', this.showRowError.bind(this))
+            this.listenTo(this.model, 'change:activityLevel', Backbone.Events.trigger.bind(null, 'recalculate'))
+                .listenTo(this.model, 'validated:invalid', this.showRowError.bind(this))
                 .listenTo(this.model, 'validated:valid', this.removeRowError.bind(this))
                 .listenTo(this.model, 'error', this.showServerError.bind(this));
         },
@@ -64,7 +65,7 @@
                 this.model,
                 this.el,
                 this.constructor.bindings,
-                {modelSetOptions: {validate: false}}
+                { modelSetOptions: { validate: false } }
             );
             this.extendBinding();
         }

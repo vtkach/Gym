@@ -43,17 +43,6 @@
                 oneOf: ['bl', 'sml', 'ml', 'bl', 'hl'],
                 msg: 'Обрано неправильний рівень активності!'
             }
-        },
-
-        initialize: function () {
-            this.listenTo(this, 'change:activityMinute change:activityHour', this.calculatedAttribute.bind(this));
-        },
-
-        calculatedAttribute: function () {
-            var activityMinute = this.get('activityMinute'),
-                activityHour = this.get('activityHour');
-
-            this.set('activityTime', Number(activityMinute) + Number(activityHour*60));
         }
 
     });

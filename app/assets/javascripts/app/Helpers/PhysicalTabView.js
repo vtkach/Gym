@@ -19,9 +19,9 @@
             });
 
             Backbone.Validation.bind(this);
-            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this));
-            this.listenTo(this.model, 'error', this.showServerError.bind(this));
-            this.listenTo(this.model, 'sync', this.showSuccessMessage.bind(this));
+            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this))
+                .listenTo(this.model, 'sync', this.showSuccessMessage.bind(this))
+                .listenTo(this.model, 'error', this.showServerError.bind(this));
         },
 
         onCalculate: function () {
@@ -59,7 +59,12 @@
             );
         },
 
+        beforeBinding: function () {
+
+        },
+
         binding: function () {
+            this.beforeBinding();
             this.model.set('age', app.instances.profile.get('age'));
             this._modelBinder.bind(
                 this.model,

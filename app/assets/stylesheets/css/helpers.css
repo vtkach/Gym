@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.large-font {
+  font-size: 2em;
+}
+
+.bolder {
+  font-weight: bold;
+}
+
+.li-hyphen li {
+  list-style-type: none;
+}
+.li-hyphen li:before {
+  content: '— ';
+}
+
+.li-decimal {
+  list-style-type: decimal;
+}
+
+.table-centered tr td, .table-centered tr th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.medium-font {
+  font-size: 1.5em;
+}
+
+.danger-state {
+  background: #DD161D;
+}
+
+.low-danger-state {
+  background: #F24F04;
+}
+
+.low-success-state {
+  background: #EAB300;
+}
+
+.success-state {
+  background: #84DB20;
+}
+
+.higher-success {
+  background: #10891F;
+}

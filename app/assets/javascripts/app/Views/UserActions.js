@@ -6,10 +6,10 @@
 
         events: {
             'click .btn-success': 'onSubmitUserAction',
-            'submit form': 'prevDefault',
             'change #remember-me': 'onRemember',
             'click form button': 'prevDefault',
-            'click .cancel': 'onCancelForm'
+            'click .cancel': 'onCancelForm',
+            'submit form': 'prevDefault'
         },
 
         onRemember: function (event) {
