@@ -5,16 +5,16 @@ class MotorActivitiesController < BaseArchivesController
   end
 
   def create
-    check_activities do
-      @motor_activity = current_user.motor_activities.create(motor_activity_params)
-    end
+    @motor_activity = current_user.motor_activities.create(motor_activity_params)
+
+    render_response(@motor_activity)
   end
 
   def update
-    check_activities do
-      @motor_activity = MotorActivity.find_by(user_id: get_user_id, id: params[:id])
-      @motor_activity.update(motor_activity_params)
-    end
+    @motor_activity = find_id(MotorActivity)
+    @motor_activity.update(motor_activity_params)
+
+    render_response(@motor_activity)
   end
 
   private
@@ -23,31 +23,13 @@ class MotorActivitiesController < BaseArchivesController
     params.require(:motorActivity)
       .permit(
         :date,
-        :age
-      ).merge(
-        activities_attributes: activities_params[:activities]
+        :age,
+        :smlresult,
+        :blresult,
+        :slresult,
+        :mlresult,
+        :hlresult
       )
-  end
-
-  def activities_params
-    params.permit(activities: [
-      :id,
-      :startHour,
-      :startMinute,
-      :activityPeriod,
-      :activityLevel,
-      :description
-    ])
-  end
-
-  def check_activities
-    if activities_params[:activities]
-      yield
-      render_response(@motor_activity)
-    else
-      @error = t('custom.errors.motorActivity')
-      render 'base/error', status: 400
-    end
   end
 
 end

@@ -4,7 +4,7 @@ class BaseArchivesController < ApplicationController
 
   def get_last_items model
     model.where(user_id: get_user_id)
-         .order(:created_at)
+         .order(:date)
          .reverse_order
          .limit(5)
   end

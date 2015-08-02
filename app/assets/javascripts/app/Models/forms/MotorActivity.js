@@ -7,9 +7,13 @@
         wrapperJson: 'motorActivity',
 
         defaults: {
-            activities: '',
             date: '',
-            age: ''
+            age: '',
+            smlresult: 0,
+            blresult: 0,
+            slresult: 0,
+            mlresult: 0,
+            hlresult: 0
         },
 
         initialize: function () {

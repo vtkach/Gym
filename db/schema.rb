@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721193412) do
-
-  create_table "activities", force: :cascade do |t|
-    t.float    "startHour"
-    t.integer  "activityPeriod"
-    t.string   "activityLevel"
-    t.string   "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "startMinute"
-  end
+ActiveRecord::Schema.define(version: 20150802184143) do
 
   create_table "definitions", force: :cascade do |t|
     t.integer  "age"
@@ -43,19 +33,14 @@ ActiveRecord::Schema.define(version: 20150721193412) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "smlresult"
+    t.integer  "blresult"
+    t.integer  "slresult"
+    t.integer  "mlresult"
+    t.integer  "hlresult"
   end
 
   add_index "motor_activities", ["user_id"], name: "index_motor_activities_on_user_id"
-
-  create_table "motor_activities_activities", force: :cascade do |t|
-    t.integer  "motor_activity_id"
-    t.integer  "activity_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "motor_activities_activities", ["activity_id"], name: "index_motor_activities_activities_on_activity_id"
-  add_index "motor_activities_activities", ["motor_activity_id"], name: "index_motor_activities_activities_on_motor_activity_id"
 
   create_table "notes", force: :cascade do |t|
     t.text     "note"

@@ -21,7 +21,8 @@
             Backbone.Validation.bind(this);
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this))
                 .listenTo(this.model, 'sync', this.showSuccessMessage.bind(this))
-                .listenTo(this.model, 'error', this.showServerError.bind(this));
+                .listenTo(this.model, 'error', this.showServerError.bind(this))
+                .listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this));
         },
 
         onCalculate: function () {
@@ -65,7 +66,7 @@
 
         binding: function () {
             this.beforeBinding();
-            this.model.set('age', app.instances.profile.get('age'));
+            this.updateAge();
             this._modelBinder.bind(
                 this.model,
                 this.el,
@@ -73,6 +74,10 @@
                 { modelSetOptions: { validate: false } }
             );
             this.extendBinding();
+        },
+
+        updateAge: function () {
+            this.model.set('age', app.instances.profile.get('age'));
         },
 
         onClose: function () {

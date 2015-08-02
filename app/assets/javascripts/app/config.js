@@ -5,7 +5,6 @@
 //= require app/Helpers/BaseView
 //= require app/Helpers/PhysicalTabView
 //= require app/Helpers/BaseRouter
-//= require app/Models/ActivityRow
 //= require app/Models/User
 //= require app/Models/Registration
 //= require app/Models/Authorization
@@ -22,6 +21,7 @@
 //= require app/Models/forms/PhysicalPreparedness
 //= require app/Models/forms/ShoulderIndex
 //= require app/Models/forms/ProductRow.js
+//= require app/Models/forms/ActivityRow.js
 //= require app/Collections/Archive
 //= require app/Collections/Activity
 //= require app/Collections/Product
