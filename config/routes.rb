@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :shoulder_indices, only: [:index, :create, :update]
   resources :physical_preparedness_states, only: [:index, :create, :update]
   resources :motor_activities, only: [:index, :create, :update]
-  resources :activities, only: [:destroy]
   resources :main, only: [:index, :show]
   resources :products, only: [:index]
   resources :definitions, only: [:index, :create, :update]
