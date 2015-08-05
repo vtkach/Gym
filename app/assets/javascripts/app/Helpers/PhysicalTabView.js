@@ -20,9 +20,9 @@
 
             Backbone.Validation.bind(this);
             this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this))
+                .listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this))
                 .listenTo(this.model, 'sync', this.showSuccessMessage.bind(this))
-                .listenTo(this.model, 'error', this.showServerError.bind(this))
-                .listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this));
+                .listenTo(this.model, 'error', this.showServerError.bind(this));
         },
 
         onCalculate: function () {

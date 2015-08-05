@@ -21,11 +21,7 @@
             this.activityCollection = new app.collections.ActivityCollection();
         },
 
-        parse: function (response) {
-            this.activityCollection.reset(response.activities);
-
-            return response;
-        },
+        parse: function () {},
 
         addField: function (accum, field) {
             accum[field] = this.get(field);

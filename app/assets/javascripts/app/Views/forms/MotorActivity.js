@@ -9,16 +9,9 @@
         onInit: function () {
             app.views.PhysicalTabView.prototype.onInit.apply(this, arguments);
             this.extendEvents({
-                'keydown input[type=number]': 'onlyDigits',
                 'paste input[type=number]': 'prevDefault',
                 'click .glyphicon-plus': 'addRow'
             });
-        },
-
-        onlyDigits: function (event) {
-         /*   if (event.keyCode < 48 || (event.keyCode > 57 && event.keyCode < 96) || event.keyCode > 105) {
-                debugger;
-            }*/
         },
 
         afterRender: function () {
@@ -42,13 +35,13 @@
                 activities = ['ml', 'bl', 'sl', 'sml', 'hl'];
 
             _.each(activities, this.setEachActivityBinding.bind(this, bindings));
-
             this.constructor.bindings = bindings;
         },
 
         getModalDialog: function () {
             this.showModal({
                 headers: [
+                    'Дата',
                     'Базовий рівень',
                     'Сидячий рівень',
                     'Малий рівень',

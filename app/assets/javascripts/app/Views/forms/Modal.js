@@ -5,13 +5,14 @@
         el: '#myModal',
 
         initialize: function () {
-            var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this));
+            var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getArchiveView.bind(this)),
+                Events = Backbone.Events;
 
             this.tplName = '';
             this._archiveCollectionBinder = new Backbone.CollectionBinder(viewFactory);
 
-            this.listenTo(Backbone.Events, 'modal:updateContent', this.updateContent);
-            this.listenTo(Backbone.Events, 'modal:showArchive', this.createTemplate);
+            this.listenTo(Events, 'modal:updateContent', this.updateContent)
+                .listenTo(Events, 'modal:showArchive', this.createTemplate);
         },
 
         eachHeader: function (accum, elem) {
