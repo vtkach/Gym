@@ -29,11 +29,12 @@
             app.instances.user.setUserData(userData);
             app.instances.router.navigate('accessed/home', { trigger: true });
             this.constructor.showFlashMessage('success', 'Ви увійшли!');
-            Backbone.Events.trigger('is-login', true);
         },
 
         onSubmitUserAction: function () {
-            //TODO: this.model should be Authentication
+            var rememberMe = this.$('[name=remember_me]:checked').length;
+
+            this.model.set('remember_me', rememberMe);
             app.instances.session.logIn(this.model.toJSON())
                 .done(this.onSuccessCallback.bind(this));
 

@@ -35,6 +35,12 @@
             this.$mainContainer = this.$('section.row');
             this.$menuListItem = this.$('#menu li');
             this.$profileItem = this.$menuListItem.last();
+            this.checkUser();
+        },
+
+        checkUser: function () {
+            var isValidUser = app.instances.user.isValidUser();
+            this.toggleMenuItem(isValidUser);
         }
 
     });

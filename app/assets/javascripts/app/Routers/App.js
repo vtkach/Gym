@@ -83,7 +83,6 @@
 
         loadUserData: function () {
             app.instances.user.loadUser();
-            Backbone.Events.trigger('is-login', true);
         },
 
         checkExistViews: function (route) {
@@ -116,7 +115,6 @@
 
         renderByPage: function (template) {
             if (this.page !== template) {
-                Backbone.Events.trigger('is-login', true);
                 this.clear();
                 this.currentView = this.generateViewInstance(template);
                 this.renderContent();

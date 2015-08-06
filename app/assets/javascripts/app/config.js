@@ -7,7 +7,6 @@
 //= require app/Helpers/BaseRouter
 //= require app/Models/User
 //= require app/Models/Registration
-//= require app/Models/Authorization
 //= require app/Models/UserActions
 //= require app/Models/InfoTab
 //= require app/Models/Session

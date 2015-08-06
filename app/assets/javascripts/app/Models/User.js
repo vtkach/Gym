@@ -6,6 +6,7 @@
 
         parse: function (response) {
             this.updateProfile(response.profile);
+            Backbone.Events.trigger('is-login', true);
 
             return response.user;
         },
@@ -13,6 +14,7 @@
         setUserData: function (data) {
             this.updateProfile(data.profile);
             this.set(data.user);
+            Backbone.Events.trigger('is-login', true);
         },
 
         updateProfile: function (data) {
@@ -23,6 +25,10 @@
             return this.fetch({
                 url: '/users/current_user'
             });
+        },
+
+        isValidUser: function () {
+            return !_.isEmpty(this.attributes);
         }
 
     });

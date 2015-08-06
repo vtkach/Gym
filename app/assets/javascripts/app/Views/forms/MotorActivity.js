@@ -57,6 +57,11 @@
                 tplName: 'activity-row',
                 model: model
             });
+        },
+
+        onClose: function () {
+            app.views.PhysicalTabView.prototype.onClose.apply(this, arguments);
+            this._collectionBinder.unbind();
         }
 
     });

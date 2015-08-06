@@ -21,8 +21,6 @@
             this.activityCollection = new app.collections.ActivityCollection();
         },
 
-        parse: function () {},
-
         addField: function (accum, field) {
             accum[field] = this.get(field);
 
