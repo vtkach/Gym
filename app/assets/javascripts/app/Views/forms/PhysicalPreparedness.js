@@ -37,23 +37,35 @@
             });
         },
 
-        afterRender: function () {
+        binding: function () {
+            this.beforeBinding();
+            this.updateAge();
+
+            if (!app.instances.profile.get('age')) {
+                this.listenTo(app.instances.profile, 'change:age', this.bindPreparedness);
+            } else {
+                this.bindPreparedness();
+            }
+
+            this.extendBinding();
+        },
+
+        bindPreparedness: function () {
             var bindFields = [
-                "pushUps",
-                "raising",
-                "jumpLength",
-                "jumpHeight",
-                "cooperTest",
-                "inclineBody",
-                "flamingoTest",
+                'pushUps',
+                'raising',
+                'jumpLength',
+                'jumpHeight',
+                'cooperTest',
+                'inclineBody',
+                'flamingoTest',
                 'estafeta',
-                "inclines"
+                'inclines'
             ];
 
             _.each(bindFields, this.eachBinding, this);
             this.constructor.bindings.age = '[name=age]';
             app.views.PhysicalTabView.prototype.binding.call(this);
-            this.initDatePicker();
         },
 
         eachBinding: function (elem) {
