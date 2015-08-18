@@ -5,6 +5,7 @@
         getModalDialog: function () {
             this.showModal({
                 headers: [
+                    'Дата',
                     'Вiк',
                     'Зріст, см',
                     'Вага, кг',

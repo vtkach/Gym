@@ -27,9 +27,9 @@
         },
 
         calculate: function () {
-            var result = this.get('shoulderWidth') / this.get('shoulder') * 100;;
+            var result = this.get('shoulderWidth') / this.get('shoulder') * 100;
 
-            this.set('brachialIndex', result);
+            this.set('brachialIndex', result.toFixed(2));
         }
 
     });

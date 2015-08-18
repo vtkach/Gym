@@ -14,7 +14,7 @@
                 'click .calculate': 'onCalculate',
                 'click #archive': 'getArchive',
                 'click .save': 'onSave',
-                'keypress [name=age]': 'disableLetters'
+                'keypress input': 'disableLetters'
             });
 
             Backbone.Validation.bind(this);
