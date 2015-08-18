@@ -4,7 +4,8 @@
 
         events: {
             'click button': 'prevDefault',
-            'click .cancel': 'close'
+            'click .cancel': 'close',
+            'keypress [name=datepicker]': 'disableKeyboard'
         },
 
         initialize: function (options) {
@@ -81,6 +82,20 @@
             this.events = _.clone(this.events);
 
             _.extend(this.events, events);
+        },
+
+        dateConverter: function (dir, val, attr, model) {
+            var date = new Date(val);
+
+            return [
+                date.getDate(),
+                date.getMonth() + 1,
+                date.getFullYear()
+            ].join('/');
+        },
+
+        disableKeyboard: function (e) {
+            e.preventDefault();
         }
 
     }, {

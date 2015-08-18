@@ -9,13 +9,12 @@
         _profileBinder: null,
 
         onInit: function () {
-            this._archiveCollection = new app.collections.ArchiveCollection();
-            this._archiveCollection.url = this.model.urlPart;
-
+            this.initArchiveCollection();
             this.extendEvents({
                 'click .calculate': 'onCalculate',
                 'click #archive': 'getArchive',
-                'click .save': 'onSave'
+                'click .save': 'onSave',
+                'keypress [name=age]': 'disableLetters'
             });
 
             Backbone.Validation.bind(this);
@@ -23,6 +22,11 @@
                 .listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this))
                 .listenTo(this.model, 'sync', this.showSuccessMessage.bind(this))
                 .listenTo(this.model, 'error', this.showServerError.bind(this));
+        },
+
+        initArchiveCollection: function () {
+            this._archiveCollection = new app.collections.ArchiveCollection();
+            this._archiveCollection.url = this.model.urlPart;
         },
 
         onCalculate: function () {
@@ -92,12 +96,15 @@
         },
 
         initDatePicker: function () {
-            this.datepicker = new Pikaday({
-                field: this.$('[name=datepicker]').get(0),
+            var $datepicker = this.$('[name=datepicker]');
 
-                onSelect: function (date) {
+            this.datepicker = new Pikaday({
+                field: $datepicker.get(0),
+
+                onSelect: function ($datepicker, date) {
                     this.model.set('date', date);
-                }.bind(this),
+                    $datepicker.val(this.dateConverter(null, date));
+                }.bind(this, $datepicker),
 
                 i18n: {
                     previousMonth: 'Попередній місяць',
@@ -122,6 +129,14 @@
             });
 
             this.datepicker.setDate(new Date());
+        },
+
+        disableLetters: function (event) {
+            var value = Number(event.target.value + String.fromCharCode(event.keyCode));
+
+            if (!value) {
+                event.preventDefault();
+            }
         }
 
     }, {

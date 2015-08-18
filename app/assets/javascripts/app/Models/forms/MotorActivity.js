@@ -19,6 +19,7 @@
         initialize: function () {
             app.models.PhysicalTabModel.prototype.initialize.call(this);
             this.activityCollection = new app.collections.ActivityCollection();
+            this.calculatePercents();
         },
 
         addField: function (accum, field) {
@@ -106,6 +107,31 @@
             _.isNumber(activityMinute) && (accum += activityMinute);
 
             return accum;
+        },
+
+        calculatePercents: function () {
+            var fields = [
+                    'sml',
+                    'bl',
+                    'sl',
+                    'ml',
+                    'hl'
+                ],
+                totalPercents;
+
+            totalPercents = _.reduce(fields, this.get100percents, 0, this);
+            _.each(fields, this.calculatePercentsCallback.bind(this, totalPercents));
+        },
+
+        get100percents: function (acc, val) {
+            return acc + this.get(val + 'result');
+        },
+
+        calculatePercentsCallback: function (totalPercents, el) {
+            var percent =  this.get(el + 'result') / totalPercents * 100;
+
+            percent = (percent) ? percent.toFixed(2) : 0;
+            this.set(el + 'percent', percent);
         }
 
     });

@@ -14,6 +14,11 @@
             });
         },
 
+        initArchiveCollection: function () {
+            app.views.PhysicalTabView.prototype.initArchiveCollection.call(this);
+            this._archiveCollection.model = app.models.MotorActivityModel;
+        },
+
         afterRender: function () {
             var viewFactory = new Backbone.CollectionBinder.ViewManagerFactory(this.getActivityView);
 
