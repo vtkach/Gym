@@ -52,7 +52,7 @@
 
             _.each(bindFields, this.eachBinding, this);
             this.constructor.bindings.age = '[name=age]';
-            app.views.BaseView.prototype.binding.call(this);
+            app.views.PhysicalTabView.prototype.binding.call(this);
             this.initDatePicker();
         },
 
