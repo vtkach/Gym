@@ -13,8 +13,7 @@
             this.extendEvents({
                 'click .calculate': 'onCalculate',
                 'click #archive': 'getArchive',
-                'click .save': 'onSave',
-                'keypress input': 'disableLetters'
+                'click .save': 'onSave'
             });
 
             Backbone.Validation.bind(this);
@@ -129,14 +128,6 @@
             });
 
             this.datepicker.setDate(new Date());
-        },
-
-        disableLetters: function (event) {
-            var value = Number(event.target.value + String.fromCharCode(event.keyCode));
-
-            if (!value) {
-                event.preventDefault();
-            }
         }
 
     }, {
