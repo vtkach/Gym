@@ -28,7 +28,6 @@
         <%= render 'templates/physicaltab/archivetemplates/definition_template' %>
         <%= render 'templates/getting_started' %>
         <%= render 'templates/my_phis_state' %>
-        <%= render 'templates/info_resources' %>
         <%= render 'templates/you_should_know' %>
         <%= render 'templates/complex_self_improving' %>
         <%= render 'templates/physicaltab/definition' %>
@@ -46,31 +45,52 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand logo" href="#accessed/home"></a>
+                    <div class="loader-container">
+                        <div class="olympicloader">
+                            <i class="loader-circle first"></i>
+                            <i class="loader-circle second"></i>
+                            <i class="loader-circle third"></i>
+                            <i class="loader-circle fourth"></i>
+                            <i class="loader-circle fifth"></i>
+                        </div>
+                    </div>
+                   <!-- <a class="navbar-brand logo" href="#accessed/home"></a>-->
                 </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span
-                                    class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
-                            <ul id='menu' class="dropdown-menu" role="menu">
-                                <li><a href="#accessed/signin">Логин</a></li>
-                                <li><a href="#register">Регистрация</a></li>
-                                <li><a href="#infoTab/profile">Профиль</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#accessed/home" role="button" title='Выйти' aria-expanded="false">
-                                <span class="glyphicon glyphicon-folder-open"></span>
-                            </a>
-                        </li>
-                    </ul>
+                <ul class="collapse navbar-collapse">
+                    <li>
+                        <a href='#infoTab/getting-started' class="getting-started" title="Інструкція по роботі з програмою">Інструкція</a>
+                    </li>
+                    <li>
+                        <a href='#infoTab/my-phis-state' class="my-phis-state" title="Фізичний стан">Фізичний стан</a>
+                    </li>
+                    <li>
+                        <a href='#infoTab/recommendations' class="recommendations" title="Рекомендації">Рекомендації</a>
+                    </li>
+                    <li>
+                        <a href='#infoTab/you-should-know' class="you-should-know" title="Варто знати">Варто знати</a>
+                    </li>
+                    <li>
+                        <a href='#infoTab/complex-self-improving' class="complex-self-improving" title="Комплекс вправ">Комплекс вправ</a>
+                    </li>
+                    <li>
+                        <a href='#infoTab/notebook-for-exercices' class="notebook-for-exercices" title="Щоденник">Щоденник</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                        <ul id='menu' class="dropdown-menu" role="menu">
+                            <li><a href="#accessed/signin">Логін</a></li>
+                            <li><a href="#register">Реєстрація</a></li>
+                            <li><a href="#infoTab/profile">Профіль</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#accessed/home" role="button" title='Выйти' class='logout' aria-expanded="false">Вихід</a>
+                    </li>
+                </ul>
                 </div>
             </div>
         </nav>
@@ -81,8 +101,6 @@
             <strong></strong>
             <span class="text-message"></span>
         </div>
-        <footer>
-
-        </footer>
+<!--        <footer>&copy; Health-Diary application</footer>-->
     </body>
 </html>

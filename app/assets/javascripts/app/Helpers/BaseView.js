@@ -40,9 +40,13 @@
         },
 
         getTemplate: function (tplName) {
-            var content = document.querySelector('#' + tplName).content;
+            var template = document.querySelector('#' + tplName);
 
-            return document.importNode(content, true);
+            if (!template) {
+                template = document.querySelector('#home');
+            }
+
+            return document.importNode(template.content, true);
         },
 
         afterRender: function () {

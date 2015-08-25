@@ -92,6 +92,10 @@
         },
 
         clear: function () {
+            if (this.currentSubView) {
+                this.currentSubView.close();
+                this.subView = null;
+            }
             this.currentView && this.currentView.close();
             !this.mainView && this.createMainView();
         },

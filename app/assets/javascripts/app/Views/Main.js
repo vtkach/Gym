@@ -7,12 +7,19 @@
         el: 'body',
 
         events: {
-            'click .glyphicon-folder-open': 'logout'
+            'click .loader-container': 'goHome',
+            'click .logout': 'logout'
         },
 
         initialize: function () {
             this.listenTo(Backbone.Events, 'is-login', this.toggleMenuItem);
             this.modalView = new app.views.ModalView();
+        },
+
+        goHome: function () {
+            app.instances.router.navigate('accessed/home', {
+                trigger: true
+            });
         },
 
         toggleMenuItem: function (mode) {

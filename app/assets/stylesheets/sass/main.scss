@@ -5,6 +5,61 @@
 @import 'helpers';
 @import 'media';
 
+.loader-container {
+  cursor: pointer;
+  width: 92px;
+  height: 38px;
+  float: left;
+}
+
+.olympicloader {
+  position: relative;
+  top: 7px;
+  .loader-circle {
+    width: 28px;
+    height: 28px;
+    border: 3px solid $cl-olympic-blue-lighter;
+    border-radius: 50%;
+    @include animation(spin infinite linear, 600ms);
+    float: left;
+    &.first {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 3px solid #0085C7;
+      border-top-color: $cl-true-white;
+    }
+    &.second {
+      border: 3px solid #000;
+      position: absolute;
+      top: 0;
+      left: 32px;
+      border-right-color: $cl-true-white;
+    }
+    &.third {
+      border: 3px solid #DF0024;
+      position: absolute;
+      top: 0;
+      left: 64px;
+      border-bottom-color: $cl-true-white;
+    }
+    &.fourth {
+      border: 3px solid #F4C300;
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      border-left-color: $cl-true-white;
+    }
+    &.fifth {
+      border: 3px solid #009F3D;
+      position: absolute;
+      top: 10px;
+      left: 48px;
+      border-right-color: $cl-true-white;
+    }
+  }
+}
+
 @include keyframes(slidedown) {
   from {
     margin-top: -15%;
@@ -39,8 +94,61 @@
   min-width: 95vh;
 }
 
-body.container {
+.container {
   min-width: 980px;
+  .form-group {
+    text-align: left;
+  }
+  .nav.navbar-right {
+    a {
+      margin-right: 10px;
+      border-radius: 3px;
+      margin-top: .9em;
+      padding: 2px 10px;
+      &.logout {
+        background: #fd4874;
+        color: #fff;
+      }
+    }
+  }
+  .navbar.navbar-default {
+    .container-fluid {
+      background: #333b4e;
+
+      li.dropdown.open {
+        .glyphicon-user {
+          border: 1px solid #333b4e;
+          color: #333b4e;
+        }
+      }
+      .glyphicon {
+        color: #fff;
+        &.glyphicon-user {
+          border: 1px solid #fff;
+          border-radius: 3px;
+          padding: 3px;
+        }
+      }
+
+      ul.navbar-collapse {
+        margin-bottom: 1.2em;
+        margin-top: 1em;
+        float: left;
+        li {
+          min-width: 115px;
+          display: inline-block;
+          text-align: center;
+
+          a {
+            font-weight: bold;
+            white-space: nowrap;
+            display: inline;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
   .logo {
     background: url(../../favicon.ico) 0 1px no-repeat;
     background-size: 100%;
@@ -68,17 +176,49 @@ body.container {
         }
       }
     }
-    .fade-in > a {
-      box-shadow: 2px 2px 0 #888;
-      border: 1px solid #000;
-      border-radius: 5%;
-      min-height: 170px;
-      min-width: 170px;
-      cursor: pointer;
-      height: 160px;
-      margin: 10% 4% 4%;
-      &:hover {
-        box-shadow: 1px 1px 20px $green;
+    .fade-in {
+      text-align: center;
+      figure {
+        display: inline-block;
+        min-height: 170px;
+        min-width: 230px;
+        cursor: pointer;
+        height: 160px;
+        margin: 5%;
+        figcaption {
+          text-align: center;
+          h4 {
+            font-weight: bold;
+            color: #fd4874;
+          }
+        }
+        a {
+          display: block;
+          height: 155px;
+          width: 100%;
+          background-size: contain !important;
+          &[href$='getting-started'] {
+            background: url(../../images/5.jpg) no-repeat;
+          }
+          &[href$='my-phis-state'] {
+            background: url(../../images/4.jpg) no-repeat;
+          }
+          &[href$='recommendations'] {
+            background: url(../../images/2.jpg) no-repeat;
+          }
+          &[href$='you-should-know'] {
+            background: url(../../images/1.jpg) no-repeat;
+          }
+          &[href$='complex-self-improving'] {
+            background: url(../../images/3.jpg) no-repeat;
+          }
+          &[href$='notebook-for-exercices'] {
+
+          }
+//          &:hover {
+//            box-shadow: 1px 1px 50px $green;
+//          }
+        }
       }
     }
     .profile-fields {
@@ -209,14 +349,19 @@ body.container {
       }
     }
   }
-
+  footer {
+    background: #333b4e;
+    padding: 10px;
+    color: #fff;
+    clear: both;
+  }
 }
 
 .flash-message {
   white-space: nowrap;
   position: fixed;
-  width: 70vw;
   opacity: 0;
+  width: 70vw;
   left: 15vw;
   top: -20vh;
 
@@ -225,16 +370,16 @@ body.container {
   }
 
   &.alert-danger strong:before {
-    content: 'Ошибка!';
+    content: 'Помилка!';
   }
   &.alert-warning strong:before {
-    content: 'Прудпреждение!';
+    content: 'Попередження!';
   }
   &.alert-success strong:before {
-    content: 'Обновлено!';
+    content: 'Оновлено!';
   }
   &.alert-info strong:before {
-    content: 'К сведению!';
+    content: 'До уваги!';
   }
 }
 

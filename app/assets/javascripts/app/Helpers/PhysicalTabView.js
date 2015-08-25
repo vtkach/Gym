@@ -87,7 +87,7 @@
             this._profileBinder.unbind();
             this._modelBinder.unbind();
             this.datepicker.destroy();
-            this._modelBinder = this._profileBinder = null;
+            //this._modelBinder = this._profileBinder = null;
         },
 
         afterRender: function () {
@@ -136,8 +136,8 @@
                 selector: '[name=gender]',
                 converter: function (dir, val) {
                     var dict = {
-                        male: 'Мужчина',
-                        female: 'Женщина'
+                        male: 'Хлопець',
+                        female: 'Дівчина'
                     };
 
                     if (dir === Backbone.ModelBinder.Constants.ModelToView) {
@@ -147,10 +147,15 @@
                     return val;
                 }
             },
-
             firstName: '[name=firstName]',
             lastName: '[name=lastName]',
-            surname: '[name=surname]'
+            surname: '[name=surname]'/*,
+            date: {
+                selector: '[name=date]',
+                converter: function (dir, val) {
+                    debugger;
+                }
+            }*/
         }
     });
 
