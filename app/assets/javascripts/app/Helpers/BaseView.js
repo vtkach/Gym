@@ -42,10 +42,6 @@
         getTemplate: function (tplName) {
             var template = document.querySelector('#' + tplName);
 
-            if (!template) {
-                template = document.querySelector('#home');
-            }
-
             return document.importNode(template.content, true);
         },
 
