@@ -395,8 +395,8 @@
     text-align: center;
   }
 
-  p,
-  li {
+  p:not(.text-center),
+  li:not(.text-center) {
     text-align: justify;
   }
 
