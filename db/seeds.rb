@@ -18,8 +18,9 @@ User.all.each do |user|
 
 end
 
-if Product.count == 0
-  products_file = File.read('db/products.json')
+if Product.count == 0 || Product.count > 300
+  products_file = File.read('db/productsV2.json')
   products = ActiveSupport::JSON.decode products_file
+  Product.delete_all
   Product.create(products)
 end
