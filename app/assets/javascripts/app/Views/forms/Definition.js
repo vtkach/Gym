@@ -21,7 +21,7 @@
         template: _.template([
             '<tr data-id="<%= id %>">',
                 '<td><%= name %></td>',
-                '<td><input class="count" min="0" type="number" value="<%= count %>"/></td>',
+                '<td><input class="count" min="0" type="number" step="5" value="<%= count %>"/></td>',
                 '<td><span class="calculatedProteins"><%= calculatedProteins %></span> (<%= proteins%>)</td>',
                 '<td><span class="calculatedFats"><%= calculatedFats %></span> (<%= fats %>)</td>',
                 '<td><span class="calculatedCarbohydrates"><%= calculatedCarbohydrates %></span> (<%= carbohydrates %>)</td>',
