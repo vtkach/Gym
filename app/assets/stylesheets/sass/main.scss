@@ -108,6 +108,7 @@
     }
   }
   .navbar.navbar-default {
+    z-index: 9999;
     .container-fluid {
       background: #333b4e;
 
@@ -163,11 +164,50 @@
     width: 50px;
   }
   .you-should-know {
+    .recommendations {
+      padding-left: 15%;
+    }
+    .scroll-bar {
+      display: flex;
+      align-items: center;
+      min-height: 95vh;
+      max-width: 120px;
+      position: fixed;
+      top: 0;
+      ul {
+        padding-left: 0;
+        &>li {
+          margin-bottom: 3px;
+        }
+        .self-exercises-type {
+          display: none;
+        }
+        #self-exercises-type:hover {
+          .self-exercises-type {
+            font-size: 0.75em;
+            display: block;
+            & li:hover {
+              background: red;
+            }
+          }
+        }
+        li {
+          text-decoration: underline;
+          list-style: none;
+          cursor: pointer;
+          &:hover {
+            background: #333b4e;
+            color: #fff;
+          }
+        }
+      }
+    }
     p {
       text-indent: 1.5em;
     }
   }
   section.row {
+    margin-top: 10vh;
     button.btn {
       margin: 0.5em auto;
     }

@@ -12,8 +12,16 @@
         },
 
         initialize: function () {
-            this.listenTo(Backbone.Events, 'is-login', this.toggleMenuItem);
+            this.listenTo(Backbone.Events, 'is-login', this.toggleMenuItem)
+                .listenTo(Backbone, 'scroll-to-elem', this.scrollToElement);
+
             this.modalView = new app.views.ModalView();
+        },
+
+        scrollToElement: function ($elem) {
+            this.$el.animate({
+                scrollTop: $elem.offset().top
+            }, 1000);
         },
 
         goHome: function () {
