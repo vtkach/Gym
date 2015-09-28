@@ -129,6 +129,7 @@
 
       ul.navbar-collapse {
         margin-bottom: 1.2em;
+        margin-left: 15%;
         margin-top: 1em;
         float: left;
         padding: 0;
@@ -167,6 +168,11 @@
     .recommendations {
       padding-left: 15%;
     }
+    p {
+      text-indent: 1.5em;
+    }
+  }
+  section.row {
     .scroll-bar {
       display: flex;
       align-items: center;
@@ -180,6 +186,7 @@
           margin-bottom: 3px;
         }
         .self-exercises-type {
+          transition: opacity 3s;
           display: none;
         }
         #self-exercises-type:hover {
@@ -202,12 +209,6 @@
         }
       }
     }
-    p {
-      text-indent: 1.5em;
-    }
-  }
-  section.row {
-    margin-top: 10vh;
     button.btn {
       margin: 0.5em auto;
     }
@@ -454,11 +455,11 @@
   @include centered-table-content();
 }
 
-.complex-self-improving {
+section.complex-self-improving {
   @include bold-centered-headers();
+  padding-left: 15%;
 
-  p,
-  li {
+  p, li {
     text-align: justify;
   }
 }
