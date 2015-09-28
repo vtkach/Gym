@@ -186,7 +186,6 @@
           margin-bottom: 3px;
         }
         .self-exercises-type {
-          transition: opacity 3s;
           display: none;
         }
         #self-exercises-type:hover {
@@ -209,6 +208,12 @@
         }
       }
     }
+    p {
+      text-indent: 1.5em;
+    }
+  }
+  section.row {
+    margin-top: 10vh;
     button.btn {
       margin: 0.5em auto;
     }
