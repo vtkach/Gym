@@ -177,7 +177,7 @@
       display: flex;
       align-items: center;
       min-height: 95vh;
-      max-width: 120px;
+      max-width: 130px;
       position: fixed;
       top: 0;
       ul {
@@ -269,9 +269,6 @@
           &[href$='notebook-for-exercices'] {
 
           }
-//          &:hover {
-//            box-shadow: 1px 1px 50px $green;
-//          }
         }
       }
     }
