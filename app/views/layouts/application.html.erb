@@ -39,71 +39,75 @@
         <%= render 'templates/physicaltab/product_row' %>
 
     </head>
-
-    <body class="container">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <div class="loader-container">
-                        <div class="olympicloader">
-                            <i class="first"></i>
-                            <i class="second"></i>
-                            <i class="third"></i>
-                            <i class="fourth"></i>
-                            <i class="fifth"></i>
+    <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="loader-container">
+                            <div class="olympicloader">
+                                <i class="first"></i>
+                                <i class="second"></i>
+                                <i class="third"></i>
+                                <i class="fourth"></i>
+                                <i class="fifth"></i>
+                            </div>
                         </div>
                     </div>
+                    <ul class="collapse navbar-collapse">
+                        <li>
+                            <a href='#infoTab/my-phis-state' class="my-phis-state" title="Фізичний стан">Фізичний стан</a>
+                        </li>
+                        <li>
+                            <a href='#infoTab/recommendations' class="recommendations" title="Рекомендації">Рекомендації</a>
+                        </li>
+                        <li>
+                            <a href='#infoTab/you-should-know' class="you-should-know" title="Варто знати">Варто знати</a>
+                        </li>
+                        <li>
+                            <a href='#infoTab/complex-self-improving' class="complex-self-improving" title="Комплекс вправ">Комплекс вправ</a>
+                        </li>
+                        <li>
+                            <a href='#infoTab/notebook-for-exercices' class="notebook-for-exercices" title="Щоденник">Щоденник</a>
+                        </li>
+                        <!--                    <li>
+                                                <select class="lang">
+                                                    <option selected value="ua">UA</option>
+                                                    <option value="ru">RU</option>
+                                                </select>
+                                            </li>-->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                            <ul id='menu' class="dropdown-menu" role="menu">
+                                <li><a href="#accessed/signin">Логін</a></li>
+                                <li><a href="#register">Реєстрація</a></li>
+                                <li><a href="#infoTab/profile">Профіль</a></li>
+                            </ul>
+                        </li>
+                        <li class="exit-button">
+                            <a href="#accessed/home" role="button" title='Выйти' class='logout' aria-expanded="false">Вихід</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="collapse navbar-collapse">
-                    <li>
-                        <a href='#infoTab/my-phis-state' class="my-phis-state" title="Фізичний стан">Фізичний стан</a>
-                    </li>
-                    <li>
-                        <a href='#infoTab/recommendations' class="recommendations" title="Рекомендації">Рекомендації</a>
-                    </li>
-                    <li>
-                        <a href='#infoTab/you-should-know' class="you-should-know" title="Варто знати">Варто знати</a>
-                    </li>
-                    <li>
-                        <a href='#infoTab/complex-self-improving' class="complex-self-improving" title="Комплекс вправ">Комплекс вправ</a>
-                    </li>
-                    <li>
-                        <a href='#infoTab/notebook-for-exercices' class="notebook-for-exercices" title="Щоденник">Щоденник</a>
-                    </li>
-<!--                    <li>
-                        <select class="lang">
-                            <option selected value="ua">UA</option>
-                            <option value="ru">RU</option>
-                        </select>
-                    </li>-->
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </a>
-                        <ul id='menu' class="dropdown-menu" role="menu">
-                            <li><a href="#accessed/signin">Логін</a></li>
-                            <li><a href="#register">Реєстрація</a></li>
-                            <li><a href="#infoTab/profile">Профіль</a></li>
-                        </ul>
-                    </li>
-                    <li class="exit-button">
-                        <a href="#accessed/home" role="button" title='Выйти' class='logout' aria-expanded="false">Вихід</a>
-                    </li>
-                </ul>
+            </nav>
+
+            <div class="container">
+                <section class="row col-xs-12 center-block">
+                </section>
+                <div class="spinner hidden"></div>
+                <div class="flash-message alert alert-danger alert-dismissible" role="alert">
+                    <strong></strong>
+                    <span class="text-message"></span>
                 </div>
             </div>
-        </nav>
-        <section class="row col-xs-12 center-block">
-        </section>
-        <div class="spinner hidden"></div>
-        <div class="flash-message alert alert-danger alert-dismissible" role="alert">
-            <strong></strong>
-            <span class="text-message"></span>
+
+            <footer>
+                <div>&copy; Health-Diary application</div>
+            </footer>
         </div>
-        <footer>
-            <div>&copy; Health-Diary application</div>
-        </footer>
     </body>
 </html>
