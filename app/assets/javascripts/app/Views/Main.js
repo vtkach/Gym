@@ -33,6 +33,7 @@
         toggleMenuItem: function (mode) {
             this.$menuListItem.not(this.$profileItem).toggle(!mode);
             this.$profileItem.toggle(mode);
+            this.$exitButton.toggle(mode);
         },
 
         onSuccessCallback: function () {
@@ -50,6 +51,7 @@
             this.$mainContainer = this.$('section.row');
             this.$menuListItem = this.$('#menu li');
             this.$profileItem = this.$menuListItem.last();
+            this.$exitButton = this.$('.exit-button');
             this.checkUser();
         },
 

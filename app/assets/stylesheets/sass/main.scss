@@ -106,9 +106,14 @@
         color: #fff;
       }
     }
+
+    .dropdown-menu {
+      a {
+        width: 100%;
+      }
+    }
   }
   .navbar.navbar-default {
-    z-index: 9999;
     .container-fluid {
       background: #333b4e;
 
@@ -387,10 +392,18 @@
           a {
             border: none;
             border-bottom: 1px solid lightgrey;
+            color: $oxford-blue;
             &:hover {
-              background: #337ab7;
+              background: $oxford-blue;
               cursor: pointer;
               color: #fff;
+            }
+          }
+
+          &.active {
+            a {
+              color: $cl-true-white;
+              background: $oxford-blue;
             }
           }
         }
@@ -412,6 +425,7 @@
   width: 70vw;
   left: 15vw;
   top: -20vh;
+  z-index: 1;
 
   &.notify {
     @include animation(notifier, 6s);
