@@ -206,9 +206,11 @@ body {
       display: flex;
       align-items: center;
       min-height: 95vh;
-      max-width: 130px;
+      max-width: 135px;
       position: fixed;
       top: 0;
+      bottom: 0;
+
       ul {
         padding-left: 0;
         &>li {
