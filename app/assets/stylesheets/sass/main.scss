@@ -10,6 +10,19 @@ body {
   height: 100%;
 }
 
+.btn-primary {
+  background: linear-gradient(to bottom, #33394E 0,#333955 100%);
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(to bottom, #33394E 0, #333943 100%);
+  }
+
+  &:active {
+    background: linear-gradient(to bottom, #333949 0, #333939 100%);
+  }
+}
+
 .wrapper {
   min-height: 100%;
   margin: 0;
