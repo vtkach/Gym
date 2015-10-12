@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :main, only: [:index, :show]
   resources :products, only: [:index]
   resources :definitions, only: [:index, :create, :update]
+  resources :statistic, only: [:index]
   resource :profile, only: [:show, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.

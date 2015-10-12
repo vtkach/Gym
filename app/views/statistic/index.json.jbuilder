@@ -1,0 +1,12 @@
+json.array! @users_profiles,
+            :id,
+            :age,
+            :lastName,
+            :firstName,
+            :surname,
+            :gender,
+            :school,
+            :group,
+            :household,
+            :created_at,
+            :updated_at
