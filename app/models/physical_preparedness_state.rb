@@ -15,3 +15,28 @@ class PhysicalPreparednessState < ActiveRecord::Base
   validates :flamingoTest, numericality: settings_for_numericality(3, 19)
   validates :inclines, numericality: settings_for_numericality(0, 100)
 end
+
+# == Schema Information
+#
+# Table name: physical_preparedness_states
+#
+#  id           :integer          not null, primary key
+#  date         :datetime
+#  age          :integer
+#  pushUps      :integer
+#  raising      :integer
+#  jumpLength   :integer
+#  jumpHeight   :integer
+#  estafeta     :integer
+#  cooperTest   :integer
+#  inclineBody  :integer
+#  flamingoTest :integer
+#  inclines     :integer
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_physical_preparedness_states_on_user_id  (user_id)
+#
