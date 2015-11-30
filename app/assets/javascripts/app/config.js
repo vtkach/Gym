@@ -19,11 +19,13 @@
 //= require app/Models/forms/PhysicalState
 //= require app/Models/forms/PhysicalPreparedness
 //= require app/Models/forms/ShoulderIndex
-//= require app/Models/forms/ProductRow.js
-//= require app/Models/forms/ActivityRow.js
+//= require app/Models/forms/ProductRow
+//= require app/Models/forms/ActivityRow
+//= require app/Collections/Profile
 //= require app/Collections/Archive
 //= require app/Collections/Activity
 //= require app/Collections/Product
+//= require app/Views/ShowProfile
 //= require app/Views/forms/PhysStateForm
 //= require app/Views/forms/Modal
 //= require app/Views/Archive
@@ -35,6 +37,7 @@
 //= require app/Views/forms/PhysicalState
 //= require app/Views/forms/ShoulderIndex
 //= require app/Views/forms/ProductRow
+//= require app/Views/Profiles
 //= require app/Views/UserActions
 //= require app/Views/Registration
 //= require app/Views/InfoTab

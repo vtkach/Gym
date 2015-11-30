@@ -27,15 +27,26 @@
             'infoTab/my-phis-state/:tpl': 'renderTplIntoPhisState',
             'infoTab/:template': 'checkRightForInfoTab',
             'accessed/:action': 'renderTemplate',
+            'statistic': 'showUsers',
             'register': 'onRegister',
             '': 'renderByDefault'
         },
 
         initialize: function () {
+            this.listenTo(Backbone, 'receive-users', this.renderUsers.bind(this));
             app.instances.session = this.factoryMethod('Session', 'model');
             app.instances.profile = this.factoryMethod('Profile', 'model');
             app.instances.user = this.factoryMethod('User', 'model');
             this.loadUserData();
+        },
+
+        renderUsers: function () {
+            this.mainView.$mainContainer.html(this.currentView.render().el);
+        },
+
+        showUsers: function () {
+            this.clear();
+            this.currentView = this.factoryMethod('Profiles', 'view');
         },
 
         convertToClassName: function (template) {
