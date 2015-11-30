@@ -24,9 +24,7 @@
         },
 
         getTemplate: function (templateName) {
-            var template = document.querySelector('#' + templateName);
-
-            return document.importNode(template.content, true);
+            return app.views.BaseView.prototype.getTemplate.call(this, templateName);
         },
 
         render: function () {
@@ -34,6 +32,14 @@
             this._collectionBinder.bind(this.collection, this.$('tbody'));
 
             return this;
+        },
+
+        close: function () {
+            app.views.BaseView.prototype.close.call(this);
+        },
+
+        onClose: function () {
+            this._collectionBinder.unbind();
         }
 
     });
