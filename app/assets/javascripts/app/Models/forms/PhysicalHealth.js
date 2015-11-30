@@ -3,17 +3,17 @@
     app.models.PhysicalHealthModel = app.models.PhysicalTabModel.extend({
 
         urlPart: '/physical_health_states/',
-        // TODO: remove values from defaults properties
+
         defaults: {
             age: '',
             date: '',
-            height: '180',
-            weight: '70',
-            pressure: '120',
-            volume: '5000',
-            wrist: '50',
-            pulse: '60',
-            pulseRecovering: '80',
+            height: '',
+            weight: '',
+            pressure: '',
+            volume: '',
+            wrist: '',
+            pulse: '',
+            pulseRecovering: '',
             result: ''
         },
 
