@@ -4,7 +4,7 @@
 
         url: 'users/sign_in',
 
-        default: {
+        defaults: {
             password: '',
             email: ''
         },
