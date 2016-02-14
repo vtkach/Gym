@@ -1,7 +1,7 @@
 class MotorActivitiesController < BaseArchivesController
 
   def index
-    @motorActivities = get_last_items(MotorActivity)
+    @motor_activities = get_last_items(MotorActivity)
   end
 
   def create

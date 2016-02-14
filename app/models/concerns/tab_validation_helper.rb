@@ -2,8 +2,8 @@ module TabValidationHelper
 
   def settings_for_numericality min, max
     {
-        greater_than_or_equal_to: min,
-        less_than_or_equal_to: max
+      greater_than_or_equal_to: min,
+      less_than_or_equal_to: max
     }
   end
 

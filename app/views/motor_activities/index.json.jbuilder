@@ -1,4 +1,4 @@
-json.array! @motorActivities,
+json.array! @motor_activities,
             :id,
             :date,
             :age,

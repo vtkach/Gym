@@ -1,14 +1,11 @@
 class ProfilesController < ApplicationController
 
-  # skip_before_filter :verify_authenticity_token, only: [:update]
-  before_filter :check_current_user
-
   def show
     @profile = current_user.profile
   end
 
   def update
-    @profile = Profile.find_by(user_id: get_user_id)
+    @profile = current_user.profile
 
     response_params =
       if @profile.update(profile_params)
