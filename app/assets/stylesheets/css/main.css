@@ -47,12 +47,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -64,12 +64,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -81,12 +81,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -98,16 +98,32 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
     top: -20vh;
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .large-font {
@@ -122,7 +138,7 @@
   list-style-type: none;
 }
 .li-hyphen li:before {
-  content: '— ';
+  content: 'тАФ ';
 }
 
 .li-decimal {
@@ -159,11 +175,90 @@
 }
 
 @media screen and (max-width: 1100px) {
-  body.container section.row .fade-in > a[class] {
+  .container section.row .fade-in > a[class] {
     min-height: 110px;
     min-width: 110px;
   }
 }
+html,
+body {
+  height: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #33394E 0, #333955 100%);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(to bottom, #33394E 0, #333943 100%);
+}
+.btn-primary:active {
+  background: linear-gradient(to bottom, #333949 0, #333939 100%);
+}
+
+.wrapper {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.wrapper .container {
+  padding-bottom: 50px;
+}
+
+.loader-container {
+  cursor: pointer;
+  width: 92px;
+  height: 38px;
+  float: left;
+}
+
+.olympicloader {
+  position: relative;
+  top: 7px;
+}
+.olympicloader i {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #589dec;
+  border-radius: 50%;
+  -webkit-animation: spin infinite linear 600ms;
+  -moz-animation: spin infinite linear 600ms;
+  -o-animation: spin infinite linear 600ms;
+  animation: spin infinite linear 600ms;
+  float: left;
+}
+.olympicloader i.first {
+  top: 0;
+  left: 0;
+  border: 3px solid #0085C7;
+  border-top-color: #fff;
+}
+.olympicloader i.second {
+  border: 3px solid #000;
+  top: 0;
+  left: 32px;
+  border-right-color: #fff;
+}
+.olympicloader i.third {
+  border: 3px solid #DF0024;
+  top: 0;
+  left: 64px;
+  border-bottom-color: #fff;
+}
+.olympicloader i.fourth {
+  border: 3px solid #F4C300;
+  top: 10px;
+  left: 16px;
+  border-left-color: #fff;
+}
+.olympicloader i.fifth {
+  border: 3px solid #009F3D;
+  top: 10px;
+  left: 48px;
+  border-right-color: #fff;
+}
+
 @-webkit-keyframes slidedown {
   from {
     margin-top: -15%;
@@ -250,54 +345,185 @@
   min-width: 95vh;
 }
 
-body.container {
-  min-width: 980px;
+.nav.navbar-right a {
+  margin-right: 10px;
+  border-radius: 3px;
+  margin-top: .9em;
+  padding: 2px 10px;
 }
-body.container .logo {
+.nav.navbar-right a.logout, .nav.navbar-right a.logout:hover {
+  background: #fd4874;
+  color: #fff;
+}
+.nav.navbar-right .dropdown-menu a {
+  width: 100%;
+}
+
+.navbar.navbar-default {
+  border: none;
+}
+.navbar.navbar-default .container-fluid {
+  background: #333b4e;
+}
+.navbar.navbar-default .container-fluid li.dropdown.open .glyphicon-user {
+  border: 1px solid #333b4e;
+  color: #333b4e;
+}
+.navbar.navbar-default .container-fluid .glyphicon {
+  color: #fff;
+}
+.navbar.navbar-default .container-fluid .glyphicon.glyphicon-user {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 3px;
+}
+.navbar.navbar-default .container-fluid ul.navbar-collapse {
+  margin-bottom: 1.2em;
+  margin-left: 15%;
+  margin-top: 1em;
+  float: left;
+  padding: 0;
+}
+.navbar.navbar-default .container-fluid ul.navbar-collapse li {
+  min-width: 115px;
+  display: inline-block;
+  text-align: center;
+}
+.navbar.navbar-default .container-fluid ul.navbar-collapse li a {
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline;
+  color: #fff;
+}
+.navbar.navbar-default .container-fluid ul.navbar-collapse li .lang {
+  background-color: #333b4e;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.navbar.navbar-default .container-fluid ul.navbar-collapse li .lang option {
+  font-weight: bold;
+}
+
+.logo {
   background: url(../../favicon.ico) 0 1px no-repeat;
   background-size: 100%;
   width: 50px;
 }
-body.container .you-should-know p {
+
+.container {
+  min-width: 980px;
+  padding-bottom: 50px;
+}
+.container .form-group {
+  text-align: left;
+}
+.container .you-should-know .recommendations {
+  padding-left: 15%;
+}
+.container .you-should-know p {
   text-indent: 1.5em;
 }
-body.container section.row button.btn {
+.container section.row .scroll-bar {
+  display: flex;
+  align-items: center;
+  min-height: 95vh;
+  max-width: 135px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+.container section.row .scroll-bar ul {
+  padding-left: 0;
+}
+.container section.row .scroll-bar ul > li {
+  margin-bottom: 3px;
+}
+.container section.row .scroll-bar ul .self-exercises-type {
+  display: none;
+}
+.container section.row .scroll-bar ul #self-exercises-type:hover .self-exercises-type {
+  font-size: 0.75em;
+  display: block;
+}
+.container section.row .scroll-bar ul #self-exercises-type:hover .self-exercises-type li:hover {
+  background: red;
+}
+.container section.row .scroll-bar ul li {
+  text-decoration: underline;
+  list-style: none;
+  cursor: pointer;
+}
+.container section.row .scroll-bar ul li:hover {
+  background: #333b4e;
+  color: #fff;
+}
+.container section.row p {
+  text-indent: 1.5em;
+}
+.container section.row button.btn {
   margin: 0.5em auto;
 }
-body.container section.row fieldset .form-control {
+.container section.row fieldset .form-control {
   margin-bottom: 1em;
 }
-body.container section.row .profile .medium-font input {
+.container section.row .profile .medium-font input {
   top: 0.2em;
 }
-body.container section.row .fade-in > a {
-  box-shadow: 2px 2px 0 #888;
-  border: 1px solid #000;
-  border-radius: 5%;
+.container section.row .fade-in {
+  text-align: center;
+}
+.container section.row .fade-in figure {
+  display: inline-block;
   min-height: 170px;
-  min-width: 170px;
+  min-width: 230px;
   cursor: pointer;
   height: 160px;
-  margin: 10% 4% 4%;
+  margin: 5%;
 }
-body.container section.row .fade-in > a:hover {
-  box-shadow: 1px 1px 20px #009933;
+.container section.row .fade-in figure figcaption {
+  text-align: center;
 }
-body.container section.row .profile-fields > input {
+.container section.row .fade-in figure figcaption h4 {
+  font-weight: bold;
+  color: #fd4874;
+}
+.container section.row .fade-in figure a {
+  display: block;
+  height: 155px;
+  width: 100%;
+  background-size: 230px 155px !important;
+}
+.container section.row .fade-in figure a[href$='getting-started'] {
+  background: url(../../images/5.jpg) no-repeat;
+}
+.container section.row .fade-in figure a[href$='my-phis-state'] {
+  background: url(../../images/4.jpg) no-repeat;
+}
+.container section.row .fade-in figure a[href$='recommendations'] {
+  background: url(../../images/recommends.jpeg) no-repeat;
+}
+.container section.row .fade-in figure a[href$='you-should-know'] {
+  background: url(../../images/bird.png) no-repeat;
+}
+.container section.row .fade-in figure a[href$='complex-self-improving'] {
+  background: url(../../images/3.jpg) no-repeat;
+}
+.container section.row .profile-fields > input {
   margin-top: 1em;
 }
-body.container section.row .physical-preparedness table tr td, body.container section.row .physical-preparedness table tr th {
+.container section.row .physical-preparedness table tr td, .container section.row .physical-preparedness table tr th {
   vertical-align: middle !important;
   text-align: center !important;
 }
-body.container section.row .physical-preparedness table {
+.container section.row .physical-preparedness table {
   border-right: none;
 }
-body.container section.row .physical-preparedness table td[name] {
+.container section.row .physical-preparedness table td[name] {
   font-weight: bold;
   color: #fff;
 }
-body.container section.row .physical-preparedness .color-grades .col-xs-2 {
+.container section.row .physical-preparedness .color-grades .col-xs-2 {
   vertical-align: middle;
   display: table-cell;
   text-align: center;
@@ -307,93 +533,117 @@ body.container section.row .physical-preparedness .color-grades .col-xs-2 {
   float: none;
   color: #fff;
 }
-body.container section.row .physical-preparedness fieldset.toggle-show {
+.container section.row .physical-preparedness fieldset.toggle-show {
   cursor: pointer;
 }
-body.container section.row .body-index ul.nav-stacked {
+.container section.row .body-index ul.nav-stacked {
   min-width: 200px;
 }
-body.container section.row .body-index table tr td, body.container section.row .body-index table tr th {
+.container section.row .body-index table tr td, .container section.row .body-index table tr th {
   vertical-align: middle !important;
   text-align: center !important;
 }
-body.container section.row .motor-activity table tr td, body.container section.row .motor-activity table tr th {
+.container section.row .motor-activity table tr td, .container section.row .motor-activity table tr th {
   vertical-align: middle !important;
   text-align: center !important;
 }
-body.container section.row .motor-activity table tr td > .form-control {
+.container section.row .motor-activity table tr td > .form-control {
   margin-bottom: 0;
 }
-body.container section.row .motor-activity table tr td > input[type=number] {
+.container section.row .motor-activity table tr td > input[type=number] {
   border: 1px solid #cccccc;
   padding-left: 5px;
   border-radius: 3px;
 }
-body.container section.row .motor-activity table tr .glyphicon {
+.container section.row .motor-activity table tr .glyphicon {
   cursor: pointer;
   font-size: 1.5em;
 }
-body.container section.row .motor-activity table tr .glyphicon.glyphicon-remove {
+.container section.row .motor-activity table tr .glyphicon.glyphicon-remove {
   border-color: #d43f3a;
   color: #d9534f;
 }
-body.container section.row .motor-activity table tr .glyphicon.glyphicon-remove:hover {
+.container section.row .motor-activity table tr .glyphicon.glyphicon-remove:hover {
   border-color: #ac2925;
   color: #ac2925;
 }
-body.container section.row .motor-activity table tr .glyphicon.glyphicon-plus {
+.container section.row .motor-activity table tr .glyphicon.glyphicon-plus {
   border-color: #4cae4c;
   color: #5cb85c;
 }
-body.container section.row .motor-activity table tr .glyphicon.glyphicon-plus:hover {
+.container section.row .motor-activity table tr .glyphicon.glyphicon-plus:hover {
   border-color: #398439;
   color: #449d44;
 }
-body.container section.row .physical-state table tr td, body.container section.row .physical-state table tr th {
+.container section.row .physical-state table tr td, .container section.row .physical-state table tr th {
   vertical-align: middle !important;
   text-align: center !important;
 }
-body.container section.row .physical-health table td:first-child {
+.container section.row .physical-health table td:first-child {
   width: 130px;
 }
-body.container section.row .definition input.search {
+.container section.row .definition input.search {
   background: none !important;
 }
-body.container section.row .definition table tr td, body.container section.row .definition table tr th {
+.container section.row .definition input[type=number] {
+  border: 1px solid #cccccc;
+  padding-left: 5px;
+  border-radius: 3px;
+}
+.container section.row .definition table tr td, .container section.row .definition table tr th {
   vertical-align: middle !important;
   text-align: center !important;
 }
-body.container section.row .definition .count {
+.container section.row .definition .count {
   max-width: 50px;
 }
-body.container section.row .phys-state-form .form-control {
+.container section.row .phys-state-form .form-control {
   margin-bottom: 1em;
 }
-body.container section.row aside .nav-stacked {
+.container section.row aside .nav-stacked {
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding: 1em;
 }
-body.container section.row aside .nav-stacked li:last-child a {
+.container section.row aside .nav-stacked li:last-child a {
   border-bottom: none;
 }
-body.container section.row aside .nav-stacked li a {
+.container section.row aside .nav-stacked li a {
   border: none;
   border-bottom: 1px solid lightgrey;
+  color: #33394E;
 }
-body.container section.row aside .nav-stacked li a:hover {
-  background: #337ab7;
+.container section.row aside .nav-stacked li a:hover {
+  background: #33394E;
   cursor: pointer;
   color: #fff;
+}
+.container section.row aside .nav-stacked li.active a {
+  color: #fff;
+  background: #33394E;
+}
+
+footer {
+  width: 100%;
+  height: 3em;
+  bottom: 0;
+  position: absolute;
+  color: #fff;
+  background: #33394E;
+}
+footer div {
+  padding-top: 1em;
+  text-align: center;
 }
 
 .flash-message {
   white-space: nowrap;
   position: fixed;
-  width: 70vw;
   opacity: 0;
+  width: 70vw;
   left: 15vw;
   top: -20vh;
+  z-index: 1;
 }
 .flash-message.notify {
   -webkit-animation: notifier 6s;
@@ -402,16 +652,16 @@ body.container section.row aside .nav-stacked li a:hover {
   animation: notifier 6s;
 }
 .flash-message.alert-danger strong:before {
-  content: 'Ошибка!';
+  content: '╨Я╨╛╨╝╨╕╨╗╨║╨░!';
 }
 .flash-message.alert-warning strong:before {
-  content: 'Прудпреждение!';
+  content: '╨Я╨╛╨┐╨╡╤А╨╡╨┤╨╢╨╡╨╜╨╜╤П!';
 }
 .flash-message.alert-success strong:before {
-  content: 'Обновлено!';
+  content: '╨Ю╨╜╨╛╨▓╨╗╨╡╨╜╨╛!';
 }
 .flash-message.alert-info strong:before {
-  content: 'К сведению!';
+  content: '╨Ф╨╛ ╤Г╨▓╨░╨│╨╕!';
 }
 
 .date-field {
@@ -432,8 +682,8 @@ body.container section.row aside .nav-stacked li a:hover {
 .recommendations .image-wrapper img {
   border: 1px solid black;
 }
-.recommendations p,
-.recommendations li {
+.recommendations p:not(.text-center),
+.recommendations li:not(.text-center) {
   text-align: justify;
 }
 .recommendations table tr td, .recommendations table tr th {
@@ -441,15 +691,17 @@ body.container section.row aside .nav-stacked li a:hover {
   text-align: center !important;
 }
 
-.complex-self-improving h1,
-.complex-self-improving h2,
-.complex-self-improving h3,
-.complex-self-improving h4,
-.complex-self-improving h5 {
+section.complex-self-improving {
+  padding-left: 15%;
+}
+section.complex-self-improving h1,
+section.complex-self-improving h2,
+section.complex-self-improving h3,
+section.complex-self-improving h4,
+section.complex-self-improving h5 {
   text-align: center;
   font-weight: bold;
 }
-.complex-self-improving p,
-.complex-self-improving li {
+section.complex-self-improving p, section.complex-self-improving li {
   text-align: justify;
 }

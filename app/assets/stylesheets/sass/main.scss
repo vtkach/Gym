@@ -291,7 +291,7 @@ body {
           display: block;
           height: 155px;
           width: 100%;
-          background-size: contain !important;
+          background-size: 230px 155px !important;
           &[href$='getting-started'] {
             background: url(../../images/5.jpg) no-repeat;
           }
@@ -299,10 +299,10 @@ body {
             background: url(../../images/4.jpg) no-repeat;
           }
           &[href$='recommendations'] {
-            background: url(../../images/2.jpg) no-repeat;
+            background: url(../../images/recommends.jpeg) no-repeat;
           }
           &[href$='you-should-know'] {
-            background: url(../../images/1.jpg) no-repeat;
+            background: url(../../images/bird.png) no-repeat;
           }
           &[href$='complex-self-improving'] {
             background: url(../../images/3.jpg) no-repeat;

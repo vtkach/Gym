@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-
+source 'http://rubygems.org'
+gem 'tzinfo-data'
 #ruby '2.2.2'
 gem 'devise'
 # gem 'ejs'
