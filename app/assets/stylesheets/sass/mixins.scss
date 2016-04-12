@@ -29,6 +29,15 @@
   -o-animation: $animation $time;
   animation: $animation $time;
 }
+
+@mixin notify-transition() {
+  -webkit-transition: opacity 1s ease-out, top 1s ease-out;;
+  -moz-transition: opacity 1s ease-out, top 1s ease-out;;
+  -ms-transition: opacity 1s ease-out, top 1s ease-out;; /* IE10 is actually unprefixed */
+  -o-transition: opacity 1s ease-out, top 1s ease-out;
+  transition: opacity 1s ease-out, top 1s ease-out;
+}
+
 @mixin center-content {
   tr {
     td, th {

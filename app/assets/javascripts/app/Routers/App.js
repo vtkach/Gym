@@ -20,6 +20,10 @@
             'notebook-for-exercices': {
                 model: 'Note',
                 view: 'Notes'
+            },
+            'you-should-know': {
+                model: 'Base',
+                view: 'YouShouldKnow'
             }
         },
 

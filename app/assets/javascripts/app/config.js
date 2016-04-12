@@ -44,5 +44,7 @@
 //= require app/Views/Profile
 //= require app/Views/Notes
 //= require app/Views/Main
+//= require app/Views/YouShouldKnowTab
+//= require app/Views/Notification
 //= require app/Routers/App
 //= require app/entry-point

@@ -1,10 +1,10 @@
 ;(function (app, Backbone, document) {
 
-    app.views.NotificationView = Backbone.extend({
+    app.views.NotificationView = Backbone.View.extend({
 
-        //initialize: function () {
-        //    this.listenTo(Backbone.Events, 'show-notify', this.onShowNotify);
-        //},
+        initialize: function () {
+            this.$el.append(this.render());
+        },
 
         render: function () {
             var tpl = document.querySelector('#notification');
@@ -16,17 +16,24 @@
 
         onShowNotify: function (messageType, message) {
             var classesToRemove = [
-                'alert-warning',
-                'alert-success',
-                'alert-danger',
-                'notify'
-            ].join(' ');
+                    'alert-warning',
+                    'alert-success',
+                    'alert-danger'
+                ].join(' '),
+                SHOW_TIME = 5000;
 
             this.$el.removeClass(classesToRemove)
                 .find('.text-message')
                 .text(message);
 
-            _.delay(this.$el.addClass.bind(this.$el,  'alert-' + messageType + ' notify'), 100);
+            this.$el.addClass('alert-' + messageType + ' notify');
+
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(this.hideNotify.bind(this), SHOW_TIME);
+        },
+
+        hideNotify: function () {
+            this.$el.removeClass('notify');
         }
 
     });

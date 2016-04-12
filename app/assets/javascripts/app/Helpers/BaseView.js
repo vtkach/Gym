@@ -1,4 +1,4 @@
-;(function (win) {
+;(function (win, document) {
 
     win.views.BaseView = Backbone.View.extend({
 
@@ -22,7 +22,7 @@
         },
 
         onClose: function () {
-
+            this._modelBinder.unbind();
         },
 
         binding: function () {
@@ -100,20 +100,8 @@
 
     }, {
         showFlashMessage: function (messageType, message) {
-            var $flashMessage = $('.flash-message'),
-                classesToRemove = [
-                    'alert-warning',
-                    'alert-success',
-                    'alert-danger',
-                    'notify'
-                ].join(' ');
-
-            $flashMessage.removeClass(classesToRemove)
-                .find('.text-message')
-                .text(message);
-
-            _.delay($flashMessage.addClass.bind($flashMessage, 'alert-' + messageType + ' notify'), 100);
+            app.instances.notifier.onShowNotify(messageType, message);
         }
     });
 
-} (app));
+} (app, document));

@@ -22,6 +22,10 @@ $(function ($) {
 
     });
 
+    app.instances.notifier = new app.views.NotificationView({
+        el: '.flash-message'
+    });
+
     app.instances.router = new app.routers.AppRouter();
     Backbone.history.start();
 });

@@ -473,9 +473,13 @@ footer {
   left: 15vw;
   top: -20vh;
   z-index: 1;
+  @include notify-transition();
 
   &.notify {
-    @include animation(notifier, 6s);
+    //@include animation(notifier, 6s);
+    top: 5vh;
+    opacity: .9;
+    @include notify-transition();
   }
 
   &.alert-danger strong:before {

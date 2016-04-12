@@ -17,8 +17,8 @@
             });
 
             Backbone.Validation.bind(this);
-            this.listenTo(this.model, 'validated:invalid', this.showValidationError.bind(this))
-                .listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this))
+
+            this.listenTo(app.instances.profile, 'change:age', this.updateAge.bind(this))
                 .listenTo(this.model, 'sync', this.showSuccessMessage.bind(this))
                 .listenTo(this.model, 'error', this.showServerError.bind(this));
         },
@@ -29,12 +29,19 @@
         },
 
         onCalculate: function () {
-            this.model.checkData();
+            var isValid = this.model.checkData();
+
+            if (!isValid) {
+                this.showValidationError(this.model, this.model.validationError);
+            }
+
+            return isValid;
         },
 
         onSave: function () {
-            this.model.checkData();
-            this.model.save();
+            if (this.onCalculate()) {
+                this.model.save();
+            }
         },
 
         showModal: function (options) {
@@ -87,7 +94,6 @@
             this._profileBinder.unbind();
             this._modelBinder.unbind();
             this.datepicker.destroy();
-            //this._modelBinder = this._profileBinder = null;
         },
 
         afterRender: function () {
