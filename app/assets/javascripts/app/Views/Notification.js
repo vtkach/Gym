@@ -1,26 +1,24 @@
-;(function (app, Backbone, document) {
+;(function (app, Backbone) {
 
     app.views.NotificationView = Backbone.View.extend({
 
         initialize: function () {
-            this.$el.append(this.render());
+            this.render();
         },
 
         render: function () {
-            var tpl = document.querySelector('#notification');
-
-            this.$el.append(document.importNode(tpl.content, true));
+            this.$el.append(app.views.BaseView.prototype.getTemplate.call(this, 'notification'));
 
             return this.el;
         },
 
         onShowNotify: function (messageType, message) {
             var classesToRemove = [
-                    'alert-warning',
-                    'alert-success',
-                    'alert-danger'
-                ].join(' '),
-                SHOW_TIME = 5000;
+                'alert-warning',
+                'alert-success',
+                'alert-danger'
+            ].join(' '),
+            SHOW_TIME = 5000;
 
             this.$el.removeClass(classesToRemove)
                 .find('.text-message')
@@ -29,13 +27,9 @@
             this.$el.addClass('alert-' + messageType + ' notify');
 
             clearTimeout(this.timeout);
-            this.timeout = setTimeout(this.hideNotify.bind(this), SHOW_TIME);
-        },
-
-        hideNotify: function () {
-            this.$el.removeClass('notify');
+            this.timeout = setTimeout(this.$el.removeClass.bind(this.$el, 'notify'), SHOW_TIME);
         }
 
     });
 
-} (app, Backbone, document));
+} (app, Backbone));

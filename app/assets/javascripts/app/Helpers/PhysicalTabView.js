@@ -8,6 +8,10 @@
 
         _profileBinder: null,
 
+        getModalDialog: _.noop,
+
+        beforeBinding: _.noop,
+
         onInit: function () {
             this.initArchiveCollection();
             this.extendEvents({
@@ -53,8 +57,6 @@
                 .done(this.getModalDialog.bind(this));
         },
 
-        getModalDialog: function () {},
-
         extendBinding: function () {
             this._profileBinder = new Backbone.ModelBinder();
             this._profileBinder.bind(
@@ -68,10 +70,6 @@
                 this._archiveCollection,
                 this.model.urlPart.replace(/\//g, '')
             );
-        },
-
-        beforeBinding: function () {
-
         },
 
         binding: function () {
@@ -155,13 +153,7 @@
             },
             firstName: '[name=firstName]',
             lastName: '[name=lastName]',
-            surname: '[name=surname]'/*,
-            date: {
-                selector: '[name=date]',
-                converter: function (dir, val) {
-                    debugger;
-                }
-            }*/
+            surname: '[name=surname]'
         }
     });
 

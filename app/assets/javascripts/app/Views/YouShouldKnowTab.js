@@ -6,30 +6,28 @@
             'click .scroll-bar': 'scrollTo'
         },
 
-        videos: [
-            {
-                header: 'Street workout',
-                id: 'O5fe4s5qSns'
-            }, {
-                header: 'Aквааеробіка',
-                id: 'VAi6GipVd7s'
-            }, {
-                header: 'Атлетична гімнастика',
-                id: 'fNlA1Dl9Zy0'
-            }, {
-                header: 'Базова (класична) аеробіка',
-                id: 'KkUHKvL6hjk'
-            }, {
-                header: 'Плавання',
-                id: 'HFdTG-3NCFc'
-            }, {
-                header: 'Роуп скіппінг',
-                id: 'IHv2nzfV3tw'
-            }, {
-                header: 'Фітбол',
-                id: 'QvO8VUpNeFw'
-            }
-        ],
+        videos: [{
+            header: 'Street workout',
+            id: 'O5fe4s5qSns'
+        }, {
+            header: 'Aквааеробіка',
+            id: 'VAi6GipVd7s'
+        }, {
+            header: 'Атлетична гімнастика',
+            id: 'fNlA1Dl9Zy0'
+        }, {
+            header: 'Базова (класична) аеробіка',
+            id: 'KkUHKvL6hjk'
+        }, {
+            header: 'Плавання',
+            id: 'HFdTG-3NCFc'
+        }, {
+            header: 'Роуп скіппінг',
+            id: 'IHv2nzfV3tw'
+        }, {
+            header: 'Фітбол',
+            id: 'QvO8VUpNeFw'
+        }],
 
         afterRender: function() {
             this.$videos = this.$('.videos');

@@ -111,13 +111,12 @@
 
         calculatePercents: function () {
             var fields = [
-                    'sml',
-                    'bl',
-                    'sl',
-                    'ml',
-                    'hl'
-                ],
-                totalPercents;
+                'sml',
+                'bl',
+                'sl',
+                'ml',
+                'hl'
+            ], totalPercents;
 
             totalPercents = _.reduce(fields, this.get100percents, 0, this);
             _.each(fields, this.calculatePercentsCallback.bind(this, totalPercents));

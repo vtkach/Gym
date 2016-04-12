@@ -17,7 +17,7 @@ $(function ($) {
 
         error: function (xhr, type, message) {
             var errorMessage = (xhr.responseJSON && xhr.responseJSON.errors) || message;
-            app.views.BaseView.showFlashMessage('danger', errorMessage)
+            app.instances.notifier.onShowNotify('danger', errorMessage);
         }
 
     });

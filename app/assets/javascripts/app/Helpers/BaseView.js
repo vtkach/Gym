@@ -8,14 +8,18 @@
             'keypress [name=datepicker]': 'disableKeyboard'
         },
 
+        extendBinding: _.noop,
+
+        afterRender: _.noop,
+
+        onInit: _.noop,
+
         initialize: function (options) {
             this._modelBinder = new Backbone.ModelBinder();
             this.tplName = options.tplName;
             this.model = options.model;
             this.onInit();
         },
-
-        onInit: function () {},
 
         prevDefault: function (event) {
             event.preventDefault();
@@ -35,18 +39,10 @@
             this.extendBinding();
         },
 
-        extendBinding: function () {
-
-        },
-
         getTemplate: function (tplName) {
             var template = document.querySelector('#' + tplName);
 
             return document.importNode(template.content, true);
-        },
-
-        afterRender: function () {
-
         },
 
         render: function () {
@@ -67,15 +63,15 @@
             var errorFields = _.keys(errors),
                 message = errors[errorFields[0]];
 
-            this.constructor.showFlashMessage('danger', message);
+            app.instances.notifier.onShowNotify('danger', message);
         },
 
         showServerError: function (model, xhr) {
-            this.constructor.showFlashMessage('danger', xhr.responseJSON.errors);
+            app.instances.notifier.onShowNotify('danger', xhr.responseJSON.errors);
         },
 
         showSuccessMessage: function () {
-            this.constructor.showFlashMessage('success', 'Збережено!');
+            app.instances.notifier.onShowNotify('success', 'Збережено!');
         },
 
         extendEvents: function (events) {
@@ -84,7 +80,7 @@
             _.extend(this.events, events);
         },
 
-        dateConverter: function (dir, val, attr, model) {
+        dateConverter: function (dir, val) {
             var date = new Date(val);
 
             return [
@@ -98,10 +94,6 @@
             e.preventDefault();
         }
 
-    }, {
-        showFlashMessage: function (messageType, message) {
-            app.instances.notifier.onShowNotify(messageType, message);
-        }
     });
 
 } (app, document));

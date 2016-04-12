@@ -28,7 +28,7 @@
         onSuccessCallback: function (userData) {
             app.instances.user.setUserData(userData);
             app.instances.router.navigate('accessed/home', { trigger: true });
-            this.constructor.showFlashMessage('success', 'Ви увійшли!');
+            app.instances.notifier.onShowNotify('success', 'Ви увійшли!');
         },
 
         onSubmitUserAction: function () {
