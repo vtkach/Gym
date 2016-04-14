@@ -16,7 +16,9 @@
         wrapperJson: 'definition',
 
         resetToDefaults: function () {
-            this.set(this.defaults);
+            this.set(_.extend({}, this.defaults, {
+                age: this.get('age')
+            }));
         }
     });
 
