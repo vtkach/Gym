@@ -1,4 +1,4 @@
-;(function (win, document) {
+;(function (win, document, Backbone) {
 
     win.views.BaseView = Backbone.View.extend({
 
@@ -63,15 +63,19 @@
             var errorFields = _.keys(errors),
                 message = errors[errorFields[0]];
 
-            app.instances.notifier.onShowNotify('danger', message);
+            this.showFlashMessage('danger', message);
         },
 
         showServerError: function (model, xhr) {
-            app.instances.notifier.onShowNotify('danger', xhr.responseJSON.errors);
+            this.showFlashMessage('danger', xhr.responseJSON.errors);
         },
 
         showSuccessMessage: function () {
-            app.instances.notifier.onShowNotify('success', 'Збережено!');
+            this.showFlashMessage('success', 'Збережено!');
+        },
+
+        showFlashMessage: function (type, message) {
+            Backbone.Events.trigger('notification:show-notify', type, message);
         },
 
         extendEvents: function (events) {
@@ -96,4 +100,4 @@
 
     });
 
-} (app, document));
+} (app, document, Backbone));

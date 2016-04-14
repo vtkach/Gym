@@ -4,6 +4,8 @@
 
         initialize: function () {
             this.render();
+
+            this.listenTo(Backbone.Events, 'notification:show-notify', this.onShowNotify);
         },
 
         render: function () {
