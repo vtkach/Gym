@@ -25,6 +25,7 @@ body {
 
 .wrapper {
   min-height: 100%;
+  min-width: 780px;
   margin: 0;
   padding: 0;
   position: relative;
@@ -199,7 +200,6 @@ body {
 }
 
 .container {
-  min-width: 980px;
   padding-bottom: 50px;
   
   .form-group {
@@ -273,13 +273,15 @@ body {
     }
     .fade-in {
       text-align: center;
+
       figure {
         display: inline-block;
         min-height: 170px;
-        min-width: 230px;
+        min-width: 330px;
         cursor: pointer;
-        height: 160px;
+        height: 200px;
         margin: 5%;
+
         figcaption {
           text-align: center;
           h4 {
@@ -288,10 +290,11 @@ body {
           }
         }
         a {
+          margin-bottom: 5px;
           display: block;
-          height: 155px;
+          height: 200px;
           width: 100%;
-          background-size: 230px 155px !important;
+          background-size: 330px 200px !important;
           &[href$='getting-started'] {
             background: url(../../images/5.jpg) no-repeat;
           }
