@@ -3,12 +3,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -20,12 +20,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -37,12 +37,12 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
@@ -54,15 +54,31 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   85% {
-    opacity: 1;
-    top: 1vh;
+    opacity: .9;
+    top: 5vh;
   }
   to {
     opacity: 0;
     top: -20vh;
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

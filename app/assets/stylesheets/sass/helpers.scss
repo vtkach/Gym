@@ -14,6 +14,16 @@
   }
 }
 
+.table-fixed {
+  table-layout: fixed;
+  @include center-content();
+  &:after {
+    display: block;
+    content: '* - рекомендована інтенсивність вправ';
+    width: 200%;
+  }
+}
+
 .li-decimal {
   list-style-type: decimal;
 }

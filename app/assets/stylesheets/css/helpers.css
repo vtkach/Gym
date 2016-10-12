@@ -11,7 +11,20 @@
   list-style-type: none;
 }
 .li-hyphen li:before {
-  content: '— ';
+  content: 'тАФ ';
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+.table-fixed tr td, .table-fixed tr th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+.table-fixed:after {
+  display: block;
+  content: '* - ╤А╨╡╨║╨╛╨╝╨╡╨╜╨┤╨╛╨▓╨░╨╜╨░ ╤Ц╨╜╤В╨╡╨╜╤Б╨╕╨▓╨╜╤Ц╤Б╤В╤М ╨▓╨┐╤А╨░╨▓';
+  width: 200%;
 }
 
 .li-decimal {

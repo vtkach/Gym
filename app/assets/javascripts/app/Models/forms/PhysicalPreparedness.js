@@ -12,9 +12,12 @@
             cooperTest: '',
             inclineBody: '',
             flamingoTest: '',
-            inclines: ''
+            inclines: '',
+            pull: '',
+            shuttleRunning: '',
+            uniformRunning: ''
         },
-
+        // TODO CHANGE RUNNING TO ANOTHER VARIANTS
         additionalFields: {
             pushUps: {
                 range: [0, 500]
@@ -42,6 +45,15 @@
             },
             inclines: {
                 range: [0, 100]
+            },
+            pull: {
+                range: [0, 50]
+            },
+            uniformRunning: {
+                range: [0, 20]
+            },
+            shuttleRunning: {
+                range: [0, 15]
             }
         },
 
@@ -64,199 +76,208 @@
                 pushUps: {
                     15: [{
                         min: 0,
-                        max: 19
+                        max: 15
                     }, {
-                        min: 19,
+                        min: 15,
+                        max: 22
+                    }, {
+                        min: 22,
                         max: 26
                     }, {
-                        min: 25,
-                        max: 31
-                    }, {
-                        min: 31,
-                        max: 37
-                    }, {
-                        min: 36,
+                        min: 26,
                         max: 500
                     }],
                     16: [{
                         min: 0,
-                        max: 22
+                        max: 16
                     }, {
-                        min: 21,
-                        max: 28
-                    }, {
-                        min: 27,
-                        max: 34
-                    }, {
-                        min: 33,
-                        max: 40
-                    }, {
-                        min: 39,
-                        max: 500
-                    }],
-                    17: [{
-                        min: 0,
-                        max: 24
+                        min: 16,
+                        max: 23
                     }, {
                         min: 23,
                         max: 30
                     }, {
-                        min: 29,
-                        max: 36
-                    }, {
-                        min: 35,
-                        max: 42
-                    }, {
-                        min: 41,
+                        min: 30,
                         max: 500
                     }],
-                    18: [{
+                    17: [{
                         min: 0,
+                        max: 16
+                    }, {
+                        min: 15,
                         max: 26
                     }, {
-                        min: 25,
-                        max: 32
+                        min: 26,
+                        max: 36
                     }, {
-                        min: 31,
-                        max: 38
-                    }, {
-                        min: 37,
-                        max: 44
-                    }, {
-                        min: 43,
+                        min: 36,
                         max: 500
                     }]
-                },
+                }, // DONE
                 raising: {
                     15: [{
                         min: 0,
-                        max: 28
+                        max: 16
                     }, {
-                        min: 29,
-                        max: 35
-                    },  {
+                        min: 16,
+                        max: 36
+                    }, {
                         min: 36,
-                        max: 42
+                        max: 45
                     }, {
-                        min: 43,
-                        max: 48
-                    }, {
-                        min: 49,
-                        max: 500
+                        min: 45,
+                        max: 70
                     }],
                     16: [{
                         min: 0,
-                        max: 30
+                        max: 21
                     }, {
-                        min: 31,
-                        max: 36
-                    },  {
-                        min: 37,
-                        max: 43
+                        min: 21,
+                        max: 41
                     }, {
-                        min: 44,
-                        max: 49
+                        min: 41,
+                        max: 56
                     }, {
-                        min: 50,
-                        max: 500
+                        min: 56,
+                        max: 70
                     }],
                     17: [{
                         min: 0,
-                        max: 31
+                        max: 21
                     }, {
-                        min: 32,
-                        max: 37
-                    },  {
-                        min: 38,
-                        max: 44
+                        min: 21,
+                        max: 49
                     }, {
-                        min: 45,
-                        max: 50
+                        min: 49,
+                        max: 59
                     }, {
-                        min: 51,
-                        max: 500
-                    }],
-                    18: [{
-                        min: 0,
-                        max: 32
-                    }, {
-                        min: 33,
-                        max: 38
-                    },  {
-                        min: 39,
-                        max: 45
-                    }, {
-                        min: 46,
-                        max: 51
-                    }, {
-                        min: 52,
-                        max: 500
+                        min: 59,
+                        max: 100
                     }]
-                },
+                }, // DONE
                 jumpLength: {
                     15: [{
                         min: 0,
-                        max: 178
+                        max: 191
                     }, {
-                        min: 179,
-                        max: 194
+                        min: 191,
+                        max: 201
                     }, {
-                        min: 36,
-                        max: 42
+                        min: 201,
+                        max: 211
                     }, {
-                        min: 43,
-                        max: 48
-                    },{
-                        min: 49,
-                        max: 500
+                        min: 211,
+                        max: 250
                     }],
                     16: [{
                         min: 0,
-                        max: 187
+                        max: 201
                     }, {
-                        min: 188,
-                        max: 204
+                        min: 201,
+                        max: 211
                     }, {
-                        min: 205,
+                        min: 211,
                         max: 221
                     }, {
                         min: 221,
-                        max: 228
-                    },{
-                        min: 229,
-                        max: 500
+                        max: 250
                     }],
                     17: [{
                         min: 0,
-                        max: 196
+                        max: 206
                     }, {
-                        min: 197,
-                        max: 213
+                        min: 206,
+                        max: 216
                     }, {
-                        min: 214,
-                        max: 230
+                        min: 216,
+                        max: 2226
                     }, {
-                        min: 213,
-                        max: 249
-                    },{
-                        min: 250,
-                        max: 500
+                        min: 226,
+                        max: 250
+                    }]
+                }, // DONE
+                uniformRunning: {
+                    15: [{
+                        min: 1000,
+                        max: 450
+                    }, {
+                        min: 450,
+                        max: 420
+                    }, {
+                        min: 420,
+                        max: 380
+                    }, {
+                        min: 380,
+                        max: 200
                     }],
-                    18: [{
-                        min: 0,
-                        max: 209
+                    16: [{
+                        min: 1000,
+                        max: 450
                     }, {
-                        min: 210,
-                        max: 224
+                        min: 450,
+                        max: 420
                     }, {
-                        min: 225,
-                        max: 239
+                        min: 420,
+                        max: 380
                     }, {
-                        min: 240,
-                        max: 264
-                    },{
-                        min: 265,
-                        max: 500
+                        min: 380,
+                        max: 200
+                    }],
+                    17: [{
+                        min: 1000,
+                        max: 440
+                    }, {
+                        min: 440,
+                        max: 410
+                    }, {
+                        min: 410,
+                        max: 370
+                    }, {
+                        min: 370,
+                        max: 200
+                    }]
+                },
+                shuttleRunning: {
+                    15: [{
+                        min: 20,
+                        max: 9.8
+                    }, {
+                        min: 9.8,
+                        max: 9.6
+                    }, {
+                        min: 9.6,
+                        max: 9.4
+                    }, {
+                        min: 9.4,
+                        max: 8
+                    }],
+
+                    16: [{
+                        min: 20,
+                        max: 9.8
+                    }, {
+                        min: 9.8,
+                        max: 9.6
+                    }, {
+                        min: 9.6,
+                        max: 9.4
+                    }, {
+                        min: 9.4,
+                        max: 8
+                    }],
+
+                    17: [{
+                        min: 20,
+                        max: 9.6
+                    }, {
+                        min: 9.6,
+                        max: 9.4
+                    }, {
+                        min: 9.4,
+                        max: 9.2
+                    }, {
+                        min: 9.2,
+                        max: 8
                     }]
                 },
                 jumpHeight: {
@@ -272,7 +293,7 @@
                     }, {
                         min: 47,
                         max: 51
-                    },{
+                    }, {
                         min: 52,
                         max: 500
                     }],
@@ -288,7 +309,7 @@
                     }, {
                         min: 49,
                         max: 53
-                    },{
+                    }, {
                         min: 54,
                         max: 500
                     }],
@@ -304,7 +325,7 @@
                     }, {
                         min: 50,
                         max: 54
-                    },{
+                    }, {
                         min: 55,
                         max: 500
                     }],
@@ -320,13 +341,13 @@
                     }, {
                         min: 51,
                         max: 55
-                    },{
+                    }, {
                         min: 56,
                         max: 500
                     }]
                 },
                 estafeta: {
-                    15:[{
+                    15: [{
                         min: 12,
                         max: 500
                     }, {
@@ -338,11 +359,11 @@
                     }, {
                         min: 9,
                         max: 11
-                    },{
+                    }, {
                         min: 0,
                         max: 10
                     }],
-                    16:[{
+                    16: [{
                         min: 12,
                         max: 500
                     }, {
@@ -354,11 +375,11 @@
                     }, {
                         min: 9,
                         max: 11
-                    },{
+                    }, {
                         min: 0,
                         max: 10
                     }],
-                    17:[{
+                    17: [{
                         min: 13,
                         max: 500
                     }, {
@@ -370,11 +391,11 @@
                     }, {
                         min: 10,
                         max: 12
-                    },{
+                    }, {
                         min: 0,
                         max: 11
                     }],
-                    18:[{
+                    18: [{
                         min: 13,
                         max: 500
                     }, {
@@ -386,7 +407,7 @@
                     }, {
                         min: 10,
                         max: 12
-                    },{
+                    }, {
                         min: 0,
                         max: 11
                     }]
@@ -404,7 +425,7 @@
                     }, {
                         min: 2692,
                         max: 2826
-                    },{
+                    }, {
                         min: 2827,
                         max: 4000
                     }],
@@ -420,7 +441,7 @@
                     }, {
                         min: 2692,
                         max: 2826
-                    },{
+                    }, {
                         min: 2827,
                         max: 4000
                     }],
@@ -436,7 +457,7 @@
                     }, {
                         min: 2952,
                         max: 3115
-                    },{
+                    }, {
                         min: 3116,
                         max: 4500
                     }],
@@ -452,7 +473,7 @@
                     }, {
                         min: 2952,
                         max: 3115
-                    },{
+                    }, {
                         min: 3116,
                         max: 4500
                     }]
@@ -470,7 +491,7 @@
                     }, {
                         min: 10,
                         max: 12
-                    },{
+                    }, {
                         min: 11,
                         max: 100
                     }],
@@ -486,7 +507,7 @@
                     }, {
                         min: 10,
                         max: 12
-                    },{
+                    }, {
                         min: 11,
                         max: 100
                     }],
@@ -502,7 +523,7 @@
                     }, {
                         min: 9,
                         max: 10
-                    },{
+                    }, {
                         min: 10,
                         max: 100
                     }],
@@ -518,7 +539,7 @@
                     }, {
                         min: 9,
                         max: 10
-                    },{
+                    }, {
                         min: 10,
                         max: 100
                     }]
@@ -536,7 +557,7 @@
                     }, {
                         min: 2,
                         max: 7
-                    },{
+                    }, {
                         min: 0,
                         max: 3
                     }],
@@ -552,7 +573,7 @@
                     }, {
                         min: 1,
                         max: 6
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }],
@@ -568,7 +589,7 @@
                     }, {
                         min: 1,
                         max: 4
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }],
@@ -584,7 +605,7 @@
                     }, {
                         min: 1,
                         max: 4
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }]
@@ -592,269 +613,376 @@
                 inclines: {
                     15: [{
                         min: 0,
-                        max: 16
+                        max: 4
                     }, {
-                        min: 15,
-                        max: 18
+                        min: 4,
+                        max: 7
                     }, {
-                        min: 17,
-                        max: 20
+                        min: 7,
+                        max: 10
                     }, {
-                        min: 19,
-                        max: 22
-                    },{
-                        min: 22,
-                        max: 100
+                        min: 11,
+                        max: 50
                     }],
                     16: [{
                         min: 0,
-                        max: 16
+                        max: 4
                     }, {
-                        min: 15,
-                        max: 18
+                        min: 4,
+                        max: 7
                     }, {
-                        min: 17,
-                        max: 20
+                        min: 7,
+                        max: 11
                     }, {
-                        min: 19,
-                        max: 22
-                    },{
-                        min: 22,
-                        max: 100
+                        min: 11,
+                        max: 15
                     }],
                     17: [{
                         min: 0,
-                        max: 17
+                        max: 5
+                    }, {
+                        min: 5,
+                        max: 8
+                    }, {
+                        min: 8,
+                        max: 12
+                    }, {
+                        min: 12,
+                        max: 5
+                    }]
+                },
+                running: {
+                    15: [{
+                        min: 40,
+                        max: 16
                     }, {
                         min: 16,
-                        max: 19
+                        max: 15.2
                     }, {
-                        min: 18,
-                        max: 21
+                        min: 15.2,
+                        max: 14.4
                     }, {
-                        min: 20,
-                        max: 23
-                    },{
-                        min: 23,
-                        max: 100
+                        min: 14.4,
+                        max: 8
                     }],
-                    18: [{
-                        min: 0,
-                        max: 17
+                    16: [{
+                        min: 40,
+                        max: 16
                     }, {
                         min: 16,
-                        max: 19
+                        max: 15.2
                     }, {
-                        min: 18,
-                        max: 21
+                        min: 15.2,
+                        max: 14.4
                     }, {
-                        min: 20,
-                        max: 23
-                    },{
-                        min: 23,
+                        min: 14.4,
+                        max: 8
+                    }],
+                    17: [{
+                        min: 40,
+                        max: 15.9
+                    }, {
+                        min: 15.9,
+                        max: 14.9
+                    }, {
+                        min: 14.9,
+                        max: 14.2
+                    }, {
+                        min: 14.2,
+                        max: 8
+                    }]
+                }, // DONE
+                pull: {
+                    15: [{
+                        min: 0,
+                        max: 4
+                    }, {
+                        min: 4,
+                        max: 8
+                    }, {
+                        min: 8,
+                        max: 11
+                    }, {
+                        min: 11,
+                        max: 30
+                    }],
+                    16: [{
+                        min: 0,
+                        max: 5
+                    }, {
+                        min: 5,
+                        max: 9
+                    }, {
+                        min: 9,
+                        max: 12
+                    }, {
+                        min: 12,
+                        max: 30
+                    }],
+                    17: [{
+                        min: 0,
+                        max: 6
+                    }, {
+                        min: 6,
+                        max: 10
+                    }, {
+                        min: 10,
+                        max: 13
+                    }, {
+                        min: 13,
                         max: 100
                     }]
-                }
+                } // DONE
             },
             female: {
+                shuttleRunning: {
+                    15: [{
+                        min: 20,
+                        max: 11.1
+                    }, {
+                        min: 11.1,
+                        max: 10.7
+                    }, {
+                        min: 10.7,
+                        max: 10.3
+                    }, {
+                        min: 10.3,
+                        max: 8
+                    }],
+
+                    16: [{
+                        min: 20,
+                        max: 11.1
+                    }, {
+                        min: 11.1,
+                        max: 10.7
+                    }, {
+                        min: 10.7,
+                        max: 10.3
+                    }, {
+                        min: 10.3,
+                        max: 8
+                    }],
+
+                    17: [{
+                        min: 20,
+                        max: 11.1
+                    }, {
+                        min: 11.1,
+                        max: 10.7
+                    }, {
+                        min: 10.7,
+                        max: 10.3
+                    }, {
+                        min: 10.3,
+                        max: 8
+                    }]
+                },
+                uniformRunning: {
+                    15: [{
+                        min: 1000,
+                        max: 570
+                    }, {
+                        min: 570,
+                        max: 525
+                    }, {
+                        min: 525,
+                        max: 480
+                    }, {
+                        min: 480,
+                        max: 200
+                    }],
+                    16: [{
+                        min: 1000,
+                        max: 540
+                    }, {
+                        min: 540,
+                        max: 510
+                    }, {
+                        min: 510,
+                        max: 465
+                    }, {
+                        min: 465,
+                        max: 200
+                    }],
+                    17: [{
+                        min: 1000,
+                        max: 530
+                    }, {
+                        min: 530,
+                        max: 500
+                    }, {
+                        min: 500,
+                        max: 460
+                    }, {
+                        min: 460,
+                        max: 200
+                    }]
+                },
+                running: {
+                    15: [{
+                        min: 40,
+                        max: 18
+                    }, {
+                        min: 18,
+                        max: 17.4
+                    }, {
+                        min: 17.4,
+                        max: 16.7
+                    }, {
+                        min: 16.7,
+                        max: 8
+                    }],
+                    16: [{
+                        min: 40,
+                        max: 18
+                    }, {
+                        min: 18,
+                        max: 17.4
+                    }, {
+                        min: 17.4,
+                        max: 16.7
+                    }, {
+                        min: 16.7,
+                        max: 8
+                    }],
+                    17: [{
+                        min: 40,
+                        max: 18.3
+                    }, {
+                        min: 18.3,
+                        max: 17.7
+                    }, {
+                        min: 17.7,
+                        max: 16.8
+                    }, {
+                        min: 16.8,
+                        max: 8
+                    }]
+                }, // DONE
                 pushUps: {
                     15: [{
                         min: 0,
-                        max: 6
+                        max: 7
                     }, {
-                        min: 5,
-                        max: 9
-                    }, {
-                        min: 8,
+                        min: 7,
                         max: 13
                     }, {
-                        min: 12,
-                        max: 17
+                        min: 13,
+                        max: 16
                     }, {
-                        min: 17,
-                        max: 500
+                        min: 16,
+                        max: 50
                     }],
                     16: [{
                         min: 0,
-                        max: 6
-                    }, {
-                        min: 5,
-                        max: 9
+                        max: 8
                     }, {
                         min: 8,
                         max: 13
                     }, {
-                        min: 12,
-                        max: 17
+                        min: 13,
+                        max: 16
                     }, {
-                        min: 17,
-                        max: 500
+                        min: 16,
+                        max: 50
                     }],
                     17: [{
                         min: 0,
-                        max: 6
-                    }, {
-                        min: 5,
                         max: 10
                     }, {
-                        min: 9,
+                        min: 10,
                         max: 14
                     }, {
-                        min: 13,
-                        max: 18
+                        min: 14,
+                        max: 17
                     }, {
                         min: 17,
-                        max: 500
-                    }],
-                    18: [{
-                        min: 0,
-                        max: 6
-                    }, {
-                        min: 5,
-                        max: 10
-                    }, {
-                        min: 9,
-                        max: 14
-                    }, {
-                        min: 13,
-                        max: 18
-                    }, {
-                        min: 17,
-                        max: 500
+                        max: 50
                     }]
-                },
+                }, // DONE
                 raising: {
                     15: [{
                         min: 0,
-                        max: 25
+                        max: 16
                     }, {
-                        min: 24,
-                        max: 30
-                    },  {
-                        min: 29,
-                        max: 34
+                        min: 16,
+                        max: 36
                     }, {
-                        min: 33,
-                        max: 39
+                        min: 36,
+                        max: 46
                     }, {
-                        min: 38,
-                        max: 500
+                        min: 46,
+                        max: 70
                     }],
                     16: [{
                         min: 0,
-                        max: 26
+                        max: 19
                     }, {
-                        min: 25,
-                        max: 31
-                    },  {
-                        min: 30,
-                        max: 36
-                    }, {
-                        min: 35,
-                        max: 40
+                        min: 19,
+                        max: 39
                     }, {
                         min: 39,
-                        max: 500
+                        max: 49
+                    }, {
+                        min: 49,
+                        max: 70
                     }],
                     17: [{
                         min: 0,
-                        max: 27
+                        max: 21
                     }, {
-                        min: 26,
-                        max: 32
-                    },  {
-                        min: 31,
-                        max: 36
+                        min: 21,
+                        max: 46
                     }, {
-                        min: 35,
-                        max: 41
+                        min: 46,
+                        max: 56
                     }, {
-                        min: 40,
-                        max: 500
-                    }],
-                    18: [{
-                        min: 0,
-                        max: 28
-                    }, {
-                        min: 27,
-                        max: 33
-                    },  {
-                        min: 32,
-                        max: 37
-                    }, {
-                        min: 36,
-                        max: 42
-                    }, {
-                        min: 41,
-                        max: 500
+                        min: 56,
+                        max: 70
                     }]
-                },
+                }, // DONE
                 jumpLength: {
                     15: [{
                         min: 0,
-                        max: 138
+                        max: 151
                     }, {
-                        min: 137,
-                        max: 150
-                    }, {
-                        min: 149,
-                        max: 162
+                        min: 151,
+                        max: 161
                     }, {
                         min: 161,
-                        max: 174
-                    },{
-                        min: 173,
-                        max: 500
+                        max: 181
+                    }, {
+                        min: 181,
+                        max: 250
                     }],
                     16: [{
                         min: 0,
-                        max: 143
-                    }, {
-                        min: 144,
                         max: 156
                     }, {
-                        min: 155,
-                        max: 168
+                        min: 156,
+                        max: 171
                     }, {
-                        min: 167,
-                        max: 181
-                    },{
-                        min: 180,
-                        max: 500
+                        min: 171,
+                        max: 186
+                    }, {
+                        min: 186,
+                        max: 250
                     }],
                     17: [{
                         min: 0,
                         max: 151
                     }, {
-                        min: 150,
-                        max: 163
+                        min: 151,
+                        max: 171
                     }, {
-                        min: 162,
-                        max: 175
+                        min: 171,
+                        max: 181
                     }, {
-                        min: 174,
-                        max: 187
-                    },{
-                        min: 186,
-                        max: 500
-                    }],
-                    18: [{
-                        min: 0,
-                        max: 166
-                    }, {
-                        min: 165,
-                        max: 176
-                    }, {
-                        min: 175,
-                        max: 185
-                    }, {
-                        min: 184,
-                        max: 199
-                    },{
-                        min: 198,
-                        max: 500
+                        min: 181,
+                        max: 250
                     }]
-                },
+                }, // DONE
                 jumpHeight: {
                     15: [{
                         min: 0,
@@ -868,7 +996,7 @@
                     }, {
                         min: 39,
                         max: 44
-                    },{
+                    }, {
                         min: 43,
                         max: 500
                     }],
@@ -884,7 +1012,7 @@
                     }, {
                         min: 39,
                         max: 44
-                    },{
+                    }, {
                         min: 43,
                         max: 500
                     }],
@@ -900,7 +1028,7 @@
                     }, {
                         min: 39,
                         max: 47
-                    },{
+                    }, {
                         min: 46,
                         max: 500
                     }],
@@ -916,13 +1044,13 @@
                     }, {
                         min: 39,
                         max: 47
-                    },{
+                    }, {
                         min: 46,
                         max: 500
                     }]
                 },
                 estafeta: {
-                    15:[{
+                    15: [{
                         min: 14,
                         max: 500
                     }, {
@@ -934,11 +1062,11 @@
                     }, {
                         min: 11,
                         max: 13
-                    },{
+                    }, {
                         min: 0,
                         max: 12
                     }],
-                    16:[{
+                    16: [{
                         min: 14,
                         max: 500
                     }, {
@@ -950,11 +1078,11 @@
                     }, {
                         min: 11,
                         max: 13
-                    },{
+                    }, {
                         min: 0,
                         max: 12
                     }],
-                    17:[{
+                    17: [{
                         min: 15,
                         max: 500
                     }, {
@@ -966,11 +1094,11 @@
                     }, {
                         min: 12,
                         max: 14
-                    },{
+                    }, {
                         min: 0,
                         max: 13
                     }],
-                    18:[{
+                    18: [{
                         min: 15,
                         max: 500
                     }, {
@@ -982,7 +1110,7 @@
                     }, {
                         min: 12,
                         max: 14
-                    },{
+                    }, {
                         min: 0,
                         max: 13
                     }]
@@ -1000,7 +1128,7 @@
                     }, {
                         min: 2692,
                         max: 2826
-                    },{
+                    }, {
                         min: 2827,
                         max: 4000
                     }],
@@ -1016,7 +1144,7 @@
                     }, {
                         min: 2692,
                         max: 2826
-                    },{
+                    }, {
                         min: 2827,
                         max: 4000
                     }],
@@ -1032,7 +1160,7 @@
                     }, {
                         min: 2952,
                         max: 3115
-                    },{
+                    }, {
                         min: 3116,
                         max: 4500
                     }],
@@ -1048,7 +1176,7 @@
                     }, {
                         min: 2952,
                         max: 3115
-                    },{
+                    }, {
                         min: 3116,
                         max: 4500
                     }]
@@ -1066,7 +1194,7 @@
                     }, {
                         min: 20,
                         max: 21
-                    },{
+                    }, {
                         min: 22,
                         max: 30
                     }],
@@ -1082,7 +1210,7 @@
                     }, {
                         min: 20,
                         max: 21
-                    },{
+                    }, {
                         min: 22,
                         max: 30
                     }],
@@ -1098,7 +1226,7 @@
                     }, {
                         min: 21,
                         max: 22
-                    },{
+                    }, {
                         min: 23,
                         max: 30
                     }],
@@ -1114,7 +1242,7 @@
                     }, {
                         min: 21,
                         max: 22
-                    },{
+                    }, {
                         min: 23,
                         max: 30
                     }]
@@ -1132,7 +1260,7 @@
                     }, {
                         min: 2,
                         max: 7
-                    },{
+                    }, {
                         min: 0,
                         max: 3
                     }],
@@ -1148,7 +1276,7 @@
                     }, {
                         min: 1,
                         max: 6
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }],
@@ -1164,7 +1292,7 @@
                     }, {
                         min: 1,
                         max: 4
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }],
@@ -1180,7 +1308,7 @@
                     }, {
                         min: 1,
                         max: 4
-                    },{
+                    }, {
                         min: 0,
                         max: 2
                     }]
@@ -1188,72 +1316,87 @@
                 inclines: {
                     15: [{
                         min: 0,
-                        max: 13
+                        max: 12
                     }, {
                         min: 12,
-                        max: 15
-                    }, {
-                        min: 14,
-                        max: 17
+                        max: 16
                     }, {
                         min: 16,
                         max: 19
-                    },{
-                        min: 18,
-                        max: 100
+                    }, {
+                        min: 19,
+                        max: 50
                     }],
                     16: [{
                         min: 0,
-                        max: 13
+                        max: 12
                     }, {
                         min: 12,
-                        max: 15
-                    }, {
-                        min: 14,
-                        max: 17
+                        max: 16
                     }, {
                         min: 16,
                         max: 19
-                    },{
-                        min: 18,
-                        max: 100
+                    }, {
+                        min: 19,
+                        max: 50
                     }],
                     17: [{
                         min: 0,
-                        max: 14
+                        max: 8
                     }, {
-                        min: 13,
-                        max: 16
+                        min: 8,
+                        max: 10
                     }, {
-                        min: 15,
-                        max: 18
+                        min: 10,
+                        max: 17
                     }, {
                         min: 17,
-                        max: 20
-                    },{
-                        min: 19,
-                        max: 100
-                    }],
-                    18: [{
+                        max: 50
+                    }]
+                }, // DONE
+                pull: {
+                    15: [{
                         min: 0,
-                        max: 14
+                        max: 6
                     }, {
-                        min: 13,
+                        min: 6,
                         max: 16
                     }, {
-                        min: 15,
-                        max: 18
+                        min: 16,
+                        max: 20
+                    }, {
+                        min: 20,
+                        max: 30
+                    }],
+                    16: [{
+                        min: 0,
+                        max: 7
+                    }, {
+                        min: 7,
+                        max: 17
                     }, {
                         min: 17,
-                        max: 20
-                    },{
-                        min: 19,
+                        max: 21
+                    }, {
+                        min: 21,
+                        max: 50
+                    }],
+                    17: [{
+                        min: 0,
+                        max: 9
+                    }, {
+                        min: 9,
+                        max: 18
+                    }, {
+                        min: 18,
+                        max: 23
+                    }, {
+                        min: 23,
                         max: 100
                     }]
-                }
+                } //DONE
             }
         }
-
     });
 
 } (app));

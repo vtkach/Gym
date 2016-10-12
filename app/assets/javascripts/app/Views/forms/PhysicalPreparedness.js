@@ -55,11 +55,11 @@
                 'pushUps',
                 'raising',
                 'jumpLength',
-                'jumpHeight',
-                'cooperTest',
+                'shuttleRunning',
+                'running',
                 'inclineBody',
-                'flamingoTest',
-                'estafeta',
+                'uniformRunning',
+                'pull',
                 'inclines'
             ];
 
@@ -70,11 +70,11 @@
 
         eachBinding: function (elem) {
             this.constructor.bindings[elem] = [{
-                converter: this.bindingConverter.bind(this),
+                converter: this.generalConverter.bind(this, 'classes'),
                 selector: 'td[name="' + elem + '"]',
                 elAttribute: 'class'
             }, {
-                converter: this.stateConverter.bind(this),
+                converter: this.generalConverter.bind(this, 'states'),
                 selector: 'td[name="' + elem + '"]'
             }, {
                 selector: 'input[name="' + elem + '"]'
@@ -90,22 +90,14 @@
                 rangesForAttribute = model.RANGES[profile.get('gender')][attr][profile.get('age')];
 
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return [rangesForAttribute[0].min, ' - ', rangesForAttribute[4].max].join('');
+                return [_.first(rangesForAttribute).min, ' - ', _.last(rangesForAttribute).max].join('');
             }
             return val;
         },
 
-        stateConverter: function (dir, val, attr, model) {
+        generalConverter: function (neededField, dir, val, attr, model) {
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return this.states[model.calculateAttr(attr, val)];
-            }
-
-            return val;
-        },
-
-        bindingConverter: function (dir, val, attr, model) {
-            if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return this.classes[model.calculateAttr(attr, val)];
+                return this[neededField][model.calculateAttr(attr, parseFloat(val))];
             }
 
             return val;

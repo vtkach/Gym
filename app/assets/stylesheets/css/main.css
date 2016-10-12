@@ -141,6 +141,19 @@
   content: 'тАФ ';
 }
 
+.table-fixed {
+  table-layout: fixed;
+}
+.table-fixed tr td, .table-fixed tr th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+.table-fixed:after {
+  display: block;
+  content: '* - ╤А╨╡╨║╨╛╨╝╨╡╨╜╨┤╨╛╨▓╨░╨╜╨░ ╤Ц╨╜╤В╨╡╨╜╤Б╨╕╨▓╨╜╤Ц╤Б╤В╤М ╨▓╨┐╤А╨░╨▓';
+  width: 200%;
+}
+
 .li-decimal {
   list-style-type: decimal;
 }
@@ -197,6 +210,7 @@ body {
 
 .wrapper {
   min-height: 100%;
+  min-width: 780px;
   margin: 0;
   padding: 0;
   position: relative;
@@ -412,7 +426,6 @@ body {
 }
 
 .container {
-  min-width: 980px;
   padding-bottom: 50px;
 }
 .container .form-group {
@@ -476,9 +489,9 @@ body {
 .container section.row .fade-in figure {
   display: inline-block;
   min-height: 170px;
-  min-width: 230px;
+  min-width: 330px;
   cursor: pointer;
-  height: 160px;
+  height: 200px;
   margin: 5%;
 }
 .container section.row .fade-in figure figcaption {
@@ -489,10 +502,11 @@ body {
   color: #fd4874;
 }
 .container section.row .fade-in figure a {
+  margin-bottom: 5px;
   display: block;
-  height: 155px;
+  height: 200px;
   width: 100%;
-  background-size: 230px 155px !important;
+  background-size: 330px 200px !important;
 }
 .container section.row .fade-in figure a[href$='getting-started'] {
   background: url(../../images/5.jpg) no-repeat;
@@ -644,12 +658,22 @@ footer div {
   left: 15vw;
   top: -20vh;
   z-index: 1;
+  -webkit-transition: opacity 1s ease-out, top 1s ease-out;
+  -moz-transition: opacity 1s ease-out, top 1s ease-out;
+  -ms-transition: opacity 1s ease-out, top 1s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: opacity 1s ease-out, top 1s ease-out;
+  transition: opacity 1s ease-out, top 1s ease-out;
 }
 .flash-message.notify {
-  -webkit-animation: notifier 6s;
-  -moz-animation: notifier 6s;
-  -o-animation: notifier 6s;
-  animation: notifier 6s;
+  top: 5vh;
+  opacity: .9;
+  -webkit-transition: opacity 1s ease-out, top 1s ease-out;
+  -moz-transition: opacity 1s ease-out, top 1s ease-out;
+  -ms-transition: opacity 1s ease-out, top 1s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: opacity 1s ease-out, top 1s ease-out;
+  transition: opacity 1s ease-out, top 1s ease-out;
 }
 .flash-message.alert-danger strong:before {
   content: '╨Я╨╛╨╝╨╕╨╗╨║╨░!';
