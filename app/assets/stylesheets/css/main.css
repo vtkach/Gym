@@ -534,16 +534,20 @@ body {
   border-right: none;
 }
 .container section.row .physical-preparedness table td[name] {
+  box-shadow: 0 0 5px 5px #fff inset;
   font-weight: bold;
+  border: none;
+  border-right: 1px solid #ddd;
   color: #fff;
 }
 .container section.row .physical-preparedness .color-grades .col-xs-2 {
+  box-shadow: 0 0 5px 5px #fff inset;
   vertical-align: middle;
   display: table-cell;
   text-align: center;
   font-weight: bold;
   border: 2px solid;
-  height: 4.5em;
+  height: 5.5em;
   float: none;
   color: #fff;
 }

@@ -6,7 +6,6 @@
             'danger-state',
             'low-danger-state', //F37020
             'low-success-state', //FEF984
-            'success-state', //C8FD87
             'higher-success'
         ],
 
@@ -14,7 +13,6 @@
             'Низька',
             "Нижче за середній",
             "Середній",
-            "Вище за середній",
             "Високий"
         ],
 
@@ -90,7 +88,7 @@
                 rangesForAttribute = model.RANGES[profile.get('gender')][attr][profile.get('age')];
 
             if (dir === Backbone.ModelBinder.Constants.ModelToView) {
-                return [_.first(rangesForAttribute).min, ' - ', _.last(rangesForAttribute).max].join('');
+                return [_.first(rangesForAttribute).min, ' - ', _.last(rangesForAttribute).min].join('');
             }
             return val;
         },
