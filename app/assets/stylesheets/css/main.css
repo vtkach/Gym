@@ -540,7 +540,7 @@ body {
   border-right: 1px solid #ddd;
   color: #fff;
 }
-.container section.row .physical-preparedness .color-grades .col-xs-2 {
+.container section.row .physical-preparedness .color-grades .col-md-2 {
   box-shadow: 0 0 5px 5px #fff inset;
   vertical-align: middle;
   display: table-cell;
