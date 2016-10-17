@@ -333,16 +333,18 @@ body {
           color: #fff;
         }
       }
-      .color-grades .col-md-2 {
-        box-shadow: 0 0 5px 5px #fff inset;
-        vertical-align: middle;
-        display: table-cell;
-        text-align: center;
-        font-weight: bold;
-        border: 2px solid;
+      .color-grades {
+        display: flex;
+        justify-content: space-around;
         height: 5.5em;
-        float: none;
+        line-height: 5.5em;
         color: #fff;
+        font-weight: bold;
+        div {
+          box-shadow: 0 0 5px 5px #fff inset;
+          text-shadow: 1px 1px 1px #fff;
+          padding: 0 1em;
+        }
       }
       fieldset {
         &.toggle-show {

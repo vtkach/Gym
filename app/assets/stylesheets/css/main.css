@@ -138,7 +138,7 @@
   list-style-type: none;
 }
 .li-hyphen li:before {
-  content: 'тАФ ';
+  content: '— ';
 }
 
 .table-fixed {
@@ -150,7 +150,7 @@
 }
 .table-fixed:after {
   display: block;
-  content: '* - ╤А╨╡╨║╨╛╨╝╨╡╨╜╨┤╨╛╨▓╨░╨╜╨░ ╤Ц╨╜╤В╨╡╨╜╤Б╨╕╨▓╨╜╤Ц╤Б╤В╤М ╨▓╨┐╤А╨░╨▓';
+  content: '* - рекомендована інтенсивність вправ';
   width: 200%;
 }
 
@@ -540,16 +540,18 @@ body {
   border-right: 1px solid #ddd;
   color: #fff;
 }
-.container section.row .physical-preparedness .color-grades .col-md-2 {
-  box-shadow: 0 0 5px 5px #fff inset;
-  vertical-align: middle;
-  display: table-cell;
-  text-align: center;
-  font-weight: bold;
-  border: 2px solid;
+.container section.row .physical-preparedness .color-grades {
+  display: flex;
+  justify-content: space-around;
   height: 5.5em;
-  float: none;
+  line-height: 5.5em;
   color: #fff;
+  font-weight: bold;
+}
+.container section.row .physical-preparedness .color-grades div {
+  box-shadow: 0 0 5px 5px #fff inset;
+  text-shadow: 1px 1px 1px #fff;
+  padding: 0 1em;
 }
 .container section.row .physical-preparedness fieldset.toggle-show {
   cursor: pointer;
@@ -680,16 +682,16 @@ footer div {
   transition: opacity 1s ease-out, top 1s ease-out;
 }
 .flash-message.alert-danger strong:before {
-  content: '╨Я╨╛╨╝╨╕╨╗╨║╨░!';
+  content: 'Помилка!';
 }
 .flash-message.alert-warning strong:before {
-  content: '╨Я╨╛╨┐╨╡╤А╨╡╨┤╨╢╨╡╨╜╨╜╤П!';
+  content: 'Попередження!';
 }
 .flash-message.alert-success strong:before {
-  content: '╨Ю╨╜╨╛╨▓╨╗╨╡╨╜╨╛!';
+  content: 'Оновлено!';
 }
 .flash-message.alert-info strong:before {
-  content: '╨Ф╨╛ ╤Г╨▓╨░╨│╨╕!';
+  content: 'До уваги!';
 }
 
 .date-field {
